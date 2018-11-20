@@ -1,0 +1,38 @@
+---
+title: Fast Visualization of High-Dimensional Data via Parallelized t-SNE on GPUs
+subtitle: ---
+author: Peter Eisenmann
+
+lang: en
+fontsize: 11pt
+linestretch: 1
+documentclass: scrreprt
+top-level-division: chapter
+toc: yes
+toc-depth: 2
+lof: yes
+secnumdepth: 2
+# crossref custumization
+figPrefix: ["Fig.", "Figs."]
+eqnPrefix: ["Eq.", "Eqns."]
+tblPrefix: ["Tbl.", "Tbls."]
+secPrefix: ["Section", "Sections"]
+# TODO: chapter prefix
+autoEqnLabels: yes
+cref: yes
+bibliography: makefiles/references.yaml
+citation-style: makefiles/acm-sig-proceedings.csl
+reference-section-title: Bibliography
+header-includes:
+    #- \usepackage[onehalfspacing]{setspace}
+    #- \usepackage{chemfig}
+include-before: |
+  I hereby declare that this document has been composed by myself and describes my own work, unless otherwise acknowledged in the text.
+  \vspace{2cm}
+  \begin{flushright}
+  \begin{tabular}{lr}
+      \multicolumn{2}{c}{\rule[0.1cm]{8cm}{0.1pt}}\\
+      & Karlsruhe, dd.mm.yyyy\\
+  \end{tabular}
+  \end{flushright}
+---
