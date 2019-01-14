@@ -30,7 +30,14 @@ This ground-up algorithm conception allows for multiple benefits, described in c
 However most prominently the paper shows that UMAP delivers graphical results as good or better than those of t-SNE, while performing faster.
 Since no parallelized version is available as of yet, the paper only compares sequential implementations.
 
-With this thesis we want to explore the possibilities of parallelizing the UMAP algorithm and provide an initial implementation for GPUs.
-Such an implementation would be advantageous for various use cases.
-Faster visualization of complex data could be used to give regular updates on series of high dimensional data that is still changing.
-For example a neural network's evolution could be visualized, in order to see the changes of each layer during training phases.
+This thesis' purpose is to explore the possibilities of parallelizing the UMAP algorithm.
+Graphics cards are made for massive parallel processing, allowing for a big number of calculations to be done simultaneously.
+And even though GPUs might have various drawbacks, they usually outperform normal CPUs due to their sheer amount of processing units.
+Therefore a parallelized UMAP implementation will bring the most performance gain, when done for GPUs.
+
+Such an implementation will be advantageous for various use cases.
+The enhanced performance would allow for faster visualization of complex data in general.
+From a personal point, a big motivation is the idea of visualizing neural networks.
+If the performance is good enough, the implementation could be used to provide quick regular updates on their evolutions.
+After each interactive training phase the changes of the network's layers could be analyzed, without prolonged periods of waiting.
+For this to happen, the parallel implementation of UMAP will be for graphics cards.
