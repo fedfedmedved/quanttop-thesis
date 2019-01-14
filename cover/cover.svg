@@ -91,16 +91,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="489.31451"
-     inkscape:cy="848.22873"
+     inkscape:cx="408.24308"
+     inkscape:cy="531.08587"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g823"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1080"
+     inkscape:window-width="960"
+     inkscape:window-height="1016"
      inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
+     inkscape:window-y="27"
+     inkscape:window-maximized="0"
      showguides="false"
      inkscape:snap-bbox="true" />
   <metadata
@@ -395,7 +395,7 @@
              x="145.71428"
              y="302.51968" /></flowRegion><flowPara
            id="flowPara1273"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.01411438px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans';text-align:center;text-anchor:middle">Fast Visualization of High-Dimensional Data via Parallelized t-SNE on GPUs</flowPara></flowRoot>      <flowRoot
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.01411438px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans';text-align:center;text-anchor:middle">Fast Visualization of High-Dimensional Data via Parallelized UMAP on GPUs</flowPara></flowRoot>      <flowRoot
          xml:space="preserve"
          id="flowRoot1275"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:20px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -437,7 +437,7 @@
              y="738.15662"
              style="font-size:19.10666656px" /></flowRegion><flowPara
            id="flowPara1318"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.10666656px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'">Person 1</flowPara><flowPara
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.10666656px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'">Prof. Dr. Veit Hagenmeyer</flowPara><flowPara
            id="flowPara1320"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.10666656px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'">Andreas Bartschat</flowPara></flowRoot>      <flowRoot
          xml:space="preserve"
@@ -471,7 +471,7 @@
              width="368.20059"
              id="rect1392" /></flowRegion><flowPara
            style="font-size:15.92321587px"
-           id="flowPara1396">23rd June 2018 – 23rd December 2018</flowPara></flowRoot>      <g
+           id="flowPara1396">1st November 2018 – 31th April 2019</flowPara></flowRoot>      <g
          id="g132"
          transform="translate(15.38168)">
         <flowRoot

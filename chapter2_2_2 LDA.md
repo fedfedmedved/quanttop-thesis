@@ -1,5 +1,0 @@
-
-### LDA
-unsupervised
-block 
-

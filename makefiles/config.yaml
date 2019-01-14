@@ -19,9 +19,9 @@ tblPrefix: ["Tbl.", "Tbls."]
 secPrefix: ["Section", "Sections"]
 # TODO: chapter prefix
 autoEqnLabels: yes
-cref: yes
+cref: true
 bibliography: makefiles/references.yaml
-citation-style: makefiles/acm-sig-proceedings.csl
+citation-style: makefiles/ieee-with-url.csl
 reference-section-title: Bibliography
 header-includes:
     #- \usepackage[onehalfspacing]{setspace}
