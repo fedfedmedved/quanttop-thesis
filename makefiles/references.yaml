@@ -1,65 +1,11 @@
 ---
 references:
-- id: VanDerMaaten2008
-  type: article-journal
-  author:
-  - family: Van Der Maaten
-    given: Laurens
-  - family: Hinton
-    given: Geoffrey
-  issued:
-  - year: 2008
-  title: <span class="nocase">Visualizing High-Dimensional Data Using t-SNE</span>
-  container-title: Journal of Machine Learning Research
-  page: 2579-2605
-  volume: '9'
-  abstract: We present a new technique called “t-SNE” that visualizes high-dimensional
-    data by giving each datapoint a location in a two or three-dimensional map. The
-    technique is a variation of Stochastic Neighbor Embedding (Hinton and Roweis,
-    2002) that is much easier to optimize, and produces significantly better visualizations
-    by reducing the tendency to crowd points together in the center of the map. t-SNE
-    is better than existing techniques at creating a single map that reveals structure
-    at many different scales. This is particularly important for high-dimensional
-    data that lie on several different, but related, low-dimensional manifolds, such
-    as images of objects from multiple classes seen from multiple viewpoints. For
-    visualizing the structure of very large data sets, we show how t-SNE can use random
-    walks on neighborhood graphs to allow the implicit structure of all of the data
-    to influence theway in which a subset of the data is displayed. We illustrate
-    the performance of t-SNE on a wide variety of data sets and compare it with many
-    other non-parametric visualization techniques, including Sammon mapping, Isomap,
-    and Locally Linear Embedding. The visualiza- tions produced by t-SNE are significantly
-    better than those produced by the other techniques on almost all of the data sets.
-  keyword: dimensionality reduction,embedding algorithms,manifold learning,multidimensional
-    scaling,visualization
-  URL: https://lvdmaaten.github.io/publications/papers/JMLR{\_}2008.pdf
-
 - id: cublas
   type: article-journal
   author:
   - literal: NVIDIA Corporation
   title: CUBLAS Library
   URL: https://docs.nvidia.com/cuda/cublas/
-
-- id: thrust
-  type: article-journal
-  author:
-  - family: Hoberock
-    given: Jared
-  - family: Bell
-    given: Nathan
-  issued:
-  - year: 2008
-  title: NVIDIA Research Thrust
-  URL: https://developer.download.nvidia.com/CUDA/training/introductiontothrust.pdf
-
-- id: NVIDIA2007
-  type: no-type
-  author:
-  - family: NVIDIA
-  issued:
-  - year: 2007
-  title: CUDA Technology
-  URL: https://developer.nvidia.com/cuda-zone
 
 - id: cuda
   type: article-journal
@@ -87,31 +33,203 @@ references:
   DOI: 10.1145/1365490.1365500
   ISSN: 1542-7730
 
-- id: Maaten2014
+- id: thrust
   type: article-journal
   author:
-  - family: Van Der Maaten
-    given: Laurens
+  - family: Hoberock
+    given: Jared
+  - family: Bell
+    given: Nathan
   issued:
-  - year: 2014
-  title: <span class="nocase">Accelerating t-SNE using Tree-Based Algorithms</span>
-  container-title: Journal of Machine Learning Research
-  page: 3221-3245
-  volume: '15'
-  issue: '2014'
-  abstract: The paper investigates the acceleration of t-SNE—an embedding technique
-    that is com- monly used for the visualization of high-dimensional data in scatter
-    plots—using two tree- based algorithms. In particular, the paper develops variants
-    of the Barnes-Hut algorithm and of the dual-tree algorithm that approximate the
-    gradient used for learning t-SNE em- beddings in O(N logN). Our experiments show
-    that the resulting algorithms substantially accelerate t-SNE, and that they make
-    it possible to learn embeddings of data sets with millions of objects. Somewhat
-    counterintuitively, the Barnes-Hut variant of t-SNE appears to outperform the
-    dual-tree variant.
-  keyword: barnes-hut algorithm,dual-tree algorithm,embedding,multidimensional scaling,space-partitioning
-    trees,t-sne
-  URL: http://jmlr.org/papers/v15/vandermaaten14a.html
-  ISSN: 1532-4435
+  - year: 2008
+  title: NVIDIA Research Thrust
+  URL: https://developer.download.nvidia.com/CUDA/training/introductiontothrust.pdf
+
+- id: webgl
+  type: no-type
+  author:
+  - literal: Mozilla Foundation
+  accessed:
+  - year: 2019
+    month: 3
+    day: 18
+  title: WebGL
+  URL: https://www.khronos.org/webgl/
+
+- id: faiss
+  type: article-journal
+  author:
+  - family: Johnson
+    given: Jeff
+  - family: Douze
+    given: Matthijs
+  - family: Jégou
+    given: Hervé
+  issued:
+  - year: 2017
+  title: <span class="nocase">Billion-scale similarity search with GPUs</span>
+  URL: http://arxiv.org/abs/1702.08734v1
+
+- id: mnist
+  type: article-journal
+  author:
+  - family: Lecun
+    given: Yann
+  - family: Bottou
+    given: Léon
+  - family: Bengio
+    given: Yoshua
+  - family: Haffner
+    given: Patrick
+  issued:
+  - year: 1998
+  title: <span class="nocase">Gradient-Based Learning Applied to Document Recognition</span>
+  page: 2278-2324
+  volume: '86'
+  issue: '11'
+  keyword: character recognition,convolutional neural networks,document recog-,finite
+    state transducers,gradient-based learning,graph,machine learning,neural networks,nition,ocr,optical,transformer
+    networks
+  URL: http://www.doi.org/10.1109/5.726791
+  DOI: 10.1109/5.726791
+
+- id: McInnes2018
+  type: article-journal
+  author:
+  - family: McInnes
+    given: Leland
+  - family: Healy
+    given: John
+  issued:
+  - year: 2018
+  title: '<span class="nocase">UMAP: Uniform Manifold Approximation and Projection
+    for Dimension Reduction</span>'
+  page: 1-18
+  abstract: UMAP (Uniform Manifold Approximation and Projection) is a novel manifold
+    learning technique for dimension reduction. UMAP is constructed from a theoretical
+    framework based in Riemannian geometry and algebraic topology. The result is a
+    practical scalable algorithm that applies to real world data. The UMAP algorithm
+    is competitive with t-SNE for visualization quality, and arguably preserves more
+    of the global structure with superior run time performance. Furthermore, UMAP
+    as described has no computational restrictions on embedding dimension, making
+    it viable as a general purpose dimension reduction technique for machine learning.
+  URL: http://www.doi.org/10.21105/joss.00861
+  DOI: 10.21105/joss.00861
+  ISSN: 2475-9066
+
+- id: Burtscher2011
+  type: article-journal
+  author:
+  - family: Burtscher
+    given: Martin
+  - family: Pingali
+    given: Keshav
+  issued:
+  - year: 2011
+  title: <span class="nocase">An Efficient CUDA Implementation of the Tree-Based Barnes
+    Hut n-Body Algorithm</span>
+  container-title: GPU Computing Gems Emerald Edition
+  page: 75-92
+  abstract: This chapter describes the first CUDA implementation of the classical
+    Barnes Hut n-body algorithm that runs entirely on the GPU. The Barnes Hut force-calculation
+    algorithm is widely used in n-body simulations such as modeling the motion of
+    galaxies. It hierarchically decomposes the space around the bodies into successively
+    smaller boxes, called cells, and computes summary information for the bodies contained
+    in each cell, allowing the algorithm to quickly approximate the forces (e.g.,
+    gravitational, electric, or magnetic) that the n bodies induce upon each other.
+    The Barnes Hut algorithm is challenging to implement efficiently in CUDA because
+    it repeatedly builds and traverses an irregular tree-based data structure, it
+    performs a lot of pointer-chasing memory operations, and it is typically expressed
+    recursively. GPU-specific operations such as thread-voting functions are exploited
+    to greatly improve performance and make use of fence instructions to implement
+    lightweight synchronization without atomic operations. The main conclusion of
+    the work is that GPUs can be used to accelerate irregular codes, not just regular
+    codes. However, a great deal of programming effort is required to achieve good
+    performance. The biggest performance win, though, came from turning some of the
+    unique architectural features of GPUs, which are often regarded as performance
+    hurdles for irregular codes, into assets. Future direction indicates workings
+    on writing high-performing CUDA implementations for other irregular algorithms.
+    2011 Copyright 2011 NVIDIA Corporation and Wen-mei W. Hwu Published by Elsevier
+    Inc. All rights reserved..
+  DOI: 10.1016/B978-0-12-384988-5.00006-1
+  ISBN: '9780123849885'
+
+- id: Chan2018
+  type: article-journal
+  author:
+  - family: Chan
+    given: David M.
+  - family: Rao
+    given: Roshan
+  - family: Huang
+    given: Forrest
+  - family: Canny
+    given: John F.
+  issued:
+  - year: 2018
+  title: '<span class="nocase">t-SNE-CUDA: GPU-Accelerated t-SNE and its Applications
+    to Modern Data</span>'
+  abstract: Modern datasets and models are notoriously difficult to explore and analyze
+    due to their inherent high dimensionality and massive numbers of samples. Existing
+    visualization methods which employ dimensionality reduction to two or three dimensions
+    are often inefficient and/or ineffective for these datasets. This paper introduces
+    t-SNE-CUDA, a GPU-accelerated implementation of t-distributed Symmetric Neighbor
+    Embedding (t-SNE) for visualizing datasets and models. t-SNE-CUDA significantly
+    outperforms current implementations with 50-700x speedups on the CIFAR-10 and
+    MNIST datasets. These speedups enable, for the first time, visualization of the
+    neural network activations on the entire ImageNet dataset - a feat that was previously
+    computationally intractable. We also demonstrate visualization performance in
+    the NLP domain by visualizing the GloVe embedding vectors. From these visualizations,
+    we can draw interesting conclusions about using the L2 metric in these embedding
+    spaces. t-SNE-CUDA is publicly available athttps://github.com/CannyLab/tsne-cuda
+  URL: http://arxiv.org/abs/1807.11824
+
+- id: Barnes1986
+  type: article-journal
+  author:
+  - family: Barnes
+    given: Josh
+  - family: Hut
+    given: Piet
+  issued:
+  - year: 1986
+    month: 12
+  title: <span class="nocase">A Hierarchical O(N log N) Force-Calculation Algorithm</span>
+  container-title: Nature
+  publisher: Nature Publishing Group
+  page: '446'
+  volume: '324'
+  DOI: 10.1038/324446a0
+
+- id: Lloyd1982
+  type: article-journal
+  author:
+  - family: Lloyd
+    given: Stuart P.
+  issued:
+  - year: 1982
+  title: <span class="nocase">Least Squares Quantization in PCM</span>
+  container-title: IEEE Transactions on Information Theory
+  page: 129-137
+  volume: '28'
+  issue: '2'
+  abstract: It has long been realized that in pulse-code modulation (PCM), with a
+    given ensemble of signals to handle, the quantum values should be spaced more
+    closely in the voltage regions where the signal amplitude is more likely to fall.
+    It has been shown by Panter and Dite that, in the limit as the number of quanta
+    becomes infinite, the asymptotic fractional density of quanta per unit voltage
+    should vary as the one-third power of the probability density per unit voltage
+    of signal amplitudes. In this paper the corresponding result for any finite number
+    of quanta is derived; that is, necessary conditions are found that the quanta
+    and associated quantization intervals of an optimum finite quantization scheme
+    must satisfy. The optimization criterion used is that the average quantization
+    noise power be a minimum. It is shown that the result obtained here goes over
+    into the Panter and Dite result as the number of quanta become large. The optimum
+    quautization schemes for quanta, , are given numerically for Gaussian and for
+    Laplacian distribution of signal amplitudes.
+  DOI: 10.1109/TIT.1982.1056489
+  ISBN: 00189448 (ISSN)
+  ISSN: '15579654'
 
 - id: Daszykowski2010
   type: article-journal
@@ -180,167 +298,7 @@ references:
     a JavaScript library for scalable tensor computations.
   URL: http://arxiv.org/abs/1805.10817
 
-- id: Burtscher2011
-  type: article-journal
-  author:
-  - family: Burtscher
-    given: Martin
-  - family: Pingali
-    given: Keshav
-  issued:
-  - year: 2011
-  title: <span class="nocase">An Efficient CUDA Implementation of the Tree-Based Barnes
-    Hut n-Body Algorithm</span>
-  container-title: GPU Computing Gems Emerald Edition
-  page: 75-92
-  abstract: This chapter describes the first CUDA implementation of the classical
-    Barnes Hut n-body algorithm that runs entirely on the GPU. The Barnes Hut force-calculation
-    algorithm is widely used in n-body simulations such as modeling the motion of
-    galaxies. It hierarchically decomposes the space around the bodies into successively
-    smaller boxes, called cells, and computes summary information for the bodies contained
-    in each cell, allowing the algorithm to quickly approximate the forces (e.g.,
-    gravitational, electric, or magnetic) that the n bodies induce upon each other.
-    The Barnes Hut algorithm is challenging to implement efficiently in CUDA because
-    it repeatedly builds and traverses an irregular tree-based data structure, it
-    performs a lot of pointer-chasing memory operations, and it is typically expressed
-    recursively. GPU-specific operations such as thread-voting functions are exploited
-    to greatly improve performance and make use of fence instructions to implement
-    lightweight synchronization without atomic operations. The main conclusion of
-    the work is that GPUs can be used to accelerate irregular codes, not just regular
-    codes. However, a great deal of programming effort is required to achieve good
-    performance. The biggest performance win, though, came from turning some of the
-    unique architectural features of GPUs, which are often regarded as performance
-    hurdles for irregular codes, into assets. Future direction indicates workings
-    on writing high-performing CUDA implementations for other irregular algorithms.
-    2011 Copyright 2011 NVIDIA Corporation and Wen-mei W. Hwu Published by Elsevier
-    Inc. All rights reserved..
-  DOI: 10.1016/B978-0-12-384988-5.00006-1
-  ISBN: '9780123849885'
-
-- id: Lloyd1982
-  type: article-journal
-  author:
-  - family: Lloyd
-    given: Stuart P.
-  issued:
-  - year: 1982
-  title: <span class="nocase">Least Squares Quantization in PCM</span>
-  container-title: IEEE Transactions on Information Theory
-  page: 129-137
-  volume: '28'
-  issue: '2'
-  abstract: It has long been realized that in pulse-code modulation (PCM), with a
-    given ensemble of signals to handle, the quantum values should be spaced more
-    closely in the voltage regions where the signal amplitude is more likely to fall.
-    It has been shown by Panter and Dite that, in the limit as the number of quanta
-    becomes infinite, the asymptotic fractional density of quanta per unit voltage
-    should vary as the one-third power of the probability density per unit voltage
-    of signal amplitudes. In this paper the corresponding result for any finite number
-    of quanta is derived; that is, necessary conditions are found that the quanta
-    and associated quantization intervals of an optimum finite quantization scheme
-    must satisfy. The optimization criterion used is that the average quantization
-    noise power be a minimum. It is shown that the result obtained here goes over
-    into the Panter and Dite result as the number of quanta become large. The optimum
-    quautization schemes for quanta, , are given numerically for Gaussian and for
-    Laplacian distribution of signal amplitudes.
-  DOI: 10.1109/TIT.1982.1056489
-  ISBN: 00189448 (ISSN)
-  ISSN: '15579654'
-
-- id: Barnes1986
-  type: article-journal
-  author:
-  - family: Barnes
-    given: Josh
-  - family: Hut
-    given: Piet
-  issued:
-  - year: 1986
-    month: 12
-  title: <span class="nocase">A Hierarchical O(N log N) Force-Calculation Algorithm</span>
-  container-title: Nature
-  publisher: Nature Publishing Group
-  page: '446'
-  volume: '324'
-  DOI: 10.1038/324446a0
-
-- id: Chan2018
-  type: article-journal
-  author:
-  - family: Chan
-    given: David M.
-  - family: Rao
-    given: Roshan
-  - family: Huang
-    given: Forrest
-  - family: Canny
-    given: John F.
-  issued:
-  - year: 2018
-  title: '<span class="nocase">t-SNE-CUDA: GPU-Accelerated t-SNE and its Applications
-    to Modern Data</span>'
-  abstract: Modern datasets and models are notoriously difficult to explore and analyze
-    due to their inherent high dimensionality and massive numbers of samples. Existing
-    visualization methods which employ dimensionality reduction to two or three dimensions
-    are often inefficient and/or ineffective for these datasets. This paper introduces
-    t-SNE-CUDA, a GPU-accelerated implementation of t-distributed Symmetric Neighbor
-    Embedding (t-SNE) for visualizing datasets and models. t-SNE-CUDA significantly
-    outperforms current implementations with 50-700x speedups on the CIFAR-10 and
-    MNIST datasets. These speedups enable, for the first time, visualization of the
-    neural network activations on the entire ImageNet dataset - a feat that was previously
-    computationally intractable. We also demonstrate visualization performance in
-    the NLP domain by visualizing the GloVe embedding vectors. From these visualizations,
-    we can draw interesting conclusions about using the L2 metric in these embedding
-    spaces. t-SNE-CUDA is publicly available athttps://github.com/CannyLab/tsne-cuda
-  URL: http://arxiv.org/abs/1807.11824
-
-- id: McInnes2018
-  type: article-journal
-  author:
-  - family: McInnes
-    given: Leland
-  - family: Healy
-    given: John
-  issued:
-  - year: 2018
-  title: '<span class="nocase">UMAP: Uniform Manifold Approximation and Projection
-    for Dimension Reduction</span>'
-  page: 1-18
-  abstract: UMAP (Uniform Manifold Approximation and Projection) is a novel manifold
-    learning technique for dimension reduction. UMAP is constructed from a theoretical
-    framework based in Riemannian geometry and algebraic topology. The result is a
-    practical scalable algorithm that applies to real world data. The UMAP algorithm
-    is competitive with t-SNE for visualization quality, and arguably preserves more
-    of the global structure with superior run time performance. Furthermore, UMAP
-    as described has no computational restrictions on embedding dimension, making
-    it viable as a general purpose dimension reduction technique for machine learning.
-  URL: http://arxiv.org/abs/1802.03426
-  DOI: 10.21105/joss.00861
-  ISSN: 2475-9066
-
-- id: mnist
-  type: article-journal
-  author:
-  - family: Lecun
-    given: Yann
-  - family: Bottou
-    given: Léon
-  - family: Bengio
-    given: Yoshua
-  - family: Haffner
-    given: Patrick
-  issued:
-  - year: 1998
-  title: <span class="nocase">Gradient-Based Learning Applied to Document Recognition</span>
-  page: 2278-2324
-  volume: '86'
-  issue: '11'
-  keyword: character recognition,convolutional neural networks,document recog-,finite
-    state transducers,gradient-based learning,graph,machine learning,neural networks,nition,ocr,optical,transformer
-    networks
-  DOI: 10.1109/5.726791
-
-- id: VanDerMaaten2008
+- id: tsne
   type: article-journal
   author:
   - family: Van Der Maaten
@@ -371,7 +329,33 @@ references:
     better than those produced by the other techniques on almost all of the data sets.
   keyword: dimensionality reduction,embedding algorithms,manifold learning,multidimensional
     scaling,visualization
-  URL: https://lvdmaaten.github.io/publications/papers/JMLR\_2008.pdf
+  URL: http://jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf
+
+- id: Maaten2014
+  type: article-journal
+  author:
+  - family: Van Der Maaten
+    given: Laurens
+  issued:
+  - year: 2014
+  title: <span class="nocase">Accelerating t-SNE using Tree-Based Algorithms</span>
+  container-title: Journal of Machine Learning Research
+  page: 3221-3245
+  volume: '15'
+  issue: '2014'
+  abstract: The paper investigates the acceleration of t-SNE—an embedding technique
+    that is com- monly used for the visualization of high-dimensional data in scatter
+    plots—using two tree- based algorithms. In particular, the paper develops variants
+    of the Barnes-Hut algorithm and of the dual-tree algorithm that approximate the
+    gradient used for learning t-SNE em- beddings in O(N logN). Our experiments show
+    that the resulting algorithms substantially accelerate t-SNE, and that they make
+    it possible to learn embeddings of data sets with millions of objects. Somewhat
+    counterintuitively, the Barnes-Hut variant of t-SNE appears to outperform the
+    dual-tree variant.
+  keyword: barnes-hut algorithm,dual-tree algorithm,embedding,multidimensional scaling,space-partitioning
+    trees,t-sne
+  URL: http://jmlr.org/papers/v15/vandermaaten14a.html
+  ISSN: 1532-4435
 
 - id: Bishop2007
   type: book

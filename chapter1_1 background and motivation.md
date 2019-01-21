@@ -1,7 +1,8 @@
 ## Background and Motivation
 In the fields of neural networks, deep-learning and data science one often encounters data with very high dimensionality.
 To recognize patterns and clusters in this data a human perceivable representation is desired.
-However, due to the amount of dimensions it is often difficult to create a depiction in two or three dimensional space.
+However, due to the curse of dimensionality it is often difficult to visualize complex data.
+The vast amount of dimensions complicates a depiction in by humans observable two or three dimensional space.
 
 Dimensionality reduction algorithms can be used to solve this problem.
 They process complex high-dimensional data into simplified versions with a lower dimensional complexity.
@@ -14,7 +15,7 @@ Under the aspect of visualization representing these manifolds as correct as pos
 
 Multiple dimensionality reduction algorithms with different approaches and varying qualities exist.
 (A selection is presented in [chapter two](#preliminaries).)
-Overall t-SNE [@VanDerMaaten2008] can be seen as the current state of the art algorithm.
+Overall t-SNE [@tsne] can be seen as the current state of the art algorithm.
 This can for example be seen in the big variety of existing implementations in a multitude of languages, some of which are listed on the creator [van der Maaten's website](https://lvdmaaten.github.io/tsne/).
 
 t-SNE provides very good graphical results, which is the reason for its widespread adoption for visualizations in respective fields.

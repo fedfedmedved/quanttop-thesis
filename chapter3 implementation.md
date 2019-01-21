@@ -1,6 +1,6 @@
 # Implementation
-### Representing tree structures on the GPU
-## Storage Optimization
+<!--### Representing tree structures on the GPU-->
+<!--## Storage Optimization-->
 
 <!--, along with it's extension libraries Thrust [@thrust] and cuBLAS [@cublas]. -->
 

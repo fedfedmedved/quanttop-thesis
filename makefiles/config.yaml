@@ -18,7 +18,7 @@ eqnPrefix: ["Eq.", "Eqns."]
 tblPrefix: ["Tbl.", "Tbls."]
 secPrefix: ["Section", "Sections"]
 # TODO: chapter prefix
-autoEqnLabels: yes
+autoEqnLabels: false
 cref: true
 bibliography: makefiles/references.yaml
 citation-style: makefiles/ieee-with-url.csl
@@ -35,4 +35,5 @@ include-before: |
       & Karlsruhe, dd.mm.yyyy\\
   \end{tabular}
   \end{flushright}
+  All websites in this work were last accessed on the 20.03.2019.
 ---

@@ -12,12 +12,12 @@ These steps are repeated until the clusters' centers are no longer repositioned.
 
 
 
-The resulting clusters are
+<!--The resulting clusters are-->
 
-The theoretical runtime of this is 
+<!--The theoretical runtime of this is -->
 
-Parallelization:
+<!--Parallelization:-->
 
-Step 1 
+<!--Step 1 -->
 
 
