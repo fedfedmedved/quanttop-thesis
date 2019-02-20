@@ -1,5 +1,5 @@
 ---
-title: Fast Visualization of High-Dimensional Data via Parallelized t-SNE on GPUs
+title: Fast Visualization of High-Dimensional Data via Parallelized UMAP on GPUs
 subtitle: ---
 author: Peter Eisenmann
 
@@ -24,6 +24,9 @@ bibliography: makefiles/references.yaml
 citation-style: makefiles/ieee-with-url.csl
 reference-section-title: Bibliography
 header-includes:
+    \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+    \usepackage{amssymb}
+    # bad \usepackage[utf8x]{inputenc}
     #- \usepackage[onehalfspacing]{setspace}
     #- \usepackage{chemfig}
 include-before: |

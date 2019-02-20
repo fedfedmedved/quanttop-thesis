@@ -56,6 +56,76 @@ references:
   title: WebGL
   URL: https://www.khronos.org/webgl/
 
+- id: Aloise2009
+  type: article-journal
+  author:
+  - family: Aloise
+    given: Daniel
+  - family: Deshpande
+    given: Amit
+  - family: Hansen
+    given: Pierre
+  - family: Popat
+    given: Preyas
+  issued:
+  - year: 2009
+  title: <span class="nocase">NP-hardness of Euclidean sum-of-squares clustering</span>
+  container-title: Machine Learning
+  page: 245-248
+  volume: '75'
+  issue: '2'
+  abstract: A recent proof of NP-hardness of Euclidean sum-of-squares clustering,
+    due to Drineas et al. (Mach. Learn. 56:9–33, 2004), is not valid. An alternate
+    short proof is pro-vided.
+  keyword: Clustering,Complexity,Sum-of-squares
+  DOI: 10.1007/s10994-009-5103-0
+  ISSN: '08856125'
+
+- id: umap-talk-pydata
+  type: no-type
+  author:
+  - family: PyData
+  issued:
+  - year: 2018
+  title: '<span class="nocase">PyData Ann Arbor: Leland McInnes \| PCA, t-SNE, and
+    UMAP: Modern Approaches to Dimension Reduction \[Video file\]</span>'
+  URL: https://www.youtube.com/watch?v=YPJQydzTLwQ
+
+- id: Bishop2007
+  type: book
+  author:
+  - family: Bishop
+    given: Christopher M
+  issued:
+  - year: 2007
+  title: <span class="nocase">Pattern Recognition and Machine Learning</span>
+  collection-number: '4'
+  page: '049901'
+  volume: '16'
+  abstract: $\backslash$nThis book provides an introduction to the field of pattern
+    recognition and machine learning. It gives an overview of several basic and advanced
+    topics in machine learning theory. The book is definitely valuable to scientists
+    and engineers who are involved in developing machine learning tools applied to
+    signal and image processing applications. This book is also suitable for courses
+    on machine learning and pattern recognition, designed for advanced undergraduates
+    or PhD students. No previous knowledge of machine learning concepts or algorithms
+    is assumed, but readers need some knowledge of calculus and linear algebra. The
+    book is complemented by a great deal of additional supports for instructors and
+    students. The supports include solutions to the exercises in each chapter, the
+    example data sets used throughout the book and the forthcoming companion book
+    that deals with practical and software implementations of the key algorithms.
+    A strong point of this book is that the mathematical expressions or algorithms
+    are usually accompanied with colorful graphs and figures. This definitely helps
+    to communicate the concepts much better to the students or the interested researchers
+    than pure description of the algorithms. The book also provides an interesting
+    short biography of the key scientists and mathematicians who have contributed
+    historically to the basic mathematical concepts and methods in each chapter.$\backslash$n
+  URL: http://www.doi.org/10.1117/1.2819119
+  DOI: 10.1117/1.2819119
+  ISBN: '9780387310732'
+  ISSN: 1017-9909
+  PMID: '8943268'
+
 - id: faiss
   type: article-journal
   author:
@@ -68,7 +138,7 @@ references:
   issued:
   - year: 2017
   title: <span class="nocase">Billion-scale similarity search with GPUs</span>
-  URL: http://arxiv.org/abs/1702.08734v1
+  URL: http://arxiv.org/abs/1702.08734
 
 - id: mnist
   type: article-journal
@@ -93,7 +163,7 @@ references:
   URL: http://www.doi.org/10.1109/5.726791
   DOI: 10.1109/5.726791
 
-- id: McInnes2018
+- id: umap
   type: article-journal
   author:
   - family: McInnes
@@ -154,7 +224,7 @@ references:
   DOI: 10.1016/B978-0-12-384988-5.00006-1
   ISBN: '9780123849885'
 
-- id: Chan2018
+- id: tsne-cuda
   type: article-journal
   author:
   - family: Chan
@@ -331,7 +401,7 @@ references:
     scaling,visualization
   URL: http://jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf
 
-- id: Maaten2014
+- id: bhtsne
   type: article-journal
   author:
   - family: Van Der Maaten
@@ -356,39 +426,4 @@ references:
     trees,t-sne
   URL: http://jmlr.org/papers/v15/vandermaaten14a.html
   ISSN: 1532-4435
-
-- id: Bishop2007
-  type: book
-  author:
-  - family: Bishop
-    given: Christopher M
-  issued:
-  - year: 2007
-  title: <span class="nocase">Pattern Recognition and Machine Learning</span>
-  collection-number: '4'
-  page: '049901'
-  volume: '16'
-  abstract: $\backslash$nThis book provides an introduction to the field of pattern
-    recognition and machine learning. It gives an overview of several basic and advanced
-    topics in machine learning theory. The book is definitely valuable to scientists
-    and engineers who are involved in developing machine learning tools applied to
-    signal and image processing applications. This book is also suitable for courses
-    on machine learning and pattern recognition, designed for advanced undergraduates
-    or PhD students. No previous knowledge of machine learning concepts or algorithms
-    is assumed, but readers need some knowledge of calculus and linear algebra. The
-    book is complemented by a great deal of additional supports for instructors and
-    students. The supports include solutions to the exercises in each chapter, the
-    example data sets used throughout the book and the forthcoming companion book
-    that deals with practical and software implementations of the key algorithms.
-    A strong point of this book is that the mathematical expressions or algorithms
-    are usually accompanied with colorful graphs and figures. This definitely helps
-    to communicate the concepts much better to the students or the interested researchers
-    than pure description of the algorithms. The book also provides an interesting
-    short biography of the key scientists and mathematicians who have contributed
-    historically to the basic mathematical concepts and methods in each chapter.$\backslash$n
-  URL: http://www.doi.org/10.1117/1.2819119
-  DOI: 10.1117/1.2819119
-  ISBN: '9780387310732'
-  ISSN: 1017-9909
-  PMID: '8943268'
 ...

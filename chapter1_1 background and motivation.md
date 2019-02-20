@@ -25,7 +25,7 @@ Multiple attempts to improve this have been made.
 The approaches that try to parallelize t-SNE for GPUs are described in the [next section](#relatedworks).
 They were an inspiration for this thesis' aim to parallelize the UMAP algorithm.
 
-Uniform Manifold Approximation and Projection, or UMAP for short, is a new dimensionality reduction algorithm, introduced in 2018 by McInnes et. al. [@McInnes2018].
+Uniform Manifold Approximation and Projection, or UMAP for short, is a new dimensionality reduction algorithm, introduced in 2018 by McInnes et. al. [@umap].
 It is building on mathematical principles of Riemannian geometry and algebraic topology.
 This ground-up algorithm conception allows for multiple benefits, described in chapter [2.2.3](#umap).
 However most prominently the paper shows that UMAP delivers graphical results as good or better than those of t-SNE, while performing faster.
