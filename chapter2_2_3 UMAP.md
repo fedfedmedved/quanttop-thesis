@@ -9,7 +9,6 @@ The math behind the algorithm will be not be discussed in detail here, since it 
 Instead a broad outline will suffice.
 The primary focus is on explaining how the mathematical concepts are used, so that the analysis of their parallelization in the [following chapter](#methods-umap) is comprehensible.
 
-Th
 
 \begin{algorithm}[H]
 \DontPrintSemicolon 

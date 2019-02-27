@@ -1,49 +1,30 @@
-## Visualization of low dimensional Data by Clustering {#clustering}
-<!--## Visualization of low dimensional Data by Clustering {#clustering}-->
-Clustering algorithms are used for numerous tasks, across multiple fields.
+## Clustering Algorithms {#clustering}
+Clustering algorithms identify dense areas in data and group data points in such areas into clusters.
+They are used for numerous tasks, across multiple fields.
 In the context of this thesis the biggest interest is in their utilization for visual aid.
+While clustering algorithms do not visualize data themselves they can be used in combination with visualization methods.
+@fig:low_dim_visualizations [^figure_low_dim_notes] shows an exemplary selection of visualization techniques and how they can be combined with clustering.
 
-When data has too many dimensions to be plotted in two dimensional space, clustering algorithms can be used to 
+<div id="fig:low_dim_visualizations" class="subfigures">
 
-<!--nearest neighbor-->
+![The classical use-case for clustering is on two dimensional data. The found clusters can be used to add coloring to the data, resulting in clearer visual distinction of clusters.](figures/chapter2/kmeans_plot.png){width=33% #fig:low_dim_visualizations_a}
+![Data points in scatter plots can be colored according to the cluster they belong to, giving a better intuition on how to interpret the plot.](figures/chapter2/scatter_plot.png){width=33% #fig:low_dim_visualizations_b}
+![Analogous to (b) the lines of a parallel coordinates plot can be colored to ease interpretation.](figures/chapter2/parallel_coordinates.png){width=34% #fig:low_dim_visualizations_c}
 
+Examples for the combination of clustering algorithms with visualization techniques.
+</div>
 
-<!--Cluster when representing low dimensional data, by grouping related data points together.-->
-
-<!--There are multiple approaches to find clusters. Covered here are the two of the most commonly used algorithms, _k-Means_ and _DBSCAN_.-->
-<!--Both take a fundamentally different approach on how to cluster points, yielding from a different concept of clusters.-->
-
-<!--_k-Means_ defines clusters as points centered around one single center, while _DBSCAN_ has an understanding of clusters as point clouds.-->
-
-
-<!--finds clusters of arbitrary shape as long as the data points form a point cloud that is connected densely enough.-->
-
-
-<!--Clustering algorithms, covered in the next section , can help visualizing data by bundling similar data points together.-->
-<!--Common algorithms are k-Means and DBSCAN.-->
-
-<!--Due to the curse of dimensionality most clustering algorithms perform badly on data with high-dimensional complexity.-->
-<!--Such data can better be visualized by dimensionality reduction algorithms, covered in the subsequent section.-->
-
-<!--PCA and t-SNE are the most widely used-->
-<!--<!--Different approaches on wether to -->-->
-<!--PCA is a linear dimensionality reduction algorithm-->
-<!--t-SNE-->
-<!--This thesis' main focus-->
-<!--UMAP-->
+Clustering algorithms share approaches and subroutines with dimensionality reduction algorithms.
+They are used in the same domain, so exploring them allows for broader insight into the field of data analysis.
+The following subsections covers k-means and DBSCAN, two algorithms that are commonly used in practice.
+The algorithms' approaches on how to cluster points are distinct, yielding from different concepts of clusters.
 
 
-<!--Common-->
+[^figure_low_dim_notes]: @fig:low_dim_visualizations_a was created with an online tool for vizualizing how the k-means algorithm functions (https://www.naftaliharris.com/blog/visualizing-k-means-clustering/, last accessed 20.04.2019).
+@fig:low_dim_visualizations_b and @fig:low_dim_visualizations_c are taken from [@Heer2010].
+Their original sources are respectively https://www.naftaliharris.com/blog/visualizing-k-means-clustering/, last accessed 20.04.2019 and https://homes.cs.washington.edu/~jheer//files/zoo/ex/stats/parallel.html, last accessed 20.04.2019.
+<!--TODO maybe fix this mess when almost done-->
 
-
-<!--Clustering-->
-
-
-
-
-<!-- and traditionally visualization is coupled to data having a low dimensional complexity, so that it can easily be plotted in a 2D or 3D graph. Additional dimensions not already covered by the axes can be represented through color, size or other visually distinctive features. This can for example be used for scientific data gained from simple measurements or for a selective set of features in more complex data.-->
-
-<!--However, in fields such as genomics, medicine or data analysis  TODO check fields in general, the encountered data frequently is more complex and often has thousands of dimensions. Visualizing it is only possible through the reduction of complexity. Dimensionality reduction algorithms are designed to do exactly this, preserving meaningfulness of the data, while lowering the dimensions to a displayable amount of usually two or three. -->
-
-<!--UMAP, the algorithm on which this thesis' main focus lays, reduces dimensions by mapping data points in a way that upholds local structures. By doing so it implicitly clusters points in the lower dimension. Hence, a short preface on clustering algorithms is given, followed by an introduction on dimensionality reduction algorithms. As this thesis ultimately is about parallelization, each algorithm description is also accompanied by a brief analysis on how it can be parallelized.-->
-
+<!--[^kmeans_visualization]:https://www.naftaliharris.com/blog/visualizing-k-means-clustering/, last accessed 20.04.2019-->
+<!--[^scatter_plot]: https://homes.cs.washington.edu/~jheer//files/zoo/ex/stats/splom.html, last accessed 20.04.2019-->
+<!--[^parallel_coordinates]: https://homes.cs.washington.edu/~jheer//files/zoo/ex/stats/parallel.html, last accessed 20.04.2019-->

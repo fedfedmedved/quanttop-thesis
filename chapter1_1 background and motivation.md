@@ -16,7 +16,7 @@ Under the aspect of visualization representing these manifolds as correct as pos
 Multiple dimensionality reduction algorithms with different approaches and varying qualities exist.
 (A selection is presented in [chapter two](#preliminaries).)
 Overall t-SNE [@tsne] can be seen as the current state of the art algorithm.
-This can for example be seen in the big variety of existing implementations in a multitude of languages, some of which are listed on the creator [van der Maaten's website](https://lvdmaaten.github.io/tsne/).
+This can for example be seen in the big variety of existing implementations in a multitude of languages, some of which are listed on the creator van der Maaten's website[^website_vandermaaten].
 
 t-SNE provides very good graphical results, which is the reason for its widespread adoption for visualizations in respective fields.
 <!-- TODO maybe find some paper for this? -->
@@ -42,3 +42,5 @@ From a personal point, a big motivation is the idea of visualizing neural networ
 If the performance is good enough, the implementation could be used to provide quick regular updates on their evolutions.
 After each interactive training phase the changes of the network's layers could be analyzed, without prolonged periods of waiting.
 For this to happen, the parallel implementation of UMAP will be for graphics cards.
+
+[^website_vandermaaten]: https://lvdmaaten.github.io/tsne/, last accessed 20.04.2019.

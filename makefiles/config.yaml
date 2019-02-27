@@ -12,6 +12,7 @@ toc: yes
 toc-depth: 2
 lof: yes
 secnumdepth: 2
+
 # crossref custumization
 figPrefix: ["Fig.", "Figs."]
 eqnPrefix: ["Eq.", "Eqns."]
@@ -38,5 +39,4 @@ include-before: |
       & Karlsruhe, dd.mm.yyyy\\
   \end{tabular}
   \end{flushright}
-  All websites in this work were last accessed on the 20.03.2019.
 ---

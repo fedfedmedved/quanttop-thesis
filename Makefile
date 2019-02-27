@@ -6,11 +6,12 @@ pandocflags = $(target) $(filters)
 thesis: makefiles/config.yaml makefiles/references.yaml chapter*.md appendix*.md
 	pandoc $(pandocflags) \
 		-o thesis.pdf \
-		-V links-as-notes=true \
 		--number-sections \
 		makefiles/config.yaml \
 		chapter*.md \
 		appendix*.md
+
+#		-V links-as-notes=true \
 
 makefiles/references.yaml: refs/*.bib
 	pandoc-citeproc --bib2yaml $^ > $@

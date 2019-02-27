@@ -56,6 +56,120 @@ references:
   title: WebGL
   URL: https://www.khronos.org/webgl/
 
+- id: Arthur2007
+  type: paper-conference
+  author:
+  - family: Arthur
+    given: David
+  - family: Vassilvitskii
+    given: Sergei
+  issued:
+  - year: 2007
+  title: '<span class="nocase">k-means++: The Advantages of Careful Seeding</span>'
+  container-title: Proceedings of the eighteenth annual acm-siam symposium on discrete
+    algorithms
+  publisher: Society for Industrial; Applied Mathematics Philadelphia
+  page: 1027-1035
+  URL: http://portal.acm.org/citation.cfm?id=1283494
+
+- id: Manning2012
+  type: book
+  author:
+  - family: Manning
+    given: Christopher D.
+  - family: Raghavan
+    given: Prabhakar
+  - family: Schütze
+    given: Hinrich
+  issued:
+  - year: 2012
+  title: <span class="nocase">Introduction to Information Retrieval</span>
+  publisher: Cambridge University Press
+  URL: https:/978-0521865715/nlp.stanford.edu/IR-book/
+  DOI: 10.1017/CBO9780511809071
+  ISBN: '9780511809071'
+
+- id: Heer2010
+  type: article-journal
+  author:
+  - family: Heer
+    given: Jeffrey
+  - family: Bostock
+    given: Michael
+  - family: Ogievetsky
+    given: Vadim
+  issued:
+  - year: 2010
+  title: <span class="nocase">A Tour through the Visualization Zoo</span>
+  container-title: Communications of the ACM
+  page: 59-67
+  volume: '53'
+  issue: '5'
+  abstract: A survey of powerful visualization techniques, from the obvious to the
+    obscure.
+  URL: http://arxiv.org/abs/arXiv:1011.1669v3
+  DOI: 10.1145/1743546
+  ISBN: '00010782'
+  ISSN: '00010782'
+  PMID: '15224215'
+
+- id: dbscan
+  type: paper-conference
+  author:
+  - family: Ester
+    given: Martin
+  - family: Kriegel
+    given: Hans-Peter
+  - family: Sander
+    given: Jörg
+  - family: Xu
+    given: Xiaowei
+  issued:
+  - year: 1996
+  title: <span class="nocase">A Density-Based Algorithm for Discovering Clusters in
+    Large Spatial Databases with Noise</span>
+  container-title: Proceedings of the second international conference on knowledge
+    discovery and data mining
+  publisher: AAAI Press
+  page: 226—-231
+  DOI: 10.1.1.121.9220
+
+- id: Gan2015
+  type: article-journal
+  author:
+  - family: Gan
+    given: Junhao
+  - family: Tao
+    given: Yufei
+  issued:
+  - year: 2015
+  title: '<span class="nocase">DBSCAN Revisited: Mis-Claim, Un-Fixablility, and Approxmimation</span>'
+  container-title: Sigmod
+  page: 519-530
+  abstract: DBSCAN is a popular method for clustering multi-dimensional objects. Just
+    as notable as the method’s vast success is the research community’s quest for
+    its efficient computation. The original KDD’96 paper claimed an algorithm with
+    O(n log n) running time, where n is the number of objects. Unfortunately, this
+    is a mis-claim; and that algorithm actually requires O(n 2) time. There has been
+    a fix in 2D space, where a genuine O(n log n)-time algorithm has been found. Looking
+    for a fix for dimensionality d ≥ 3 is currently an important open problem. In
+    this paper, we prove that for d ≥ 3, the DBSCAN problem requires Ω(n 4/3) time
+    to solve, unless very significant breakthroughs—ones widely believed to be impossible—could
+    be made in theoretical computer science. This (i) explains why the community’s
+    search for fixing the aforementioned mis-claim has been futile for d ≥ 3, and
+    (ii) indicates (sadly) that all DBSCAN algorithms must be intolerably slow even
+    on moderately large n in practice. Surprisingly, we show that the running time
+    can be dramatically brought down to O(n) in expectation regardless of the dimensionality
+    d, as soon as slight inaccuracy in the clustering results is permitted. We formalize
+    our findings into the new notion of $\rho$-approximate DBSCAN, which we believe
+    should replace DBSCAN on big data due to the latter’s computational intractability.
+  keyword: 10,4 snake-shaped clusters,algorithm,dbscan,density-based clustering,examples
+    of density-based clustering,figure 1,from,the left one contains,while the right
+    one
+  URL: http://dl.acm.org/citation.cfm?doid=2723372.2737792
+  DOI: 10.1145/2723372.2737792
+  ISBN: '9781450327589'
+
 - id: Aloise2009
   type: article-journal
   author:
@@ -80,6 +194,40 @@ references:
   keyword: Clustering,Complexity,Sum-of-squares
   DOI: 10.1007/s10994-009-5103-0
   ISSN: '08856125'
+
+- id: Jolliffe2002
+  type: article-journal
+  author:
+  - family: Jolliffe
+    given: I T
+  issued:
+  - year: 2002
+  title: Principal Component Analysis, Second Edition
+  container-title: Springer Series in Statistics
+  page: '487'
+  volume: '98'
+  abstract: Principal component analysis is central to the study of multivariate data.
+    Although one of the earliest multivariate techniques it continues to be the subject
+    of much research, ranging from new model- based approaches to algorithmic ideas
+    from neural networks. It is extremely versatile with applications in many disciplines.
+    The first edition of this book was the first comprehensive text written solely
+    on principal component analysis. The second edition updates and substantially
+    expands the original version, and is once again the definitive text on the subject.
+    It includes core material, current research and a wide range of applications.
+    Its length is nearly double that of the first edition. Researchers in statistics,
+    or in other fields that use principal component analysis, will find that the book
+    gives an authoritative yet accessible account of the subject. It is also a valuable
+    resource for graduate courses in multivariate analysis. The book requires some
+    knowledge of matrix algebra. Ian Jolliffe is Professor of Statistics at the University
+    of Aberdeen. He is author or co-author of over 60 research papers and three other
+    books. His research interests are broad, but aspects of principal component analysis
+    have fascinated him and kept him busy for over 30 years.
+  keyword: principal component analysis,statistical theory methods
+  URL: http://link.springer.com/10.1007/b98835
+  DOI: 10.1007/b98835
+  ISBN: 0-387-95442-2
+  ISSN: '01621459'
+  PMID: '21674720'
 
 - id: umap-talk-pydata
   type: no-type
@@ -300,34 +448,6 @@ references:
   DOI: 10.1109/TIT.1982.1056489
   ISBN: 00189448 (ISSN)
   ISSN: '15579654'
-
-- id: Daszykowski2010
-  type: article-journal
-  author:
-  - family: Daszykowski
-    given: M.
-  - family: Walczak
-    given: B.
-  issued:
-  - year: 2010
-  title: Density-Based Clustering Methods
-  container-title: Comprehensive Chemometrics
-  page: 635-654
-  volume: '2'
-  abstract: Clustering techniques are often used for data exploration. In the literature,
-    there are many examples of applications of different clustering methods. The density-based
-    approaches form a separate group within the clustering techniques since they take
-    into account the density of the data. Using the density of data as a similarity
-    measure is practical in many real situations, because clusters of arbitrary shapes
-    can be handled, what is not possible with convectional clustering methods. 2009
-    Elsevier B.V. All rights reserved.
-  keyword: Color maps,Core plot,Density-based techniques,Inliers,Natural clusters,Outliers,Reachability
-    plot
-  URL: http://arxiv.org/abs/10.1.1.71.1980
-  DOI: 10.1016/B978-044452701-1.00067-3
-  ISBN: '9780444527011'
-  ISSN: '09758887'
-  PMID: '15003161'
 
 - id: Pezzotti2018
   type: article-journal

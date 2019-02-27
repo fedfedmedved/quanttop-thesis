@@ -9,7 +9,7 @@ For the following sections detailed knowledge of the algorithm is not necessary.
 
 ### Linear tSNE Optimization for the Web
 In [@Pezzotti2018] Pezzotti et al. develop a variation of the t-SNE algorithm that can be run in the browser.
-Their [code](https://github.com/tensorflow/tfjs-tsne) is based on the [TensorFlow.js library](https://github.com/tensorflow/tfjs) and available under the Apache free software license.
+Their code [^pezzoti_code] is based on the TensorFlow.js library [^tensorflow_code] and available under the Apache free software license.
 Instead of directly porting the algorithm to run in the browser via Javascript, the publication describes how to modify t-SNE in a way that it can be run on graphics cards.
 
 Modern browsers are sandboxed, meaning that they prevent any executed code from directly accessing the hardware.
@@ -59,14 +59,14 @@ Therefore a meaningful comparison with other implementations can not be made at 
 <!--Thus the variant manages to have linear computational complexity and running on the graphics card.-->
 <!--Additionally the linearization allows for better scaling of the algorithm, by using less main memory.-->
 
-An online [example](https://storage.googleapis.com/tfjs-examples/tsne-mnist-canvas/dist/index.html) using the algorithm exists.
+An online example[^pezzoti_online] using the algorithm exists.
 It allows to visualize parts of the MNIST dataset [@mnist].
 After the initialization phase every iteration step of the t-SNE algorithm can be seen.
 It provides a simple user interface to configure perplexity, the amount of k-nearest neighbor iterations and the amount of t-SNE iterations.
-Figure @fig:tfjs-tsne shows the outcome when the example is run with the default settings.
+@fig:tfjs-tsne shows the outcome when the example is run with the default settings.
 
-![
-  Graphical outcome of the online example of Pezzotti et al.'s t-SNE variation.
+
+![Graphical outcome of the online example of Pezzotti et al.'s t-SNE variation.
   The used parameters were a perplexity of 30, 800 kNN iterations and 500 iterations.
   Visualized is a subset of the MNIST data set, consisting of 10.000 digits.
 ](figures/chapter1/pezzoti.png){#fig:tfjs-tsne short-caption="Visualization of an MNIST subset by Pezzotti et al.'s t-SNE variation" width="40%"}
@@ -88,7 +88,7 @@ But when compared with other technologies, such as the upcoming t-SNE-CUDA imple
 
 ### t-SNE-CUDA: GPU-Accelerated t-SNE and its Applications to Modern Data
 As indicated by its name, t-SNE-CUDA by Chan et al.[@tsne-cuda] uses the Nvidia CUDA technology [@cuda] to port the [t-SNE](#tsne) algorithm to GPUs.
-The code is available at the projects [Github repository](https://github.com/CannyLab/tsne-cuda) under the BSD free software license.
+The code is available at the projects Github repository[^repo_tsne_cuda] under the BSD free software license.
 Provided results show that it outperforms all available CPU versions of t-SNE significantly.
 The paper lists a 50 times speedup over the fastest parallel CPU version and a 650 times speedup over a commonly used version.
 
@@ -116,11 +116,17 @@ Not not only are the aforementioned speedups compared to CPU versions high, but 
 The previously listed works use two very different approaches.
 They diverge on many aspects, as the rundown in the following table shows.
 
+
 | Implementation   | Technology | Frontend      | Performance (embedding of MNIST)|
 | -----------------|------------|---------------|---------------------------------|
 | TensorFlow t-SNE | WebGL      | Browser / GUI | 330 seconds (approximation)     |
 | t-SNE-CUDA       | CUDA       | Python / CLI  | 7 seconds                       |
 
+
 With all this considered, this thesis will strike to rather follow the paths of the latter work.
 The next section on aims of the thesis tries to capture that.
 
+[^pezzoti_code]: https://github.com/tensorflow/tfjs-tsne, last accessed 20.04.2019
+[^tensorflow_code]: https://github.com/tensorflow/tfjs, last accessed 20.04.2019
+[^pezzoti_online]: https://storage.googleapis.com/tfjs-examples/tsne-mnist-canvas/dist/index.html, last accessed 20.04.2019
+[^repo_tsne_cuda]: https://github.com/CannyLab/tsne-cuda, last accessed 20.04.2019

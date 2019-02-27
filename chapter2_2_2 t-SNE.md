@@ -21,12 +21,13 @@ space-partitioning (metric) trees
 <!--\KwResult{Write here the result}-->
 <!--TODO remove line numbering-->
 \begin{algorithm}[H]
+\label{pca_algo}
 \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
 \Input {data set $\mathcal{X} = {x_1, x_2, …, x_n}$,
                 
-    \ \ \ \ \ \ \ \ \ \ \ \ \ \ cost function parameters: perplexity $\mathcal{u}$,
+    \ \ \ \ \ \ \ \ \ \ \ \ \ cost function parameters: perplexity $\mathcal{u}$,
     
-    \ \ \ \ \ \ \ \ \ \ \ \ \ \ optimization parameters: number of iterations $T$ , learning rate $\eta$, momentum $\alpha (t)$.
+    \ \ \ \ \ \ \ \ \ \ \ \ \ optimization parameters: number of iterations $T$ , learning rate $\eta$, momentum $\alpha (t)$.
 }
 \Output {low-dimensional data representation $\mathcal{Y}^{(T)} = {y_1, y_2, …, y_n }$.}
 \DontPrintSemicolon
