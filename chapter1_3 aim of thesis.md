@@ -1,25 +1,26 @@
 ## Aim of the Thesis
-In this thesis the UMAP algorithm is to be implemented in a parallel manner, so that it can be run on graphics cards.
-The parallel implementation will be derived from the original sequential algorithm and follow it as closely as achievable.
+In this thesis the UMAP algorithm is to be implemented in a parallel manner, so that it can be run on GPUs.
+The parallel implementation will be derived from the original sequential algorithm.
 
 <!--limit algorithm features-->
-UMAP builds upon multiple components that carry out subtasks of the algorithm.
-To keep development time within a feasible time frame, these subtasks will be solved by reusing existing implementations where possible.
-For complex components without existing GPU implementations, such as Random Projection trees, substitute algorithms will be used.
-Even if the substitutes may not be on par with the original components, the performance gain through using GPUs should still outweigh potential theoretical performance losses.
-
+Due to the time limitations that come with the form of a thesis, certain constraints are imposed.
 While the original implementation of UMAP supports a wide range of distance metrics, the parallel implementation will exclusively focus on the Euclidean distance.
-The reasoning is the same of limited development time.
+<!--most common-->
+UMAP builds upon multiple components that carry out subtasks of the algorithm.
+These subtasks will be solved by reusing existing implementations when possible.
+For complex components without existing GPU implementations, such as Random Projection trees, substitute algorithms will be used.
+By these measures the development time is to be kept within a feasible time frame.
 
 <!--CUDA-->
-To implement the UMAP algorithm on graphics cards the CUDA [@cuda] technology will be used.
-It allows for parallel execution on GPUs and managing the memory on the graphics card.
-This choice is made due to CUDA's widespread usage, its good performance, as well as previous experience in it.
+To implement the UMAP algorithm on GPUs the CUDA [@cuda] technology will be used.
+It allows for parallel execution and memory management on GPUs.
+This choice is made due to CUDA's widespread usage and its good performance, as can be seen in the previous [section 1.2.2](#cudatsne).
 
 <!--measurement-->
-A measurement of the implementation will provide results on its performance.
-To put these results into perspective, a comparison with the sequential version will show how much speedup was achieved by using the GPU.
-A comparison with the CUDA implementation of the t-SNE algorithm will give an estimation on the advantage of the implementation in practice.
+The developed algorithm will be evaluated.
+For this the overall performance will be measured, as well as the performance of the algorithm's individual steps.
+Paired with measurements of the original implementation, a comparison with the sequential version will show how much speedup was achieved by using the GPU.
+Analyzing the algorithm's steps independently will provide insight as to which parts of the algorithm should be considered for future optimizations.
 
-Furthermore the performance of the coarse-grained algorithm steps will be analyzed independently.
-This gives an insight to which parts should be considered for future optimization attempts.
+Furthermore, a comparison with the CUDA implementation of the t-SNE algorithm will give an estimation on the advantage of the implementation in practice.
+

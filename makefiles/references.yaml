@@ -56,6 +56,108 @@ references:
   title: WebGL
   URL: https://www.khronos.org/webgl/
 
+- id: Song2018
+  type: article-journal
+  author:
+  - family: Song
+    given: Hwanjun
+  - family: Lee
+    given: Jae-Gil
+  issued:
+  - year: 2018
+  title: '<span class="nocase">RP-DBSCAN: A Superfast Parallel DBSCAN Algorithm Based
+    on Random Partitioning</span>'
+  page: 1173-1187
+  issue: February
+  abstract: With the increasing use of mobile GPS (global positioning system) devices,
+    a large volume of trajectory data on users can be produced. In most existing work,
+    trajectories are usually divided into a set of stops and moves. In trajectories,
+    stops represent the most important and meaningful part of the trajectory; there
+    are many data mining methods to extract these locations. DBSCAN (density-based
+    spatial clustering of applications with noise) is a classical density-based algorithm
+    used to find the high-density areas in space, and different derivative methods
+    of this algorithm have been proposed to find the stops in trajectories. However,
+    most of these methods required a manually-set threshold, such as the speed threshold,
+    for each feature variable. In our research, we first defined our new concept of
+    move ability. Second, by introducing the theory of data fields and by taking our
+    new concept of move ability into consideration, we constructed a new, comprehensive,
+    hybrid feature–based, density measurement method which considers temporal and
+    spatial properties. Finally, an improved DBSCAN algorithm was proposed using our
+    new density measurement method. In the Experimental Section, the effectiveness
+    and efficiency of our method is validated against real datasets. When comparing
+    our algorithm with the classical density-based clustering algorithms, our experimental
+    results show the efficiency of the proposed method.
+  keyword: DBSCAN,Spark,clustering,parallelization
+  DOI: 10.1145/3183713.3196887
+  ISBN: '9781450347037'
+
+- id: Gotz2015
+  type: article-journal
+  author:
+  - family: Götz
+    given: Markus
+  - family: Bodenstein
+    given: Christian
+  - family: Riedel
+    given: Morris
+  issued:
+  - year: 2015
+  title: HPDBSCAN – Highly Parallel DBSCAN
+  DOI: 10.1145/2834892.2834894
+
+- id: Hu2017
+  type: article-journal
+  author:
+  - family: Hu
+    given: Xu
+  - family: Huang
+    given: Jun
+  - family: Qiu
+    given: Minghui
+  - family: Chen
+    given: Cen
+  - family: Chu
+    given: Wei
+  issued:
+  - year: 2017
+  title: '<span class="nocase">PS-DBSCAN: A Communication Efficient Parallel DBSCAN
+    Algorithm Based on Platform Of AI (PAI)</span>'
+  URL: http://arxiv.org/abs/1711.01034v1
+
+- id: Jolliffe2002
+  type: article-journal
+  author:
+  - family: Jolliffe
+    given: I T
+  issued:
+  - year: 2002
+  title: Principal Component Analysis, Second Edition
+  container-title: Springer Series in Statistics
+  page: '487'
+  volume: '98'
+  abstract: Principal component analysis is central to the study of multivariate data.
+    Although one of the earliest multivariate techniques it continues to be the subject
+    of much research, ranging from new model- based approaches to algorithmic ideas
+    from neural networks. It is extremely versatile with applications in many disciplines.
+    The first edition of this book was the first comprehensive text written solely
+    on principal component analysis. The second edition updates and substantially
+    expands the original version, and is once again the definitive text on the subject.
+    It includes core material, current research and a wide range of applications.
+    Its length is nearly double that of the first edition. Researchers in statistics,
+    or in other fields that use principal component analysis, will find that the book
+    gives an authoritative yet accessible account of the subject. It is also a valuable
+    resource for graduate courses in multivariate analysis. The book requires some
+    knowledge of matrix algebra. Ian Jolliffe is Professor of Statistics at the University
+    of Aberdeen. He is author or co-author of over 60 research papers and three other
+    books. His research interests are broad, but aspects of principal component analysis
+    have fascinated him and kept him busy for over 30 years.
+  keyword: principal component analysis,statistical theory methods
+  URL: http://link.springer.com/10.1007/b98835
+  DOI: 10.1007/b98835
+  ISBN: 0-387-95442-2
+  ISSN: '01621459'
+  PMID: '21674720'
+
 - id: Arthur2007
   type: paper-conference
   author:
@@ -194,40 +296,6 @@ references:
   keyword: Clustering,Complexity,Sum-of-squares
   DOI: 10.1007/s10994-009-5103-0
   ISSN: '08856125'
-
-- id: Jolliffe2002
-  type: article-journal
-  author:
-  - family: Jolliffe
-    given: I T
-  issued:
-  - year: 2002
-  title: Principal Component Analysis, Second Edition
-  container-title: Springer Series in Statistics
-  page: '487'
-  volume: '98'
-  abstract: Principal component analysis is central to the study of multivariate data.
-    Although one of the earliest multivariate techniques it continues to be the subject
-    of much research, ranging from new model- based approaches to algorithmic ideas
-    from neural networks. It is extremely versatile with applications in many disciplines.
-    The first edition of this book was the first comprehensive text written solely
-    on principal component analysis. The second edition updates and substantially
-    expands the original version, and is once again the definitive text on the subject.
-    It includes core material, current research and a wide range of applications.
-    Its length is nearly double that of the first edition. Researchers in statistics,
-    or in other fields that use principal component analysis, will find that the book
-    gives an authoritative yet accessible account of the subject. It is also a valuable
-    resource for graduate courses in multivariate analysis. The book requires some
-    knowledge of matrix algebra. Ian Jolliffe is Professor of Statistics at the University
-    of Aberdeen. He is author or co-author of over 60 research papers and three other
-    books. His research interests are broad, but aspects of principal component analysis
-    have fascinated him and kept him busy for over 30 years.
-  keyword: principal component analysis,statistical theory methods
-  URL: http://link.springer.com/10.1007/b98835
-  DOI: 10.1007/b98835
-  ISBN: 0-387-95442-2
-  ISSN: '01621459'
-  PMID: '21674720'
 
 - id: umap-talk-pydata
   type: no-type

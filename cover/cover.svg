@@ -14,7 +14,7 @@
    viewBox="0 0 214 297"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.2 2405546, 2018-03-11"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
    sodipodi:docname="cover.svg">
   <defs
      id="defs2">
@@ -90,14 +90,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="408.24308"
-     inkscape:cy="531.08587"
+     inkscape:zoom="0.7"
+     inkscape:cx="381.67926"
+     inkscape:cy="403.76095"
      inkscape:document-units="mm"
      inkscape:current-layer="g823"
      showgrid="false"
      inkscape:window-width="960"
-     inkscape:window-height="1016"
+     inkscape:window-height="704"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="0"
@@ -111,7 +111,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -421,9 +421,11 @@
              y="726.03479"
              style="font-size:19.10666656px" /></flowRegion><flowPara
            id="flowPara1303"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.10666656px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'">Reviewer:</flowPara><flowPara
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.10666656px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'">Reviewer 1:</flowPara><flowPara
            id="flowPara1305"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.10666656px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'">Advisor:</flowPara></flowRoot>      <flowRoot
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.10666656px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'">Reviewer 2:</flowPara><flowPara
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.10666656px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'"
+           id="flowPara114">Advisor:</flowPara></flowRoot>      <flowRoot
          xml:space="preserve"
          id="flowRoot1312"
          style="font-style:normal;font-weight:normal;font-size:19.10666656px;line-height:20px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -439,7 +441,9 @@
            id="flowPara1318"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.10666656px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'">Prof. Dr. Veit Hagenmeyer</flowPara><flowPara
            id="flowPara1320"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.10666656px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'">Andreas Bartschat</flowPara></flowRoot>      <flowRoot
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.10666656px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'">TBD</flowPara><flowPara
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.10666656px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'"
+           id="flowPara116">Andreas Bartschat</flowPara></flowRoot>      <flowRoot
          xml:space="preserve"
          id="flowRoot1324"
          style="font-style:normal;font-weight:normal;font-size:19.10780716px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -471,7 +475,7 @@
              width="368.20059"
              id="rect1392" /></flowRegion><flowPara
            style="font-size:15.92321587px"
-           id="flowPara1396">1st November 2018 – 31th April 2019</flowPara></flowRoot>      <g
+           id="flowPara1396">1st November 2018 – 30th April 2019</flowPara></flowRoot>      <g
          id="g132"
          transform="translate(15.38168)">
         <flowRoot

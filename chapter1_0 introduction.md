@@ -1,2 +1,5 @@
 # Introduction
-This chapter covers the background and motivation of the thesis, related works, as well as the thesis' aims. Chapter 2 describes related algorithms for conceptual understanding of the domain and the central UMAP algorithm. The parallelized implementation is detailed in chapter 3. Run time measurements of this implementation are compared with others and evaluted in chapter 4. Chapter 5 concludes the thesis with suggestions on possible future works.
+This chapter covers the background and motivation of the thesis, related works, as well as the thesis' aims.
+Chapter 2 describes related algorithms for conceptual understanding of the domain and the central UMAP algorithm.
+<!--TODO-->
+The parallelized implementation is detailed in chapter 3. Run time measurements of this implementation are compared with others and evaluted in chapter 4. Chapter 5 concludes the thesis with suggestions on possible future works.
