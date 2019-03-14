@@ -6,7 +6,7 @@ The vast amount of dimensions complicates a depiction in by humans observable tw
 
 Dimensionality reduction algorithms can be used to solve this problem.
 They process complex high-dimensional data into simplified versions with a lower dimensional complexity.
-Clearly not all information include in the data can be preserved, some will get lost along the compression.
+Clearly not all information included in the data can be preserved, some will get lost along the compression.
 Thus reduction will usually work best if the data itself is not as complex as the space it is embedded into.
 For example consider a circular shape placed in a five dimensional space.
 It could not easily be visualized as is, but a good two dimensional representation would expose the same circular shape.
@@ -34,13 +34,13 @@ Since no parallelized version is available as of yet, the paper only compares se
 This thesis' purpose is to explore the possibilities of parallelizing the UMAP algorithm.
 GPUs are made for massive parallel processing, allowing for a big number of calculations to be done simultaneously.
 And even though GPUs might have various drawbacks, they usually outperform normal CPUs due to their sheer amount of processing units.
-Therefore a parallelized UMAP implementation will bring the most performance gain, when done for GPUs.
+Therefore a parallelized implementation of UMAP will bring the most performance gain, when done for GPUs.
 
 Such an implementation will be advantageous for various use cases.
 The enhanced performance would allow for faster visualization of complex data in general.
 From a personal point, a big motivation is the idea of visualizing neural networks.
 If the performance is good enough, the implementation could be used to provide quick regular updates on their evolutions.
 After each interactive training phase the changes of the network's layers could be analyzed, without prolonged periods of waiting.
-For this to happen, the parallel implementation of UMAP will be for GPUs.
+For this to be possible, a parallel implementation of UMAP for GPUs is needed.
 
 [^website_vandermaaten]: https://lvdmaaten.github.io/tsne/, last accessed 20.04.2019.

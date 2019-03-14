@@ -56,41 +56,6 @@ references:
   title: WebGL
   URL: https://www.khronos.org/webgl/
 
-- id: Song2018
-  type: article-journal
-  author:
-  - family: Song
-    given: Hwanjun
-  - family: Lee
-    given: Jae-Gil
-  issued:
-  - year: 2018
-  title: '<span class="nocase">RP-DBSCAN: A Superfast Parallel DBSCAN Algorithm Based
-    on Random Partitioning</span>'
-  page: 1173-1187
-  issue: February
-  abstract: With the increasing use of mobile GPS (global positioning system) devices,
-    a large volume of trajectory data on users can be produced. In most existing work,
-    trajectories are usually divided into a set of stops and moves. In trajectories,
-    stops represent the most important and meaningful part of the trajectory; there
-    are many data mining methods to extract these locations. DBSCAN (density-based
-    spatial clustering of applications with noise) is a classical density-based algorithm
-    used to find the high-density areas in space, and different derivative methods
-    of this algorithm have been proposed to find the stops in trajectories. However,
-    most of these methods required a manually-set threshold, such as the speed threshold,
-    for each feature variable. In our research, we first defined our new concept of
-    move ability. Second, by introducing the theory of data fields and by taking our
-    new concept of move ability into consideration, we constructed a new, comprehensive,
-    hybrid feature–based, density measurement method which considers temporal and
-    spatial properties. Finally, an improved DBSCAN algorithm was proposed using our
-    new density measurement method. In the Experimental Section, the effectiveness
-    and efficiency of our method is validated against real datasets. When comparing
-    our algorithm with the classical density-based clustering algorithms, our experimental
-    results show the efficiency of the proposed method.
-  keyword: DBSCAN,Spark,clustering,parallelization
-  DOI: 10.1145/3183713.3196887
-  ISBN: '9781450347037'
-
 - id: Gotz2015
   type: article-journal
   author:
@@ -104,25 +69,6 @@ references:
   - year: 2015
   title: HPDBSCAN – Highly Parallel DBSCAN
   DOI: 10.1145/2834892.2834894
-
-- id: Hu2017
-  type: article-journal
-  author:
-  - family: Hu
-    given: Xu
-  - family: Huang
-    given: Jun
-  - family: Qiu
-    given: Minghui
-  - family: Chen
-    given: Cen
-  - family: Chu
-    given: Wei
-  issued:
-  - year: 2017
-  title: '<span class="nocase">PS-DBSCAN: A Communication Efficient Parallel DBSCAN
-    Algorithm Based on Platform Of AI (PAI)</span>'
-  URL: http://arxiv.org/abs/1711.01034v1
 
 - id: Jolliffe2002
   type: article-journal
@@ -297,10 +243,54 @@ references:
   DOI: 10.1007/s10994-009-5103-0
   ISSN: '08856125'
 
+- id: sne
+  type: article-journal
+  author:
+  - family: Hinton
+    given: G.E.
+  - family: Roweis
+    given: S.T.
+  issued:
+  - year: 2002
+  title: Stochastic Neighbor Embedding
+  container-title: Advances in Neural Information Processing Systems
+  page: 833-840
+  volume: '15'
+  URL: http://papers.nips.cc/paper/2276-stochastic-neighbor-embedding.pdf
+
+- id: coil20
+  type: report
+  author:
+  - family: Nene
+    given: S.A.
+  - family: Nayar
+    given: S.K.
+  - family: Murase
+    given: H.
+  issued:
+  - year: 1996
+  title: Columbia Object Image Library (COIL-20)
+  publisher: Columbia University
+  URL: http://www1.cs.columbia.edu/CAVE/publications/pdfs/Nene{\_}TR96.pdf
+
+- id: Yianilos1993
+  type: paper-conference
+  author:
+  - family: Yianilos
+    given: Peter
+  issued:
+  - year: 1993
+  title: <span class="nocase">Data Structures and Algorithms for Nearest Neighbor
+    Search in General Metric Spaces</span>
+  container-title: Proceedings of the acm-siam symposium on discrete algorithms
+  page: 311-321
+  URL: http://web.cs.iastate.edu/{~}honavar/nndatastructures.pdf
+
 - id: umap-talk-pydata
   type: no-type
   author:
-  - family: PyData
+  - family: McInnes
+    given: Leland
   issued:
   - year: 2018
   title: '<span class="nocase">PyData Ann Arbor: Leland McInnes \| PCA, t-SNE, and

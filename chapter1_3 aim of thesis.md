@@ -22,5 +22,6 @@ For this the overall performance will be measured, as well as the performance of
 Paired with measurements of the original implementation, a comparison with the sequential version will show how much speedup was achieved by using the GPU.
 Analyzing the algorithm's steps independently will provide insight as to which parts of the algorithm should be considered for future optimizations.
 
-Furthermore, a comparison with the CUDA implementation of the t-SNE algorithm will give an estimation on the advantage of the implementation in practice.
+Furthermore, a comparison with the CUDA implementation of the t-SNE algorithm will be given.
+It provides an estimation on the advantage of the implementation in practice.
 

@@ -7,6 +7,7 @@ thesis: makefiles/config.yaml makefiles/references.yaml chapter*.md appendix*.md
 	pandoc $(pandocflags) \
 		-o thesis.pdf \
 		--number-sections \
+		-Mbook-class=false \
 		makefiles/config.yaml \
 		chapter*.md \
 		appendix*.md

@@ -72,7 +72,7 @@ It provides a simple user interface to configure perplexity, the amount of k-nea
 ](figures/chapter1/pezzoti.png){#fig:tfjs-tsne short-caption="Visualization of an MNIST subset by Pezzotti et al.'s t-SNE variation" width="50%"}
 
 By measuring the GPU workload, an approximation on the running time was made.
-On a system with an Intel® Core™ i5-6200U CPU, which includes an Intel® HD Graphics 520 graphics card, an execution of the algorithm took about 55 seconds.
+On a system with an Intel® Core™ i5-6200U CPU, which includes an Intel® HD Graphics 520 GPU, an execution of the algorithm took about 55 seconds.
 The first part, in which the nearest neighbors for each data point are computed, took approximately 20 seconds.
 The GPU usage was at 100 percent throughout this part.
 The second part, consisting of the embedding optimization iterations, took about 35 seconds, with an average GPU usage of 50 percent.
@@ -111,17 +111,17 @@ For computations on these sparse representations CUDA-t-SNE uses the cuBLAS Libr
 cuBLAS offers parallelized versions of common BLAS (Basic Linear Algebra Subprograms) operations, such as basic matrix and vector calculations.
 
 <!--barnes hut-->
-In the iterative second part of the algorithm, t-SNE uses a Barnes-Hut tree to reduce the number of necessary computations between data points.
-Based on the found neighborhoods a Barnes-Hut tree is constructed.
-The construction of the tree is adapted from an implementation [@Burtscher2011] of Barnes-Hut trees in CUDA.
-This part of the algorithm is analogous to the original algorithm.
+In the iterative second part of the algorithm, t-SNE uses the Barnes-Hut algorithm [@Barnes1986] to reduce the number of necessary computations between data points.
+In each iteration a quadtree of the current embedding is constructed.
+The tree allows to summarize distance calculations from one point to a group of other points, if the group is close together and has a high distance from the point.
+The construction of the tree is adapted from an implementation of the Barnes-Hut algorithm in CUDA [@Burtscher2011].
+Overall this part of the algorithm is analogous to the original algorithm.
 All operations are either on the tree or the sparse representations and are executed in parallel on the GPU.
 
 t-SNE-CUDA can profit from building upon existing programs and libraries.
 Not only does this safe development time and resources, but also the existing implementations have already been tested and optimized.
 Thus t-SNE-CUDA can benefit from their performance, which can be seen in the results.
 The speedups compared to CPU versions are high and the graphical results are indistinguishable from those of the original sequential algorithm.
-
 
 ### Comparison of TensorFlow t-SNE and t-SNE-CUDA
 The previously listed works use two very different approaches on how to use GPUs to parallelize t-SNE.
@@ -136,7 +136,7 @@ The performance column consists of times that the algorithm took to embed the fu
 |Implementation|Technology|Frontend|Performance|
 |-------------------|--------------|---------------|-----------------------------|
 | scikit-learn t-SNE [^scikit_src]|Python| Python / CLI  | 4556 seconds, see [@tsne-cuda]|
-| Multicore t-SNE [^multitsne_src]|C++, Python| Python / CLI  | 275 seconds, see [@tsne-cuda]|
+| Multicore t-SNE [^multitsne_src]|C++, Python| Python / CLI  | 501 seconds, see [@tsne-cuda]|
 | TensorFlow t-SNE |WebGL  |Browser / GUI| 300 seconds (estimation)|
 | t-SNE-CUDA       |CUDA|Python / CLI| 7 seconds, see [@tsne-cuda]|
 
