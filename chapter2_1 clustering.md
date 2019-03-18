@@ -47,13 +47,13 @@ Algorithm \autoref{kmeans_algo} shows a pseudo code version of K-Means.
 \label{kmeans_algo}
 \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
 \SetKwRepeat{Do}{do}{while}
-\Input{data set $\mathcal{X} = {x_1, x_2, …, x_N}$
+\Input{data set $\mathcal{X} = {x_1, …, x_N}$
 
  \ \ \ \ \ \ \ \ \ \ \ \ \ amount of clusters $K$. }
-\Output {set of clusters, defined via their centroids $\mathcal{C} = {\mu_1, \mu_2, …, \mu_K}$. }
+\Output {set of clusters, defined via their centroids $\mathcal{C} = {\mu_1, …, \mu_K}$. }
 \DontPrintSemicolon
 \BlankLine
-    randomly initialize the $K$ cluster centroids $\mathcal{C} = {\mu_1, \mu_2, …, \mu_K}$
+    randomly initialize the $K$ cluster centroids $\mathcal{C} = {\mu_1, …, \mu_K}$
     
     \Do {centroid positions changed in iteration; but no more than I times}{
         \ForEach {$x_i \in \mathcal{X}$} {
@@ -110,11 +110,11 @@ It considers clusters to be dense point clouds.
 If a data point has more than a certain amount of points close to it, DBSCAN defines that area as dense.
 All points inside this dense area form a cluster.
 A cluster is discovered by starting from a data point $x_i$ with at least $minPts$ other points in its $\varepsilon$-neighborhood.
-For the point and it's neighbors $\mathcal{N}(x_i)$ a new cluster $\mathcal{C}_j$ is created.
+For the point and it's neighbors $\mathcal{N}(x_i)$ a new cluster $c_j$ is created.
 All neighboring points that also fulfill the criteria of having enough points in their own neighborhood are used to expand the cluster by adding these neighbors.
 Through repeating this procedure, clusters of arbitrary shapes can be found, given that they are connected and fulfill the density constraint.
 
-Algorithm \autoref{dbscan_algo} shows an outline of how the algorithm can be implementated.
+Algorithm \autoref{dbscan_algo} shows an outline of how the algorithm can be implemented.
 The result is a desired partitioning of the data into a set of clusters $\mathcal{C} = f_{\texttt{DBSCAN}}(\mathcal{X})$.
 The amount of found clusters is unknown beforehand.
 It is determined only by the input parameters and the structure of the input data.
@@ -123,19 +123,19 @@ It is determined only by the input parameters and the structure of the input dat
 \label{dbscan_algo}
 \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
 \SetKwRepeat{Do}{do}{while}
-\Input{data set $\mathcal{X} = {x_1, x_2, …, x_N}$,
+\Input{data set $\mathcal{X} = {x_1, …, x_N}$,
 
     \ \ \ \ \ \ \ \ \ \ \ \ \ maximum radius for cluster connectedness $\varepsilon$,
 
     \ \ \ \ \ \ \ \ \ \ \ \ \ minimum amount of points needed for a dense region \textit{minPts}.}
-\Output{a set of clusters $\mathcal{C} = {C_1, C_2, …}$. }
+\Output{a set of clusters $\mathcal{C} = {c_1, c_2, …}$. }
 \DontPrintSemicolon
 \BlankLine
     \For {previously unprocessed data point $x_i \in \mathcal{X}$}{
         retrieve neighbors of $x_i$ within an $\varepsilon$ radius $\mathcal{N}(x_i)$
         
         \eIf {$\mathcal{N}(x_i)$ has more than \textit{minPts}} {
-            create new cluster $C_j$ consisting of $x_i$ and $\mathcal{N}(x_i)$
+            create new cluster $c_j$ consisting of $x_i$ and $\mathcal{N}(x_i)$
             
             initialize a new search set $\mathcal{S} = \mathcal{N}(x_i)$
             
@@ -143,7 +143,7 @@ It is determined only by the input parameters and the structure of the input dat
                 retrieve neighbors of $s$ within an $\varepsilon$ radius $\mathcal{N}(s)$
                 
                 \If{$\mathcal{N}(s)$ has more than \textit{minPts}} {
-                    add $\mathcal{N}(s)$ to cluster $C_j$ and search set $\mathcal{S}$
+                    add $\mathcal{N}(s)$ to cluster $c_j$ and search set $\mathcal{S}$
                 }
             }
             
@@ -188,4 +188,4 @@ Their original sources are respectively https://www.naftaliharris.com/blog/visua
 [^kmeans_cuda]: https://github.com/serban/kmeans, last accessed 20.04.2019
 [^kmeans_mpi]: http://users.eecs.northwestern.edu/~wkliao/Kmeans/index.html, last accessed 20.04.2019
 [^dbscan_example_src]: The graphic of @fig:dbscanexample was taken from https://www.datanovia.com/en/lessons/dbscan-density-based-clustering-essentials/, last accessed 20.4.2019
-[^dbscan_runtime]: This time complexity still neglects the dimensions of the data set to cluster. A factor of $M$ can be added for $\mathcal{O}(N^2 M)$, but is commonly skipped in literature.
+[^dbscan_runtime]: This time complexity still neglects the dimensions of the data set to cluster. A factor of $M$ can be added for $\mathcal{O}(N^2 M)$, but is, in contrary to K-Means, commonly skipped in literature.

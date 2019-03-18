@@ -56,6 +56,49 @@ references:
   title: WebGL
   URL: https://www.khronos.org/webgl/
 
+- id: coil20
+  type: report
+  author:
+  - family: Nene
+    given: S. A.
+  - family: Nayar
+    given: S. K.
+  - family: Murase
+    given: H.
+  issued:
+  - year: 1996
+  title: Columbia Object Image Library (COIL-20)
+  publisher: Columbia University
+  URL: http://www1.cs.columbia.edu/CAVE/publications/pdfs/Nene{\_}TR96.pdf
+
+- id: sne
+  type: article-journal
+  author:
+  - family: Hinton
+    given: G. E.
+  - family: Roweis
+    given: S. T.
+  issued:
+  - year: 2002
+  title: Stochastic Neighbor Embedding
+  container-title: Advances in Neural Information Processing Systems
+  page: 833-840
+  volume: '15'
+  URL: http://papers.nips.cc/paper/2276-stochastic-neighbor-embedding.pdf
+
+- id: Yianilos1993
+  type: paper-conference
+  author:
+  - family: Yianilos
+    given: Peter
+  issued:
+  - year: 1993
+  title: <span class="nocase">Data Structures and Algorithms for Nearest Neighbor
+    Search in General Metric Spaces</span>
+  container-title: Proceedings of the acm-siam symposium on discrete algorithms
+  page: 311-321
+  URL: http://web.cs.iastate.edu/{~}honavar/nndatastructures.pdf
+
 - id: Gotz2015
   type: article-journal
   author:
@@ -243,48 +286,16 @@ references:
   DOI: 10.1007/s10994-009-5103-0
   ISSN: '08856125'
 
-- id: sne
-  type: article-journal
+- id: Ulyanov2016
+  type: no-type
   author:
-  - family: Hinton
-    given: G.E.
-  - family: Roweis
-    given: S.T.
+  - family: Ulyanov
+    given: Dmitry
   issued:
-  - year: 2002
-  title: Stochastic Neighbor Embedding
-  container-title: Advances in Neural Information Processing Systems
-  page: 833-840
-  volume: '15'
-  URL: http://papers.nips.cc/paper/2276-stochastic-neighbor-embedding.pdf
-
-- id: coil20
-  type: report
-  author:
-  - family: Nene
-    given: S.A.
-  - family: Nayar
-    given: S.K.
-  - family: Murase
-    given: H.
-  issued:
-  - year: 1996
-  title: Columbia Object Image Library (COIL-20)
-  publisher: Columbia University
-  URL: http://www1.cs.columbia.edu/CAVE/publications/pdfs/Nene{\_}TR96.pdf
-
-- id: Yianilos1993
-  type: paper-conference
-  author:
-  - family: Yianilos
-    given: Peter
-  issued:
-  - year: 1993
-  title: <span class="nocase">Data Structures and Algorithms for Nearest Neighbor
-    Search in General Metric Spaces</span>
-  container-title: Proceedings of the acm-siam symposium on discrete algorithms
-  page: 311-321
-  URL: http://web.cs.iastate.edu/{~}honavar/nndatastructures.pdf
+  - year: 2016
+  title: Multicore-TSNE
+  publisher: GitHub
+  URL: https://github.com/DmitryUlyanov/Multicore-TSNE
 
 - id: umap-talk-pydata
   type: no-type

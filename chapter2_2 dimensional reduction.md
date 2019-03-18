@@ -22,7 +22,22 @@ A common application in the field of data analysis is that of visualizing data.
 
 <!--What PCA does-->
 PCA is a statistical method to reduce data dimensionality.
-It creates linear transformation of the data by constructing 
+It creates a linear transformation of the data utilizing the data's variance.
+In simple terms, PCA finds a vector
+
+TODO
+
+ is found, which, when projecting the data onto it, 
+
+expansion
+
+causes the data to be as spread out as possible
+Finding a vector in the high-dimensional space that yieldy the highest
+
+The $M$-dimensional input data $\mathcal{X} = {x_1, …, x_N}$ is treated as a $M \times N$ matrix.
+
+Through calculating the covariance matrix $K_X$
+constructing 
 transform high-dimensional data into a lower extract information on data's highest variance.
 
 matrix factorization
@@ -48,30 +63,35 @@ or maximize variance on projection
 
 
 
-
 \begin{algorithm}[H]
 \label{pca_algo}
 \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
 \SetKwRepeat{Do}{do}{while}
-\Input{data $\mathcal{X} = {x_1, x_2, …, x_n}$ with $d$ dimensions,
+\Input{$M$-dimensional data set $\mathcal{X} = {x_1, …, x_N}$, in $N \times M$ matrix form,
 
-    \ \ \ \ \ \ \ \ \ \ \ \ \ dimensions to reduce to $k$. }
+\ \ \ \ \ \ \ \ \ \ \ \ \ number of dimensions to reduce to $\bar{N}$. }
+\Output {A $\bar{N}$-dimensional representation $\mathcal{T}$ of $\mathcal{X}$}
 \DontPrintSemicolon
 \BlankLine
+    obtain $\tilde{\mathcal{X}}$ by centering $\mathcal{X}$ through subtracting the mean in each dimension
 
-    compute the covariance matrix of $\mathcal{X}$
+    calculate the covariance matrix $\mathcal{C} = \dfrac{1}{N-1} \tilde{\mathcal{X}}^T \times \tilde{\mathcal{X}}$
     
-    compute the eigenvectors ${e_1, e_2, …, e_d}$ with the corresponding eigenvalues ${\lambda_1, \lambda_2, …, \lambda_d}$
+    diagonalize $\mathcal{C}$ to compute the eigenvectors and their responding eigenvalues $\mathcal{E} = {(\bar{e_1}, \lambda_1), …, (\bar{e_N}, \lambda_N)}$
     
-    sort the eigenvectors by decreasing eigenvalues
+    sort $\mathcal{E}$ by decreasing eigenvalue
     
-    create a $d x k$ matrix $W$ with the first $k$ eigenvectors
+    create a $M \times \bar{N}$-dimensional matrix $\mathcal{W}$ using the first $\bar{N}$ eigenvectors of $\mathcal{E}$
 
-    calculate a low-dimensional representation $\mathcal{Y} = W × \mathcal{X}$
-
+    calculate the low-dimensional representation $\mathcal{T} = \mathcal{W} \times \mathcal{X}$
 \caption{Principal Components Analysis}
 \end{algorithm}
 
+The time complexity of the described PCA variant is $\mathcal{O}(N^3)$, due to the 
+
+In practice the covariance method is not used due to this high time complexity.
+Instead variants that don't compute the 
+ons  it
 scaling 
 
 transforming by mean vector to center
@@ -110,113 +130,117 @@ To keep its terminology aligned, this thesis does the same.
 The following algorithm description also focuses on the refined version, while still describing the differences between the two.
 
 The basic concept of t-SNE is to find a low-dimensional representation of the input data, that preserves the structure of the input data as well as possible.
-Thus, a way to measure how good a low-dimensional representation is, is needed.
+Thus, a way to measure the quality of such a low-dimensional representation is needed.
 For this t-SNE uses the Kullback-Leibler divergence $f_{KL}()$.
-From both, the original data $\mathcal{X} = {x_1, x_2, …, x_N}$ and the low-dimensional representation $\mathcal{Y} = {y_1, y_2, …, y_N}$, probability distributions are determined.
-They are calculated based on a distance function $dist()$, so that they can capture the layout of the data.
-The algorithm uses the Euclidean metric, but any other distance function, that can be applied between data points, can be used too.
-Data points that have a small distance from one another are assigned a high probability, while those further apart from each other receive a low probability.
-Every pair of data points, $x_i$ and $y_i$, has two probability distributions.
-$P_i$, the probability distribution in the original data, describing what points are likely to be close to $x_i$, and $Q_i$, the probability distribution in the low-dimensional representation, analogously describing points close to $y_i$.
+From both, the original data $\mathcal{X} = {x_1, …, x_N}$ and the low-dimensional representation $\mathcal{Y} = {y_1, …, y_N}$, probability distributions are determined.
+These probabilities distributions describe the affinities between all points in the respective data.
+$P=(p_{ij})$ contains all affinities of points $x_i, x_j \in \mathcal{X}$, $Q=(q_{ij})$ all of $y_i, y_j \in \mathcal{Y}$.
 
-Using the Kullback-Leibler divergences of probability distributions pairs $P_i$ and $Q_i$, the quality of a low-dimensional representation can be assessed.
-A cost function $C = \sum{f_{KL}(P_i||Q_i)}$ can be formulated to obtain a minimization problem.
-In other words, the lower the sum over all Kullback-Leibler divergences, the better the found representation.
+$P$ and $Q$ are calculated based on a distance function $dist()$, to capture the layout of the data.
+By default t-SNE uses the Euclidean metric, but any other distance function can be used too.
+Data points that have a short distance from one another are assigned a high affinity, while those further apart from each other receive a low affinity.
 
-The gradient $\dfrac{\delta \mathcal{C}}{\delta \mathcal{Y}}$ of this sum can be used to achieve a better low-dimensional representation.
-Using a learning rate parameter $\eta$ and a time-dependent momentum parameter $\alpha(t)$, t-SNE improves its low-dimensional representation with a gradient decent procedure according to the formular $\mathcal{Y}^{(t)} = \mathcal{Y}^{(t-1)} + \eta \dfrac{\delta \mathcal{C}}{\delta \mathcal{Y}} + \alpha (t)(\mathcal{Y}^{(t-1)}-\mathcal{Y}^{(t-2)})$.
+In the same manner that every point $x_i \in \mathcal{X}$ has a low-dimensional representation $y_i \in \mathcal{Y}$, every $p_{ij}$ responds to a $q_{ij}$.
+Comparing $p_{ij}$ with $q_{ij}$ shows how well the affinity between $x_i$ and $x_j$ is preserved by their low-dimensional counterparts $y_i$ and $y_j$.
+This comparison is done with the Kullback-Leibler divergence.
+Using it on all pairs of $p_{ij} \in P$ and $q_{ij} \in Q$, the quality of the low-dimensional representation is assessed.
+As a consequence a cost function $C = f_{KL}(P||Q) = \sum\limits_i \sum\limits_j p_{ij} \log{\frac{p_{ij}}{q_{ij}}}$ can be formulated.
+The lower the Kullback-Leibler divergence between the probability distribution, the better the found representation $\mathcal{Y}$.
 
-The two big improvements made by the Barnes-Hut variant are a) neglecting of infinitesimal probabilities when calculating probability distributions $P_i$; and b) summarizing similar probabilities when calculating $Q_i$, to speed up the gradient calculation.
-Both speedups are achieved by using tree data structures:
+t-SNE minimizes $C$ by using the gradients $\frac{\delta \mathcal{C}}{\delta y_i}$.
+Each gradient describes how $C$ changes in relation to the respective $y_i$.
+Using a learning rate parameter $\eta$ and a time-dependent momentum parameter $\alpha(t)$, t-SNE improves $\mathcal{Y}$ with a gradient decent procedure, according to the formula $\mathcal{Y}^{(t)} = \mathcal{Y}^{(t-1)} + \eta \frac{\delta \mathcal{C}}{\delta \mathcal{Y}} + \alpha (t)(\mathcal{Y}^{(t-1)}-\mathcal{Y}^{(t-2)})$.
 
-Through the usage of a vantage-point tree, as introduced in [@Yianilos1993], a k-Nearest-Neighbor (kNN) search is performed.
-<!-- by using a depth-first search.-->
-Only the found nearest-neighbors are considered for calculating the distances upon which the $P_i$ probability distributions are based.
-With the found nearest-neighbors a sparse representation of the probability distributions $P_i$ is created.
-The k parameter of kNN is provided by using a multiple of the user-defined perplexity input parameter.
-"The perplexity [parameter] can be interpreted as a smooth measure of the effective number of neighbors.", as is stated in [@tsne]. [^note_perplexity]
+This fundamental approach of t-SNE is the same for both, the original and the Barnes-Hut variant.
+The two big improvements made by the Barnes-Hut variant are a) neglecting of infinitesimal probabilities when calculating the probability distributions $p_{ij}$ and b) summarizing similar probabilities distributions when calculating $q_{ij}$, to speed up the gradient calculation.
+Both are achieved by using tree data structures:
 
+Through the usage of a vantage-point tree, as introduced in [@Yianilos1993], a $K$-Nearest-Neighbors (KNN) search is performed.
+For each point $x_{i}$ only the $K$ found nearest-neighbors $\mathcal{N}_K(x_i)$ are used to calculate the probability distributions.
+All other probability distributions with $x_j \notin \mathcal{N}_K(x_i)$ are ignored by defining $p_{ij} = 0$.
+These nulled affinities can be omitted when storing $P$ by using a sparse data structure, reducing the otherwise needed $\mathcal{O}(N^2)$ space complexity to a linear $\mathcal{O}(N)$.
+
+The $K$ parameter of the KNN search is provided by using a multiple of the user-defined perplexity input parameter $perp$.
+"The perplexity can be interpreted as a smooth measure of the effective number of neighbors.", as is stated in [@tsne].
+So the choice of $perp$ should be made based on the amount of neighbors that a data point is expected to have on average, "typical values are between 5 and 50".
+The perplexity parameter has not been used for a KNN search in the original publication.
+Instead it was only used to normalize the probability distributions of $P$.
+In the Barnes-Hut variant it is still used for this, but, to simplify the algorithm description, further details on the perplexity are omitted.
 
 The low-dimensional representation $\mathcal{Y}$ is initialized randomly.
 Through the gradient descent procedure described above, $\mathcal{Y}$ is shaped to better represent $\mathcal{X}$.
-The probability distributions $Q_i$, upon which this procedure builds, consist of a lot of insignificantly small probabilities, resulting from points that have a high distance from each other.
-These probabilities contribute very little to the gradient $\dfrac{\delta \mathcal{C}}{\delta \mathcal{Y}}$.
-Creating a sparse representation, as done for the $P_i$ probability distributions, causes unnecessary overhead, since the $Q_i$ probabilities are only used once and need to be recalculated for each iteration of the gradient descent procedure.
+A majority of the probability distributions $q_{ij}$, upon which this procedure builds, are small, resulting from many points having a big distance from one another.
+Individually these $q_{ij}$ contribute very little to the gradient $\frac{\delta \mathcal{C}}{\delta \mathcal{Y}}$.
+It is desirable not to calculate all of them, in order to accelerate the algorithm.
+However, while they are negligible on their own, the amount of such $q_{ij}$ is too high to discount all.
 
-Therefore, Van der Maaten et al. utilize the Barnes-Hut algorithm [@Barnes1986].
-It creates a spatial tree, e.g. a quad tree for two dimensional space, and uses them to summarize distances between data points that a far apart.
-If a point has approximately the same distance to a group of other points, this point group will be considered as one, using the points' average position to calculate the distance.
-The average is pre-calculated for each space partition in the tree and does not cause overhead per calculation.
-Calculating the distances between all points can hereby be sped up, since fewer calculations are needed.
+Therefore, t-SNE utilizes the Barnes-Hut algorithm [@Barnes1986].
+It creates a spatial tree, e.g. a quad tree for two dimensional space, and uses it to summarize distances between data points that a far apart.
+If a point has approximately the same distance to a group of other points, this group will be treated as a single point, using the average of the group's positions to calculate the distance.
+This average is pre-calculated for each space partition in the tree and does not cause overhead per query.
 @fig:barnes_hut shows an example of how data points are grouped with the tree structure.
+Calculating the distances between all points can hereby be sped up, since fewer calculations are needed.
 
 ![The quadtree structure shown on the left side is used by the Barnes-Hut algorithm to group data points as shown on the right side. Distances from the starting point, the x mark, can so be calculated faster. The graphic is taking from  [@Barnes1986], figure 1.](figures/chapter2/barnes_hut.png){#fig:barnes_hut short-caption="Tree structure used by the Barnes-Hut algorithm."  width="60%"}
 
-
-
-This results in a linear storage requirement.
+An outline of t-SNE can be seen in the following Algorithm \autoref{tsne_algo}.
 
 \begin{algorithm}[H]
-\label{pca_algo}
+\label{tsne_algo}
 \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
-\Input {data set $\mathcal{X} = {x_1, x_2, …, x_N}$,
-                
-    \ \ \ \ \ \ \ \ \ \ \ \ \ cost function parameters: perplexity $\mathcal{u}$,
-    
-    \ \ \ \ \ \ \ \ \ \ \ \ \ optimization parameters: number of iterations $T$ , learning rate $\eta$, momentum $\alpha (t)$.
+\Input {$M$-dimensional data set $\mathcal{X} = {x_1, …, x_N}$,
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ number $\bar{N}$ of dimensions to reduce to, perplexity $perp$,
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ number of iterations $T$, learning rate $\eta$, momentum $\alpha (t)$.
 }
-\Output {low-dimensional data representation $\mathcal{Y}^{(T)} = {y_1, y_2, …, y_n }$.}
+\Output {low-dimensional data representation $\mathcal{Y}^{(T)} = {y_1, …, y_n}$.}
 \DontPrintSemicolon
 \BlankLine
-    find set $\mathcal{N}_i$ of n-nearest neighbors for each input object
+    \ForEach {$x_i \in \mathcal{X}$} {
+        using vantage-point trees, find KNN $\mathcal{N}_K(x_i)$ with $K = \lfloor 3 \ perp \rfloor$
+    }
     
-    compute symmetric pairwise affinities $p_{ij}$, for corresponding objects in $\mathcal{N}_i$
+    compute symmetric pairwise affinities $p_{ij}$ for all $x_j \in \mathcal{N}_K(x_i)$
     
-    sample initial solution $\mathcal{Y}^{(0)} = {y_1 , y_2 , ., y_n}$ from $\mathcal{N}(0, 10^{-4} I)$
+    sample initial low-dimensional representation $\mathcal{Y}^{(0)} = {y_1, …, y_n}$ from $\mathcal{N}(0, 10^{-4} I)$
 
     \For{$t=1$ to  $T$ \do}{
-        construct Barnes-Hut tree of $\mathcal{Y}^{(t)}$
+        construct quadtree of $\mathcal{Y}^{(t)}$
         
-        compute gradient $\dfrac{\delta \mathcal{C}}{\delta \mathcal{Y}}$ with Barnes-Hut tree using low-dimensional affinities $q_{ij}$
+        compute gradient $\dfrac{\delta \mathcal{C}}{\delta \mathcal{Y}}$, calculating low-dimensional affinities $q_{ij}$ with the Barnes-Hut algorithm 
         
         set $\mathcal{Y}^{(t)} = \mathcal{Y}^{(t-1)} + \eta \dfrac{\delta \mathcal{C}}{\delta \mathcal{Y}} + \alpha (t)(\mathcal{Y}^{(t-1)}-\mathcal{Y}^{(t-2)})$
     }
-\caption{Simple version of (Barnes-Hut) t-Distributed Stochastic Neighbor Embedding.}
+\caption{(Barnes-Hut) t-Distributed Stochastic Neighbor Embedding.}
 \end{algorithm}
 
-<!--    compute pairwise affinities $p_{j|i}$-->
-<!-- set $p_{ij} = \dfrac{p_{j|i} +  p_{i|j}}{2n}$-->
+Both tree data structures, the vantage-point tree and the quadtree used by the Barnes-Hut algorithm, and the sparse representation, to store the $p_{ij}$ in, require $\mathcal{O}(N)$ storage.
+This is therefore also the overall storage requirement of Barnes-Hut t-SNE.
+An improvement over the original t-SNE algorithm, which had a space complexity of $\mathcal{O}(N^2)$, required to store all probability distributions $p_{ij}$.
 
- in a two or three dimensional space.
+The time complexity of Barnes-Hut similarly improved from the original $\mathcal{O}(N^2)$ to a $\mathcal{O}(N \log{N})$.
+All operations on trees are either $\mathcal{O}(1)$ or $\mathcal{O}(\log{N})$ and thus result in a combined complexity of $\mathcal{O}(N \log{N})$ when repeated for all of the $N$ input data points.
+Other factors, such as the dimensionality $M$ and the number of iterations $T$, can be considered part of the input size $N$ or a constant factor respectively, and thus are not considered to describe the runtime of t-SNE.
 
-only 2D or 3D embeddings
-otherwise bad performance
-yielding from the Barnes-Hut tree structure
-spatial 
-
-
-It reduces the theoretical runtime from the previous $\mathcal{O}(N^2)$ to $\mathcal{O}(N \log(N))$.
-
-
-<!-- is an dimension reduction algorithm that maps data points with high dimensional complexity to lower dimensional representations. It tries to preserve locality in between the points while doing so.-->
-
-<!--O(N log(N)), O(N) Speicher-->
-
-<!--This allows for a theoretical and practical speed-up of the algorithm.-->
-
-
+Parallelizations of t-SNE are commonly in use.
+Besides the GPU parallelizations covered in the [related works section  1.2](#relatedworks), there are also parallel CPU implementations.
+The best performing one is Multicore t-SNE [@Ulyanov2016], an adoption of the source code released alongside the original Barnes-Hut t-SNE publication [^bhtsne_code].
+The repository states, that the biggest speedup can be made through the parallelization of the KNN search.
+In general the parallelization of t-SNE is dependent on parallelizing the used algorithms, KNN search and the Barnes-Hut algorithm.
 
 ### UMAP {#umap}
 Uniform Manifold Approximation and Projection, or UMAP for short, was introduced in 2018 by McInnes et al. [@umap].
-The algorithm was inspired by [t-SNE](#tsne), as stated in [@umap-talk-pydata], minute 16:35.
+The algorithm was inspired by [t-SNE](#tsne), as stated in [@umap-talk-pydata] (minute 16:35).
 The intention was to create a similar dimensionality reduction algorithm that is based on a mathematical foundation.
-As UMAP was introduced as late as 2018, no literature is available at the time of writing.
-The primary resources on UMAP, besides the publication itself, are the source code [repository](https://github.com/lmcinnes/umap/) and several talks of McInnes on the matter.
+As UMAP was introduced as late as 2018, no secondary literature is available at the time of writing.
+The primary resources on UMAP, besides the publication itself, are the source code repository[^code_umap] and a talk of McInnes on the matter.
 
-The math behind the algorithm will be not be discussed in detail here, since it is of no interest to this thesis' goals.
+The detailed math behind the algorithm will be not be discussed in detail here, since it is of no interest to this thesis' goals.
 Instead a broad outline will suffice.
 The primary focus is on explaining how the mathematical concepts are used, so that the analysis of their parallelization in the [following chapter](#methods-umap) is comprehensible.
 
+Conceptually UMAP takes a similar approach to t-SNE
 
 <!--Uniform Manifold Approximation and Projection, or UMAP for short, is a new dimensionality reduction algorithm, introduced in 2018 by McInnes et. al. [@umap].-->
 <!--It is building on mathematical principles of Riemannian geometry and algebraic topology.-->
@@ -267,7 +291,10 @@ add points to existing embedding
 <!--It can be used for other things than just visualization, as it allows for the usage of non-metric distance functions and can efficiently embed data into more than two dimensions.-->
 <!--UMAP also supports to map data into an existing embedding, without the need of reapplying the algorithm to the entire data set.-->
 
+combine different metric spaces
+turning all into fuzzy simplicial sets
 
+weight of edge = probability that edge exists
 
 
 
@@ -290,4 +317,5 @@ Additionally UMAP has less noise in between the clusters and shows no split clus
 
 ![Visualizations of data sets by PCA, t-SNE and UMAP. The figure is modified from the UMAP publication [@umap], figure 2.](figures/chapter2/modified_umap_graphic.png){#fig:viz_compare short-caption="Visualizations of data sets by PCA, t-SNE and UMAP."  width="100%"}
 
-[^note_perplexity]: However, the perplexity parameter has not been used for a kNN search in the original publication. Instead it was only used to normalize the found probability distributions $P_i$, which is also still the case for the Barnes-Hut version.
+[^bhtsne_code]: https://github.com/lvdmaaten/bhtsne, last accessed 20.04.2019
+[^code_umap]: https://github.com/lmcinnes/umap, last accessed 20.04.2019

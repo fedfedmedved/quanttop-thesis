@@ -62,12 +62,13 @@ Therefore a meaningful comparison with other implementations can not be made at 
 An online example[^pezzoti_online] using the algorithm exists.
 It allows to visualize parts of the MNIST dataset [@mnist].
 After the initialization phase every iteration step of the t-SNE algorithm can be seen.
-It provides a simple user interface to configure perplexity, the amount of k-nearest neighbor iterations and the amount of t-SNE iterations.
+It provides a simple user interface to configure perplexity and the amount of iterations.
 @fig:tfjs-tsne shows the outcome when the example is run with the default settings.
 
 
+<--! TODO what iterations KNN -->
 ![Graphical outcome of the online example of Pezzotti et al.'s t-SNE variation.
-  The used parameters were a perplexity of 30, 800 kNN iterations and 500 iterations.
+  The used parameters were a perplexity of 30, 800 KNN iterations and 500 t-SNE iterations.
   Visualized is a subset of the MNIST data set, consisting of 10.000 digits.
 ](figures/chapter1/pezzoti.png){#fig:tfjs-tsne short-caption="Visualization of an MNIST subset by Pezzotti et al.'s t-SNE variation" width="50%"}
 
@@ -93,17 +94,17 @@ Provided results show that it outperforms all available CPU versions of t-SNE si
 The publication claims a 50 times speedup over the fastest parallel CPU version and a 650 times speedup over a commonly used version.
 
 The t-SNE algorithm consists of two parts.
-First, a k-Nearest-Neighbor (kNN) search is performed.
+First, a K-Nearest-Neighbor (KNN) search is performed.
 From it a sparse representation of similarities between data points are created, based upon which data points are close to one another.
 In the second part a low-dimensional representation of the original data is formed.
 By measuring the similarities of the low-dimensional representation and comparing it to the similarities of the original input data, the low-dimensional representation is iteratively altered to represent the original data as accurately as possible.
 
-<!--kNN-->
-While the original t-SNE algorithm uses a tree data structure to perform a kNN search, CUDA-t-SNE uses the index-based approximate kNN algorithm provided by the FAISS library [@faiss].
-The library's algorithm runs on the GPU and outperforms other kNN search implementations.
+<!--KNN-->
+While the original t-SNE algorithm uses a tree data structure to perform a KNN search, CUDA-t-SNE uses the index-based approximate KNN algorithm provided by the FAISS library [@faiss].
+The library's algorithm runs on the GPU and outperforms other KNN search implementations.
 
 <!--sparse representation-->
-From the kNN search constructed data point similarities are stored in a sparse representation.
+From the KNN search constructed data point similarities are stored in a sparse representation.
 Most similarities are neglected, as they have too little impact on the outcome of the algorithm.
 Only a certain amount of nearest-neighbors are considered for each point.
 In consequence the similarities can be stored in a sparse representation, resulting in a linear storage requirement.
@@ -136,7 +137,7 @@ The performance column consists of times that the algorithm took to embed the fu
 |Implementation|Technology|Frontend|Performance|
 |-------------------|--------------|---------------|-----------------------------|
 | scikit-learn t-SNE [^scikit_src]|Python| Python / CLI  | 4556 seconds, see [@tsne-cuda]|
-| Multicore t-SNE [^multitsne_src]|C++, Python| Python / CLI  | 501 seconds, see [@tsne-cuda]|
+| Multicore t-SNE [@Ulyanov2016]|C++, Python| Python / CLI  | 501 seconds, see [@tsne-cuda]|
 | TensorFlow t-SNE |WebGL  |Browser / GUI| 300 seconds (estimation)|
 | t-SNE-CUDA       |CUDA|Python / CLI| 7 seconds, see [@tsne-cuda]|
 
@@ -147,6 +148,5 @@ The next section on the aims of the thesis tries to capture this.
 [^tensorflow_code]: https://github.com/tensorflow/tfjs, last accessed 20.04.2019
 [^pezzoti_online]: https://storage.googleapis.com/tfjs-examples/tsne-mnist-canvas/dist/index.html, last accessed 20.04.2019
 [^repo_tsne_cuda]: https://github.com/CannyLab/tsne-cuda, last accessed 20.04.2019
-[^multitsne_src]: https://github.com/DmitryUlyanov/Multicore-TSNE, last accessed 20.04.2019
 [^scikit_src]: https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html, last accessed 20.04.2019
 

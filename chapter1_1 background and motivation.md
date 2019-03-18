@@ -19,7 +19,6 @@ Overall t-SNE [@tsne] can be seen as the current state of the art algorithm.
 This can for example be seen in the big variety of existing implementations in a multitude of languages, some of which are listed on the creator van der Maaten's website[^website_vandermaaten].
 
 t-SNE provides very good graphical results, which is the reason for its widespread adoption for visualizations in respective fields.
-<!-- TODO maybe find some paper for this? -->
 The biggest downside is that it suffers from slow performance when compared to other dimensionality reduction algorithms, like PCA.
 Multiple attempts to improve this have been made.
 The approaches that try to parallelize t-SNE for GPUs are described in the [next section](#relatedworks).
