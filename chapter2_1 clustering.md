@@ -57,10 +57,12 @@ Algorithm \autoref{kmeans_algo} shows a pseudo code version of K-Means.
     
     \Do {centroid positions changed in iteration; but no more than I times}{
         \ForEach {$x_i \in \mathcal{X}$} {
-            assign data point $x_i$ to the cluster $\mu_j$ closest to it (minimize $||x_i - \mu_K||$ with $\mu_K \in \mathcal{C}$)
+            find cluster $\mu_j$ with minimal distance $||x_i - \mu_K||$
+
+            assign $x_i$ to $\mu_j$
         }
         \ForEach {$\mu_i \in \mathcal{C}$} {
-            recalculate cluster centroid $\mu_i$ by averaging all points belonging it
+            recalculate $\mu_i$ by averaging all points belonging to it
         }
     }
 \caption{K-Means}

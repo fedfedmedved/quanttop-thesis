@@ -65,12 +65,11 @@ After the initialization phase every iteration step of the t-SNE algorithm can b
 It provides a simple user interface to configure perplexity and the amount of iterations.
 @fig:tfjs-tsne shows the outcome when the example is run with the default settings.
 
-
-<--! TODO what iterations KNN -->
+<!-- TODO what iterations KNN -->
 ![Graphical outcome of the online example of Pezzotti et al.'s t-SNE variation.
   The used parameters were a perplexity of 30, 800 KNN iterations and 500 t-SNE iterations.
   Visualized is a subset of the MNIST data set, consisting of 10.000 digits.
-](figures/chapter1/pezzoti.png){#fig:tfjs-tsne short-caption="Visualization of an MNIST subset by Pezzotti et al.'s t-SNE variation" width="50%"}
+](figures/chapter1/pezzoti.png){#fig:tfjs-tsne short-caption="Visualization of an MNIST subset by Pezzotti et al.'s t-SNE variation." width="50%"}
 
 By measuring the GPU workload, an approximation on the running time was made.
 On a system with an Intel® Core™ i5-6200U CPU, which includes an Intel® HD Graphics 520 GPU, an execution of the algorithm took about 55 seconds.
@@ -128,18 +127,20 @@ The speedups compared to CPU versions are high and the graphical results are ind
 The previously listed works use two very different approaches on how to use GPUs to parallelize t-SNE.
 They diverge on many aspects, as the rundown in the following table shows.
 Additionally two variants of t-SNE are added for comparison.
-scikit-learn t-SNE is a popular Python implementation.
-It only supports sequential execution.
+One is part of the popular scikit-learn library [scikit-learning_rate].
+It is a Python implementation that only supports sequential execution.
 Multicore t-SNE on the other hand is a parallel implementation, that can run on multiple CPU cores.
-The results in listed in the table were achieved by using 4 CPU cores in parallel.
+The results listed in the table were achieved by using 4 CPU cores in parallel.
 The performance column consists of times that the algorithm took to embed the full MNIST data set.
 
 |Implementation|Technology|Frontend|Performance|
-|-------------------|--------------|---------------|-----------------------------|
+|---------------------|--------------|---------------|--------------------------|
 | scikit-learn t-SNE [^scikit_src]|Python| Python / CLI  | 4556 seconds, see [@tsne-cuda]|
-| Multicore t-SNE [@Ulyanov2016]|C++, Python| Python / CLI  | 501 seconds, see [@tsne-cuda]|
+| Multicore t-SNE [@Ulyanov2016]  |C++, Python| Python / CLI  | 501 seconds, see [@tsne-cuda]|
 | TensorFlow t-SNE |WebGL  |Browser / GUI| 300 seconds (estimation)|
 | t-SNE-CUDA       |CUDA|Python / CLI| 7 seconds, see [@tsne-cuda]|
+
+<!--TODO fix no new row multicore-->
 
 All things considered, this thesis will strive to follow the paths of the t-SNE-CUDA work.
 The next section on the aims of the thesis tries to capture this.

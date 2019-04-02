@@ -1,5 +1,48 @@
 ---
 references:
+- id: scikit-learn
+  type: article-journal
+  author:
+  - family: Pedregosa
+    given: F.
+  - family: Varoquaux
+    given: G.
+  - family: Gramfort
+    given: A.
+  - family: Michel
+    given: V.
+  - family: Thirion
+    given: B.
+  - family: Grisel
+    given: O.
+  - family: Blondel
+    given: M.
+  - family: Prettenhofer
+    given: P.
+  - family: Weiss
+    given: R.
+  - family: Dubourg
+    given: V.
+  - family: Vanderplas
+    given: J.
+  - family: Passos
+    given: A.
+  - family: Cournapeau
+    given: D.
+  - family: Brucher
+    given: M.
+  - family: Perrot
+    given: M.
+  - family: Duchesnay
+    given: E.
+  issued:
+  - year: 2011
+  title: 'Scikit-learn: Machine learning in Python'
+  title-short: Scikit-learn
+  container-title: Journal of Machine Learning Research
+  page: 2825-2830
+  volume: '12'
+
 - id: cublas
   type: article-journal
   author:
@@ -69,7 +112,63 @@ references:
   - year: 1996
   title: Columbia Object Image Library (COIL-20)
   publisher: Columbia University
-  URL: http://www1.cs.columbia.edu/CAVE/publications/pdfs/Nene{\_}TR96.pdf
+  URL: http://www1.cs.columbia.edu/CAVE/publications/pdfs/Nene_TR96.pdf
+
+- id: Yianilos1993
+  type: paper-conference
+  author:
+  - family: Yianilos
+    given: Peter
+  issued:
+  - year: 1993
+  title: <span class="nocase">Data Structures and Algorithms for Nearest Neighbor
+    Search in General Metric Spaces</span>
+  container-title: Proceedings of the acm-siam symposium on discrete algorithms
+  page: 311-321
+  URL: http://web.cs.iastate.edu/~honavar/nndatastructures.pdf
+
+- id: umap-talk-pydata
+  type: no-type
+  author:
+  - family: McInnes
+    given: Leland
+  issued:
+  - year: 2018
+  title: '<span class="nocase">PyData Ann Arbor: Leland McInnes \| PCA, t-SNE, and
+    UMAP: Modern Approaches to Dimension Reduction \[Video file\]</span>'
+  URL: https://www.youtube.com/watch?v=YPJQydzTLwQ
+
+- id: Ulyanov2016
+  type: no-type
+  author:
+  - family: Ulyanov
+    given: Dmitry
+  issued:
+  - year: 2016
+  title: Multicore-TSNE
+  publisher: GitHub
+  URL: https://github.com/DmitryUlyanov/Multicore-TSNE
+
+- id: Andrecut2008
+  type: article-journal
+  author:
+  - family: Andrecut
+    given: M.
+  issued:
+  - year: 2008
+  title: <span class="nocase">Parallel GPU Implementation of Iterative PCA Algorithms</span>
+  abstract: Principal component analysis (PCA) is a key statistical technique for
+    multivariate data analysis. For large data sets the common approach to PCA computation
+    is based on the standard NIPALS-PCA algorithm, which unfortunately suffers from
+    loss of orthogonality, and therefore its applicability is usually limited to the
+    estimation of the first few components. Here we present an algorithm based on
+    Gram-Schmidt orthogonalization (called GS-PCA), which eliminates this shortcoming
+    of NIPALS-PCA. Also, we discuss the GPU (Graphics Processing Unit) parallel implementation
+    of both NIPALS-PCA and GS-PCA algorithms. The numerical results show that the
+    GPU parallel optimized versions, based on CUBLAS (NVIDIA) are substantially faster
+    (up to 12 times) than the CPU optimized versions based on CBLAS (GNU Scientific
+    Library).
+  URL: http://arxiv.org/abs/0811.1081
 
 - id: sne
   type: article-journal
@@ -85,19 +184,6 @@ references:
   page: 833-840
   volume: '15'
   URL: http://papers.nips.cc/paper/2276-stochastic-neighbor-embedding.pdf
-
-- id: Yianilos1993
-  type: paper-conference
-  author:
-  - family: Yianilos
-    given: Peter
-  issued:
-  - year: 1993
-  title: <span class="nocase">Data Structures and Algorithms for Nearest Neighbor
-    Search in General Metric Spaces</span>
-  container-title: Proceedings of the acm-siam symposium on discrete algorithms
-  page: 311-321
-  URL: http://web.cs.iastate.edu/{~}honavar/nndatastructures.pdf
 
 - id: Gotz2015
   type: article-journal
@@ -176,7 +262,6 @@ references:
   - year: 2012
   title: <span class="nocase">Introduction to Information Retrieval</span>
   publisher: Cambridge University Press
-  URL: https:/978-0521865715/nlp.stanford.edu/IR-book/
   DOI: 10.1017/CBO9780511809071
   ISBN: '9780511809071'
 
@@ -257,7 +342,6 @@ references:
   keyword: 10,4 snake-shaped clusters,algorithm,dbscan,density-based clustering,examples
     of density-based clustering,figure 1,from,the left one contains,while the right
     one
-  URL: http://dl.acm.org/citation.cfm?doid=2723372.2737792
   DOI: 10.1145/2723372.2737792
   ISBN: '9781450327589'
 
@@ -286,27 +370,36 @@ references:
   DOI: 10.1007/s10994-009-5103-0
   ISSN: '08856125'
 
-- id: Ulyanov2016
-  type: no-type
+- id: rptrees
+  type: article-journal
   author:
-  - family: Ulyanov
-    given: Dmitry
+  - family: Dasgupta
+    given: Sanjoy
+  - family: Freund
+    given: Yoav
   issued:
-  - year: 2016
-  title: Multicore-TSNE
-  publisher: GitHub
-  URL: https://github.com/DmitryUlyanov/Multicore-TSNE
+  - year: 2008
+  title: <span class="nocase">Random Projection Trees and Low Dimensional Manifolds</span>
+  URL: http://cseweb.ucsd.edu/{~}dasgupta/papers/rptree-stoc.pdf
 
-- id: umap-talk-pydata
-  type: no-type
+- id: Dong2011
+  type: paper-conference
   author:
-  - family: McInnes
-    given: Leland
+  - family: Dong
+    given: Wei
+  - family: Charikar
+    given: Moses
+  - family: Li
+    given: Kai
   issued:
-  - year: 2018
-  title: '<span class="nocase">PyData Ann Arbor: Leland McInnes \| PCA, t-SNE, and
-    UMAP: Modern Approaches to Dimension Reduction \[Video file\]</span>'
-  URL: https://www.youtube.com/watch?v=YPJQydzTLwQ
+  - year: 2011
+  title: <span class="nocase">Efficient K-Nearest Neighbor Graph Construction for
+    Generic Similarity Measures</span>
+  container-title: Proceedings of the 20th international conference on world wide
+    web
+  page: 577-586
+  keyword: arbitrary similarity measure,iter-,k -nearest neighbor graph
+  DOI: 10.1145/1963405.1963487
 
 - id: Bishop2007
   type: book
