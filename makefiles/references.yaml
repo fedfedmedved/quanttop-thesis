@@ -1,5 +1,200 @@
 ---
 references:
+- id: tsne
+  type: article-journal
+  author:
+  - family: Van Der Maaten
+    given: Laurens
+  - family: Hinton
+    given: Geoffrey
+  issued:
+  - year: 2008
+  accessed:
+  - year: 2019
+    month: 3
+    day: 18
+  title: <span class="nocase">Visualizing High-Dimensional Data Using t-SNE</span>
+  container-title: Journal of Machine Learning Research
+  page: 2579-2605
+  volume: '9'
+  URL: http://www.jmlr.org/papers/v9/vandermaaten08a.html
+
+- id: umap
+  type: article-journal
+  author:
+  - family: McInnes
+    given: L.
+  - family: Healy
+    given: J.
+  - family: Melville
+    given: J.
+  issued:
+  - year: 2018
+  title: '<span class="nocase">UMAP: Uniform Manifold Approximation and Projection
+    for Dimension Reduction</span>'
+  container-title: ArXiv e-prints
+  URL: http://arxiv.org/abs/1802.03426
+
+- id: Pezzotti2018
+  type: article-journal
+  author:
+  - family: Pezzotti
+    given: Nicola
+  - family: Mordvintsev
+    given: Alexander
+  - family: Hollt
+    given: Thomas
+  - family: Lelieveldt
+    given: Boudewijn P. F.
+  - family: Eisemann
+    given: Elmar
+  - family: Vilanova
+    given: Anna
+  issued:
+  - year: 2018
+  title: <span class="nocase">Linear tSNE Optimization for the Web</span>
+  container-title: ArXiv preprint
+  URL: http://arxiv.org/abs/1805.10817
+
+- id: webgl
+  type: no-type
+  author:
+  - literal: Mozilla Foundation
+  accessed:
+  - year: 2019
+    month: 4
+    day: 17
+  title: WebGL
+  URL: https://www.khronos.org/webgl/
+
+- id: mnist
+  type: article-journal
+  author:
+  - family: Lecun
+    given: Y.
+  - family: Bottou
+    given: L.
+  - family: Bengio
+    given: Y.
+  - family: Haffner
+    given: P.
+  issued:
+  - year: 1998
+    month: 11
+  accessed:
+  - year: 2019
+    month: 4
+    day: 17
+  title: <span class="nocase">Gradient-Based Learning Applied to Document Recognition</span>
+  container-title: Proceedings of the IEEE
+  page: 2278-2324
+  volume: '86'
+  issue: '11'
+  URL: http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf
+  DOI: 10.1109/5.726791
+  ISSN: 0018-9219
+
+- id: tsne-cuda
+  type: article-journal
+  author:
+  - family: Chan
+    given: David M.
+  - family: Rao
+    given: Roshan
+  - family: Huang
+    given: Forrest
+  - family: Canny
+    given: John F.
+  issued:
+  - year: 2018
+  title: '<span class="nocase">t-SNE-CUDA: GPU-Accelerated t-SNE and its Applications
+    to Modern Data</span>'
+  container-title: ArXiv preprint
+  URL: http://arxiv.org/abs/1807.11824
+
+- id: cuda
+  type: article-journal
+  author:
+  - family: Nickolls
+    given: John
+  - family: Buck
+    given: Ian
+  - family: Garland
+    given: Michael
+  - family: Skadron
+    given: Kevin
+  issued:
+  - year: 2008
+    month: 3
+  title: <span class="nocase">Scalable Parallel Programming with CUDA</span>
+  container-title: Queue
+  publisher: ACM
+  publisher-place: New York, NY, USA
+  page: 40-53
+  volume: '6'
+  issue: '2'
+  DOI: 10.1145/1365490.1365500
+  ISSN: 1542-7730
+
+- id: faiss
+  type: article-journal
+  author:
+  - family: Johnson
+    given: Jeff
+  - family: Douze
+    given: Matthijs
+  - family: Jégou
+    given: Hervé
+  issued:
+  - year: 2017
+  title: <span class="nocase">Billion-scale similarity search with GPUs</span>
+  container-title: ArXiv preprint
+  URL: http://arxiv.org/abs/1702.08734
+
+- id: cublas
+  type: article-journal
+  author:
+  - literal: NVIDIA Corporation
+  accessed:
+  - year: 2019
+    month: 4
+    day: 17
+  title: CUBLAS Library
+  URL: https://docs.nvidia.com/cuda/cublas/
+
+- id: Barnes1986
+  type: article-journal
+  author:
+  - family: Barnes
+    given: J.
+  - family: Hut
+    given: P.
+  issued:
+  - year: 1986
+    month: 12
+  title: <span class="nocase">A Hierarchical O(N log N) Force-Calculation Algorithm</span>
+  container-title: Nature
+  publisher: Nature Publishing Group
+  page: 446-449
+  volume: '324'
+  DOI: 10.1038/324446a0
+
+- id: Burtscher2011
+  type: article-journal
+  author:
+  - family: Burtscher
+    given: Martin
+  - family: Pingali
+    given: Keshav
+  issued:
+  - year: 2011
+  title: <span class="nocase">An Efficient CUDA Implementation of the Tree-Based Barnes
+    Hut n-Body Algorithm</span>
+  container-title: GPU Computing Gems Emerald Edition
+  page: 75-92
+  DOI: 10.1016/B978-0-12-384988-5.00006-1
+  ISBN: '9780123849885'
+
 - id: scikit-learn
   type: article-journal
   author:
@@ -37,44 +232,33 @@ references:
     given: E.
   issued:
   - year: 2011
-  title: 'Scikit-learn: Machine learning in Python'
-  title-short: Scikit-learn
+  title: '<span class="nocase">Scikit-learn: Machine Learning in Python</span>'
   container-title: Journal of Machine Learning Research
   page: 2825-2830
   volume: '12'
 
-- id: cublas
-  type: article-journal
+- id: Ulyanov2016
+  type: no-type
   author:
-  - literal: NVIDIA Corporation
-  title: CUBLAS Library
-  URL: https://docs.nvidia.com/cuda/cublas/
+  - family: Ulyanov
+    given: Dmitry
+  issued:
+  - year: 2016
+  title: Multicore-TSNE
+  container-title: GitHub repository
+  publisher: <https://github.com/DmitryUlyanov/Multicore-TSNE>; GitHub
 
-- id: cuda
+- id: rptrees
   type: article-journal
   author:
-  - family: Nickolls
-    given: John
-  - family: Buck
-    given: I a N
-  - family: Garland
-    given: Michael
+  - family: Dasgupta
+    given: Sanjoy
+  - family: Freund
+    given: Yoav
   issued:
   - year: 2008
-  title: <span class="nocase">Scalable Parallel Programming with CUDA</span>
-  container-title: Queue - GPU Computing
-  page: 40-53
-  volume: '6'
-  issue: April
-  abstract: The advent of multicore CPUs and manycore GPUs means that mainstream processor
-    chips are now parallel systems. Furthermore, their parallelism continues to scale
-    with Moore’s law. The challenge is to develop mainstream application software
-    that transparently scales its parallelism to leverage the increasing number of
-    processor cores, much as 3D graphics applications transparently scale their parallelism
-    to manycore GPUs with widely varying numbers of cores.
-  URL: http://www.doi.org/10.1145/1365490.1365500
-  DOI: 10.1145/1365490.1365500
-  ISSN: 1542-7730
+  title: <span class="nocase">Random Projection Trees and Low Dimensional Manifolds</span>
+  URL: http://cseweb.ucsd.edu/{~}dasgupta/papers/rptree-stoc.pdf
 
 - id: thrust
   type: article-journal
@@ -87,183 +271,6 @@ references:
   - year: 2008
   title: NVIDIA Research Thrust
   URL: https://developer.download.nvidia.com/CUDA/training/introductiontothrust.pdf
-
-- id: webgl
-  type: no-type
-  author:
-  - literal: Mozilla Foundation
-  accessed:
-  - year: 2019
-    month: 3
-    day: 18
-  title: WebGL
-  URL: https://www.khronos.org/webgl/
-
-- id: coil20
-  type: report
-  author:
-  - family: Nene
-    given: S. A.
-  - family: Nayar
-    given: S. K.
-  - family: Murase
-    given: H.
-  issued:
-  - year: 1996
-  title: Columbia Object Image Library (COIL-20)
-  publisher: Columbia University
-  URL: http://www1.cs.columbia.edu/CAVE/publications/pdfs/Nene_TR96.pdf
-
-- id: Yianilos1993
-  type: paper-conference
-  author:
-  - family: Yianilos
-    given: Peter
-  issued:
-  - year: 1993
-  title: <span class="nocase">Data Structures and Algorithms for Nearest Neighbor
-    Search in General Metric Spaces</span>
-  container-title: Proceedings of the acm-siam symposium on discrete algorithms
-  page: 311-321
-  URL: http://web.cs.iastate.edu/~honavar/nndatastructures.pdf
-
-- id: umap-talk-pydata
-  type: no-type
-  author:
-  - family: McInnes
-    given: Leland
-  issued:
-  - year: 2018
-  title: '<span class="nocase">PyData Ann Arbor: Leland McInnes \| PCA, t-SNE, and
-    UMAP: Modern Approaches to Dimension Reduction \[Video file\]</span>'
-  URL: https://www.youtube.com/watch?v=YPJQydzTLwQ
-
-- id: Ulyanov2016
-  type: no-type
-  author:
-  - family: Ulyanov
-    given: Dmitry
-  issued:
-  - year: 2016
-  title: Multicore-TSNE
-  publisher: GitHub
-  URL: https://github.com/DmitryUlyanov/Multicore-TSNE
-
-- id: Andrecut2008
-  type: article-journal
-  author:
-  - family: Andrecut
-    given: M.
-  issued:
-  - year: 2008
-  title: <span class="nocase">Parallel GPU Implementation of Iterative PCA Algorithms</span>
-  abstract: Principal component analysis (PCA) is a key statistical technique for
-    multivariate data analysis. For large data sets the common approach to PCA computation
-    is based on the standard NIPALS-PCA algorithm, which unfortunately suffers from
-    loss of orthogonality, and therefore its applicability is usually limited to the
-    estimation of the first few components. Here we present an algorithm based on
-    Gram-Schmidt orthogonalization (called GS-PCA), which eliminates this shortcoming
-    of NIPALS-PCA. Also, we discuss the GPU (Graphics Processing Unit) parallel implementation
-    of both NIPALS-PCA and GS-PCA algorithms. The numerical results show that the
-    GPU parallel optimized versions, based on CUBLAS (NVIDIA) are substantially faster
-    (up to 12 times) than the CPU optimized versions based on CBLAS (GNU Scientific
-    Library).
-  URL: http://arxiv.org/abs/0811.1081
-
-- id: sne
-  type: article-journal
-  author:
-  - family: Hinton
-    given: G. E.
-  - family: Roweis
-    given: S. T.
-  issued:
-  - year: 2002
-  title: Stochastic Neighbor Embedding
-  container-title: Advances in Neural Information Processing Systems
-  page: 833-840
-  volume: '15'
-  URL: http://papers.nips.cc/paper/2276-stochastic-neighbor-embedding.pdf
-
-- id: Gotz2015
-  type: article-journal
-  author:
-  - family: Götz
-    given: Markus
-  - family: Bodenstein
-    given: Christian
-  - family: Riedel
-    given: Morris
-  issued:
-  - year: 2015
-  title: HPDBSCAN – Highly Parallel DBSCAN
-  DOI: 10.1145/2834892.2834894
-
-- id: Jolliffe2002
-  type: article-journal
-  author:
-  - family: Jolliffe
-    given: I T
-  issued:
-  - year: 2002
-  title: Principal Component Analysis, Second Edition
-  container-title: Springer Series in Statistics
-  page: '487'
-  volume: '98'
-  abstract: Principal component analysis is central to the study of multivariate data.
-    Although one of the earliest multivariate techniques it continues to be the subject
-    of much research, ranging from new model- based approaches to algorithmic ideas
-    from neural networks. It is extremely versatile with applications in many disciplines.
-    The first edition of this book was the first comprehensive text written solely
-    on principal component analysis. The second edition updates and substantially
-    expands the original version, and is once again the definitive text on the subject.
-    It includes core material, current research and a wide range of applications.
-    Its length is nearly double that of the first edition. Researchers in statistics,
-    or in other fields that use principal component analysis, will find that the book
-    gives an authoritative yet accessible account of the subject. It is also a valuable
-    resource for graduate courses in multivariate analysis. The book requires some
-    knowledge of matrix algebra. Ian Jolliffe is Professor of Statistics at the University
-    of Aberdeen. He is author or co-author of over 60 research papers and three other
-    books. His research interests are broad, but aspects of principal component analysis
-    have fascinated him and kept him busy for over 30 years.
-  keyword: principal component analysis,statistical theory methods
-  URL: http://link.springer.com/10.1007/b98835
-  DOI: 10.1007/b98835
-  ISBN: 0-387-95442-2
-  ISSN: '01621459'
-  PMID: '21674720'
-
-- id: Arthur2007
-  type: paper-conference
-  author:
-  - family: Arthur
-    given: David
-  - family: Vassilvitskii
-    given: Sergei
-  issued:
-  - year: 2007
-  title: '<span class="nocase">k-means++: The Advantages of Careful Seeding</span>'
-  container-title: Proceedings of the eighteenth annual acm-siam symposium on discrete
-    algorithms
-  publisher: Society for Industrial; Applied Mathematics Philadelphia
-  page: 1027-1035
-  URL: http://portal.acm.org/citation.cfm?id=1283494
-
-- id: Manning2012
-  type: book
-  author:
-  - family: Manning
-    given: Christopher D.
-  - family: Raghavan
-    given: Prabhakar
-  - family: Schütze
-    given: Hinrich
-  issued:
-  - year: 2012
-  title: <span class="nocase">Introduction to Information Retrieval</span>
-  publisher: Cambridge University Press
-  DOI: 10.1017/CBO9780511809071
-  ISBN: '9780511809071'
 
 - id: Heer2010
   type: article-journal
@@ -281,69 +288,58 @@ references:
   page: 59-67
   volume: '53'
   issue: '5'
-  abstract: A survey of powerful visualization techniques, from the obvious to the
-    obscure.
   URL: http://arxiv.org/abs/arXiv:1011.1669v3
   DOI: 10.1145/1743546
-  ISBN: '00010782'
-  ISSN: '00010782'
-  PMID: '15224215'
 
-- id: dbscan
-  type: paper-conference
-  author:
-  - family: Ester
-    given: Martin
-  - family: Kriegel
-    given: Hans-Peter
-  - family: Sander
-    given: Jörg
-  - family: Xu
-    given: Xiaowei
-  issued:
-  - year: 1996
-  title: <span class="nocase">A Density-Based Algorithm for Discovering Clusters in
-    Large Spatial Databases with Noise</span>
-  container-title: Proceedings of the second international conference on knowledge
-    discovery and data mining
-  publisher: AAAI Press
-  page: 226—-231
-  DOI: 10.1.1.121.9220
-
-- id: Gan2015
+- id: Lloyd1982
   type: article-journal
   author:
-  - family: Gan
-    given: Junhao
-  - family: Tao
-    given: Yufei
+  - family: Lloyd
+    given: Stuart P.
   issued:
-  - year: 2015
-  title: '<span class="nocase">DBSCAN Revisited: Mis-Claim, Un-Fixablility, and Approxmimation</span>'
-  container-title: Sigmod
-  page: 519-530
-  abstract: DBSCAN is a popular method for clustering multi-dimensional objects. Just
-    as notable as the method’s vast success is the research community’s quest for
-    its efficient computation. The original KDD’96 paper claimed an algorithm with
-    O(n log n) running time, where n is the number of objects. Unfortunately, this
-    is a mis-claim; and that algorithm actually requires O(n 2) time. There has been
-    a fix in 2D space, where a genuine O(n log n)-time algorithm has been found. Looking
-    for a fix for dimensionality d ≥ 3 is currently an important open problem. In
-    this paper, we prove that for d ≥ 3, the DBSCAN problem requires Ω(n 4/3) time
-    to solve, unless very significant breakthroughs—ones widely believed to be impossible—could
-    be made in theoretical computer science. This (i) explains why the community’s
-    search for fixing the aforementioned mis-claim has been futile for d ≥ 3, and
-    (ii) indicates (sadly) that all DBSCAN algorithms must be intolerably slow even
-    on moderately large n in practice. Surprisingly, we show that the running time
-    can be dramatically brought down to O(n) in expectation regardless of the dimensionality
-    d, as soon as slight inaccuracy in the clustering results is permitted. We formalize
-    our findings into the new notion of $\rho$-approximate DBSCAN, which we believe
-    should replace DBSCAN on big data due to the latter’s computational intractability.
-  keyword: 10,4 snake-shaped clusters,algorithm,dbscan,density-based clustering,examples
-    of density-based clustering,figure 1,from,the left one contains,while the right
-    one
-  DOI: 10.1145/2723372.2737792
-  ISBN: '9781450327589'
+  - year: 1982
+  title: <span class="nocase">Least Squares Quantization in PCM</span>
+  container-title: IEEE Transactions on Information Theory
+  page: 129-137
+  volume: '28'
+  issue: '2'
+  DOI: 10.1109/TIT.1982.1056489
+
+- id: Manning2012
+  type: book
+  author:
+  - family: Manning
+    given: Christopher D.
+  - family: Raghavan
+    given: Prabhakar
+  - family: Schütze
+    given: Hinrich
+  issued:
+  - year: 2012
+  title: <span class="nocase">Introduction to Information Retrieval</span>
+  publisher: Cambridge University Press
+  DOI: 10.1017/CBO9780511809071
+  ISBN: '9780511809071'
+
+- id: Arthur2007
+  type: paper-conference
+  author:
+  - family: Arthur
+    given: David
+  - family: Vassilvitskii
+    given: Sergei
+  issued:
+  - year: 2007
+  accessed:
+  - year: 2019
+    month: 4
+    day: 17
+  title: '<span class="nocase">k-means++: The Advantages of Careful Seeding</span>'
+  container-title: Proceedings of the eighteenth annual acm-siam symposium on discrete
+    algorithms
+  publisher: Society for Industrial; Applied Mathematics Philadelphia
+  page: 1027-1035
+  URL: http://portal.acm.org/citation.cfm?id=1283494
 
 - id: Aloise2009
   type: article-journal
@@ -363,24 +359,195 @@ references:
   page: 245-248
   volume: '75'
   issue: '2'
-  abstract: A recent proof of NP-hardness of Euclidean sum-of-squares clustering,
-    due to Drineas et al. (Mach. Learn. 56:9–33, 2004), is not valid. An alternate
-    short proof is pro-vided.
-  keyword: Clustering,Complexity,Sum-of-squares
   DOI: 10.1007/s10994-009-5103-0
-  ISSN: '08856125'
 
-- id: rptrees
+- id: Bishop2007
+  type: book
+  author:
+  - family: Bishop
+    given: Christopher M
+  issued:
+  - year: 2007
+  title: <span class="nocase">Pattern Recognition and Machine Learning</span>
+  collection-number: '4'
+  volume: '16'
+  DOI: 10.1117/1.2819119
+  ISBN: '9780387310732'
+  ISSN: 1017-9909
+  PMID: '8943268'
+
+- id: dbscan
+  type: paper-conference
+  author:
+  - family: Ester
+    given: Martin
+  - family: Kriegel
+    given: Hans-Peter
+  - family: Sander
+    given: Jörg
+  - family: Xu
+    given: Xiaowei
+  issued:
+  - year: 1996
+  title: <span class="nocase">A Density-Based Algorithm for Discovering Clusters in
+    Large Spatial Databases with Noise</span>
+  container-title: Proceedings of the second international conference on knowledge
+    discovery and data mining
+  publisher: AAAI Press
+  page: 226-231
+  DOI: 10.1.1.121.9220
+
+- id: Gan2015
   type: article-journal
   author:
-  - family: Dasgupta
-    given: Sanjoy
-  - family: Freund
-    given: Yoav
+  - family: Gan
+    given: Junhao
+  - family: Tao
+    given: Yufei
+  issued:
+  - year: 2015
+  accessed:
+  - year: 2019
+    month: 4
+    day: 17
+  title: '<span class="nocase">DBSCAN Revisited: Mis-Claim, Un-Fixablility, and Approxmimation</span>'
+  container-title: Sigmod
+  page: 519-530
+  URL: https://dl.acm.org/citation.cfm?id=2737792
+  DOI: 10.1145/2723372.2737792
+  ISBN: '9781450327589'
+
+- id: Gotz2015
+  type: paper-conference
+  author:
+  - family: Götz
+    given: Markus
+  - family: Bodenstein
+    given: Christian
+  - family: Riedel
+    given: Morris
+  issued:
+  - year: 2015
+  title: 'HPDBSCAN: Highly parallel dbscan'
+  title-short: HPDBSCAN
+  container-title: <span class="nocase">Proceedings of the Workshop on Machine Learning
+    in High-Performance Computing Environments</span>
+  publisher: ACM
+  page: 2:1-2:10
+  DOI: 10.1145/2834892.2834894
+
+- id: bhtsne
+  type: article-journal
+  author:
+  - family: Van Der Maaten
+    given: Laurens
+  issued:
+  - year: 2014
+  accessed:
+  - year: 2019
+    month: 4
+    day: 17
+  title: <span class="nocase">Accelerating t-SNE using Tree-Based Algorithms</span>
+  container-title: Journal of Machine Learning Research
+  page: 3221-3245
+  volume: '15'
+  issue: '2014'
+  URL: http://jmlr.org/papers/v15/vandermaaten14a.html
+  ISSN: 1532-4435
+
+- id: Jolliffe2002
+  type: article-journal
+  author:
+  - family: Jolliffe
+    given: I T
+  issued:
+  - year: 2002
+  title: Principal Component Analysis, Second Edition
+  container-title: Springer Series in Statistics
+  page: '487'
+  volume: '98'
+  DOI: 10.1007/b98835
+  ISBN: 0-387-95442-2
+  ISSN: '01621459'
+  PMID: '21674720'
+
+- id: Andrecut2008
+  type: article-journal
+  author:
+  - family: Andrecut
+    given: M.
   issued:
   - year: 2008
-  title: <span class="nocase">Random Projection Trees and Low Dimensional Manifolds</span>
-  URL: http://cseweb.ucsd.edu/{~}dasgupta/papers/rptree-stoc.pdf
+  title: <span class="nocase">Parallel GPU Implementation of Iterative PCA Algorithms</span>
+  container-title: ArXiv preprint
+  URL: http://arxiv.org/abs/0811.1081
+
+- id: sne
+  type: article-journal
+  author:
+  - family: Hinton
+    given: G. E.
+  - family: Roweis
+    given: S. T.
+  issued:
+  - year: 2002
+  accessed:
+  - year: 2019
+    month: 4
+    day: 17
+  title: Stochastic Neighbor Embedding
+  container-title: Advances in Neural Information Processing Systems
+  page: 833-840
+  volume: '15'
+  URL: http://papers.nips.cc/paper/2276-stochastic-neighbor-embedding.pdf
+
+- id: coil20
+  type: report
+  author:
+  - family: Nene
+    given: S. A.
+  - family: Nayar
+    given: S. K.
+  - family: Murase
+    given: H.
+  issued:
+  - year: 1996
+  accessed:
+  - year: 2019
+    month: 4
+    day: 17
+  title: Columbia Object Image Library (COIL-20)
+  publisher: Columbia University
+  URL: http://www1.cs.columbia.edu/CAVE/publications/pdfs/Nene_TR96.pdf
+
+- id: Yianilos1993
+  type: paper-conference
+  author:
+  - family: Yianilos
+    given: Peter
+  issued:
+  - year: 1993
+  accessed:
+  - year: 2019
+    month: 4
+    day: 17
+  title: <span class="nocase">Data Structures and Algorithms for Nearest Neighbor
+    Search in General Metric Spaces</span>
+  container-title: <span class="nocase">Proceedings of the ACM-SIAM Symposium on Discrete
+    Algorithms</span>
+  page: 311-321
+  URL: http://web.cs.iastate.edu/~honavar/nndatastructures.pdf
+
+- id: umap-talk-pydata
+  type: no-type
+  author:
+  - family: McInnes
+    given: Leland
+  issued:
+  - year: 2018
+  title: '<span class="nocase">PyData Ann Arbor: Leland McInnes \| PCA, t-SNE, and
+    UMAP: Modern Approaches to Dimension Reduction \[Video file\]</span>'
+  URL: https://www.youtube.com/watch?v=YPJQydzTLwQ
 
 - id: Dong2011
   type: paper-conference
@@ -398,314 +565,26 @@ references:
   container-title: Proceedings of the 20th international conference on world wide
     web
   page: 577-586
-  keyword: arbitrary similarity measure,iter-,k -nearest neighbor graph
   DOI: 10.1145/1963405.1963487
 
-- id: Bishop2007
-  type: book
-  author:
-  - family: Bishop
-    given: Christopher M
-  issued:
-  - year: 2007
-  title: <span class="nocase">Pattern Recognition and Machine Learning</span>
-  collection-number: '4'
-  page: '049901'
-  volume: '16'
-  abstract: $\backslash$nThis book provides an introduction to the field of pattern
-    recognition and machine learning. It gives an overview of several basic and advanced
-    topics in machine learning theory. The book is definitely valuable to scientists
-    and engineers who are involved in developing machine learning tools applied to
-    signal and image processing applications. This book is also suitable for courses
-    on machine learning and pattern recognition, designed for advanced undergraduates
-    or PhD students. No previous knowledge of machine learning concepts or algorithms
-    is assumed, but readers need some knowledge of calculus and linear algebra. The
-    book is complemented by a great deal of additional supports for instructors and
-    students. The supports include solutions to the exercises in each chapter, the
-    example data sets used throughout the book and the forthcoming companion book
-    that deals with practical and software implementations of the key algorithms.
-    A strong point of this book is that the mathematical expressions or algorithms
-    are usually accompanied with colorful graphs and figures. This definitely helps
-    to communicate the concepts much better to the students or the interested researchers
-    than pure description of the algorithms. The book also provides an interesting
-    short biography of the key scientists and mathematicians who have contributed
-    historically to the basic mathematical concepts and methods in each chapter.$\backslash$n
-  URL: http://www.doi.org/10.1117/1.2819119
-  DOI: 10.1117/1.2819119
-  ISBN: '9780387310732'
-  ISSN: 1017-9909
-  PMID: '8943268'
-
-- id: faiss
+- id: Aumuller2017
   type: article-journal
   author:
-  - family: Johnson
-    given: Jeff
-  - family: Douze
-    given: Matthijs
-  - family: Jégou
-    given: Hervé
+  - family: Aumüller
+    given: Martin
+  - family: Bernhardsson
+    given: Erik
+  - family: Faithfull
+    given: Alexander
   issued:
   - year: 2017
-  title: <span class="nocase">Billion-scale similarity search with GPUs</span>
-  URL: http://arxiv.org/abs/1702.08734
-
-- id: mnist
-  type: article-journal
-  author:
-  - family: Lecun
-    given: Yann
-  - family: Bottou
-    given: Léon
-  - family: Bengio
-    given: Yoshua
-  - family: Haffner
-    given: Patrick
-  issued:
-  - year: 1998
-  title: <span class="nocase">Gradient-Based Learning Applied to Document Recognition</span>
-  page: 2278-2324
-  volume: '86'
-  issue: '11'
-  keyword: character recognition,convolutional neural networks,document recog-,finite
-    state transducers,gradient-based learning,graph,machine learning,neural networks,nition,ocr,optical,transformer
-    networks
-  URL: http://www.doi.org/10.1109/5.726791
-  DOI: 10.1109/5.726791
-
-- id: umap
-  type: article-journal
-  author:
-  - family: McInnes
-    given: Leland
-  - family: Healy
-    given: John
-  issued:
-  - year: 2018
-  title: '<span class="nocase">UMAP: Uniform Manifold Approximation and Projection
-    for Dimension Reduction</span>'
-  page: 1-18
-  abstract: UMAP (Uniform Manifold Approximation and Projection) is a novel manifold
-    learning technique for dimension reduction. UMAP is constructed from a theoretical
-    framework based in Riemannian geometry and algebraic topology. The result is a
-    practical scalable algorithm that applies to real world data. The UMAP algorithm
-    is competitive with t-SNE for visualization quality, and arguably preserves more
-    of the global structure with superior run time performance. Furthermore, UMAP
-    as described has no computational restrictions on embedding dimension, making
-    it viable as a general purpose dimension reduction technique for machine learning.
-  URL: http://www.doi.org/10.21105/joss.00861
-  DOI: 10.21105/joss.00861
-  ISSN: 2475-9066
-
-- id: Burtscher2011
-  type: article-journal
-  author:
-  - family: Burtscher
-    given: Martin
-  - family: Pingali
-    given: Keshav
-  issued:
-  - year: 2011
-  title: <span class="nocase">An Efficient CUDA Implementation of the Tree-Based Barnes
-    Hut n-Body Algorithm</span>
-  container-title: GPU Computing Gems Emerald Edition
-  page: 75-92
-  abstract: This chapter describes the first CUDA implementation of the classical
-    Barnes Hut n-body algorithm that runs entirely on the GPU. The Barnes Hut force-calculation
-    algorithm is widely used in n-body simulations such as modeling the motion of
-    galaxies. It hierarchically decomposes the space around the bodies into successively
-    smaller boxes, called cells, and computes summary information for the bodies contained
-    in each cell, allowing the algorithm to quickly approximate the forces (e.g.,
-    gravitational, electric, or magnetic) that the n bodies induce upon each other.
-    The Barnes Hut algorithm is challenging to implement efficiently in CUDA because
-    it repeatedly builds and traverses an irregular tree-based data structure, it
-    performs a lot of pointer-chasing memory operations, and it is typically expressed
-    recursively. GPU-specific operations such as thread-voting functions are exploited
-    to greatly improve performance and make use of fence instructions to implement
-    lightweight synchronization without atomic operations. The main conclusion of
-    the work is that GPUs can be used to accelerate irregular codes, not just regular
-    codes. However, a great deal of programming effort is required to achieve good
-    performance. The biggest performance win, though, came from turning some of the
-    unique architectural features of GPUs, which are often regarded as performance
-    hurdles for irregular codes, into assets. Future direction indicates workings
-    on writing high-performing CUDA implementations for other irregular algorithms.
-    2011 Copyright 2011 NVIDIA Corporation and Wen-mei W. Hwu Published by Elsevier
-    Inc. All rights reserved..
-  DOI: 10.1016/B978-0-12-384988-5.00006-1
-  ISBN: '9780123849885'
-
-- id: tsne-cuda
-  type: article-journal
-  author:
-  - family: Chan
-    given: David M.
-  - family: Rao
-    given: Roshan
-  - family: Huang
-    given: Forrest
-  - family: Canny
-    given: John F.
-  issued:
-  - year: 2018
-  title: '<span class="nocase">t-SNE-CUDA: GPU-Accelerated t-SNE and its Applications
-    to Modern Data</span>'
-  abstract: Modern datasets and models are notoriously difficult to explore and analyze
-    due to their inherent high dimensionality and massive numbers of samples. Existing
-    visualization methods which employ dimensionality reduction to two or three dimensions
-    are often inefficient and/or ineffective for these datasets. This paper introduces
-    t-SNE-CUDA, a GPU-accelerated implementation of t-distributed Symmetric Neighbor
-    Embedding (t-SNE) for visualizing datasets and models. t-SNE-CUDA significantly
-    outperforms current implementations with 50-700x speedups on the CIFAR-10 and
-    MNIST datasets. These speedups enable, for the first time, visualization of the
-    neural network activations on the entire ImageNet dataset - a feat that was previously
-    computationally intractable. We also demonstrate visualization performance in
-    the NLP domain by visualizing the GloVe embedding vectors. From these visualizations,
-    we can draw interesting conclusions about using the L2 metric in these embedding
-    spaces. t-SNE-CUDA is publicly available athttps://github.com/CannyLab/tsne-cuda
-  URL: http://arxiv.org/abs/1807.11824
-
-- id: Barnes1986
-  type: article-journal
-  author:
-  - family: Barnes
-    given: Josh
-  - family: Hut
-    given: Piet
-  issued:
-  - year: 1986
-    month: 12
-  title: <span class="nocase">A Hierarchical O(N log N) Force-Calculation Algorithm</span>
-  container-title: Nature
-  publisher: Nature Publishing Group
-  page: '446'
-  volume: '324'
-  DOI: 10.1038/324446a0
-
-- id: Lloyd1982
-  type: article-journal
-  author:
-  - family: Lloyd
-    given: Stuart P.
-  issued:
-  - year: 1982
-  title: <span class="nocase">Least Squares Quantization in PCM</span>
-  container-title: IEEE Transactions on Information Theory
-  page: 129-137
-  volume: '28'
-  issue: '2'
-  abstract: It has long been realized that in pulse-code modulation (PCM), with a
-    given ensemble of signals to handle, the quantum values should be spaced more
-    closely in the voltage regions where the signal amplitude is more likely to fall.
-    It has been shown by Panter and Dite that, in the limit as the number of quanta
-    becomes infinite, the asymptotic fractional density of quanta per unit voltage
-    should vary as the one-third power of the probability density per unit voltage
-    of signal amplitudes. In this paper the corresponding result for any finite number
-    of quanta is derived; that is, necessary conditions are found that the quanta
-    and associated quantization intervals of an optimum finite quantization scheme
-    must satisfy. The optimization criterion used is that the average quantization
-    noise power be a minimum. It is shown that the result obtained here goes over
-    into the Panter and Dite result as the number of quanta become large. The optimum
-    quautization schemes for quanta, , are given numerically for Gaussian and for
-    Laplacian distribution of signal amplitudes.
-  DOI: 10.1109/TIT.1982.1056489
-  ISBN: 00189448 (ISSN)
-  ISSN: '15579654'
-
-- id: Pezzotti2018
-  type: article-journal
-  author:
-  - family: Pezzotti
-    given: Nicola
-  - family: Mordvintsev
-    given: Alexander
-  - family: Hollt
-    given: Thomas
-  - family: Lelieveldt
-    given: Boudewijn P. F.
-  - family: Eisemann
-    given: Elmar
-  - family: Vilanova
-    given: Anna
-  issued:
-  - year: 2018
-  title: <span class="nocase">Linear tSNE Optimization for the Web</span>
-  page: 1-6
-  abstract: The t-distributed Stochastic Neighbor Embedding (tSNE) algorithm has become
-    in recent years one of the most used and insightful techniques for the exploratory
-    data analysis of high-dimensional data. tSNE reveals clusters of high-dimensional
-    data points at different scales while it requires only minimal tuning of its parameters.
-    Despite these advantages, the computational complexity of the algorithm limits
-    its application to relatively small datasets. To address this problem, several
-    evolutions of tSNE have been developed in recent years, mainly focusing on the
-    scalability of the similarity computations between data points. However, these
-    contributions are insufficient to achieve interactive rates when visualizing the
-    evolution of the tSNE embedding for large datasets. In this work, we present a
-    novel approach to the minimization of the tSNE objective function that heavily
-    relies on modern graphics hardware and has linear computational complexity. Our
-    technique does not only beat the state of the art, but can even be executed on
-    the client side in a browser. We propose to approximate the repulsion forces between
-    data points using adaptive-resolution textures that are drawn at every iteration
-    with WebGL. This approximation allows us to reformulate the tSNE minimization
-    problem as a series of tensor operation that are computed with TensorFlow.js,
-    a JavaScript library for scalable tensor computations.
-  URL: http://arxiv.org/abs/1805.10817
-
-- id: tsne
-  type: article-journal
-  author:
-  - family: Van Der Maaten
-    given: Laurens
-  - family: Hinton
-    given: Geoffrey
-  issued:
-  - year: 2008
-  title: <span class="nocase">Visualizing High-Dimensional Data Using t-SNE</span>
-  container-title: Journal of Machine Learning Research
-  page: 2579-2605
-  volume: '9'
-  abstract: We present a new technique called “t-SNE” that visualizes high-dimensional
-    data by giving each datapoint a location in a two or three-dimensional map. The
-    technique is a variation of Stochastic Neighbor Embedding (Hinton and Roweis,
-    2002) that is much easier to optimize, and produces significantly better visualizations
-    by reducing the tendency to crowd points together in the center of the map. t-SNE
-    is better than existing techniques at creating a single map that reveals structure
-    at many different scales. This is particularly important for high-dimensional
-    data that lie on several different, but related, low-dimensional manifolds, such
-    as images of objects from multiple classes seen from multiple viewpoints. For
-    visualizing the structure of very large data sets, we show how t-SNE can use random
-    walks on neighborhood graphs to allow the implicit structure of all of the data
-    to influence theway in which a subset of the data is displayed. We illustrate
-    the performance of t-SNE on a wide variety of data sets and compare it with many
-    other non-parametric visualization techniques, including Sammon mapping, Isomap,
-    and Locally Linear Embedding. The visualiza- tions produced by t-SNE are significantly
-    better than those produced by the other techniques on almost all of the data sets.
-  keyword: dimensionality reduction,embedding algorithms,manifold learning,multidimensional
-    scaling,visualization
-  URL: http://jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf
-
-- id: bhtsne
-  type: article-journal
-  author:
-  - family: Van Der Maaten
-    given: Laurens
-  issued:
-  - year: 2014
-  title: <span class="nocase">Accelerating t-SNE using Tree-Based Algorithms</span>
-  container-title: Journal of Machine Learning Research
-  page: 3221-3245
-  volume: '15'
-  issue: '2014'
-  abstract: The paper investigates the acceleration of t-SNE—an embedding technique
-    that is com- monly used for the visualization of high-dimensional data in scatter
-    plots—using two tree- based algorithms. In particular, the paper develops variants
-    of the Barnes-Hut algorithm and of the dual-tree algorithm that approximate the
-    gradient used for learning t-SNE em- beddings in O(N logN). Our experiments show
-    that the resulting algorithms substantially accelerate t-SNE, and that they make
-    it possible to learn embeddings of data sets with millions of objects. Somewhat
-    counterintuitively, the Barnes-Hut variant of t-SNE appears to outperform the
-    dual-tree variant.
-  keyword: barnes-hut algorithm,dual-tree algorithm,embedding,multidimensional scaling,space-partitioning
-    trees,t-sne
-  URL: http://jmlr.org/papers/v15/vandermaaten14a.html
-  ISSN: 1532-4435
+  title: 'ANN-Benchmarks: A Benchmarking Toolfor Approximate Nearest Neighbor Algorithms'
+  container-title: Lecture Notes in Computer Science (including subseries Lecture
+    Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)
+  page: 34-49
+  volume: 10609 LNCS
+  issue: '614331'
+  DOI: 10.1007/978-3-319-68474-1_3
+  ISBN: '9783319684734'
+  ISSN: '16113349'
 ...

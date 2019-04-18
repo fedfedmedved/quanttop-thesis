@@ -10,12 +10,12 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="148.231mm"
-   height="134.01746mm"
-   viewBox="0 0 148.231 134.01745"
+   height="121.17515mm"
+   viewBox="0 0 148.231 121.17515"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 5da689c313, 2019-01-14"
-   sodipodi:docname="drawing.svg"
+   sodipodi:docname="coil20_tsne.svg"
    inkscape:export-filename="coil20_tsne.png"
    inkscape:export-xdpi="218"
    inkscape:export-ydpi="218">
@@ -62,8 +62,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="295.20502"
-     inkscape:cy="253.067"
+     inkscape:cx="202.27098"
+     inkscape:cy="203.67308"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -84,7 +84,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -92,10 +92,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-5.3514159,-40.238091)">
+     transform="translate(-5.3514159,-53.080381)">
     <g
        id="g851"
-       transform="matrix(0.03527778,0,0,-0.03527778,-29.698856,286.38326)">
+       transform="matrix(0.03527778,0,0,-0.03527778,-29.698856,299.22555)">
       <g
          id="g853"
          clip-path="url(#clipPath857)">
@@ -14496,7 +14496,7 @@
     </g>
     <g
        id="g6617"
-       transform="matrix(0.03527778,0,0,-0.03527778,-29.698856,286.38326)">
+       transform="matrix(0.07055556,0,0,-0.07055556,-97.905492,423.55886)">
       <g
          id="g6619"
          transform="scale(10)">
@@ -14505,16 +14505,16 @@
            style="font-variant:normal;font-weight:normal;font-size:8.96638012px;font-family:Times;-inkscape-font-specification:Times-Roman;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="text6623">
           <tspan
-             x="0 2.9858046 6.957911 13.5437 19.46846 21.961113 25.449036 29.92326 33.895367 36.38802 38.880672 42.852779 46.824886 49.317539 51.810192 56.284416 63.00856 67.48278 74.206963 76.699615 79.685417 84.670723 91.135483 96.613945"
+             x="0 2.9858046 6.957911"
              y="0"
              sodipodi:role="line"
-             id="tspan6621">(a)Visualizationbyt-SNE.</tspan>
+             id="tspan6621">(a)</tspan>
         </text>
       </g>
     </g>
     <g
        id="g6627"
-       transform="matrix(0.03527778,0,0,-0.03527778,-29.698856,286.38326)">
+       transform="matrix(0.03527778,0,0,-0.03527778,-29.698856,299.22555)">
       <g
          id="g6629"
          clip-path="url(#clipPath6633)">
@@ -28925,7 +28925,7 @@
     </g>
     <g
        id="g12397"
-       transform="matrix(0.03527778,0,0,-0.03527778,-29.698856,286.38326)">
+       transform="matrix(0.07055556,0,0,-0.07055556,-161.42828,424.36067)">
       <g
          id="g12399"
          transform="scale(10)">
@@ -28934,16 +28934,16 @@
            style="font-variant:normal;font-weight:normal;font-size:8.96638012px;font-family:Times;-inkscape-font-specification:Times-Roman;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="text12403">
           <tspan
-             x="0 2.9858046 7.4600282 14.0368 19.961559 22.454214 25.942135 30.416359 34.388466 36.881119 39.373772 43.345879 47.317986 49.810638 52.303291 56.777515 63.510658 67.984886 74.700058 79.685364 83.657471 90.624352 97.591225 102.06545 108.78966 115.75654 119.72865 124.20287 128.67709 131.16974 135.64397 140.11819"
+             x="0 2.9858046 7.4600282"
              y="0"
              sodipodi:role="line"
-             id="tspan12401">(b)VisualizationbySammonmapping.</tspan>
+             id="tspan12401">(b)</tspan>
         </text>
       </g>
     </g>
     <g
        id="g12407"
-       transform="matrix(0.03527778,0,0,-0.03527778,-29.698856,286.38326)">
+       transform="matrix(0.03527778,0,0,-0.03527778,-29.698856,293.93388)">
       <g
          id="g12409"
          clip-path="url(#clipPath12413)">
@@ -32554,7 +32554,7 @@
     </g>
     <g
        id="g13857"
-       transform="matrix(0.03527778,0,0,-0.03527778,-29.698856,286.38326)">
+       transform="matrix(0.07055556,0,0,-0.07055556,-96.502142,345.84746)">
       <g
          id="g13859"
          transform="scale(10)">
@@ -32563,16 +32563,16 @@
            style="font-variant:normal;font-weight:normal;font-size:8.96638012px;font-family:Times;-inkscape-font-specification:Times-Roman;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="text13863">
           <tspan
-             x="0 2.9858046 6.957911 13.5437 19.46846 21.961113 25.449036 29.92326 33.895367 36.38802 38.880672 42.852779 46.824886 49.317539 51.810192 56.284416 63.00856 67.48278 74.19796 77.183762 80.671684 85.145912 92.112785 96.084892 100.55912"
+             x="0 2.9858046 6.957911"
              y="0"
              sodipodi:role="line"
-             id="tspan13861">(c)VisualizationbyIsomap.</tspan>
+             id="tspan13861">(c)</tspan>
         </text>
       </g>
     </g>
     <g
        id="g13867"
-       transform="matrix(0.03527778,0,0,-0.03527778,-29.698856,286.38326)">
+       transform="matrix(0.03527778,0,0,-0.03527778,-29.698856,293.93388)">
       <g
          id="g13869"
          clip-path="url(#clipPath13873)">
@@ -36183,21 +36183,36 @@
     </g>
     <g
        id="g15317"
-       transform="matrix(0.03527778,0,0,-0.03527778,-29.698856,286.38326)">
+       transform="matrix(0.03527778,0,0,-0.03527778,-48.910027,233.59006)">
       <g
          id="g15319"
          transform="scale(10)">
         <text
-           transform="matrix(1,0,0,-1,367.587,319.797)"
-           style="font-variant:normal;font-weight:normal;font-size:8.96638012px;font-family:Times;-inkscape-font-specification:Times-Roman;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text15323">
+           transform="scale(1,-1)"
+           style="font-variant:normal;font-weight:normal;font-size:17.93276024px;font-family:Times;-inkscape-font-specification:Times-Roman;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2"
+           id="text15323"
+           x="367.15662"
+           y="-321.38406">
           <tspan
-             x="0 2.9858046 7.4600282 14.0458 19.97056 22.463213 25.951136 30.42536 34.397465 36.890118 39.382774 43.354877 47.326984 49.819637 52.312294 56.786518 63.510658 67.984886 74.700157 80.178619 85.657074 91.135536"
-             y="0"
+             x="367.15662 373.12823 382.07666"
+             y="-321.38406"
              sodipodi:role="line"
-             id="tspan15321">(d)VisualizationbyLLE.</tspan>
+             id="tspan15321"
+             style="stroke-width:2">(d)</tspan>
         </text>
       </g>
     </g>
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.72562075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8046"
+       width="148"
+       height="0.30000001"
+       x="5.4669175"
+       y="113.51795" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.45396709;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 79.316917,53.667955 V 173.66796 h 0.3 V 53.667955 Z"
+       id="rect8050"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

@@ -1,3 +1,4 @@
+# Introduction
 ## Background and Motivation
 In the fields of neural networks, deep-learning and data science one often encounters data with very high dimensionality.
 To recognize patterns and clusters in this data a human perceivable representation is desired.
@@ -14,7 +15,6 @@ The underlying shapes and forms that are embedded in complex spaces can be seen 
 Under the aspect of visualization representing these manifolds as correct as possible is an important trait.
 
 Multiple dimensionality reduction algorithms with different approaches and varying qualities exist.
-(A selection is presented in [chapter two](#preliminaries).)
 Overall t-SNE [@tsne] can be seen as the current state of the art algorithm.
 This can for example be seen in the big variety of existing implementations in a multitude of languages, some of which are listed on the creator van der Maaten's website[^website_vandermaaten].
 
@@ -26,8 +26,8 @@ They were an inspiration for this thesis' aim to parallelize the UMAP algorithm.
 
 Uniform Manifold Approximation and Projection, or UMAP for short, is a new dimensionality reduction algorithm, introduced in 2018 by McInnes et. al. [@umap].
 It is building on mathematical principles of Riemannian geometry and algebraic topology.
-This ground-up algorithm conception allows for multiple benefits, described in chapter [2.2.3](#umap).
-However most prominently the paper shows that UMAP delivers graphical results as good or better than those of t-SNE, while performing faster.
+This ground-up algorithm conception allows for multiple benefits, described in section [2.2.3](#umap).
+However, most prominently the paper shows that UMAP delivers graphical results as good or better than those of t-SNE, while performing faster.
 Since no parallelized version is available as of yet, the paper only compares sequential implementations.
 
 This thesis' purpose is to explore the possibilities of parallelizing the UMAP algorithm.
@@ -42,4 +42,4 @@ If the performance is good enough, the implementation could be used to provide q
 After each interactive training phase the changes of the network's layers could be analyzed, without prolonged periods of waiting.
 For this to be possible, a parallel implementation of UMAP for GPUs is needed.
 
-[^website_vandermaaten]: https://lvdmaaten.github.io/tsne/, last accessed 20.04.2019.
+[^website_vandermaaten]: https://lvdmaaten.github.io/tsne/, accessed 20.04.2019.
