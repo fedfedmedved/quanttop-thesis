@@ -1,7 +1,7 @@
 ## Related Works {#relatedworks}
 Multiple algorithms have already been analyzed and adapted, in order to run on GPUs.
 Thus, for porting UMAP an analysis of similar algorithms' ports is useful.
-Analyzing their approaches will provide inspiration on technology that can be used and estimations of what speedups can be achieved.
+Analyzing their approaches will provide inspiration for technologies can be used and estimations of what speedups can be achieved through them.
 t-SNE is a highly related algorithm, that also shares computational steps with UMAP.
 Since there are ports of t-SNE for GPUs, the following section evaluates these efforts.
 Listed are summarizations of two publications and explanations of their approaches.
@@ -24,20 +24,20 @@ Traditionally WebGL is used for rendering.
 But if an algorithm can be rewritten to a form where its instructions are written as a shader and its input data can be encoded in a texture, then the algorithm can be deployed to the GPU by using WebGL.
 Pezzotti et al. used this to run t-SNE on GPUs from within a browser.
 
-However, t-SNE in its normal form can not efficiently be written as a shader, since it uses a tree data structure.
+However, t-SNE in its normal form cannot efficiently be written as a shader, since it uses a tree data structure.
 Trees do not store the data they contain in a consecutive manner, but instead nested on different branches.
 Conditions need to be evaluated in order to know under which branch the desired data is stored.
 Accessing data in parallel can therefore only be done if the processing units can execute code independent of each other.
 GPUs are not capable of such branched executions, since all computing units need to follow the same instructions in a SIMD manner (Single Instruction, Multiple Data).
 
 Hence Pezzotti et al. construct a variation of the t-SNE algorithm.
-Details on how this was achieved can be found in the publication [@Pezzotti2018].
+Details on how this is achieved can be found in the publication [@Pezzotti2018].
 In summarization the algorithm's modified version replaces t-SNE's tree data structure with two dimensional fields.
 These are represented by respective two dimensional textures and can be accessed in parallel.
 By sampling the textures through a shader, parallel execution of the algorithm is accomplished.
 
 ![Graphical outcome of the online example of Pezzotti et al.'s t-SNE variation.
-  The used parameters were a perplexity of 30, 800 KNN iterations and 500 t-SNE iterations.
+  The parameters used are a perplexity of 30, 800 KNN iterations and 500 t-SNE iterations.
   Visualized is a subset of the MNIST data set, consisting of 10.000 digits.
 ](figures/chapter1/pezzoti.png){#fig:tfjs-tsne short-caption="Visualization of an MNIST subset by Pezzotti et al.'s t-SNE variation." width="50%"}
 
@@ -46,7 +46,7 @@ The linearization allows for better scaling of the algorithm, by using less main
 But the sampling also leads to inaccuracies, since it approximates the values of the original t-SNE algorithm.
 Albeit the publication argues that the introduced errors are negligible, it unfortunately does not provide any results to support this.
 Neither execution times of the algorithm, nor graphical results are provided.
-Therefore a meaningful comparison with other implementations can not be made at the time of writing.
+Therefore a meaningful comparison with other implementations cannot be made at the time of writing.
 
 <!--t-SNE uses a gradient of its objective function to iterate closer to a final result.-->
 <!--Pezzotti et al. rewrite this gradient, by splitting it up into two factors.-->
@@ -78,16 +78,16 @@ The second part, consisting of the embedding optimization iterations, took about
 
 When assuming that this performance can be linearly scaled to the complete MNIST data set, then this would outperform CPU implementations, which range between 500 and 4500 seconds according to [@tsne-cuda].
 It should be noted that the online example also provides visual feedback on the embedding for each step.
-These visual updates cause computational overhead, through interrupts.
+These visual updates cause computational overhead through interrupts.
 They explain the lowered average GPU usage in the second part.
 
 Overall this publication has good approaches.
-The usage of web technology makes the implementation platform independent and convenient to use.
+The usage of web technology makes the implementation platform-independent and convenient to use.
 But when compared with other technologies, such as the upcoming t-SNE-CUDA implementation, WebGL and shaders do not seem to be the best choice to maximize the computation speed.
 
 ### t-SNE-CUDA: GPU-Accelerated t-SNE and its Applications to Modern Data {#cudatsne}
 As indicated by its name, t-SNE-CUDA by Chan et al. [@tsne-cuda] uses the Nvidia CUDA technology [@cuda] to port the [t-SNE](#tsne) algorithm to GPUs.
-The code is available at the projects Github repository[^repo_tsne_cuda] and is licensed under the BSD free software license.
+The code is available at the project's Github repository[^repo_tsne_cuda] and is licensed under the BSD free software license.
 Provided results show that it outperforms all available CPU versions of t-SNE significantly.
 The publication claims a 50 times speedup over the fastest parallel CPU version and a 650 times speedup over a commonly used version.
 
@@ -95,7 +95,7 @@ The t-SNE algorithm consists of two parts.
 First, a K-Nearest-Neighbor (KNN) search is performed.
 From it a sparse representation of similarities between data points are created, based upon which data points are close to one another.
 In the second part a low-dimensional representation of the original data is formed.
-By measuring the similarities of the low-dimensional representation and comparing it to the similarities of the original input data, the low-dimensional representation is iteratively altered to represent the original data as accurately as possible.
+By measuring the similarities of the low-dimensional representation and comparing them to the similarities of the original input data, the low-dimensional representation is iteratively altered to represent the original data as accurately as possible.
 
 <!--KNN-->
 While the original t-SNE algorithm uses a tree data structure to perform a KNN search, CUDA-t-SNE uses the index-based approximate KNN algorithm provided by the FAISS library [@faiss].

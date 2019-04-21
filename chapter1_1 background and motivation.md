@@ -7,7 +7,7 @@ The vast amount of dimensions complicates a depiction in by humans observable tw
 
 Dimensionality reduction algorithms can be used to solve this problem.
 They process complex high-dimensional data into simplified versions with a lower dimensional complexity.
-Clearly not all information included in the data can be preserved, some will get lost along the compression.
+Clearly not all information included in the data can be preserved, some will be lost along the compression.
 Thus reduction will usually work best if the data itself is not as complex as the space it is embedded into.
 For example consider a circular shape placed in a five dimensional space.
 It could not easily be visualized as is, but a good two dimensional representation would expose the same circular shape.
@@ -15,7 +15,7 @@ The underlying shapes and forms that are embedded in complex spaces can be seen 
 Under the aspect of visualization representing these manifolds as correct as possible is an important trait.
 
 Multiple dimensionality reduction algorithms with different approaches and varying qualities exist.
-Overall t-SNE [@tsne] can be seen as the current state of the art algorithm.
+t-SNE [@tsne] is the current state of the art algorithm.
 This can for example be seen in the big variety of existing implementations in a multitude of languages, some of which are listed on the creator van der Maaten's website[^website_vandermaaten].
 
 t-SNE provides very good graphical results, which is the reason for its widespread adoption for visualizations in respective fields.
@@ -33,7 +33,7 @@ Since no parallelized version is available as of yet, the paper only compares se
 This thesis' purpose is to explore the possibilities of parallelizing the UMAP algorithm.
 GPUs are made for massive parallel processing, allowing for a big number of calculations to be done simultaneously.
 And even though GPUs might have various drawbacks, they usually outperform normal CPUs due to their sheer amount of processing units.
-Therefore a parallelized implementation of UMAP will bring the most performance gain, when done for GPUs.
+Therefore a parallelized implementation of UMAP will bring the biggest performance gain, when done for GPUs.
 
 Such an implementation will be advantageous for various use cases.
 The enhanced performance would allow for faster visualization of complex data in general.
@@ -42,4 +42,4 @@ If the performance is good enough, the implementation could be used to provide q
 After each interactive training phase the changes of the network's layers could be analyzed, without prolonged periods of waiting.
 For this to be possible, a parallel implementation of UMAP for GPUs is needed.
 
-[^website_vandermaaten]: https://lvdmaaten.github.io/tsne/, accessed 20.04.2019.
+[^website_vandermaaten]: `https://lvdmaaten.github.io/tsne`, accessed 20.04.2019.

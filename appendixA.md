@@ -1,3 +1,0 @@
-\appendix
-
-<!--# Some Topic -->

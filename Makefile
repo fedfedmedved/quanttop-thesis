@@ -3,14 +3,13 @@ filters = -F pandoc-crossref -F pandoc-citeproc --lua-filter=makefiles/short-cap
 pandocflags = $(target) $(filters)
 
 
-thesis: makefiles/config.yaml makefiles/references.yaml chapter*.md appendix*.md
+thesis: makefiles/config.yaml makefiles/references.yaml chapter*.md
 	pandoc $(pandocflags) \
 		-o thesis.pdf \
 		--number-sections \
 		-Mbook-class=false \
 		makefiles/config.yaml \
-		chapter*.md \
-		appendix*.md
+		chapter*.md
 
 #		-V links-as-notes=true \
 

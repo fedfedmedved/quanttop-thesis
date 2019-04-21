@@ -1,7 +1,7 @@
 ## Dimensionality Reduction Algorithms
 "Visual exploration is an essential component of data analysis" as van der Maaten et. al. [@bhtsne] put it.
 As seen in the previous section, classic visualization techniques, such as scatter plots and parallel coordinates, can be used for visual analysis of low-dimensional data.
-But for data with hundreds or thousands of dimensions these methods can not effectively be applied anymore.
+But for data with hundreds or thousands of dimensions these methods cannot effectively be applied anymore.
 Such high-dimensional data is common in fields as genomics, medicine and machine learning.
 Exploratory data analysis is nonetheless important in these fields, therefore a way to visualize the data is desirable.
 Here, dimensionality reduction algorithms can aid, by creating low-dimensional representations of high-dimensional data.
@@ -15,11 +15,8 @@ To highlight the difference between the graphical results of the algorithms, a c
 
 ### PCA
 One of the most commonly used dimensionality reduction algorithms is Principal Components Analysis (PCA).
-Its origins are "difficult to trace" according to [@Jolliffe2002], but are generally agreed upon to lay within the beginning of the 20th century.
-Throughout history, PCA has been dis"Visual exploration is an essential component of data analysis" as van der Maaten et. al. [@bhtsne] put it.
-Classic visualization techniques, such as scatter plots and parallel coordinates, can be used for visual analysis of low-dimensional data.
-They can be combined with clustering algorithms to improve the graphical results by grouping data points.
-covered multiple times, which is an indicator of how fundamental the algorithm is.
+Its origins are "difficult to trace" according to [@Jolliffe2002].
+They lie within the beginning of the 20th century, but throughout history, PCA has been discovered multiple times, which is an indicator of how fundamental the algorithm is.
 It is a versatile algorithm with multiple applications, that is still frequently referenced and used in current research publications.
 A common application in the field of data analysis is that of visualizing data.
 
@@ -122,7 +119,7 @@ The basic concept of t-SNE is to find a low-dimensional representation of the in
 Thus, a way to measure the quality of such a low-dimensional representation is needed.
 For this t-SNE uses the Kullback-Leibler divergence $f_{KL}()$.
 From both, the original data $\mathbf{X} = {\mathbf{x}_1, …, \mathbf{x}_N}$ and the low-dimensional representation $\mathbf{Y} = {y_1, …, y_N}$, probability distributions are determined.
-These probabilities distributions describe the affinities between all points in the respective data.
+These probability distributions describe the affinities between all points in the respective data.
 $P=(p_{ij})$ contains all affinities of points $\mathbf{x}_i, \mathbf{x}_j \in \mathbf{X}$, $Q=(q_{ij})$ all of $y_i, y_j \in \mathbf{Y}$.
 
 $P$ and $Q$ are calculated based on a distance function $dist()$, to capture the layout of the data.
@@ -138,13 +135,13 @@ The lower the Kullback-Leibler divergence between the probability distribution, 
 
 t-SNE minimizes $C$ by using the gradients $\frac{\delta \mathcal{C}}{\delta y_i}$.
 Each gradient describes how $C$ changes in relation to the respective $y_i$.
-Using a learning rate parameter $\eta$ and a time-dependent momentum parameter $\alpha(t)$, t-SNE improves $\mathbf{Y}$ with a gradient decent procedure, according to the formula $\mathbf{Y}^{(t)} = \mathbf{Y}^{(t-1)} + \eta \frac{\delta \mathcal{C}}{\delta \mathbf{Y}} + \alpha (t)(\mathbf{Y}^{(t-1)}-\mathbf{Y}^{(t-2)})$.
+Using a learning rate parameter $\eta$ and a time-dependent momentum parameter $\alpha(t)$, t-SNE improves $\mathbf{Y}$ with a gradient descent procedure, according to the formula $\mathbf{Y}^{(t)} = \mathbf{Y}^{(t-1)} + \eta \frac{\delta \mathcal{C}}{\delta \mathbf{Y}} + \alpha (t)(\mathbf{Y}^{(t-1)}-\mathbf{Y}^{(t-2)})$.
 
 \pagebreak
 
 This fundamental approach of t-SNE is the same for both, the original and the Barnes-Hut variant.
-The two big improvements made by the Barnes-Hut variant are a) neglecting of infinitesimal probabilities when calculating the probability distributions $p_{ij}$ and b) summarizing similar probabilities distributions when calculating $q_{ij}$, to speed up the gradient calculation.
-Both are achieved by using tree data structures:
+The two big improvements made by the Barnes-Hut variant are a) neglect of infinitesimal probabilities when calculating the probability distributions $p_{ij}$ and b) summarizing similar probability distributions when calculating $q_{ij}$, to speed up the gradient calculation.
+Both are achieved by using tree data structures.
 
 Through the usage of a vantage-point tree, as introduced in [@Yianilos1993], a $K$-Nearest-Neighbors (KNN) search is performed.
 For each point $\mathbf{x}_{i}$ only the $K$ found nearest-neighbors $\mathcal{N}_K(\mathbf{x}_i)$ are used to calculate the probability distributions.
@@ -165,10 +162,10 @@ Individually these $q_{ij}$ contribute very little to the gradient $\frac{\delta
 It is desirable not to calculate all of them, in order to accelerate the algorithm.
 However, while they are negligible on their own, the amount of such $q_{ij}$ is too high to discount all.
 
-![The quadtree structure shown on the left side is used by the Barnes-Hut algorithm to group data points as shown on the right side. Distances from the starting point, the x mark, can be calculated faster this way. The graphic is taking from  [@Barnes1986], figure 1.](figures/chapter2/barnes_hut.png){#fig:barnes_hut short-caption="Tree structure used by the Barnes-Hut algorithm."  width="60%"}
+![The quadtree structure shown on the left side is used by the Barnes-Hut algorithm to group data points as shown on the right side. Distances from the starting point, the x mark, can be calculated faster this way. The graphic is taken from  [@Barnes1986], figure 1.](figures/chapter2/barnes_hut.png){#fig:barnes_hut short-caption="Tree structure used by the Barnes-Hut algorithm."  width="60%"}
 
 Therefore, t-SNE utilizes the Barnes-Hut algorithm [@Barnes1986].
-It creates a spatial tree, e.g. a quad tree for two dimensional space, and uses it to summarize distances between data points that a far apart.
+It creates a spatial tree, e.g. a quad tree for two dimensional space, and uses it to summarize distances between data points that are far apart.
 If a point has approximately the same distance to a group of other points, this group will be treated as a single point, using the average of the group's positions to calculate the distance.
 This average is pre-calculated for each space partition in the tree and does not cause overhead per query.
 @fig:barnes_hut shows an example of how data points are grouped with the tree structure.
@@ -202,9 +199,9 @@ Calculating the distances between all points can hereby be sped up, since fewer 
 
 Both tree data structures, the vantage-point tree and the quadtree used by the Barnes-Hut algorithm, and the sparse representation, to store the $p_{ij}$ in, require $\mathcal{O}(N)$ storage.
 This is therefore also the overall storage requirement of Barnes-Hut t-SNE.
-An improvement over the original t-SNE algorithm, which had a space complexity of $\mathcal{O}(N^2)$, required to store all probability distributions $p_{ij}$.
+This is an improvement over the original t-SNE algorithm, which had a space complexity of $\mathcal{O}(N^2)$, required to store all probability distributions $p_{ij}$.
 
-The time complexity of Barnes-Hut similarly improved from the original $\mathcal{O}(N^2)$ to a $\mathcal{O}(N \cdot \log(N))$.
+The time complexity of Barnes-Hut similarly improved from the original $\mathcal{O}(N^2)$ to $\mathcal{O}(N \cdot \log(N))$.
 All operations on trees are either $\mathcal{O}(1)$ or $\mathcal{O}(\log(N))$ and thus result in a combined complexity of $\mathcal{O}(N \cdot \log(N))$ when repeated for all of the $N$ input data points.
 Other factors, such as the dimensionality $M$ and the number of iterations $T$, can be considered part of the input size $N$ or a constant factor respectively, and thus are not considered to describe the runtime of t-SNE.
 
@@ -236,7 +233,7 @@ t-SNE performs badly when reducing to more than two or three dimensions, due to 
 
 The detailed math and derivation of the algorithm will not be discussed here, since it is of no interest to this thesis' goals.
 Instead an analysis of the performed steps and the necessary computations will be done.
-The primary focus is on explaining how the mathematical concepts are implemented, so that the analysis of their parallelization in the [following chapter](#methods-umap) is comprehensible.
+The primary focus is on explaining how the mathematical concepts are implemented, so that the analysis of their parallelization in the [following chapter](#methods) is comprehensible.
 
 Conceptually UMAP takes a similar approach to dimensionality reduction as t-SNE.
 It first creates an abstract model of the given data $\mathbf{X}$.
@@ -275,7 +272,7 @@ Exemplary graph created by UMAP for data lying on a sine wave manifold.
 </div>
 <div id="fig:umap_curse" class="subfigures">
 ![Distances to 20 nearest-neighbors of data randomly sampled from a normal distribution. Graphic taken from [@umap-talk-pydata] (minute 11:30).](figures/chapter2/umap_dim_1.png){width=33% #fig:umap_curse_a}\hfill
-![The same distances, normalized. All high-dimensional data points have a similar distance. This is also known as the curse of dimensionality. Graphic taken from [@umap-talk-pydata] (minute 11:50).](figures/chapter2/umap_dim_2.png){width=33% #fig:umap_curse_b}\hfill
+![The same distances, normalized. All high-dimensional data points have appropriately the same distance from one another. This is also known as the curse of dimensionality. Graphic taken from [@umap-talk-pydata] (minute 11:50).](figures/chapter2/umap_dim_2.png){width=33% #fig:umap_curse_b}\hfill
 ![The same distances, normalized by local connectivity as in @fig:umap_radii_a. The result is a normal distance distribution, independent of the number of dimensions. Graphic taken from [@umap-talk-pydata] (minute 12:10).](figures/chapter2/umap_dim_3.png){width=33% #fig:umap_curse_c}
 
 Overcoming the curse of dimensionality with locally normalized distances.

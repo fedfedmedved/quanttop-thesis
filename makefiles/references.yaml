@@ -518,7 +518,7 @@ references:
     day: 17
   title: Columbia Object Image Library (COIL-20)
   publisher: Columbia University
-  URL: http://www1.cs.columbia.edu/CAVE/publications/pdfs/Nene_TR96.pdf
+  URL: http://www.cs.columbia.edu/CAVE/software/softlib/coil-20.php
 
 - id: Yianilos1993
   type: paper-conference
@@ -567,7 +567,148 @@ references:
   page: 577-586
   DOI: 10.1145/1963405.1963487
 
-- id: Aumuller2017
+- id: iris
+  type: article-journal
+  author:
+  - family: Fisher
+    given: R. A.
+  issued:
+  - year: 1936
+  title: <span class="nocase">The Use of Multiple Measurements in Taxonomic Problems</span>
+  container-title: <span class="nocase">Annals of Eugenics</span>
+  page: 179-188
+  volume: '7'
+  issue: '7'
+
+- id: digits
+  type: no-type
+  author:
+  - family: Alpaydin
+    given: E.
+  - family: Alimoglu
+    given: F.
+  issued:
+  - year: 1998
+  title: <span class="nocase">Pen-Based Recognition of Handwritten Digits Data Set</span>
+  publisher: University of California, Irvine. Machine Learning Repository
+
+- id: lfw
+  type: report
+  author:
+  - family: Huang
+    given: Gary B.
+  - family: Ramesh
+    given: Manu
+  - family: Berg
+    given: Tamara
+  - family: Learned-Miller
+    given: Erik
+  issued:
+  - year: 2007
+  accessed:
+  - year: 2019
+    month: 4
+    day: 23
+  title: '<span class="nocase">Labeled Faces in the Wild: A Database for Studying
+    Face Recognition in Unconstrained Environments</span>'
+  publisher: University of Massachusetts, Amherst
+  number: 07-49
+  URL: http://vis-www.cs.umass.edu/lfw/
+
+- id: coil100
+  type: report
+  author:
+  - family: Nene
+    given: S. A.
+  - family: Nayar
+    given: S. K.
+  - family: Murase
+    given: H.
+  issued:
+  - year: 1996
+  accessed:
+  - year: 2019
+    month: 4
+    day: 19
+  title: Columbia Object Image Library (COIL-100)
+  publisher: Columbia University
+  URL: http://www.cs.columbia.edu/CAVE/software/softlib/coil-100.php
+
+- id: fashion-mnist
+  type: webpage
+  author:
+  - family: Xiao
+    given: Han
+  - family: Rasul
+    given: Kashif
+  - family: Vollgraf
+    given: Roland
+  issued:
+  - year: 2017
+    month: 8
+    day: 28
+  title: '<span class="nocase">Fashion-MNIST: a Novel Image Dataset for Benchmarking
+    Machine Learning Algorithms</span>'
+  URL: http://arxiv.org/abs/cs.LG/1708.07747
+
+- id: cifar10
+  type: report
+  author:
+  - family: Krizhevsky
+    given: Alex
+  issued:
+  - year: 2009
+  accessed:
+  - year: 2019
+    month: 4
+    day: 21
+  title: <span class="nocase">Learning Multiple Layers of Features from Tiny Images</span>
+  URL: https://www.cs.toronto.edu/~kriz/cifar.html
+
+- id: googlenews
+  type: article-journal
+  author:
+  - family: Mikolov
+    given: Tomas
+  - family: Sutskever
+    given: Ilya
+  - family: Chen
+    given: Kai
+  - family: Corrado
+    given: Greg S
+  - family: Dean
+    given: Jeffrey
+  issued:
+  - year: 2013
+    month: 10
+  title: Distributed representations of words and phrases and their compositionality
+  container-title: Advances in Neural Information Processing Systems
+  page: 3111--3119
+  volume: '26'
+
+- id: numba
+  type: paper-conference
+  author:
+  - family: Lam
+    given: Siu Kwan
+  - family: Pitrou
+    given: Antoine
+  - family: Seibert
+    given: Stanley
+  issued:
+  - year: 2015
+  title: '<span class="nocase">Numba: A LLVM-based Python JIT Compiler</span>'
+  container-title: <span class="nocase">Proceedings of the Second Workshop on the
+    LLVM Compiler Infrastructure in HPC</span>
+  collection-title: LLVM ’15
+  publisher: ACM
+  publisher-place: New York, NY, USA
+  page: 7:1-7:6
+  URL: http://doi.acm.org/10.1145/2833157.2833162
+  DOI: 10.1145/2833157.2833162
+  ISBN: 978-1-4503-4005-2
+
+- id: annbenchmark
   type: article-journal
   author:
   - family: Aumüller
@@ -578,12 +719,17 @@ references:
     given: Alexander
   issued:
   - year: 2017
+  accessed:
+  - year: 2019
+    month: 4
+    day: 24
   title: 'ANN-Benchmarks: A Benchmarking Toolfor Approximate Nearest Neighbor Algorithms'
-  container-title: Lecture Notes in Computer Science (including subseries Lecture
-    Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)
+  container-title: <span class="nocase">Lecture Notes in Computer Science (including
+    subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)</span>
   page: 34-49
   volume: 10609 LNCS
   issue: '614331'
+  URL: http://ann-benchmarks.com/
   DOI: 10.1007/978-3-319-68474-1_3
   ISBN: '9783319684734'
   ISSN: '16113349'

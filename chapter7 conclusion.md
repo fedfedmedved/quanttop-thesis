@@ -2,4 +2,6 @@
 ## title
 
 ## Future Works
-<!-- Reusing data already on GPU-->
+
+parallelizing nn_descent
+

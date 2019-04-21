@@ -1,5 +1,5 @@
 ## Algorithm Complexity Overview
-The algorithms of this chapter all have varying complexities for both required time to execute the algorithm, as well space required by it.
+The algorithms of this chapter all have varying complexities for both required time to execute the algorithm, as well as space required by it.
 To recapitulate, the following table gives a condensed overview of these complexities.
 As before, $N$ denotes the amount of data points in the input data and $M$ denotes their dimensionality.
 Additionally, for dimensionality reduction algorithms $\widetilde{M}$ denotes the amount of dimensions to reduce to.

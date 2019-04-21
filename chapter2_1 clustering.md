@@ -112,7 +112,7 @@ It considers clusters to be dense point clouds.
 If a data point has more than a certain amount of points close to it, DBSCAN defines that area as dense.
 All points inside this dense area form a cluster.
 A cluster is discovered by starting from a data point $\mathbf{x}_i \in \mathbf{X}$ with at least $minPts$ other points in its $\varepsilon$-neighborhood.
-For the point and it's neighbors $\mathcal{N}(\mathbf{x}_i)$ a new cluster $c_j$[^cluster_notation] is created.
+For the point and it's neighbors $\mathcal{N}(\mathbf{x}_i)$ a new cluster $c_j$ [^note_centroid] is created.
 All neighboring points that also fulfill the criteria of having enough points in their own neighborhood are used to expand the cluster by adding these neighbors.
 Through repeating this procedure, clusters of arbitrary shapes can be found, given that they are connected and fulfill the density constraint.
 
@@ -157,12 +157,12 @@ It is determined only by the input parameters and the structure of the input dat
 \end{algorithm}
 
 The original publication [@dbscan] claims the time complexity of DBSCAN is $\mathcal{O}(N \cdot \log(N))$, at least in practice.
-This can be achieved by the usage of R\*-trees for spatial queries, so that the neighbor search can be done in $\mathcal{O}(\log(N))$ on average.
+This can be achieved by the usage of R\*-Trees for spatial queries, so that the neighbor search can be done in $\mathcal{O}(\log(N))$ on average.
 Since every point is only processed once, this leads to the claimed average complexity.
-As the R\*-trees are the only additional data structure used, the space complexity of DBSCAN is equal to theirs, $\mathcal{O}(N)$.
+As the R\*-Trees are the only additional data structure used, the space complexity of DBSCAN is equal to theirs, $\mathcal{O}(N)$.
 
 As stated in [@Gan2015], the worst case runtime complexity of DBSCAN still remains $\mathcal{O}(N^2)$[^dbscan_runtime].
-Furthermore, it is shown that the best algorithm to solve the same problem as DBSCAN in three or higher dimensional space can not be faster than $\Omega(N^{(4/3)})$.
+Furthermore, it is shown that the best algorithm to solve the same problem as DBSCAN in three or higher dimensional space cannot be faster than $\Omega(N^{(4/3)})$.
 The publication presents an approximating variant of DBSCAN which has a guaranteed time complexity of $\mathcal{O}(N)$ and which yields results are equal to those of DBSCAN within a certain margin of error.
 
 The way DBSCAN constructs clusters, expanding them by adding one point after another, makes it difficult to parallelize the algorithm.
@@ -188,6 +188,6 @@ Their original sources are respectively https://www.naftaliharris.com/blog/visua
 [^kmeans_scikit]: https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html, accessed 20.04.2019
 [^kmeans_cuda]: https://github.com/serban/kmeans, accessed 20.04.2019
 [^kmeans_mpi]: http://users.eecs.northwestern.edu/~wkliao/Kmeans/index.html, accessed 20.04.2019
-[^dbscan_example_src]: The graphic of @fig:dbscanexample was taken from https://www.datanovia.com/en/lessons/dbscan-density-based-clustering-essentials/, accessed 20.4.2019
-[^cluster_notation]: Note that these clusters are not defined by their centroids and are therefore notated here as $c_j$ not $\mu_j$.
+[^note_centroid]: DBSCAN does not define clusters by their centroids, therefore the notation is $c_j$, not $\mu_j$.
+[^dbscan_example_src]: The graphic of @fig:dbscanexample was taken from https://www.datanovia.com/en/lessons/dbscan-density-based-clustering-essentials/, accessed 20.04.2019
 [^dbscan_runtime]: This time complexity still neglects the dimensions of the data set to cluster. A factor of $M$ can be added for $\mathcal{O}(N^2 \cdot M)$, but is, in contrary to K-Means, commonly skipped in literature.
