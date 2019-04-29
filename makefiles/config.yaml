@@ -1,16 +1,18 @@
 ---
-title: Fast Visualization of High-Dimensional Data via Parallelized UMAP on GPUs
-subtitle: ---
+title-meta: Fast Visualization of High-Dimensional Data via Parallelized UMAP on GPUs
 author: Peter Eisenmann
+
+titlepage: false
 
 lang: en
 fontsize: 11pt
-linestretch: 1
+linestretch: 1 # line spacing
 documentclass: scrreprt
 top-level-division: chapter
-toc: yes
-toc-depth: 2
-lof: yes
+toc: yes # table of contents
+toc-depth: 2 #chapter depth to list in table of contents
+lof: yes # list of figures
+lot: yes # list of figures
 secnumdepth: 2
 
 # crossref custumization
@@ -22,15 +24,37 @@ secPrefix: ["Section", "Sections"]
 autoEqnLabels: false
 cref: true
 bibliography: makefiles/references.yaml
+# find citation styles at https://www.zotero.org/styles
 citation-style: makefiles/ieee-with-url-no-online.csl
 reference-section-title: Bibliography
 header-includes:
     \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
     \usepackage{amssymb}
-    # bad \usepackage[utf8x]{inputenc}
+    \usepackage{pdfpages}
+subparagraph: yes
     #- \usepackage[onehalfspacing]{setspace}
     #- \usepackage{chemfig}
 include-before: |
+    \pagebreak
+    \begin{titlepage}
+        \includepdf[pages={1}]{cover/cover.pdf}
+    \end{titlepage}
+    
+    I hereby declare that this document has been composed by myself and describes my own work, unless otherwise acknowledged in the text.
+    \vspace{2cm}  
+    Ich versichere wahrheitsgemäß, die Arbeit selbstständig verfasst, alle benutzten Hilfsmittel vollständig und genau angegeben und alles kenntlich gemacht zu haben, was aus Arbeiten anderer unverändert oder mit Abänderungen entnommen wurde sowie die Satzung des KIT zur Sicherung guter wissenschaftlicher Praxis in der jeweils gültigen Fassung beachtet zu haben.
+    \vspace{2cm}
+    \begin{flushright}
+    \begin{tabular}{lr}
+      \multicolumn{2}{c}{\rule[0.1cm]{8cm}{0.1pt}}\\
+      & Karlsruhe, 29.04.2019\\
+    \end{tabular}
+    \end{flushright}
+    
+    \pagebreak
+    
+    \chapter*{Abstract}
+    
     Visualization is important for humans to perceive, analyze and understand data.
     Exploratory Data Analysis is essential in fields such as neural networks, deep-learning and data science in general.
     Unfortunately data in these fields commonly has hundreds or thousands of dimensions, making classic visualization techniques unsuitable.
@@ -54,16 +78,4 @@ include-before: |
     Messungen der GPU-Version GPUMAP zeigen zwei- bis vierfache Beschleuningungen.
     Die Messungen wurden auf handelsüblicher Hardware durchgeführt und können leicht durch das Nutzen von aktueller Hardware übertroffen werden.
 
-    \pagebreak
-
-    I hereby declare that this document has been composed by myself and describes my own work, unless otherwise acknowledged in the text.
-    \vspace{2cm}  
-    Ich versichere wahrheitsgemäß, die Arbeit selbstständig verfasst, alle benutzten Hilfsmittel vollständig und genau angegeben und alles kenntlich gemacht zu haben, was aus Arbeiten anderer unverändert oder mit Abänderungen entnommen wurde sowie die Satzung des KIT zur Sicherung guter wissenschaftlicher Praxis in der jeweils gültigen Fassung beachtet zu haben.
-    \vspace{2cm}
-    \begin{flushright}
-    \begin{tabular}{lr}
-      \multicolumn{2}{c}{\rule[0.1cm]{8cm}{0.1pt}}\\
-      & Karlsruhe, 29.04.2019\\
-    \end{tabular}
-    \end{flushright}
 ---

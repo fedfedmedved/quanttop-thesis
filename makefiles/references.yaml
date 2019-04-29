@@ -68,7 +68,7 @@ references:
   URL: https://www.khronos.org/webgl/
 
 - id: mnist
-  type: article-journal
+  type: paper-conference
   author:
   - family: Lecun
     given: Y.
@@ -87,9 +87,9 @@ references:
     day: 17
   title: <span class="nocase">Gradient-Based Learning Applied to Document Recognition</span>
   container-title: Proceedings of the IEEE
+  collection-number: '11'
   page: 2278-2324
   volume: '86'
-  issue: '11'
   URL: http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf
   DOI: 10.1109/5.726791
   ISSN: 0018-9219
@@ -733,4 +733,31 @@ references:
   DOI: 10.1007/978-3-319-68474-1_3
   ISBN: '9783319684734'
   ISSN: '16113349'
+
+- id: nn-descent
+  type: paper-conference
+  author:
+  - family: Dong
+    given: Wei
+  - family: Moses
+    given: Charikar
+  - family: Li
+    given: Kai
+  issued:
+  - year: 2011
+  accessed:
+  - year: 2019
+    month: 4
+    day: 28
+  title: <span class="nocase">Efficient K-nearest Neighbor Graph Construction for
+    Generic Similarity Measures</span>
+  container-title: <span class="nocase">Proceedings of the 20th International Conference
+    on World Wide Web</span>
+  collection-title: WWW ’11
+  publisher: ACM
+  publisher-place: New York, NY, USA
+  page: 577-586
+  URL: http://doi.acm.org/10.1145/1963405.1963487
+  DOI: 10.1145/1963405.1963487
+  ISBN: 978-1-4503-0632-4
 ...

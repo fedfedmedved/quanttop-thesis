@@ -1,11 +1,11 @@
 ## Related Works {#relatedworks}
 Multiple algorithms have already been analyzed and adapted, in order to run on GPUs.
 Thus, for porting UMAP an analysis of similar algorithms' ports is useful.
-Analyzing their approaches will provide inspiration for technologies can be used and estimations of what speedups can be achieved through them.
+Analyzing their approaches will provide inspiration for technologies that can be used and estimations of the speedups that can be achieved through them.
 t-SNE is a highly related algorithm, that also shares computational steps with UMAP.
 Since there are ports of t-SNE for GPUs, the following section evaluates these efforts.
 Listed are summarizations of two publications and explanations of their approaches.
-A detailed description of t-SNE is given in [section 2.2.2](#tsne).
+A detailed description of t-SNE is given in [Section 2.2.2](#tsne).
 
 ### Linear tSNE Optimization for the Web
 In [@Pezzotti2018] Pezzotti et al. develop a variation of the t-SNE algorithm that can be run in the browser.
@@ -65,7 +65,7 @@ Therefore a meaningful comparison with other implementations cannot be made at t
 <!--Additionally the linearization allows for better scaling of the algorithm, by using less main memory.-->
 
 An online example[^pezzoti_online] using the algorithm exists.
-It allows to visualize parts of the MNIST dataset [@mnist].
+It allows to visualize parts of the MNIST data set [@mnist].
 After the initialization phase every iteration step of the t-SNE algorithm can be seen.
 It provides a simple user interface to configure perplexity and the amount of iterations.
 @fig:tfjs-tsne shows the outcome when the example is run with the default settings.
@@ -119,7 +119,7 @@ All operations are either on the tree or the sparse representations and are exec
 
 t-SNE-CUDA can profit from building upon existing programs and libraries.
 Not only does this safe development time and resources, but also the existing implementations have already been tested and optimized.
-Thus t-SNE-CUDA can benefit from their performance, which can be seen in the results.
+Thus, t-SNE-CUDA can benefit from their performance, which can be seen in the results.
 The speedups compared to CPU versions are high and the graphical results are indistinguishable from those of the original sequential algorithm.
 
 ### Comparison of TensorFlow t-SNE and t-SNE-CUDA
@@ -128,7 +128,7 @@ They diverge on many aspects, as the rundown in the following table shows.
 Additionally two variants of t-SNE are added for comparison.
 One is part of the popular scikit-learn library [@scikit-learn] and is a Python implementation that only supports sequential execution.
 The other, Multicore t-SNE [@Ulyanov2016], is a parallel implementation, that can run on multiple CPU cores.
-The results listed in the table were achieved by using up to 4 CPU cores in parallel.
+The results listed in Table \ref{comparison_related_works} were achieved by using up to 4 CPU cores in parallel.
 The performance column consists of times that the algorithm took to embed the full MNIST data set.
 
 |Implementation|Technology|Frontend|Performance|
@@ -138,7 +138,10 @@ The performance column consists of times that the algorithm took to embed the fu
 | TensorFlow t-SNE |WebGL  |Browser / GUI| 300 seconds (estimation)|
 | t-SNE-CUDA       |CUDA|Python / CLI| 7 seconds, see [@tsne-cuda]|
 
-[^pezzoti_code]: https://github.com/tensorflow/tfjs-tsne, accessed 20.04.2019
+Table: Performance comparison of different t-SNE implementations. \label{comparison_related_works}
+
+
+[^pezzoti_code]: `https://github.com/tensorflow/tfjs-tsne`, accessed 20.04.2019
 [^tensorflow_code]: https://github.com/tensorflow/tfjs, accessed 20.04.2019
 [^pezzoti_online]: https://storage.googleapis.com/tfjs-examples/tsne-mnist-canvas/dist/index.html, accessed 20.04.2019
 [^repo_tsne_cuda]: https://github.com/CannyLab/tsne-cuda, accessed 20.04.2019

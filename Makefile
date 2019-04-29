@@ -2,7 +2,6 @@ target = -t latex
 filters = -F pandoc-crossref -F pandoc-citeproc --lua-filter=makefiles/short-captions.lua
 pandocflags = $(target) $(filters)
 
-
 thesis: makefiles/config.yaml makefiles/references.yaml chapter*.md
 	pandoc $(pandocflags) \
 		-o thesis.pdf \
@@ -10,8 +9,6 @@ thesis: makefiles/config.yaml makefiles/references.yaml chapter*.md
 		-Mbook-class=false \
 		makefiles/config.yaml \
 		chapter*.md
-
-#		-V links-as-notes=true \
 
 makefiles/references.yaml: refs/*.bib
 	pandoc-citeproc --bib2yaml $^ > $@

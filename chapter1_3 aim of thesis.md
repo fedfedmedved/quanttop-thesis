@@ -14,7 +14,7 @@ By these measures the development time is to be kept within a feasible time fram
 <!--CUDA-->
 To implement the UMAP algorithm on GPUs the CUDA [@cuda] technology will be used.
 It allows for parallel execution and memory management on GPUs.
-This choice is made due to CUDA's widespread usage and its good performance, as can be seen in the previous [section 1.2.2](#cudatsne).
+This choice is made due to CUDA's widespread usage and its good performance, as can be seen in the previous [Section 1.2.2](#cudatsne).
 
 <!--measurement-->
 The developed algorithm will be evaluated.

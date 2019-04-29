@@ -36,7 +36,7 @@ Respectively the later entries in the list contribute the least variance and the
 
 Following the procedure, the dimensionality of $\mathbf{X}$ can be lowered by keeping only the first $\widetilde{M}$ principal components.
 This transformation looses as little variance of the data as possible and thus preserves as much of the data's information.
-While the data can also lay on a manifold embedded in a high-dimensional space, PCA is a linear dimensionality reduction algorithm and thus merely has insight on the global structure of the data.
+While the data can also lay on a manifold embedded in a high-dimensional space, PCA is a linear dimensionality reduction algorithm and merely has insight on the global structure of the data.
 
 PCA starts by centering the input data according to the mean value in each direction.
 The $M$-dimensional input data $\mathbf{X} = {\mathbf{x}_1, …, \mathbf{x}_N}$ is interpreted as an $N \times M$ matrix.
@@ -81,7 +81,7 @@ Finally, the matrix $\mathbf{W}$ can be used to create a low-dimensional represe
 
 Calculating the covariance matrix has a time complexity of $\mathcal{O}(M^2 \cdot N)$ for a naive implementation of matrix multiplications.
 Additionally the diagonalization of the covariance matrix has a time complexity of $\mathcal{O}(M^3)$.
-Thus this PCA variant has an overall time complexity of $\mathcal{O}(M^2 \cdot N + M^3)$.
+Thus, this PCA variant has an overall time complexity of $\mathcal{O}(M^2 \cdot N + M^3)$.
 
 Faster PCA variants exist.
 Instead of calculating the covariance matrix, these variants use either other methods to calculate the eigenvectors and -values, such as Singular Value Decomposition (SVD), or calculate one principal component after another in an iterative process.
@@ -106,7 +106,7 @@ The COIL-20 data set is composed of picture series from 20 different objects, ea
 As can be seen, t-SNE captures the circular nature of the data well.
 It correctly represents the data of several objects as closed loops, while the algorithms used for comparison can at best display the data in a curved form.
 
-![Visualizations of the COIL-20 data set [@coil20] by a) t-SNE, b) Sammon mapping, c) Isomap and d) LLE. The graphic is taking from  [@tsne], figure 5.](figures/chapter2/coil20_tsne.png){#fig:coil20_tsne short-caption="Visualizations of the COIL-20 data set."  width="70%"}
+![Visualizations of the COIL-20 data set [@coil20] by a) t-SNE, b) Sammon mapping, c) Isomap and d) LLE. The graphic is taken from  [@tsne], Figure 5.](figures/chapter2/coil20_tsne.png){#fig:coil20_tsne short-caption="Visualizations of the COIL-20 data set."  width="70%"}
 
 <!--bhtsne-->
 In 2014 a refined version, Barnes-Hut t-SNE, was published by van der Maaten [@bhtsne].
@@ -162,7 +162,7 @@ Individually these $q_{ij}$ contribute very little to the gradient $\frac{\delta
 It is desirable not to calculate all of them, in order to accelerate the algorithm.
 However, while they are negligible on their own, the amount of such $q_{ij}$ is too high to discount all.
 
-![The quadtree structure shown on the left side is used by the Barnes-Hut algorithm to group data points as shown on the right side. Distances from the starting point, the x mark, can be calculated faster this way. The graphic is taken from  [@Barnes1986], figure 1.](figures/chapter2/barnes_hut.png){#fig:barnes_hut short-caption="Tree structure used by the Barnes-Hut algorithm."  width="60%"}
+![The quadtree structure shown on the left side is used by the Barnes-Hut algorithm to group data points as shown on the right side. Distances from the starting point, the x mark, can be calculated faster this way. The graphic is taken from  [@Barnes1986], Figure 1.](figures/chapter2/barnes_hut.png){#fig:barnes_hut short-caption="Tree structure used by the Barnes-Hut algorithm."  width="60%"}
 
 Therefore, t-SNE utilizes the Barnes-Hut algorithm [@Barnes1986].
 It creates a spatial tree, e.g. a quad tree for two dimensional space, and uses it to summarize distances between data points that are far apart.
@@ -203,10 +203,10 @@ This is an improvement over the original t-SNE algorithm, which had a space comp
 
 The time complexity of Barnes-Hut similarly improved from the original $\mathcal{O}(N^2)$ to $\mathcal{O}(N \cdot \log(N))$.
 All operations on trees are either $\mathcal{O}(1)$ or $\mathcal{O}(\log(N))$ and thus result in a combined complexity of $\mathcal{O}(N \cdot \log(N))$ when repeated for all of the $N$ input data points.
-Other factors, such as the dimensionality $M$ and the number of iterations $T$, can be considered part of the input size $N$ or a constant factor respectively, and thus are not considered to describe the runtime of t-SNE.
+Other factors, such as the dimensionality $M$ and the number of iterations $T$, can be considered part of the input size $N$ or a constant factor respectively, and are not considered in the runtime complexity of t-SNE.
 
 Parallelizations of t-SNE are commonly in use.
-Besides the GPU parallelizations covered in the [related works section 1.2](#relatedworks), there are also parallel CPU implementations.
+Besides the GPU parallelizations covered in the [related works Section 1.2](#relatedworks), there are also parallel CPU implementations.
 The best performing one is Multicore t-SNE [@Ulyanov2016], an adoption of the source code released alongside the original Barnes-Hut t-SNE publication [^bhtsne_code].
 The repository states, that the biggest speedup can be made through the parallelization of the KNN search.
 In general parallelizing the used algorithms, KNN search and Barnes-Hut, is a key aspect.
@@ -298,7 +298,7 @@ In the case that it is sampled an additional negative sampling step is also perf
 For that, a set of randomly selected points $Neg$ is used to additionally reposition $\mathbf{y}_i \gets \mathbf{y}_i + \alpha \cdot \nabla(1-log(\Phi))(\mathbf{y}_i, \mathbf{y}_k)$ where $\mathbf{y}_k \in Neg$.
 
 While the regular SGD step is meant to correctly position $\mathbf{y}_i$ and $\mathbf{y}_j$ in relation to each other, the negative sampling step increases the distance between unrelated data points.
-Thus the regular step draws related points closer together, which forms clusters in the low-dimensional representation, whereas the negative sampling step pushes points further away from each other, creating gaps in between these clusters.
+Thus, the regular step draws related points closer together, which forms clusters in the low-dimensional representation, whereas the negative sampling step pushes points further away from each other, creating gaps in between these clusters.
 This spreading out of the data is one of the reasons for UMAP's improved graphical results when used for visualization, since it preserves the global structure of the original data.
 
 \pagebreak
@@ -324,11 +324,11 @@ This spreading out of the data is one of the reasons for UMAP's improved graphic
         }
     }
     
-    initialize $\mathbf{Y} = {\mathbf{y}_1, …, \mathbf{y}_N}$ with $M$ eigenvectors from the adjacency matrix of $\mathcal{G}$
+    initialize $\mathbf{Y} = {\mathbf{y}_1, …, \mathbf{y}_N}$ with $\widetilde{M}$ eigenvectors from the adjacency matrix of $\mathcal{G}$
 
     \For{$n=1$ to $T$ \do}{
         \ForEach{$e = (i,j) \in E$ \do}{
-            \If{$weight(e) > r$, where $r \in [0,1]$  is a random value}{
+            \If{$weight(e) > r$, where $r \in (0,1)$  is a random value}{
                 use gradient-descent to reposition $\mathbf{y}_i$ with respect to \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  a) $\mathbf{y}_j$, the representation of $e$'s other node, and \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b) a set of randomly selected points for negative sampling
             }
         }
@@ -343,20 +343,19 @@ Analogous to the time complexity of t-SNE, the amount of iterations $T$ is consi
 The space complexity of UMAP can be dominated by either the graph structure or the low-dimensional representation, depending on whether $\widetilde{M}$ or $K$ is bigger.
 It therefore is $\mathcal{O}((K + \widetilde{M}) \cdot N)$.
 
-Due to the currentness of the UMAP algorithm, no parallel version is available as of this writing.
-In the next chapter an analysis of how UMAP can be parallelized is given.
+An analysis of how UMAP can be parallelized is given in the [Chapter 3](#methods).
 
 ### Visual Results
 To compare the visualization results of the aforementioned dimensionality reduction algorithms, @fig:viz_compare shows visualizations for several data sets.
 The MNIST data set [@mnist], is commonly used for assessing the visualization quality of dimensionality reduction algorithms.
 By reference to it, it can be seen that the quality of PCA's visualization is inferior to those of t-SNE and UMAP.
 The points in the graphical output of PCA are merely spread out, while t-SNE and UMAP both show clearly recognizable clusters.
-The colors representing the labels of the dataset show that the clusters are correctly formed and consist of similar data.
+The colors representing the labels of the data set show that the clusters are correctly formed and consist of similar data.
 The differences between t-SNE and UMAP are not quite as grave, but nonetheless very noticeable.
 The clusters formed by t-SNE are closer together with more noise in between and not as dense as those created by UMAP.
 Additionally UMAP produces no split up clusters as in the lower part of t-SNE's visualization.
 
-![Visualizations of various data sets by PCA, t-SNE and UMAP. The figure is modified from the UMAP publication [@umap], figure 2.](figures/chapter2/modified_umap_graphic.png){#fig:viz_compare short-caption="Visualizations of data sets by PCA, t-SNE and UMAP."  width="82%"}
+![Visualizations of various data sets by PCA, t-SNE and UMAP. The figure is modified from the UMAP publication [@umap], Figure 2.](figures/chapter2/modified_umap_graphic.png){#fig:viz_compare short-caption="Visualizations of data sets by PCA, t-SNE and UMAP."  width="82%"}
 
 
 

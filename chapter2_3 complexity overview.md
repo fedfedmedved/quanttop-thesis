@@ -1,6 +1,6 @@
 ## Algorithm Complexity Overview
 The algorithms of this chapter all have varying complexities for both required time to execute the algorithm, as well as space required by it.
-To recapitulate, the following table gives a condensed overview of these complexities.
+To recapitulate, Table \ref{algo_complexities} gives a condensed overview of these complexities.
 As before, $N$ denotes the amount of data points in the input data and $M$ denotes their dimensionality.
 Additionally, for dimensionality reduction algorithms $\widetilde{M}$ denotes the amount of dimensions to reduce to.
 
@@ -13,3 +13,4 @@ Additionally, for dimensionality reduction algorithms $\widetilde{M}$ denotes th
 |Barnes-Hut t-SNE|$\mathcal{O}(N \cdot log(N))$|$\mathcal{O}(N)$|$M$ contained in $N$|
 |UMAP|$\mathcal{O}((N \cdot M)^{1.14})$|$\mathcal{O}((K + \widetilde{M}) \cdot N)$|$K$ for the KNN algorithm|
 
+Table: Comparison of Time and Space Complexities for presented Algorithms. \label{algo_complexities}

@@ -1,105 +1,101 @@
 ## Parallelizing UMAP
-From the profiling it is clear that the algorithm steps that take longest to perform are the KNN search, the normalization of distance between data points according to their local connectivity, and the optimization of the low-dimensional representation.
-The following sections analyze how these algorithms can be parallelized on GPUs.
-
-<!--|Algorithm step|Equivalent exists in|GPU Parallelization exists|-->
-<!--|-------------------|--------------|---------------|-->
-<!--|KNN Search|t-SNE|Yes|-->
-<!--|Distance Normalization| - | No |-->
-<!--|Layout Optimization| - |No|-->
+From the results of the profiling it is clear which algorithm steps take longest.
+These steps are: performance of a KNN search, normalization of distance between data points, initialization of a low-dimensional representation, and optimization of this representation.
+In the following each step is analyzed as to how it can best be parallelized for GPUs.
 
 ### Parallelization of KNN Search
 Finding nearest-neighbors is a common problem and encountered in a wide range of fields, e.g. Machine Learning and Data Analysis.
 As a consequence, multiple implementations already exist.
-Comparing their performance is difficult, the times given in publications depend on the individual system used to measure them, making them not comparable.
+Comparing their performance based on publications is difficult, since provided times depend on the individual system used to measure them, making them incomparable.
 
 In [@annbenchmark] a framework for benchmarking approximate KNN algorithms is introduced.
 With it, a selection of implementations are compared in a standardized and reproducible manner.
 All implementations are required to provide a Python interface, in order to be used with the framework.
-This allows them to be used as drop-in replacements for the current `nearest_neighbors` method of UMAP.
+This allows them to be used as a drop-in replacement for the current `nearest_neighbors` method of UMAP.
 
 Unfortunately all but one of the compared implementations only support execution on CPUs.
 Since the goal of this thesis is to parallelize UMAP on GPUs, only the GPU algorithm is to be considered further.
-The implementation in question is the FAISS library [@faiss], which is also used by t-SNE-CUDA (see [section 1.2.2](#cudatsne)).
+The implementation in question is the FAISS library [@faiss], which is also used by t-SNE-CUDA (see [Section 1.2.2](#cudatsne)).
 In the benchmarking framework only the CPU version of FAISS is compared, which commonly performs worse than the remaining algorithms.
 
-However, the performance of FAISS's GPU version in t-SNE-CUDA is shown to be good [@tsne-cuda].
+However, the GPU version of FAISS is shown to be perform well in t-SNE-CUDA [@tsne-cuda].
 The use case of KNN search in t-SNE is similar to that in UMAP, which is querying a fixed amount of nearest-neighbors for each data point.
-The performance of utilizing FAISS for UMAP can be expected to be similarly good.
-Therefore FAISS will be used to implement a modified version of the `nearest_neighbors` method, so that execution is done on the GPU.
+Thus, the performance of utilizing FAISS for UMAP can be expected to be of similar quality.
+Concludingly FAISS will be used for a GPU implementation of the `nearest_neighbors` method.
 
 ### Parallelization of Distance Normalization
 Normalizing the distances between data points by their local connectivity is a task unique to UMAP and not provided by any library.
-Therefore a new implementation of the `fuzzy_simplicial_set` method for GPUs is needed.
+Therefore a new implementation for GPUs is needed.
+@fig:tuna_google_news_fuzzy shows the time taken by the `fuzzy_simplicial_set` method, when UMAP is processing a 500.000 data points big subset of the GoogleNews data set.
+It can be seen that most of the time, besides JIT compiling, is spent in a call to the `smooth_knn_dist` method.
 
-@fig:fuzzy_tuna_googlenews_500k shows the time taken by the `fuzzy_simplicial_set` method, when UMAP is processing a 500.000 data points big subset of the GoogleNews data set.
-It can be seen that most of the time not spent on compiling, is spent in a call to the `smooth_knn_dist` method.
+Parallelizing `smooth_knn_dist` can be done in a straightforward manner, since the method is "embarrassingly parallel": it processes every data point independently.
+This is advantageous for creation of a parallel version, as no extra caution needs to be exercised to avoid data conflicts.
 
-![Detailed times of the `fuzzy_simplicial_set` method on the GoogleNews data set.](figures/chapter3/fuzzy_tuna_googlenews_500k.png){#fig:fuzzy_tuna_googlenews_500k short-caption="Detailed times of the `fuzzy_simplicial_set` method on a GoogleNews data subset." width="100%"}
+![Time spent by `fuzzy_simplicial_set` when processing 500.000 points of the GoogleNews data set.](figures/chapter3/tuna_google_news_fuzzy.png){width=80% #fig:tuna_google_news_fuzzy}
 
-The `smooth_knn_dist` method is what is referred to as "embarrassingly parallel": every data point processed by it can be processed independently.
-This is advantageous when creating a parallel version, as no extra caution needs to be exercised to avoid data conflicts.
-A straightforward implementation can therefore be done.
+### Parallelization of Embedding Initialization
+@fig:tuna-mnist shows that most time spent by `simplicial_set_embedding` is spent in a call to the `optimize_layout` method.
+When profiling UMAP on bigger data sets however, another method emerges that also requires a significant amount of processing time.
+As displayed in @fig:tuna_google_news_simplicial, for bigger data sets the method `spectral_layout` requires disproportionately more time than for small data sets.
+This can also be seen by the increase of time spent on the method shown in @fig:plot_google_news.
 
-### Parallelization of Embedding
-@fig:tuna-mnist suggests that most time spent by `simplicial_set_embedding` is spent in a call to the `optimize_layout` method.
-When profiling UMAP on bigger data sets though, another method emerges that also requires a significant amount of processing time.
-As displayed in @fig:simplicial_tuna_googlenews_500k, for bigger data sets the method `spectral_layout` requires disproportionately more time than for small data sets.
-Fortunately it is only used to initialize the low-dimensional representation in a special way.
-This can also be done randomly, without having a severe impact on UMAP's visualization quality.
+![Time spent by `simplicial_set_embedding` when processing a 500.000 points subset of GoogleNews.](figures/chapter3/tuna_google_news_simplicial.png){width=80% #fig:tuna_google_news_simplicial}
 
-![Detailed times of the `simplicial_set_embedding` method on the GoogleNews data set.](figures/chapter3/simplicial_tuna_googlenews_500k.png){#fig:simplicial_tuna_googlenews_500k short-caption="Detailed times of the `simplicial_set_embedding` method on a GoogleNews data subset." width="100%"}
+`spectral_layout` initializes the low-dimensional representation, by calculating eigenvectors and -values of the sparse adjacency matrix induced by found KNN neighbors.
+Each KNN relation is represented as an edge in a graph.
+With additional processing of neighborhood relations, the matrix, albeit being represented in a sparse form, grows.
+Processing of the 500.000 point subset of the GoogleNews data set, with a $K$ value of 15 for KNN search, results in a graph that consists of 13.8 million edges.
+Calculating all eigenvalues and eigenvectors for this matrix consequently takes a long time.
 
-The `optimize_layout` method on the other hand, cannot simply be opted out of.
+The spectral initialization allows "faster convergence and greater stability" ([@umap], p. 14), but the embedding also "can be initialized randomly", as the publication states.
+Parallelizing the `spectral_layout` method is difficult, since it requires a multitude of numerical operations on sparse matrices and handling of edge cases, such as disconnected graphs.
+Considering this, a parallelization of the method is therefore avoided.
+Instead, spectral initialization is only used for small data sets.
+For data sets bigger than a certain threshold a random intialization is performed.
+Considering @fig:plot_google_news, a limit of 100.000 data points is chosen.
+
+![Comparison of UMAP methods on reduced GoogleNews data sets. The Y-axis is scaled logarithmical, so all function plots are distinguishable.](figures/chapter3/plot_google_news.png){width=100% short-caption="Comparison of UMAP methods on reduced GoogleNews data sets." #fig:plot_google_news}
+
+### Parallelization of Embedding Optimization {#methods_optimize_layout}
+The remaining time of `simplicial_set_embedding` is mostly accounted for by the call to `optimize_layout`.
 It is the essential part of the UMAP algorithm, that creates the low-dimensional representation.
-Given a pre-initialized embedding, generated with or without `spectral_layout`, a stochastic gradient descent (SGD) procedure is performed.
-Thereby the embedding is shaped to represent a graph created with help of the KNN search.
+Given a pre-initialized embedding, generated with or without `spectral_layout`, a Stochastic Gradient Descent (SGD) procedure is performed.
+Thereby the given embedding is reshaped to better represent the original input data, by repositioning its points.
+The ponits are repositioned according to the original data's topology, that is represented in the form of a graph.
 
-Each edge of the graph is iterated over and, with a chance based on the edge's weight, is sampled during the current iteration.
-Each edge has two points in the embedding representing its nodes.
-If the edge is sampled then the distance between these points is calculated.
-Depending on whether this distance reflects the edge weight, the embedding points are moved closer or further apart.
+The following steps are performed for each iteration of the SGD:
+Each edge of the graph is iterated over and sampled with a chance based on the edge's weight.
+The two nodes of each edge are represented by two embedding points.
+If the edge is sampled in an iteration, then the distance between these two points is calculated.
+Depending on whether the distance reflects the weight of the edge, the embedding points are moved closer together or further apart.
 
-Additionally negative sampling is done with the same probability for each edge.
-For simpler implementability and better performance this always coincides with the times that the edge already gets sampled.
-One of the two edge nodes is determined as the primary node by the way the edges are stored in memory.
-Its point is used for negative sampling.
-For it a certain number of other embedding points are randomly selected.
-The distances between them and the point of the primary node are calculated.
-Similar to normal sampling, the primary node's point is now moved according to these distances.
+Additionally negative sampling is performed for each edge with the same likeliness.
+For simpler implementability and better performance, this always coincides with the times that the edge is sampled.
+The edge's primary node is used, it is determined by the order in which the edge nodes are stored.
+Negative sampling randomly selects embedding points and calculates distances from them to the embedding point associated with the primary node.
+This primary node is then repositioned according to the calculated distances, most likely pushing it further away from the randomly selected embedding points, as it is very unlikely to be neighboring to the other points.
 
-For the implementation of this SGD procedure conditional branching is required in multiple places.
-Branching however negatively impacts the performance of GPUs.
-GPUs operate on the principle of the SIMD model, where all threads perform the same sequences of commands in parallel, while processing different data points.
-If the commands that are executed contain branching, threads no longer execute the same commands.
-WhichThis requires the GPU to execute every branched off thread separately, as 
-GPUs can only supply one command to each of th
- do  not let threads run different, leading the GPU t
+For the implementation of this SGD procedure conditional branching is required in multiple places, e.g. upon deciding whether or not to sample an edge.
+Branching however negatively impacts the performance of GPUs, since GPUs operate according to the Single Instruction Multiple Data (SIMD) model.
+All threads perform the same sequence of commands in parallel, while processing different data points.
+If the commands executed contain branching, the threads are no longer guaranteed to execute the same commands.
+This requires the GPU to execute every set of branched off threads separately, as only one command can be run by all threads at a time.
+In the worst case this leads to sequential execution.
 
-, since it requires parallel threads to perform different tasks
- individual tasks.
+![Shown is a conceptual depiction of the edge pre-filtering procedure.
+The edges on which SGD is to be performed are divided in blocks, each assigned to a different thread.
+All threads execute process the assigned edges in parallel.
+Every thread has a limited local cache.
+Edges that are chosen to be sampled, marked in the graphic with black dots, are stored by index in the cache.
+These indices are then iterated over during regular SGD, again by all threads in parallel.
+Since the local cache is of limited size, the procedure is done iteratively until all edges are checked for potential sampling.](figures/chapter3/prefiltering.png){width=70% #fig:prefiltering short-caption="Conceptual depiction of edge pre-filtering."}
 
-Some 
-This needs to be s
-, the data accesses of this will 
-, computing the distance to them and repositioning the embedding points
+One solution to reduce branching execution for SGD is, to prepare the edges which to sample in a certain iteration by pre-filtering before each operation.
+If every thread knows on which edges to perform SGD, then the branching introduced by the probability with which to sample an edge, can be overcome.
+@fig:prefiltering explains this concept with a graphical depiction.
 
- is done by
- than each
-So in 
+Further possibilities to improve the performance of `optimize_layout` are preventing data write conflicts by assigning nodes to threads, and improving cache performance by using shared random values per block of threads.
+Both concepts are more implementation focused and therefore presented in [Chapter 4.2.3](#detail_optimize_layout).
 
-data access reordering, only write to one y in one process to avoid write conflicts
-
-actually write atomically
-
-negative sampling
-
-replace check $k==j$ with $ k = k + j % max-1$
-
-init cuda 0.3776082992553711 seconds
-
-
-[^pyprof]: https://docs.python.org/3/library/profile.html, accessed 25.04.2019
-[^tuna_src]: https://pypi.org/project/tuna/, accessed 25.04.2019
-[^repo_thesis]: https://github.com/p3732/master_thesis, accessed 29.04.2019
 

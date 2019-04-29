@@ -27,7 +27,7 @@ Common libraries used in these fields include implementations of the K-Means alg
 K-Means is based on a centroid approach to clusters.
 It expects a cluster to be representable through its centroid, the mean of all points belonging to the cluster.
 This intuitive concept of clusters defines the task of finding all clusters to finding the center of each cluster.
-(For a different concept of clusters see section 2.1.2.)
+(For a different concept of clusters see [Section 2.1.2](#dbscan).)
 If the amount of clusters is known beforehand, then a converging algorithm such as K-Means can be constructed.
 
 Starting with a randomized initialization for all $K$ centroids $\mathbf{C}$, K-Means assigns each $M$-dimensional data point $\mathbf{x}_i$ of an input set $\mathbf{X}$ to the centroid $\mu_j$ closest to it.
@@ -88,7 +88,7 @@ Several variants such as K-Means++ [@Arthur2007] try to solve this problem by im
 <!--downside: noise-->
 The theoretical problem that K-Means does not always find the optimal cluster assignment is still unavoidable.
 As shown in [@Aloise2009], finding clusters "in general dimension is NP-hard for $K=2$".
-Thus a linear algorithm can only ever provide an approximation.
+Thus, a linear algorithm can only ever provide an approximation.
 
 Parallelization of K-Means can be achieved straightforward.
 The assignment step, where data points are assigned to clusters, can be computed independently for each data point.
@@ -96,9 +96,9 @@ Similarly the repositioning of the centroids can be done in parallel, since the 
 In between these steps synchronization is needed.
 Parallelized implementations using MPI and OpenMP [^kmeans_mpi] exist, as well as a CUDA version that uses data parallelism [^kmeans_cuda].
 
-![Convergence of the K-Means algorithm. (a) starts by defining two arbitrary cluster centers. The remaining steps show the alternation between assigning the points to the cluster nearest to them (indicated by a line) and recalculating the cluster centers. The figure is taken from [@Bishop2007], figure 9.1.](figures/chapter2/kmeans.png){#fig:kmeansconvergence short-caption="Convergence of the K-Means algorithm."  width="60%"}
+![Convergence of the K-Means algorithm. (a) starts by defining two arbitrary cluster centers. The remaining steps show the alternation between assigning the points to the cluster nearest to them (indicated by a line) and recalculating the cluster centers. The figure is taken from [@Bishop2007], Figure 9.1.](figures/chapter2/kmeans.png){#fig:kmeansconvergence short-caption="Convergence of the K-Means algorithm."  width="60%"}
 
-### DBSCAN
+### DBSCAN {#dbscan}
 One of the biggest disadvantages of the K-Means algorithm is that it relies on the assumption of all clusters having one single center.
 This effectively prevents discovery of shapes other than spherical, especially non-convex forms.
 
