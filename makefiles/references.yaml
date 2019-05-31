@@ -567,6 +567,52 @@ references:
   page: 577-586
   DOI: 10.1145/1963405.1963487
 
+- id: glove
+  type: paper-conference
+  author:
+  - family: Pennington
+    given: Jeffrey
+  - family: Socher
+    given: Richard
+  - family: Manning
+    given: Christopher D.
+  issued:
+  - year: 2014
+  accessed:
+  - year: 2019
+    month: 5
+    day: 28
+  title: '<span class="nocase">GloVe: Global Vectors for Word Representation</span>'
+  container-title: <span class="nocase">Empirical Methods in Natural Language Processing
+    (EMNLP)</span>
+  page: 1532-1543
+  URL: http://www.aclweb.org/anthology/D14-1162
+
+- id: cupy
+  type: paper-conference
+  author:
+  - family: Okuta
+    given: Ryosuke
+  - family: Unno
+    given: Yuya
+  - family: Nishino
+    given: Daisuke
+  - family: Hido
+    given: Shohei
+  - family: Loomis
+    given: Crissman
+  issued:
+  - year: 2017
+  accessed:
+  - year: 2019
+    month: 5
+    day: 27
+  title: '<span class="nocase">CuPy: A NumPy-Compatible Library for NVIDIA GPU Calculations</span>'
+  container-title: <span class="nocase">Proceedings of Workshop on Machine Learning
+    Systems (LearningSys) in The Thirty-first Annual Conference on Neural Information
+    Processing Systems (NIPS)</span>
+  URL: http://learningsys.org/nips17/assets/papers/paper_16.pdf
+
 - id: iris
   type: article-journal
   author:
