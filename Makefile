@@ -1,5 +1,5 @@
 target = -t latex
-filters = -F pandoc-crossref -F pandoc-citeproc --lua-filter=makefiles/short-captions.lua
+filters = -F pandoc-crossref --citeproc --lua-filter=makefiles/short-captions.lua -F pandoc-theorem-exe
 pandocflags = $(target) $(filters)
 
 thesis: makefiles/config.yaml makefiles/references.yaml src/chapter*.md

@@ -1,6 +1,6 @@
 ---
-title-meta: Fast Visualization of High-Dimensional Data via Parallelized UMAP on GPUs
-author: Peter Eisenmann
+title-meta: Unnamed Thesis Project
+author: Fjodor Motovilov
 
 titlepage: false
 
@@ -9,10 +9,10 @@ fontsize: 11pt
 linestretch: 1 # line spacing
 documentclass: scrreprt
 top-level-division: chapter
-toc: yes # table of contents
+toc: true # table of contents
 toc-depth: 2 #chapter depth to list in table of contents
-lof: yes # list of figures
-lot: yes # list of figures
+lof: false # list of figures
+lot: false # list of tables
 secnumdepth: 2
 
 # crossref custumization
@@ -31,6 +31,18 @@ header-includes:
     \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
     \usepackage{amssymb}
     \usepackage{pdfpages}
+    \usepackage{amsthm}
+    \newtheorem{lemma}{Lemma}[chapter]
+    \newtheorem*{claim}{Claim}
+    \theoremstyle{definition}
+    \newtheorem*{definition}{Definition}
+    \newtheorem{theorem}[lemma]{Theorem}
+    \newtheorem{example}[lemma]{Example}
+    \newtheorem{assumption}{Assumption}
+    \theoremstyle{definition}
+    \newtheorem*{observation}{Observation}
+    \theoremstyle{definition}
+    \newtheorem*{remark}{Remark}
 subparagraph: yes
     #- \usepackage[onehalfspacing]{setspace}
     #- \usepackage{chemfig}
@@ -47,7 +59,7 @@ include-before: |
     \begin{flushright}
     \begin{tabular}{lr}
       \multicolumn{2}{c}{\rule[0.1cm]{8cm}{0.1pt}}\\
-      & Karlsruhe, 30.05.2019\\
+      & Karlsruhe, 10.05.2022\\
     \end{tabular}
     \end{flushright}
     
@@ -55,15 +67,7 @@ include-before: |
     
     \chapter*{Abstract}
     
-    Visualization is important for humans to perceive, analyze and understand data.
-    Exploratory Data Analysis is essential in fields such as neural networks, deep-learning and data science in general.
-    Unfortunately data in these fields commonly has hundreds or thousands of dimensions, making classic visualization techniques unsuitable.
-    In recent years the dimensionality reduction algorithm t-SNE gained popularity.
-    It preserves local structures, allowing for meaningful visualizations of complex data.
-    UMAP is a new algorithm, that challenges t-SNE as the status quo
-    It provides better performance in both, execution time and quality of graphical results.
-    This thesis explores the functionality of UMAP and tries to improve its performance further, by parallelizing it to execute on graphics cards, GPUs.
-    Profiling the GPU version, GPUMAP, shows speedups of up to sixty times on current hardware.
+    Some English abstract.
 
     \begingroup
     \renewcommand{\cleardoublepage}{}
@@ -71,13 +75,5 @@ include-before: |
     \chapter*{Zusammenfassung}
     \endgroup
     
-    Visualisierungen sind wichtig für Menschen um Daten zu betrachten, zu analysieren und zu verstehen.
-    Explorative Datenanalyse ist essentiell in Bereichen wie Deep-Learning, Neuronale Netze und Data Science allgemein.
-    Allerdings haben Daten in diesen Bereichen oft hunderte oder tausende von Dimensionen, was es klassischen Visualisierungstechniken unmöglich macht, sie darzustellen.
-    In den letzten Jahren gewann t-SNE als eine Methode zur Dimensionsreduktion an Beliebtheit.
-    t-SNE erhält lokale Strukturen, was eine aussagekräftige Visualisierung von komplexen Daten ermöglicht.
-    UMAP ist ein aktuell veröffentlichter Algorithmus, der t-SNE als den Status Quo infrage stellt.
-    Er bietet bessere grafische Ergebnisse bei zugleich schnellerer Ausführung.
-    Diese Arbeit untersucht die Funktionalität von UMAP und versucht durch eine Parallelisierung des Algorithmuses auf Grafikkarten (GPUs), dessen Leistung noch weiter zu verbessern.
-    Messungen der GPU-Version GPUMAP zeigen bis zu sechzigfache Beschleuningungen auf aktueller Hardware.
+    Eine deutsche Zusammenfassung.
 ---
