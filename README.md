@@ -19,8 +19,9 @@ The following packages are required:
 * [Pandoc](https://pandoc.org)
 * [pandoc-crossref](https://github.com/lierdakil/pandoc-crossref)
 * [pandoc-citeproc](https://github.com/jgm/pandoc-citeproc)
+* [pandoc-theorem](https://github.com/sliminality/pandoc-theorem)
 
-
+(this last one takes a while to install)
 
 If all dependencies are installed, a simple `make` in the repository folder will
 create the `thesis.pdf` file.

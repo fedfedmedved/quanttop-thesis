@@ -17,7 +17,7 @@ secnumdepth: 2
 
 # crossref custumization
 figPrefix: ["Figure", "Figures"]
-eqnPrefix: ["Eq.", "Eqns."]
+eqnPrefix: ["",""]
 tblPrefix: ["Tbl.", "Tbls."]
 secPrefix: ["Section", "Sections"]
 # TODO: chapter prefix
@@ -43,6 +43,7 @@ header-includes:
     \newtheorem*{observation}{Observation}
     \theoremstyle{definition}
     \newtheorem*{remark}{Remark}
+    \newcommand\rhocap[1]{\mathop{\mbox{${#1}$-$\mathrm{cap}$}}}
 subparagraph: yes
     #- \usepackage[onehalfspacing]{setspace}
     #- \usepackage{chemfig}
