@@ -40,20 +40,20 @@ We are now going to provide an upper bound for the covering number of a sphere. 
 Definition (spherical cap).
 : A closed **spherical cap** is the smaller portion of a unit sphere $S^m$ cut off by a plane (including the boundary). Formally, the spherical cap with angle $\rho \in (0, \pi/2]$ and center $x \in S^m$ is given by $$cap(x,\rho) = \{y \in S^m: \langle x,y \rangle \geq cos\rho\}.$$ We will call a spherical cap with a polar angle $\rho$ a **$\boldsymbol{\rho}$-cap**. Since we are dealing with a unit sphere, the polar angle in radians is precisely the length of any geodesic from the center (the tip) of the cap to its edge.
 
-![Spherical cap](figures/chapter1/Spherical_cap_diagram.tiff){#fig:tfjs-tsne short-caption="Spherical cap." width="30%"}
+![Spherical cap. Here $r=1$, $\theta=\rho$, $a=\sin{\theta}$, $h=1-\cos{\theta}$](figures/chapter1/Spherical_cap_diagram.tiff){#fig:cap short-caption="Spherical cap" width="30%"}
 
 Lemma.
 : The covering number of a sphere $N(S^m,d,\rho)$ $\lesssim \rho^{-m}$, where $d$ is the length-metric. That is, for any $\rho>0$, the sphere $S^m$ can be covered by at most (up to a constant) $1/\rho^m$ $\rho$-caps.
 
-Remark: It is sufficient for us to show the upper bound up to a constant c(m). The reason for that is that in later arguments we will be able to choose the radius of the cover small enough that any constant c(m,n) can be "neutralized" for our purposes, so long as the quantities we omit do vary with $\rho$.
+Remark: It is sufficient for us to show the upper bound up to a constant $c(m)$. The reason for that is that in later arguments we will be able to choose the radius of the cover small enough that any constant $c(m,n)$ can be "neutralized" for our purposes, so long as the quantities we omit do vary with $\rho$.
 
 Proof.
-: Let us first consider a maximal packing of our sphere with spherical caps. For any such packing the total volume of spherical caps cannot exceed the volume of the sphere. As the caps in a packing are disjoint, 
+: Let us first consider a maximal packing of our sphere with spherical caps. For any such packing the total volume of spherical caps cannot exceed the volume[^volume] of the sphere. As the caps in a packing are disjoint, 
 $$ M(\rho) \leq \frac {\omega^m(S^m)} {\omega^m(\rhocap{\rho})}. $$
 Now, $S^m$ can be covered by exactly two $\pi$-caps, so $\omega^m(S^m)=2\omega^m(\rhocap{\pi})$. Rewriting the previous inequality we get:
 $$ M(\rho) \leq \frac {2\omega^m(\rhocap{\pi})} {\omega^m(\rhocap{\rho})}. $$ {#eq:packing}
-We would like to replace the $\rho$-caps by $\rho$-disks, as they scale easier with $\rho$, and that would allow us to reduce the fraction. We first note than the volume of the cap must be greater than that of its base disk, i.e. 
-$\omega^m(\rhocap{\rho}) \geq \omega^m(\sin{\rho} D^m)$. Dividing both sides by the volume of a $\rho$-disk and simplifying we obtain the following inequality:
+We would like to replace the $\rho$-caps in the inequality by $\rho$-disks, as they scale easier with $\rho$, and that would allow us to reduce the fraction. Projecting the cap down onto the disk at its base will reduce the volume, i.e. 
+$\omega^m(\rhocap{\rho}) \geq \omega^m(\sin{\rho} D^m)$[^cap-size]. Dividing both sides by the $m$-volume of a $\rho$-disk and simplifying we obtain the following inequality:
 $$ \frac{1}{\left(\frac{\pi}{2}\right)^m} \leq \frac {\mathrm{sin}^m\rho} {\rho^m} = \frac {\omega^m(\sin{\rho} D^m)} {\omega^m(\rho D^m)} \leq \frac {\omega^m(\rhocap{\rho})} {\omega^m(\rho D^m)}, $$
 where $\rho \in (0, \frac{\pi}{2}].$ Multiplying by $\left(\frac{\pi}{2}\right)^m$ we get:
 $$ 1 \leq \left(\frac{\pi}{2}\right)^m \cdot \frac {\omega^m(\rhocap{\rho})} {\omega^m(\rho D^m)} $$ {#eq:multiple}
@@ -61,7 +61,7 @@ Multiplying inequal [@eq:packing] by a term [@eq:multiple] greater than 1 on the
 $$ N(\rho) \leq M(\rho) \lesssim \frac {\omega^m(\rhocap{\pi})} {\omega^m(\rhocap{\rho})} \lesssim \frac{{\omega^m(\pi D^m)}}{{\omega^m(\rho D^m)}} = \frac{\pi^m}{\rho^m} \sim \frac{1}{\rho^m}. $$ 
 
 Lemma.
-: Let $f: S^m \rightarrow S^n$ be a Lipschitz conituous maps with a Lipschitz constant $L$. Then the image of $f$ misses a ball of radius $r$ for $r \gtrsim L^{-\frac{m}{n-m}}$
+: Let $f\!: S^m \rightarrow S^n$ be a Lipschitz-conituous map with a Lipschitz constant $L$. Then the image of $f$ misses a ball of radius $r$ for $r \gtrsim L^{-\frac{m}{n-m}}$
 
 Proof.
 : For any $\rho>0$, $S^m$ can be covered by $\sim \rho^{-m}$ balls of radius $\rho$. The image of each such ball is contained in a ball of radius $L\rho$. Therefore, the image of $f$ is covered by $\lesssim \rho^{-m}$ balls of radius $L\rho$. We set $r:=L\rho$. We now want to choose $\rho$ small enough so that the cover misses a ball of radius $r$. 
@@ -70,10 +70,14 @@ $$|C|\omega^n(\rhocap{2r}) \lesssim \rho^{-m}r^n = L^n\rho^{n-m} \lesssim 1,$$
 $$\rho \lesssim L^{-\frac{n}{n-m}},$$
 $$r = L\rho \lesssim L^{-\frac{m}{n-m}}.$$
 
+The complement of a point in $S^n$ is contractible. If we remove a ball from $S^n$, the leftover part can be contracted in a Lipschitz way.
 
-When (X,d) is the m+1-dimension Eukledian space $\mathbb{R}^{m+1}$, we can provide some concrete bounds:
-Theorem.
+Lemma. 
+: For each radius r there is a Lipschitz-contraction $G: S^n \setminus B_r \times [0,1] \rightarrow S^n \setminus B_r$. G has Lipschitz constant $\lesssim 1/r$ in the $S^n$ direction and $\lesssim 1$ in the $[0,1]$ direction. 
+
+Proof.
 : 
-Example (m-sphere)
 
 [^length-metric]: To be precise, the length of the geodesics is determined by the standard Riemmanian metric, where the metric is pulled back along the embedding of the spheres into their ambient Euclidean spaces ($\mathbb{R}^m$, $\mathbb{R}^n$, respectively). The lengths of geodesics are then precisely the respective Euclidean lengths of their embeddings. The reason to specify a metric so early on is that when we talk about Lipschitz continuity we are implicitly dealing with the metrics, not just with undelying topologies. However, since all of our results are up to a constant, suitable constant manipulation would show them to hold for the standard Eukledian metric as well. Nevertheless, we prefer to settle on a specific metric to avoid confusion or ambiguity.
+[^volume]: We are referring to $m$-volumes. Think of surface areas in case $m=2$.
+[^cap-size]: In fact it is easy to see that $\omega^m(\sin{\rho} D^m) \leq \omega^m(\rhocap{\rho}) \leq \omega^m(\rho D^m)$. We leave it for the appendix maybe.
