@@ -1,4 +1,4 @@
-# Fast Visualization of High-Dimensional Data via Parallelized UMAP on GPUs
+# Quantum topology exposition paper
 This repository contains all sources of the master thesis with the stated title.
 The Markdown sources can be found in the `src/` folder.
 The scripts used to create graphics and profilings are in the `scripts/` folder.
