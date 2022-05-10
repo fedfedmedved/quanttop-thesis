@@ -1,5 +1,7 @@
 # 1 Background of the problem
 
+## Covering with spherical caps.
+
 The first case we consider are maps from $S^m$ to $S^n$ when $m<n$. Throughout this paper let the unit spheres $S^m$, $S^n$ be equipped with the length metric induced by the standard Riemannian metric. That is, the distance between any two points is determined by the (Euclidean) length of the geodesics between them [^length-metric]. Note that while the topology is the same, the metric is different from the "default" metric inherited from the ambient Eukledian space.
 
 We first provide a quantitative argument for contractibility of a Lipschitz-map, namely that the image of any such map misses a ball in the target. We then produce a null-homotopy with a controlled Lipschitz constant.
@@ -70,10 +72,78 @@ $$|C|\omega^n(\rhocap{2r}) \lesssim \rho^{-m}r^n = L^n\rho^{n-m} \lesssim 1,$$
 $$\rho \lesssim L^{-\frac{n}{n-m}},$$
 $$r = L\rho \lesssim L^{-\frac{m}{n-m}}.$$
 
+# Computing our first Lipschitz constant
+
+## Detour: geometric suspension
+
+If we equip the sphere $S^2$ with the usual pullback Riemannian metric, the resulting metric written in the matrix form is
+$$g = \left( \begin{array}{cc} 1 & 0 \\ 0 & \sin^2\! \theta \end{array} \right).$$
+
+Even more often in the literature one encounters the corresponding symmetric quadratic form - its first fundamental form - which can be written as:
+$$ \dx s^2 = \dx\theta \otimes \dx\theta + \sin^2\! {\theta} \; \dx\phi \otimes \dx\phi, $$ or simply
+$$ \dx s^2=\dx\theta^2 + \sin^2\! \theta \,\, \dx\phi^2. $$
+
+We will now show that the metric is verbatim the same for $S^m$ for $\forall m \geq 2$
+
+TIKZ PICTURE HERE
+
+We can think of $S^m$ as of several $S^{m-1}$ stacked on top of each other (where  $S^{m-1}$ shrink to a single point at the poles). This is essentially the geometric version of suspension. Using the polar angle rather than height, we scale the equator $S^{m-1}$ by $\sin \theta.$
+
+Point-wise this gives us that any point $p$ of $S^m$ can be parametrized in terms of the polar angle $\theta$ and the corresponding vector $\phi$ of the equator scaled down by $\sin \theta$ - polar coordinates with respect to $S^{m-1}$. Fixing some direction $z$ in $\R^{m+1}$ we can write out the parametrization:
+\begin{equation}
+\begin{split}
+    \psi : &[0,\pi] \times S^{m-1} \longrightarrow S^m \\
+    &(\theta, \phi) \mapsto \sin \! \theta \cdot \phi + \cos\theta \cdot \Vec{e_z},
+\end{split}
+\end{equation}
+
+where $\Vec{e_z}$ denote the standard basis vector in the $z$ direction. Computing partial derivatives yields 
+$$ \pdv{\psi}{\theta} = \cos\theta \cdot \phi - \sin\theta \cdot \Vec{e_z}, $$
+$$ \pdv{\psi}{\phi} = \sin\theta \cdot \Vec{e_z}.$$
+
+Computing the spherical metric as a pullback of the $\R^{m+1}$ metric:
+$$g_{\theta\theta} = \langle \cos\theta \cdot \phi - \sin\theta \cdot \Vec{e_z} , \cos\theta \cdot \phi - \sin\theta \cdot \Vec{e_z} \rangle = \cos^2 \theta \cdot \langle \phi,\phi \rangle + \sin^2 \theta \cdot \langle \Vec{e_z},\Vec{e_z} \rangle = 1, $$
+$$g_{\phi\theta} = g_{\theta\phi} = 0,$$
+$$g_{\phi\phi} = \sin^2 \theta$$
+yielding the desired
+$$g = \left( \begin{array}{cc} 1 & 0 \\ 0 & \sin^2\! \theta \end{array} \right).$$
+
+Remark.
+Note that in this we could replace $S^{m-1}$ with an arbitrary manifold $M$ of non-zero dimension FOOTNoTE(for zero-dimensional manifolds $\dx\phi^2$ vanishes, leaving $\dx s^2=\dx\theta^2$ as the metric). Remarkably, since we are not using any knowledge of the underlying manifold $M$ to compute the suspension metric with respect to $M$, it is only the function that we use to shrink the manifold towards suspension poles that matters for this relative metric. Analogously, we could take an analytic version of any topological construction to obtain its geometric version.
+
 The complement of a point in $S^n$ is contractible. If we remove a ball from $S^n$, the leftover part can be contracted in a Lipschitz way.
 
 Lemma. 
 : For each radius r there is a Lipschitz-contraction $G: S^n \setminus B_r \times [0,1] \rightarrow S^n \setminus B_r$. G has Lipschitz constant $\lesssim 1/r$ in the $S^n$ direction and $\lesssim 1$ in the $[0,1]$ direction. 
+
+## Detour: manifolds with boundaries
+We want to show that we can contract the target sphere $S^n$ in a Lipschitz way. For that we need to contruct a differentiable map between the cylinder of $S^n$ and $S^n$. Reminder: the (topological) cylinder is the cartesian product with the interval. So we want a map between manifolds, both equipped with a metric. For the sake of consistency, we would prefer to equip both with the length metric. Naturally, we could take the product Riemannian metric. But the inerval is not a manifold, nor is the (topological) cylinder! For it is strictly speaking not Euclidean at the points on the boundary - in the interval dimension we can only move in one direction from the boundary M kreuz {0}. At those boundary points we do, however, have homeomorphism to the Euclidean half-space $\R^{m+1}$. We would like to relax the usual definition of a manifold to include manifolds with boundary:
+
+Definition (manifold with boundary).
+: definition here
+
+Thus, the old manifolds are just manifolds with an empty boundary. Notably, the relaxed definition encompasses basic topological objects, such as the (closed) unit disk, the Moebius strip and topological cylinders as manifolds, the latter allowing us to consider differentiable homotopies.
+
+All the usual definitions of dimension, tangent spaces etc apply to manifolds with boundaries. A manifold with a boundary also always admits a Riemannian metric:
+
+Definition (Double).
+: A double a manifold with a boundary is bla glued along their boundaries. A double is a manifold without a boundary.
+
+\begin{observation} \label{Any manifold with a boundary admits a Riemannian metric.}
+A double of a manifold $M$ admits a Reimannian metric. Selecting a metric and restricting to $M$ yields a Riemmanian metric on $M$.
+\end{observation}
+
+\section*{Derivative of a differentiable map w.r.t. the metric}
+In this section we want to learn how to find Lipschitz constants for a given differentiable map between manifolds. We want learn how to compute the differential directly using the corresponding metrics, with respect to a given parametrization As usual we will equip our spaces with the length metric
+
+Equipping our spaces with a specific metric allows for explicit computations of c'(t) for a given curve c(t), explicit computations of lengths of tangent vectors etc. In particular it allows us to compute partial derivatives w.r.t. to our chosen parametrization as local dilation and to give an upper bound to dilation of a given map between manifolds.
+
+THIS IS STILL HORRIBLE - REWRITE!
+
+Definition (Dilation, local dilation).
+: definition here
+
+Zusammenhang mit L, mit c'(t), mit Ableitung und Differential.
 
 Proof.
 : 

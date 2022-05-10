@@ -32,6 +32,7 @@ header-includes:
     \usepackage{amssymb}
     \usepackage{pdfpages}
     \usepackage{amsthm}
+    \usepackage{derivative}
     \newtheorem{lemma}{Lemma}[chapter]
     \newtheorem*{claim}{Claim}
     \theoremstyle{definition}
@@ -44,6 +45,10 @@ header-includes:
     \theoremstyle{definition}
     \newtheorem*{remark}{Remark}
     \newcommand\rhocap[1]{\mathop{\mbox{${#1}$-$\mathrm{cap}$}}}
+    \newcommand\R{\mathbb{R}}
+    \newcommand\dx{\mathrm{d}}
+    \newcommand\Z{\mathbb{Z}}
+    \newcommand\N{\mathbb{N}}
 subparagraph: yes
     #- \usepackage[onehalfspacing]{setspace}
     #- \usepackage{chemfig}
