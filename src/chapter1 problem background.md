@@ -1,10 +1,38 @@
 # 1 Background of the problem
 
-## Covering with spherical caps.
+some introduction.
 
-The first case we consider are maps from $S^m$ to $S^n$ when $m<n$. Throughout this paper let the unit spheres $S^m$, $S^n$ be equipped with the length metric induced by the standard Riemannian metric. That is, the distance between any two points is determined by the (Euclidean) length of the geodesics between them [^length-metric]. Note that while the topology is the same, the metric is different from the "default" metric inherited from the ambient Eukledian space.
+## Some backgound assumptions
 
-We first provide a quantitative argument for contractibility of a Lipschitz-map, namely that the image of any such map misses a ball in the target. We then produce a null-homotopy with a controlled Lipschitz constant.
+This paper deals with Lipschitz constants of maps between spheres. Most of the time we will only estimate the Lipschitz constants up to a constant C, that only depends on the dimensions of the spheres. We denote equality/inequality up to a constant by $~, lessim$ respectively.
+Throughout this paper let the unit spheres $S^m$, $S^n$ be equipped with the length metric induced by the standard Riemannian metric (unless stated otherwise). That is, the distance between any two points is determined by the (Euclidean) length of the geodesics between them [^length-metric]. Note that while the topology is the same, the metric is different from the "default" metric inherited from the ambient Euclidean space. Occasionally we will consider objects that are homeomorphic to spheres when it is convinient (e.g. surface of a cube or of a simplex), but the conversion only changes things up to some constrant. On those objects we will still be using the length metric.
+
+Statement of the problem.
+
+## Contracting the image of a lower dimensional sphere
+For the first four lemmas we consider maps from $S^m$ to $S^n$ when $m$ is less than $n$. We know that the image of $S^m$ in $S^n$ is not-surjective (citation). It is then contractible. In this section we want to show that the image of a lower dimensional sphere can be contracted in a Lipschitz way, and to provide a fairly tight Lipschitz constant. We start by showing that a Lipschitz map must in fact miss a whole open ball in the target:
+
+Lemma.
+: Let $f: S^m \rightarrow S^n$ be a Lipschitz conituous maps with a Lipschitz constant $L$. Then the image of $f$ misses a ball of radius $r$ for $r \gtrsim L^\frac{-m}{n-m}$
+
+A ball with respect to the length-metric on the sphere is a spherical cap. The radius of the ball is the length of any geodesic from the center (the tip) of the cap to its edge. It is equal to the polar angle of the cap in radians.
+
+![Spherical cap. Here $r=1$, $\theta=\rho$, $a=\sin{\theta}$, $h=1-\cos{\theta}$](figures/chapter1/Spherical_cap_diagram.tiff){#fig:cap short-caption="Spherical cap" width="30%"}
+
+For the proof of the lemma we will need to cover the sphere with spherical caps. To estimate the number of caps needed to cover the sphere we use a volume argument. A sloppy version of the argument would go as follows: 
+We equip the sphere with a volume form that scales well with the polar angle and is equal to 1 on the whole sphere. Then the volume of the sphere is 1, the volume of each spherical cap is $rho^m$. The cover should have area similar to that of the sphere (up to a constant). We then need ~$1/\rho^m$ spherical caps to cover the sphere.
+
+
+ This is a quick sketch version where we drop all constants. If you are not familiar with such arguments please review the much longer argument in the appendix.
+
+Claim.
+: For any $\rho>0$, the sphere $S^m$ can be covered by $~1/\rho^m$ balls of radius $\rho$.
+
+Proof.
+: Instead of covering the sphere $S^m$ we will cover the disk $D^m$. We can then collapse the boundary to a single point and the cover will certainly still cover the sphere. We set the volume form on the unit disk to be equal to 1. Then the volume of a (closed) ball of radius $\rho$ (which is again just an m-disk) is equal to $\rho^m$. We then need roughly $1/\rho^m$ disks to cover the whole unit disk. To convince yourself that the constant really only depends on m we can repeat the argument verbetim replacing disks with squares.
+
+Definition (spherical cap).
+: A closed **spherical cap** is the smaller portion of a unit sphere $S^m$ cut off by a plane (including the boundary). Formally, the spherical cap with angle $\rho \in (0, \pi/2]$ and center $x \in S^m$ is given by $$cap(x,\rho) = \{y \in S^m: \langle x,y \rangle \geq cos\rho\}.$$ We will call a spherical cap with a polar angle $\rho$ a **$\boldsymbol{\rho}$-cap**. Since we are dealing with a unit sphere, the polar angle in radians is precisely the length of any geodesic from the center (the tip) of the cap to its edge.
 
 Claim (Lemmas 1.2, 1.3).
 : Let $f: S^m \rightarrow S^n$ be a Lipschitz conituous maps with a Lipschitz constant $L$. Then the image of $f$ misses a ball of radius $r$ for $r \gtrsim L^\frac{-m}{n-m}$
@@ -68,7 +96,7 @@ Except implicitly, because I use the covering number (defined for balls) to talk
 -->
 
 Lemma.
-: Let $f\!: S^m \rightarrow S^n$ be a Lipschitz-conituous map with a Lipschitz constant $L$. Then the image of $f$ misses a ball of radius $r$ for $r \gtrsim L^{-\frac{m}{n-m}}$
+: Let $f\!: S^m \rightarrow S^n$ be a Lipschitz-conituous map with a Lipschitz constant $L$. Then the image of $f$ misses a ball of radius $r$ for $r \lesssim L^{-\frac{m}{n-m}}$
 
 Proof.
 : For any $\rho>0$, $S^m$ can be covered by $\sim \rho^{-m}$ balls of radius $\rho$. The image of each such ball is contained in a ball of radius $L\rho$. Therefore, the image of $f$ can be covered by $\lesssim \rho^{-m}$ balls of radius $L\rho$. We set $r:=L\rho$. We now want to choose $\rho$ small enough so that the cover misses a ball of radius $r$. 
