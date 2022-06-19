@@ -4,108 +4,61 @@ some introduction.
 
 ## Some backgound assumptions
 
-This paper deals with Lipschitz constants of maps between spheres. Most of the time we will only estimate the Lipschitz constants up to a constant C, that only depends on the dimensions of the spheres. We denote equality/inequality up to a constant by $~, lessim$ respectively.
+This paper deals with Lipschitz constants of maps between spheres. Most of the time we will only estimate the Lipschitz constants up to a constant $C(m,n)$, that only depends on the dimensions of the spheres. We denote equality/inequality up to a constant by $\sim, \lesssim, \gtrsim$ respectively.
 Throughout this paper let the unit spheres $S^m$, $S^n$ be equipped with the length metric induced by the standard Riemannian metric (unless stated otherwise). That is, the distance between any two points is determined by the (Euclidean) length of the geodesics between them [^length-metric]. Note that while the topology is the same, the metric is different from the "default" metric inherited from the ambient Euclidean space. Occasionally we will consider objects that are homeomorphic to spheres when it is convinient (e.g. surface of a cube or of a simplex), but the conversion only changes things up to some constrant. On those objects we will still be using the length metric.
 
 Statement of the problem.
 
 ## Contracting the image of a lower dimensional sphere
+### Introduction to computations up to a constant
 For the first four lemmas we consider maps from $S^m$ to $S^n$ when $m$ is less than $n$. We know that the image of $S^m$ in $S^n$ is not-surjective (citation). It is then contractible. In this section we want to show that the image of a lower dimensional sphere can be contracted in a Lipschitz way, and to provide a fairly tight Lipschitz constant. We start by showing that a Lipschitz map must in fact miss a whole open ball in the target:
 
 Lemma.
-: Let $f: S^m \rightarrow S^n$ be a Lipschitz conituous maps with a Lipschitz constant $L$. Then the image of $f$ misses a ball of radius $r$ for $r \gtrsim L^\frac{-m}{n-m}$
+: Let $f: S^m \rightarrow S^n$ be a Lipschitz conituous maps with a Lipschitz constant $L$. Then the image of $f$ misses a ball of radius $r$ for $r \lesssim L^\frac{-m}{n-m}$
 
 A ball with respect to the length-metric on the sphere is a spherical cap. The radius of the ball is the length of any geodesic from the center (the tip) of the cap to its edge. It is equal to the polar angle of the cap in radians.
 
-![Spherical cap. Here $r=1$, $\theta=\rho$, $a=\sin{\theta}$, $h=1-\cos{\theta}$](figures/chapter1/Spherical_cap_diagram.tiff){#fig:cap short-caption="Spherical cap" width="30%"}
+![Spherical cap. Here $r=1$, $\theta$ is the polar angle, $a=\sin{\theta}$, $h=1-\cos{\theta}$](figures/chapter1/Spherical_cap_diagram.tiff){#fig:cap short-caption="Spherical cap" width="30%"}
 
-For the proof of the lemma we will need to cover the sphere with spherical caps. To estimate the number of caps needed to cover the sphere we use a volume argument. A sloppy version of the argument would go as follows: 
-We equip the sphere with a volume form that scales well with the polar angle and is equal to 1 on the whole sphere. Then the volume of the sphere is 1, the volume of each spherical cap is $rho^m$. The cover should have area similar to that of the sphere (up to a constant). We then need ~$1/\rho^m$ spherical caps to cover the sphere.
+For the proof of the lemma we will need to cover the sphere with spherical caps. To estimate the number of caps needed to cover the sphere we use a volume argument. A sloppy version of the argument would go as follows: we equip the sphere with a volume form that scales well with the polar angle and is equal to 1 on the whole sphere. Then the volume of the sphere is 1, the volume of each spherical cap is $\rho^m$. The cover should have area similar to that of the sphere (up to a constant). We then need $\sim 1/\rho^m$ spherical caps to cover the sphere.
 
-
- This is a quick sketch version where we drop all constants. If you are not familiar with such arguments please review the much longer argument in the appendix.
+You may object: why should the cover have volume similar to that of the sphere if there is an overlap? Why should the overlap scale well with the radius? Is it okay for us to change the metric if the result is stated w.r.t. to a different one (we could of course use the standard volume but then you would be right to point out that spherical cap volume might not scale well with the cover radius). However, this argument is only meant to provide us with an intuition, and we aim to show that this types of arguments can be formalized fairly easily:
 
 Claim.
-: For any $\rho>0$, the sphere $S^m$ can be covered by $~1/\rho^m$ balls of radius $\rho$.
+: For any $\rho>0$, the sphere $S^m$ can be covered by $\sim 1/\rho^m$ balls of radius $\rho$.
 
 Proof.
-: Instead of covering the sphere $S^m$ we will cover the disk $D^m$. We can then collapse the boundary to a single point and the cover will certainly still cover the sphere. We set the volume form on the unit disk to be equal to 1. Then the volume of a (closed) ball of radius $\rho$ (which is again just an m-disk) is equal to $\rho^m$. We then need roughly $1/\rho^m$ disks to cover the whole unit disk. To convince yourself that the constant really only depends on m we can repeat the argument verbetim replacing disks with squares.
+: We want to estimate the number of $1/\rho$ balls needed to cover the sphere. Covering the sphere is up to a constant the same as covering the hemisphere. In fact, the the cardinality of the cover for $S^m$ ~ Hemisphere $S^m_+$ ~ $D^m$ by projecting down to the $D^m$ at the equator[^flattening] (which is just the unit ball $B^m$) ~ covering $\sqrt{2}B^m$ (scaling up) ~ covering the m-box of side length two (it can be squeezed between the two balls, i.e. it contains the unit ball and it is contained in the $\sqrt{2}B^m$) ~ covering the m-box of side length 1 (the unit m-box). It is easy to see why the volume argument should work now: the unit box can be clearly be covered by $\lceil 1/\rho \rceil ^m$ boxes of side length $\rho$. Each $\rho$-box is contained in a ball of radius $\rho$ and we are done.
 
-Definition (spherical cap).
-: A closed **spherical cap** is the smaller portion of a unit sphere $S^m$ cut off by a plane (including the boundary). Formally, the spherical cap with angle $\rho \in (0, \pi/2]$ and center $x \in S^m$ is given by $$cap(x,\rho) = \{y \in S^m: \langle x,y \rangle \geq cos\rho\}.$$ We will call a spherical cap with a polar angle $\rho$ a **$\boldsymbol{\rho}$-cap**. Since we are dealing with a unit sphere, the polar angle in radians is precisely the length of any geodesic from the center (the tip) of the cap to its edge.
+Arguing up to a constant allows us great flexibility in choosing objects we are more comfortable working with. The constants we omitted can easily be traced back through the equivalence steps we took. However, if you are not yet comfortable working up to a constant there is a direct argument on the sphere without any equivalences or constant dropping that I provided in the appendix.
 
-Claim (Lemmas 1.2, 1.3).
-: Let $f: S^m \rightarrow S^n$ be a Lipschitz conituous maps with a Lipschitz constant $L$. Then the image of $f$ misses a ball of radius $r$ for $r \gtrsim L^\frac{-m}{n-m}$
-: For each radius r there is a Lipschitz-contraction $G: S^n \setminus B_r \times [0,1] \rightarrow S^n \setminus B_r$. G has Lipschitz constant $\lesssim 1/r$ in the $S^n$ direction and $\lesssim 1$ in the $[0,1]$ direction. 
-
-To prove the claim we will need a few tools. For the first part we will need an upper bound for the covering number of the sphere. We will start by recalling the necessary concepts, then proceed with a construction to procure the required bound. For the second part we will need the Riemannian metric on the sphere using polar coordinates. We will then demonstrate how to find a Lipschitz constant for Lipschitz maps between manifolds. 
-
-Def (Covering, packing). \label{covering,packing}
-: Let $(X,d)$ be a metric space, $K \subseteq X$. 
-: A collection $C$ of points in $X$ is called an **$\boldsymbol{\rho}$-covering** of $K$ 
-if *K* is contained in the union of $\rho$-balls around points in $C$, i.e. $K  \subseteq \cup_{p\in C} B_\rho(p)$. In other words, for $\forall x \in K$ there is a $p$ in $C$ such that $d(p,x)\leq\rho$. Note that we do not require the centers of $\rho$-balls to lie in K. Such a covering is also called an **external $\boldsymbol{\rho}$-covering**.
-The minimum $\rho$-covering cardinality is called the **(external) covering number** of $K$ denoted $N(K,d,\rho)$ or simply $N(\rho)$.
-: A collection *P* of points in *K* is called an **$\boldsymbol{\rho}$-packing** if for $\forall p, q \in P$ $d(p,q)>\rho$.
-<!---
-the set ${B_\rho(x)}$ is pairwise disjoint.
-That is, $d(x,y) > 2\rho$ 
-is this correct? what if the subspace is curved? 
-Such as is the case with the sphere and a eukledian metric?
--->
-The maximum packing cardinality is called the **packing number** of *K* and is denoted by  $M(K,d,\rho)$ or simply $M(\rho)$.
-
-\begin{observation} \label{packing-covering-relation}
-Let P be an $\rho$-packing. Then the balls ${B_{1/2\rho}(p)}$ are pairwise disjoint (triangle inequality). \newline 
-If P is maximal, then P is also an $\rho$-covering (by contraposition). In particular, this implies $N(\rho) \leq M(\rho)$
-\end{observation}
-
-Claim. 
-: $M(2\rho) \leq  N(\rho) \leq M(\rho)$
-
-Proof. 
-: The second inequality follows from the observation above. To prove the first inequality, assume $M(2\rho)>N(\rho)$. Then by the pigeon-hole principle there are two points $x,y$ of the packaging contained in the same $\rho$-ball of the cover. By triangle inequality this yields a contradiction.
-
-We are now going to provide an upper bound for the covering number of a sphere. Geomtrically, we will be covering a sphere by spherical caps of equal size. We are interested in exloring the relationship between the size of the caps and the covering number.
-
-Definition (spherical cap).
-: A closed **spherical cap** is the smaller portion of a unit sphere $S^m$ cut off by a plane (including the boundary). Formally, the spherical cap with angle $\rho \in (0, \pi/2]$ and center $x \in S^m$ is given by $$cap(x,\rho) = \{y \in S^m: \langle x,y \rangle \geq cos\rho\}.$$ We will call a spherical cap with a polar angle $\rho$ a **$\boldsymbol{\rho}$-cap**. Since we are dealing with a unit sphere, the polar angle in radians is precisely the length of any geodesic from the center (the tip) of the cap to its edge.
-
-![Spherical cap. Here $r=1$, $\theta=\rho$, $a=\sin{\theta}$, $h=1-\cos{\theta}$](figures/chapter1/Spherical_cap_diagram.tiff){#fig:cap short-caption="Spherical cap" width="30%"}
-
-Lemma.
-: The covering number of a sphere $N(S^m,d,\rho)$ $\lesssim \rho^{-m}$, where $d$ is the length-metric. That is, for any $\rho>0$, the sphere $S^m$ can be covered by at most (up to a constant) $1/\rho^m$ $\rho$-caps.
-
-Remark: It is sufficient for us to show the upper bound up to a constant $c(m)$. The reason for that is that in later arguments we will be able to choose the radius of the cover small enough that any constant $c(m,n)$ can be "neutralized" for our purposes, so long as the quantities we omit do not vary with $\rho$.
-
-Proof.
-: Let us first consider a maximal packing of our sphere with spherical caps. For any such packing the total volume of spherical caps cannot exceed the volume[^volume] of the sphere. As the caps in a packing are disjoint, 
-$$ M(\rho) \leq \frac {\omega^m(S^m)} {\omega^m(\rhocap{\rho})}. $$
-Now, $S^m$ can be covered by exactly two $\pi$-caps, so $\omega^m(S^m)=2\omega^m(\rhocap{\pi})$. Rewriting the previous inequality we get:
-$$ M(\rho) \leq \frac {2\omega^m(\rhocap{\pi})} {\omega^m(\rhocap{\rho})}. $$ {#eq:packing}
-We would like to replace the $\rho$-caps in the inequality by $\rho$-disks, as they scale easier with $\rho$, and that would allow us to reduce the fraction. Projecting the cap down onto the disk at its base will reduce the volume[^cap-size], i.e. 
-$\omega^m(\rhocap{\rho}) \geq \omega^m(\sin{\rho} D^m)$. Dividing both sides by the $m$-volume of a $\rho$-disk and simplifying we obtain the following inequality:
-$$ \frac{1}{\left(\frac{\pi}{2}\right)^m} \leq \frac {\mathrm{sin}^m\rho} {\rho^m} = \frac {\omega^m(\sin{\rho} D^m)} {\omega^m(\rho D^m)} \leq \frac {\omega^m(\rhocap{\rho})} {\omega^m(\rho D^m)}, $$
-where $\rho \in (0, \frac{\pi}{2}].$ Multiplying by $\left(\frac{\pi}{2}\right)^m$ we get:
-$$ 1 \leq \left(\frac{\pi}{2}\right)^m \cdot \frac {\omega^m(\rhocap{\rho})} {\omega^m(\rho D^m)} $$ {#eq:multiple}
-Multiplying inequal [@eq:packing] by a term [@eq:multiple] greater than 1 on the right yields:
-$$ N(\rho) \leq M(\rho) \lesssim \frac {\omega^m(\rhocap{\pi})} {\omega^m(\rhocap{\rho})} \lesssim \frac{{\omega^m(\pi D^m)}}{{\omega^m(\rho D^m)}} = \frac{\pi^m}{\rho^m} \sim \frac{1}{\rho^m}. $$ 
-
-<!---
-I am suddenly changing the language from spherical caps to balls. i mean the same thing, this should be transitioned better!
-Except implicitly, because I use the covering number (defined for balls) to talk about spherical caps.
--->
-
-Lemma.
+Lemma (Image of $f$ misses a ball). \label{f_misses_a_ball}
 : Let $f\!: S^m \rightarrow S^n$ be a Lipschitz-conituous map with a Lipschitz constant $L$. Then the image of $f$ misses a ball of radius $r$ for $r \lesssim L^{-\frac{m}{n-m}}$
 
 Proof.
 : For any $\rho>0$, $S^m$ can be covered by $\sim \rho^{-m}$ balls of radius $\rho$. The image of each such ball is contained in a ball of radius $L\rho$. Therefore, the image of $f$ can be covered by $\lesssim \rho^{-m}$ balls of radius $L\rho$. We set $r:=L\rho$. We now want to choose $\rho$ small enough so that the cover misses a ball of radius $r$. 
-: Expanding the radius of the cover to $2r$ yields a cover of the $r$-neighborhood of the image. We denote this $2r$-cover by $C$. If this larger cover does not cover the full sphere $S^n$, the image of $f$ must miss a ball of radius $r$. The total volume of the cover $C$ is at most the cardinality of $C$ times the volume of a $2r$-cap of $S^n$, $|C|\omega^n(\rhocap{2r})$. We set $\rho$ so that this number is smaller than the volume of the sphere. So we get for $n>m$
+: Expanding the radius of the cover to $2r$ yields a cover of the $r$-neighborhood of the image. We denote this $2r$-cover by $C$. If this larger cover does not cover the full sphere $S^n$, the image of $f$ must miss a ball of radius $r$. The total volume of the cover $C$ is at most the cardinality of $C$ times the volume of a ball of radius 2r, $|C|\omega^n(B^n_2r)$. 
+
+<!---
+THIS IS BAD, it gives the impression that these balls are SCALABLE!!! reference, squeeze the cap between two disks, up show that the volumes are similar up to a constant. (maybe do this as a separate remark, refer to the appendix for the full argument? 
+
+[^cap-size]
+
+i also abbreviate omega for volume and the notion of a “rho-cap” without defining them.
+
+Claim (Lemmas 1.2, 1.3).
+: Let $f: S^m \rightarrow S^n$ be a Lipschitz conituous maps with a Lipschitz constant $L$. Then the image of $f$ misses a ball of radius $r$ for $r \lesssim L^\frac{-m}{n-m}$
+: For each radius r there is a Lipschitz-contraction $G: S^n \setminus B_r \times [0,1] \rightarrow S^n \setminus B_r$. G has Lipschitz constant $\lesssim 1/r$ in the $S^n$ direction and $\lesssim 1$ in the $[0,1]$ direction. 
+For the second part we will need the Riemannian metric on the sphere using polar coordinates. We will then demonstrate how to find a Lipschitz constant for Lipschitz maps between manifolds. 
+
+Remark: It is sufficient for us to show the upper bound up to a constant $c(m)$. The reason for that is that in later arguments we will be able to choose the radius of the cover small enough that any constant $c(m,n)$ can be "neutralized" for our purposes, so long as the quantities we omit do not vary with $\rho$.
+--->
+
+We set $\rho$ so that this number is smaller than the volume of the sphere. So we get for $n>m$
 $$|C|\omega^n(\rhocap{2r}) \lesssim \rho^{-m}r^n = L^n\rho^{n-m} \lesssim 1,$$
 $$\rho \lesssim L^{-\frac{n}{n-m}},$$
 $$r = L\rho \lesssim L^{-\frac{m}{n-m}}.$$
-In particular, the statement holds for any radius less or equal to r.
-
+In particular, even if f is a constant map we can choose $\rho$ small enough so that $r \leq pi/2$
 ## Computing our first Lipschitz constant
 
 ### Detour: geometric suspension
@@ -152,42 +105,41 @@ The complement of a point in $S^n$ is contractible. If we remove a ball from $S^
 Lemma. 
 : For each radius r there is a Lipschitz-contraction $G: S^n \setminus B_r \times [0,1] \rightarrow S^n \setminus B_r$. G has Lipschitz constant $\lesssim 1/r$ in the $S^n$ direction and $\lesssim 1$ in the $[0,1]$ direction. 
 
-### Detour: manifolds with boundaries
-We want to show that we can contract the target sphere $S^n$ in a Lipschitz way. For that we need to construct a differentiable map between the cylinder of $S^n$ and $S^n$. Reminder: the (topological) cylinder is the cartesian product with the interval. So we want a map between manifolds, both equipped with a metric. For the sake of consistency, we would prefer to equip both with the length metric. Naturally, we could take the product Riemannian metric. But the inerval is not a manifold, nor is the (topological) cylinder! For it is strictly speaking not Euclidean at the points on the boundary - in the interval dimension we can only move in one direction from the boundary $M \times \{0\}$. At those boundary points we do, however, have homeomorphism to the Euclidean half-space $\R^{m+1}$. We would like to relax the usual definition of a manifold to include manifolds with boundary:
-
-Definition (manifold with boundary).
-: definition here
-
-Thus, the old manifolds are just manifolds with an empty boundary. Notably, the relaxed definition encompasses basic topological objects, such as the (closed) unit disk, the Moebius strip and topological cylinders as manifolds, the latter allowing us to consider differentiable homotopies.
-
-All the usual definitions of dimension, tangent spaces etc apply to manifolds with boundaries. A manifold with a boundary also always admits a Riemannian metric:
-
-Definition (Double).
-: A double a manifold with a boundary is bla glued along their boundaries. A double is a manifold without a boundary.
-
-\begin{observation} \label{Any manifold with a boundary admits a Riemannian metric.}
-A double of a manifold $M$ admits a Reimannian metric. Selecting a metric and restricting to $M$ yields a Riemmanian metric on $M$. cite stackexchange because credit should be given where credit is due. 
-\end{observation}
-
-### Derivative of a differentiable map w.r.t. the metric
-In this section we want to learn how to find Lipschitz constants for a given differentiable map between manifolds. We want learn how to compute the differential directly using the corresponding metrics, with respect to a given parametrization As usual we will equip our spaces with the length metric
-
-Equipping our spaces with a specific metric allows for explicit computations of c'(t) for a given curve c(t), explicit computations of lengths of tangent vectors etc. In particular it allows us to compute partial derivatives w.r.t. to our chosen parametrization as local dilation and to give an upper bound for dilation of a given map between manifolds.
-
-THIS IS STILL HORRIBLE - REWRITE!
-
-Definition (Dilation, local dilation). \{dilation}
-: The **dilation** of a mapping between metric spaces $X, Y$ is the (possibly infinite) number
-$$dil(f) = 
-
-Zusammenhang mit L, mit c'(t), mit Ableitung und Differential.
-
 Proof.
-: computation.
+: There is a very obvious contraction map:
 
+$$G: S^n \setminus B_r \times [0,1] \rightarrow S^n \setminus B_r$$
+$$G: (\rho, \theta, t) \rightarrow ((1-t)\rho, \theta)$$
 
+We want to compute its Lipschitz constants in both the sphere and the time direction. In order to do that we first compute the differential and apply it to the appropriate tangent vectors. The theoretical foundation for that is the mean value theorem for manifolds (REFERENCE)
 
-[^length-metric]: To be precise, the length of the geodesics is determined by the standard Riemmanian metric, where the metric is pulled back along the embedding of the spheres into their ambient Euclidean spaces ($\R^m$, $\R^n$, respectively). The lengths of geodesics are then precisely the respective Euclidean lengths of their embeddings. The reason to specify a metric so early on is that when we talk about Lipschitz continuity we are implicitly dealing with the metrics, not just with undelying topologies. However, since all of our results are up to a constant, suitable constant manipulation would show them to hold for the standard Eukledian metric as well. Nevertheless, we prefer to settle on a specific metric to avoid confusion or ambiguity.
-[^volume]: We are referring to $m$-volumes. Think of surface areas in case $m=2$.
+\begin{equation*}
+dG=
+\begin{pmatrix}
+1-t & 0 & -\rho \\
+0 & 1 & 0
+\end{pmatrix}
+\end{equation*}
+
+<!---
+could try using a border matrix.
+
+here i want to tex the computations from the new notebook with the sketches.
+we don’t have to worry about the product metric because i am considering the components of the product separately.
+a generic tangent vector v in the direction of the sphere (i.e. with the zero time component) is v in TpM, where $$$p=(\rho, \theta, t)$$ 
+v=v_1 time dG/d\rho + v_2 times dG/d\theta
+we want to compute the operator norm REFERENCE ||dG|| WRITE OUT FORMULA
+to simplify the computation we set a:=1-t,
+
+then dGv = 
+
+REFERENCE APPENDIX manifolds with boundary
+--->
+
+[^length-metric]: To be precise, the length of the geodesics is determined by the standard Riemmanian metric, where the metric is pulled back along the embedding of the spheres into their ambient Euclidean spaces ($\R^m$, $\R^n$, respectively). The lengths of geodesics are then precisely the respective Euclidean lengths of their embeddings. The reason to specify a metric so early on is that when we talk about Lipschitz continuity we are implicitly dealing with the metrics, not just with undelying topologies. However, since all of our results are up to a constant, suitable constant manipulation would show them to hold for the standard Euclidean metric as well. Nevertheless, we prefer to settle on a specific metric to avoid confusion or ambiguity.
+
+[^flattening]: Projecting down onto the equator obviously only changes things up to a constant (depending only on m): we project down the cover centers and keep the radius as is. Going the other direction is a little trickier: we start by scaling up the cover to $\pi/2D^m$. We then project from the larger disc onto the hemisphere by taking $(\theta, r)$ to $(\theta, \rho)=(\theta, r), where %\theta \in S^{m-1}$, $r$ is the radius and $\rho$ is the polar angle. Same as before, distances can only reduce and thus keeping the radius yields a cover.
+
 [^cap-size]: In fact it is easy to see that $\omega^m(\sin{\rho} D^m) \leq \omega^m(\rhocap{\rho}) \leq \omega^m(\rho D^m)$. We leave it for the appendix maybe.
+
 [^0-dim]: For zero-dimensional manifolds $\dx\phi^2$ vanishes, leaving $\dx s^2=\dx\theta^2$ as the metric.
