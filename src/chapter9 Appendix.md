@@ -97,3 +97,8 @@ Equipping our spaces with a specific metric allows for explicit computations of 
 THIS IS STILL HORRIBLE - REWRITE!
 
 [^volume]: We are referring to $m$-volumes. Think of surface areas in case $m=2$.
+
+<!---
+do I still need this footnote for any argument?
+[^cap-size]: In fact it is easy to see that $\omega^m(\sin{\rho} D^m) \leq \omega^m(\rhocap{\rho}) \leq \omega^m(\rho D^m)$. We leave it for the appendix maybe.
+--->

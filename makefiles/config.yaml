@@ -49,6 +49,7 @@ header-includes:
     \newcommand\dx{\mathrm{d}}
     \newcommand\Z{\mathbb{Z}}
     \newcommand\N{\mathbb{N}}
+    \newcommand\lessthan{<}
 subparagraph: yes
     #- \usepackage[onehalfspacing]{setspace}
     #- \usepackage{chemfig}
