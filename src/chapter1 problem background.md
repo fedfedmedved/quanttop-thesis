@@ -138,7 +138,7 @@ We want to compute its Lipschitz constants in both the sphere and the time direc
 \end{equation*}
 
 We start with the Lipschitz constant in the direction of the sphere by restricting to tangent vectors in the sphere direction, i.e. with the zero time component $v=(v_\rho, v_\theta, 0),$ where $v \in T_p(S^n \setminus B_r \times [0,1])$. It is of course the same as to fix t as a parameter and consider $G_t$ as a self-map of the punctured sphere $S^n \setminus B_r$. We want compute the operator norm $\|\dx G_t\|$ (REFERENCE):
-$$\|\dx G_t\| = \sup_{v \neq 0} \frac{\|\dx G_tv\|}{\|v\|} = \sup_{\|v\|=1} \|\dx G_tv\|, \text{ where } v \in T_pS^n, p=(\rho, \theta) $$
+$$\|\dx G_t\| = \sup_{v \neq 0} \frac{\|\dx G_tv\|}{\|v\|} = \sup_{\|v\|=1} \|\dx G_tv\|, \text{ where } v \in T_pS^n \setminus B_r, p=(\rho, \theta) $$
 
 
 \begin{equation*}
@@ -152,7 +152,7 @@ v_\rho \\
 v_\theta \\
 0
 \end{pmatrix}
-= \dx G_t =
+= \dx G_t v=
 \begin{pmatrix}
 1-t & 0\\
 0 & 1
@@ -165,10 +165,17 @@ v_\theta
 = (1-t)^2 v^2_\rho + v^2_\theta 
 \end{equation*}
 
+Then using the sphere metric we computed earlier for at $p=(\rho, \theta)$ and $G_t(p) = ((1-t)\rho, \theta)$ respectively, $ \|v\|=1$ yields,
+$$v^2_1+\sin^2 v^2 = 1$$
+$$\|\dx G_t v\| = \sqrt{(1-t)^2 v^2_\rho + sin^2(1-t)\rho \cdot v^2_\theta}
+= \sqrt{ v^2_\rho \cdot (1-t)^2 + (1-v^2_\rho) \cdot \frac{ sin^2(1-t)\rho }{ sin^2\rho }}$$
+
 
 <!---
 CONTINUE HERE!!! PRIORITY (after writing out the strategy for this section)
 could try using a border matrix.
+
+I should be more explicit at which points the differential happens!!!!!
 
 put operator norm into a separate remark, note that dG is a bounded operator.
 
