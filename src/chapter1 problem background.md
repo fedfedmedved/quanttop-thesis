@@ -111,6 +111,8 @@ Remark.
 Note that in this we could replace $S^{m-1}$ with an arbitrary manifold $M$ of non-zero dimension [^0-dim]. Remarkably, since we are not using any knowledge of the underlying manifold $M$ to compute the suspension metric with respect to $M$, it is only the function that we use to shrink the manifold towards suspension poles that matters for this relative metric. Analogously, we could take an analytic version of any topological construction to obtain its geometric version.
 
 <!---
+should I use array or matrix? do i care about consistency? spacing seems nicer in an array.
+
 This part is still a bit raw, have to recall what me and Max had been talking about, maybe actually sit down and discuss it with him.
 --->
 
@@ -125,19 +127,50 @@ Proof.
 $$G: S^n \setminus B_r \times [0,1] \rightarrow S^n \setminus B_r$$
 $$G: (\rho, \theta, t) \rightarrow ((1-t)\rho, \theta)$$
 
-We want to compute its Lipschitz constants in both the sphere and the time direction. In order to do that we first compute the differential and apply it to the appropriate tangent vectors. The theoretical foundation for that is the mean value theorem for manifolds (REFERENCE)
+We want to compute its Lipschitz constants in both the sphere and the time direction. Our strategy is to find the supremum of the differential applied to the appropriate tangent vectors. The theoretical foundation for that is the mean value theorem for manifolds (REFERENCE).
 
 \begin{equation*}
-dG=
+\dx G=
 \begin{pmatrix}
 1-t & 0 & -\rho \\
 0 & 1 & 0
 \end{pmatrix}
 \end{equation*}
 
+We start with the Lipschitz constant in the direction of the sphere by restricting to tangent vectors in the sphere direction, i.e. with the zero time component $v=(v_\rho, v_\theta, 0),$ where $v \in T_p(S^n \setminus B_r \times [0,1])$. It is of course the same as to fix t as a parameter and consider $G_t$ as a self-map of the punctured sphere $S^n \setminus B_r$. We want compute the operator norm $\|\dx G_t\|$ (REFERENCE):
+$$\|\dx G_t\| = \sup_{v \neq 0} \frac{\|\dx G_tv\|}{\|v\|} = \sup_{\|v\|=1} \|\dx G_tv\|, \text{ where } v \in T_pS^n, p=(\rho, \theta) $$
+
+
+\begin{equation*}
+\begin{pmatrix}
+1-t & 0 & -\rho \\
+0 & 1 & 0
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+v_\rho \\
+v_\theta \\
+0
+\end{pmatrix}
+= \dx G_t =
+\begin{pmatrix}
+1-t & 0\\
+0 & 1
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+v_\rho \\
+v_\theta
+\end{pmatrix}
+= (1-t)^2 v^2_\rho + v^2_\theta 
+\end{equation*}
+
+
 <!---
 CONTINUE HERE!!! PRIORITY (after writing out the strategy for this section)
 could try using a border matrix.
+
+put operator norm into a separate remark, note that dG is a bounded operator.
 
 here i want to tex the computations from the new notebook with the sketches.
 we don’t have to worry about the product metric because i am considering the components of the product separately.
