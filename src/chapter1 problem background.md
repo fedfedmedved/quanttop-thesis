@@ -88,8 +88,9 @@ Point-wise this gives us that any point $p$ of $S^m$ can be parametrized in term
 \begin{equation}
 \begin{split}
     \psi : &[0,\pi] \times S^{m-1} \longrightarrow S^m \\
-    &(\theta, \phi) \mapsto \sin \! \theta \cdot \phi + \cos\theta \cdot \Vec{e_z},
+    &(\theta, \phi) \mapsto \sin\theta \cdot \phi + \cos\theta \cdot \Vec{e_z},
 \end{split}
+,
 \end{equation}
 
 where $\Vec{e_z}$ denote the standard basis vector in the $z$ direction. Computing partial derivatives yields 
@@ -98,12 +99,14 @@ $$ \pdv{\psi}{\phi} = \sin\theta \cdot \Vec{e_z}.$$
 
 <!----
 THIS DOES NOT EXPLAIN THE WHY. also missing all the stuff about taking the product metric (maybe more relevant below). Would be nice to provide some reference to some theory (like, what we did with Max, perhaps less in-depth than what we did with Leutzinger).
+
+this metric is not well defined at the polls. I suppose the parametrization is fine but its differential is not well defined at the polls either, because "direction sphere" is not a valid direction at the polls.
 --->
 
 Computing the spherical metric as a pullback of the $\R^{m+1}$ metric:
 $$g_{\theta\theta} = \langle \cos\theta \cdot \phi - \sin\theta \cdot \Vec{e_z} , \cos\theta \cdot \phi - \sin\theta \cdot \Vec{e_z} \rangle = \cos^2 \theta \cdot \langle \phi,\phi \rangle + \sin^2 \theta \cdot \langle \Vec{e_z},\Vec{e_z} \rangle = 1, $$
 $$g_{\phi\theta} = g_{\theta\phi} = 0,$$
-$$g_{\phi\phi} = \sin^2 \theta$$
+$$g_{\phi\phi} = \sin^2 \! \theta$$
 yielding the desired
 $$g = \left( \begin{array}{cc} 1 & 0 \\ 0 & \sin^2\! \theta \end{array} \right).$$
 
@@ -119,16 +122,17 @@ This part is still a bit raw, have to recall what me and Max had been talking ab
 The complement of a point in $S^n$ is contractible. If we remove a ball from $S^n$, the leftover part can be contracted in a Lipschitz way.
 
 Lemma. 
-: For each radius r there is a Lipschitz-contraction $G: S^n \setminus B_r \times [0,1] \rightarrow S^n \setminus B_r$. G has Lipschitz constant $\lesssim 1/r$ in the $S^n$ direction and $\lesssim 1$ in the $[0,1]$ direction. 
+: For each radius r there is a Lipschitz-contraction $G: ( S^n \setminus B_r ) \times [0,1] \rightarrow S^n \setminus B_r$. G has Lipschitz constant $\lesssim 1/r$ in the $S^n$ direction and $\lesssim 1$ in the $[0,1]$ direction. 
+
+We choose the obvious contraction map:
+$$G: ( S^n \setminus B_r ) \times [0,1] \rightarrow S^n \setminus B_r$$
+$$G: (\rho, \theta, t) \rightarrow ((1-t)\rho, \theta)$$
+Our goal is to compute its Lipschitz constants in both the sphere and the time direction. The strategy is to find the supremum of the differential applied to the appropriate tangent vectors and use it as an upper bound for the Lipschitz constants. The theoretical foundation for this approach is the mean value theorem for manifolds (REFERENCE).
+
+State the mean value theorem, reference. 
 
 Proof.
-: There is a very obvious contraction map:
-
-$$G: S^n \setminus B_r \times [0,1] \rightarrow S^n \setminus B_r$$
-$$G: (\rho, \theta, t) \rightarrow ((1-t)\rho, \theta)$$
-
-We want to compute its Lipschitz constants in both the sphere and the time direction. Our strategy is to find the supremum of the differential applied to the appropriate tangent vectors. The theoretical foundation for that is the mean value theorem for manifolds (REFERENCE).
-
+: Let $G$ be as above. Its differential is
 \begin{equation*}
 \dx G=
 \begin{pmatrix}
@@ -136,17 +140,11 @@ We want to compute its Lipschitz constants in both the sphere and the time direc
 0 & 1 & 0
 \end{pmatrix}
 \end{equation*}
-
-We start with the Lipschitz constant in the direction of the sphere by restricting to tangent vectors in the sphere direction, i.e. with the zero time component $v=(v_\rho, v_\theta, 0),$ where $v \in T_p(S^n \setminus B_r \times [0,1])$. It is of course the same as to fix t as a parameter and consider $G_t$ as a self-map of the punctured sphere $S^n \setminus B_r$. We want compute the operator norm $\|\dx G_t\|$ (REFERENCE):
-$$\|\dx G_t\| = \sup_{v \neq 0} \frac{\|\dx G_tv\|}{\|v\|} = \sup_{\|v\|=1} \|\dx G_tv\|, \text{ where } v \in T_pS^n \setminus B_r, p=(\rho, \theta) $$
-
-
+We start with the Lipschitz constant in the direction of the sphere by restricting to tangent vectors in the sphere direction, i.e. with the zero time component $(v_\rho, v_\theta, 0) \in T_p((S^n \setminus B_r) \times [0,1])$. It is of course the same as to fix $t$ as a parameter and consider the family of maps $G_t$ that are self-maps of the punctured sphere $S^n \setminus B_r$. We want compute the operator norm $\|\dx G_t\|$ (REFERENCE):
+$$\|\dx G_t\| = \sup_{v \neq 0} \frac{\|\dx G_tv\|_{G(p)}}{\|v\|_p} = \sup_{\|v\|_p=1} \|\dx G_tv\|_{G(p)},$$ 
+where $v = (v_\rho, v_\theta) \in T_p(S^n \setminus B_r), p=(\rho, \theta), G_t(p) = ((1-t)\rho, \theta)$ and we apply the sphere metric we computed in the section above. So for $\dx G_tv$ we have:
 \begin{equation*}
-\begin{pmatrix}
-1-t & 0 & -\rho \\
-0 & 1 & 0
-\end{pmatrix}
-\cdot
+\dx G
 \begin{pmatrix}
 v_\rho \\
 v_\theta \\
@@ -164,32 +162,31 @@ v_\theta
 \end{pmatrix}
 = (1-t)^2 v^2_\rho + v^2_\theta 
 \end{equation*}
-
-Then using the sphere metric we computed earlier for at $p=(\rho, \theta)$ and $G_t(p) = ((1-t)\rho, \theta)$ respectively, $ \|v\|=1$ yields,
-$$v^2_1+\sin^2 v^2 = 1$$
-$$\|\dx G_t v\| = \sqrt{(1-t)^2 v^2_\rho + sin^2(1-t)\rho \cdot v^2_\theta}
-= \sqrt{ v^2_\rho \cdot (1-t)^2 + (1-v^2_\rho) \cdot \frac{ sin^2(1-t)\rho }{ sin^2\rho }}$$
+$$\|v\|_p=1 \Leftrightarrow v^2_\rho + v^2_\theta \sin^2 \! \rho = 1$$
+$$\|\dx G_t v\|_{G(p)^2} = v^2_\rho (1-t)^2 + v^2_\theta \sin^2 \! ((1-t)\rho)
+= v^2_\rho \cdot (1-t)^2 + (1-v^2_\rho) \cdot \frac{ \sin^2 \! ((1-t)\rho) }{ \sin^2\!\rho }, \text{ where } 0 \leq v^2_\rho \leq 1$$
+So the value we are interested in maximizing is a convex combination of two terms, $(1-t)^2$ and $\frac{ \sin^2((1-t)\rho) }{ \sin^2\rho }$. We can find the supremum for each term, pick the larger one and be done. Instead let us first take a closer look at what is happening here. The two terms are just the operator norm in the directions of $\rho$ and $\theta$ respectively. The reason why the norm is just a convex combination of the two is because the metric has no mixed terms, i.e. because the metric matrix $dG_t$ is diagonal.
+$$
+Direction $\rho$ is the boring one, as $\sup(1-t)^2=1$ is achieved at $t=0$, where the other term is also $1$, therefore we can focus on the direction $\theta$ of the lateral spheres[^pole]:
 
 
 <!---
 CONTINUE HERE!!! PRIORITY (after writing out the strategy for this section)
 could try using a border matrix.
 
-I should be more explicit at which points the differential happens!!!!!
+put operator norm into a separate remark? note that dG is a bounded operator.
 
-put operator norm into a separate remark, note that dG is a bounded operator.
+we should consider the pole point for the domain sphere separately:
+First off, let us address the limitations of the representation we chose for our metric, namely the pole point. There where where $\rho=0$, thus G fixes by the pole and dG_{\rho=0} is identity on the tangent space. Hence, \|dG_{\rho=0}\|=1.
 
-here i want to tex the computations from the new notebook with the sketches.
 we don’t have to worry about the product metric because i am considering the components of the product separately.
 a generic tangent vector v in the direction of the sphere (i.e. with the zero time component) is v in TpM, where $$$p=(\rho, \theta, t)$$ 
 v=v_1 time dG/d\rho + v_2 times dG/d\theta
-we want to compute the operator norm REFERENCE ||dG|| WRITE OUT FORMULA
-to simplify the computation we set a:=1-t,
-
-then dGv = 
 
 REFERENCE APPENDIX manifolds with boundary
 --->
+
+[^pole]: We still have to address the case $\rho=0$. This is the pole point where our metric repersentation is not well defined. $G$ fixes the pole and $dG_t$ on the pole tangent space is identity. Hence at that point $\|dG_t|{\rho=0}\|=1$.
 
 [^length-metric]: To be precise, the length of the geodesics is determined by the standard Riemmanian metric, where the metric is pulled back along the embedding of the spheres into their ambient Euclidean spaces ($\R^m$, $\R^n$, respectively). The lengths of geodesics are then precisely the respective Euclidean lengths of their embeddings. The reason to specify a metric so early on is that when we talk about Lipschitz continuity we are implicitly dealing with the metrics, not just with undelying topologies. However, since all of our results are up to a constant, suitable constant manipulation would show them to hold for the standard Euclidean metric as well. Nevertheless, we prefer to settle on a specific metric to avoid confusion or ambiguity.
 
