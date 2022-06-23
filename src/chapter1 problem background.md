@@ -163,13 +163,16 @@ v_\theta
 = (1-t)^2 v^2_\rho + v^2_\theta 
 \end{equation*}
 $$\|v\|_p=1 \Leftrightarrow v^2_\rho + v^2_\theta \sin^2 \! \rho = 1$$
-$$\|\dx G_t v\|_{G(p)^2} = v^2_\rho (1-t)^2 + v^2_\theta \sin^2 \! ((1-t)\rho)
+$$\|\dx G_t v\|^2_{G(p)} = v^2_\rho (1-t)^2 + v^2_\theta \sin^2 \! ((1-t)\rho)
 = v^2_\rho \cdot (1-t)^2 + (1-v^2_\rho) \cdot \frac{ \sin^2 \! ((1-t)\rho) }{ \sin^2\!\rho }, \text{ where } 0 \leq v^2_\rho \leq 1$$
 So the value we are interested in maximizing is a convex combination of two terms, $(1-t)^2$ and $\frac{ \sin^2((1-t)\rho) }{ \sin^2\rho }$. We can find the supremum for each term, pick the larger one and be done. Instead let us first take a closer look at what is happening here. The two terms are just the operator norm in the directions of $\rho$ and $\theta$ respectively. The reason why the norm is just a convex combination of the two is because the metric has no mixed terms, i.e. because the metric matrix $dG_t$ is diagonal.
-$$
-Direction $\rho$ is the boring one, as $\sup(1-t)^2=1$ is achieved at $t=0$, where the other term is also $1$, therefore we can focus on the direction $\theta$ of the lateral spheres[^pole]:
-
-
+$$\|\dx G_t v\|^2_{G(p)} = v^2_\rho \cdot \frac{ \|\dx G Vec{v_\rho\|^2 }{ \|\Vec{v_\rho}\|^2 } + (1-v^2_\rho) \cdot \frac{ \|\dx G Vec{v_\theta}\|^2 }{ \|\Vec{v_\theta}\|^2 }$$
+$$\|\dx G_t\| = \max{ \|\dx G_{\theta, t}\| , \|\dx G_{\rho, t}\| }, \text{ where } \|\dx G_{\theta, t}\| = \sup(1-t), $$
+$$\|\dx G_{\rho, t}\| = \sup_{v_\theta \neq 0} \frac{ \|\dx G Vec{v_\theta\|_{G(p)} }{ \|\Vec{v_\theta}\|_p } = \sup_{v_\theta \neq 0} \frac{ \|\ Vec{v_\theta}\|_{G(p)} }{ \|\Vec{v_\theta}\|_p } = \sup_{\substack{v_\theta \neq 0, \\ \rho \neq 0}} \frac{ \sqrt{ \sin^2 \! ((1-t)\rho) } }{ \sqrt{ \sin^2\!\rho } } = \sup_{\rho \neq 0} \frac { \sin((1-t)\rho) }{ \sin\rho }$$
+Direction $\rho$ is the boring one, as $\sup(1-t)=1$ is achieved at $t=0$, where the sine quotient also equals $1$ for $t=0$. Thus, we can focus solely on the direction $\theta$ of the lateral spheres[^pole].
+INSERT SPHERE CONTRACTION PICTURE HERE
+For large $r>\pi/2$ the Lipschitz constant $L \lessthan 1$, as increasing t only reduces the fraction. Gomeetrically, contraction then only shrinks the lateral spheres together with their tangent vectors.
+For smaller $r$...
 <!---
 CONTINUE HERE!!! PRIORITY (after writing out the strategy for this section)
 could try using a border matrix.
