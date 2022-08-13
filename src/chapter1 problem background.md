@@ -2,6 +2,8 @@
 
 some introduction.
 
+Gromov was able to show that there is a Lipschitz null-homotopy with the tower of exponentials. He apparently was also able to show linear dependency for the case m=n. (reference Guth).
+
 ## Some backgound assumptions
 
 This paper deals with Lipschitz constants of maps between spheres. Most of the time we will only estimate the Lipschitz constants up to a constant $C(m,n)$, that only depends on the dimensions of the spheres. We denote equality/inequality up to a constant by $\sim, \lesssim, \gtrsim$ respectively.
@@ -11,10 +13,12 @@ Statement of the problem.
 
 ## Contracting the image of a lower dimensional sphere
 ### Introduction to computations up to a constant
-In this section we first consider Lipschitz maps from $S^m$ to $S^n$ when $m \lessthan n$. This case is fairly easy, as we know from topology that  We know that the image of $S^m$ in $S^n$ is not-surjective (citation). It is then contractible. In this section we want to show that the image of a lower dimensional sphere can be contracted in a Lipschitz way, and to provide a fairly tight Lipschitz constant. 
+In this section we first consider Lipschitz maps from $S^m$ to $S^n$ when $m \lessthan n$. This case is fairly easy, as we know from topology that APPARENTLY THAT'S WRONG. we need piece-wise linearity or smoothness. We know that the image of $S^m$ in $S^n$ is not-surjective (citation). It is then contractible. In this section we want to show that the image of a lower dimensional sphere can be contracted in a Lipschitz way, and to provide a fairly tight Lipschitz constant. 
 
 <!---
 STATE THE FIRST PROPOSITION PROPERLY, introduce it and give a good reference! I also state the Lemma twice, that's a problem. I would like to lay out a plan for this section (i started drafting it on Saturday at the Grillplatz and never finished. Basically, here I want to lay out the game plan for this section. Maybe also mention how these proofs play a role in the later ones. Want to be extra specific about simplicial approximation not fitting into the m<n pattern.
+
+i need to either explain what "fairly tight" means, or not write it at all.
 --->
 
 We start by showing that a Lipschitz map must in fact miss a whole open ball in the target:
@@ -171,10 +175,14 @@ $$\|\dx G_t\| = \max{ \|\dx G_{\theta, t}\| , \|\dx G_{\rho, t}\| }, \text{ wher
 $$\|\dx G_{\rho, t}\| = \sup_{v_\theta \neq 0} \frac{ \|\dx G Vec{v_\theta\|_{G(p)} }{ \|\Vec{v_\theta}\|_p } = \sup_{v_\theta \neq 0} \frac{ \|\ Vec{v_\theta}\|_{G(p)} }{ \|\Vec{v_\theta}\|_p } = \sup_{\substack{v_\theta \neq 0, \\ \rho \neq 0}} \frac{ \sqrt{ \sin^2 \! ((1-t)\rho) } }{ \sqrt{ \sin^2\!\rho } } = \sup_{\rho \neq 0} \frac { \sin((1-t)\rho) }{ \sin\rho }$$
 Direction $\rho$ is the boring one, as $\sup(1-t)=1$ is achieved at $t=0$, where the sine quotient also equals $1$ for $t=0$. Thus, we can focus solely on the direction $\theta$ of the lateral spheres[^pole].
 INSERT SPHERE CONTRACTION PICTURE HERE
-For large $r>\pi/2$ the Lipschitz constant $L \lessthan 1$, as increasing t only reduces the fraction. Gomeetrically, contraction then only shrinks the lateral spheres together with their tangent vectors.
-For smaller $r$...
+For large $r>\pi/2$ the Lipschitz constant $L \lessthan 1$, as increasing t only reduces the fraction. Geometrically, for  contraction then only shrinks the lateral spheres together with their tangent vectors.
+For $r \lessthan \pi/2$ we achieve the largest possible stretch of the tangent vectors when the latteral spheres $S^{n-1}$ grow the most via $G$, that is, when p sits at the boundary of $S^n \setminus B_r$ and G(p) sits at the equator sphere. There
+$$\rho = \pi - r; \; (1-t)\rho = \pi/2$$
+$$\|\dx G_t\| = \|\dx G_{\rho, t}\| = \frac { \sin(\pi/2) }{ \sin(\pi - r) } = \frac {1}/{\sin r} \sim r^{-1}.$$
+
+
 <!---
-CONTINUE HERE!!! PRIORITY (after writing out the strategy for this section)
+PRIORITY (after writing out the strategy for this section)
 could try using a border matrix.
 
 put operator norm into a separate remark? note that dG is a bounded operator.
@@ -190,6 +198,41 @@ REFERENCE APPENDIX manifolds with boundary
 --->
 
 [^pole]: We still have to address the case $\rho=0$. This is the pole point where our metric repersentation is not well defined. $G$ fixes the pole and $dG_t$ on the pole tangent space is identity. Hence at that point $\|dG_t|{\rho=0}\|=1$.
+
+CONTINUE HERE!!!
+
+The bound we proved is not particularly good. In the standard proof that the image of a lower dimensional sphere is not surjective one approximates the sphere by piece-wise linear maps. We can explore this idea further by introducing simplicial approximation.
+<!------
+CONTINUE HERE!!! SIMPLICIAL APPROXIMATION THEOREM
+------>
+
+##Simplicial approximation
+We start with a classical result on simplicial approximation.
+Theorem.
+If $K$ is a finite simplicial complex and $P$ is an arbitrary simplicial complex, then any map $f: K \rightarrow P$ is homotopic to a map that is simplicial with respect to some iterated barycentric subdivision of K.
+
+We don't actually intend to prove it here, but here is a rough summary of the proof is as follows:
+We observe that open stars form an open covering of P. Taking pre-image of that cover yields an open cover of K. Since K is a finite simplicial complex it is in particular compact. We take the finite subcover. We equip K with a metric and find the lebesgue number for the cover. This gives us a way to determine the desired size of the simplices of K. We then subdivide K until the simplices are small enough that closed star of a vertex v is contained in some cover element. This means we managed to contain the closed nighborhood of a vertex - adjacent edges and their vertices - fully in a reasonably small region of the the simplex. Edges can't wrap around our simplex multiple times and vertices cannot be too far apart. Meaning we have a chance of building a simplicial map. This is as much of the proof as we need for now - see Hatcher for details and the contruction.
+
+Two key ideas we want to take from this is to estimate the desired siOne of the key ideas here is that we subdivide $K$ until the simplices are small enough so that once we choose where to map a vertex we also control where neighboring vertices are mapped to. Meaning vertices that share an edge won't be too far apart, and we have a chance of building a siplicial map. We translate this idea to a Lipschitz map setting.
+
+We now want to equip the spheres with a simplicial structure and then proceed 
+
+
+
+
+
+
+Definition (star of a simplex)
+See Hatcher for definitions of basic concepts and proof. Some important notes: boundary of a single point. What an open star is intuitively, a picture? There are some nice pictures on wikipedia that I could borrow.
+
+We require for the closed star to be contained in the open star so that we control for where vertices are approximated to.
+
+Here is a quantitative 
+
+
+Theorem (Simplicial approximation).
+Let $J$ be an arbitrary simplicial complex equipped with a metric such that preimage of each simplex under the exponential map is an equilateral simplex in the tangent space. L
 
 [^length-metric]: To be precise, the length of the geodesics is determined by the standard Riemmanian metric, where the metric is pulled back along the embedding of the spheres into their ambient Euclidean spaces ($\R^m$, $\R^n$, respectively). The lengths of geodesics are then precisely the respective Euclidean lengths of their embeddings. The reason to specify a metric so early on is that when we talk about Lipschitz continuity we are implicitly dealing with the metrics, not just with undelying topologies. However, since all of our results are up to a constant, suitable constant manipulation would show them to hold for the standard Euclidean metric as well. Nevertheless, we prefer to settle on a specific metric to avoid confusion or ambiguity.
 
