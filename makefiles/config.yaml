@@ -33,6 +33,7 @@ header-includes:
     \usepackage{pdfpages}
     \usepackage{amsthm}
     \usepackage{derivative}
+    \usepackage{tikz-cd}
     \newtheorem{lemma}{Lemma}[chapter]
     \newtheorem*{claim}{Claim}
     \theoremstyle{definition}

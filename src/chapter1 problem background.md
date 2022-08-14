@@ -170,15 +170,15 @@ $$\|v\|_p=1 \Leftrightarrow v^2_\rho + v^2_\theta \sin^2 \! \rho = 1$$
 $$\|\dx G_t v\|^2_{G(p)} = v^2_\rho (1-t)^2 + v^2_\theta \sin^2 \! ((1-t)\rho)
 = v^2_\rho \cdot (1-t)^2 + (1-v^2_\rho) \cdot \frac{ \sin^2 \! ((1-t)\rho) }{ \sin^2\!\rho }, \text{ where } 0 \leq v^2_\rho \leq 1$$
 So the value we are interested in maximizing is a convex combination of two terms, $(1-t)^2$ and $\frac{ \sin^2((1-t)\rho) }{ \sin^2\rho }$. We can find the supremum for each term, pick the larger one and be done. Instead let us first take a closer look at what is happening here. The two terms are just the operator norm in the directions of $\rho$ and $\theta$ respectively. The reason why the norm is just a convex combination of the two is because the metric has no mixed terms, i.e. because the metric matrix $dG_t$ is diagonal.
-$$\|\dx G_t v\|^2_{G(p)} = v^2_\rho \cdot \frac{ \|\dx G Vec{v_\rho\|^2 }{ \|\Vec{v_\rho}\|^2 } + (1-v^2_\rho) \cdot \frac{ \|\dx G Vec{v_\theta}\|^2 }{ \|\Vec{v_\theta}\|^2 }$$
-$$\|\dx G_t\| = \max{ \|\dx G_{\theta, t}\| , \|\dx G_{\rho, t}\| }, \text{ where } \|\dx G_{\theta, t}\| = \sup(1-t), $$
-$$\|\dx G_{\rho, t}\| = \sup_{v_\theta \neq 0} \frac{ \|\dx G Vec{v_\theta\|_{G(p)} }{ \|\Vec{v_\theta}\|_p } = \sup_{v_\theta \neq 0} \frac{ \|\ Vec{v_\theta}\|_{G(p)} }{ \|\Vec{v_\theta}\|_p } = \sup_{\substack{v_\theta \neq 0, \\ \rho \neq 0}} \frac{ \sqrt{ \sin^2 \! ((1-t)\rho) } }{ \sqrt{ \sin^2\!\rho } } = \sup_{\rho \neq 0} \frac { \sin((1-t)\rho) }{ \sin\rho }$$
+$$\|\dx G_t v\|^2_{G(p)} = v^2_\rho \cdot \frac{ \|\dx G \Vec{v_\rho\|^2 }}{ \|\Vec{v_\rho}\|^2 } + (1-v^2_\rho) \cdot \frac{ \|\dx G \Vec{v}_\theta \|^2 }{ \|\Vec{v_\theta}\|^2 }$$
+$$\|\dx G_t\| = \max\{ \|\dx G_{\theta, t}\| , \|\dx G_{\rho, t}\| \}, \text{ where } \|\dx G_{\theta, t}\| = \sup(1-t), $$
+$$\|\dx G_{\rho, t}\| = \sup_{v_\theta \neq 0} \frac{ \|\dx G \Vec{v}_\theta \|_{G(p)} } { \| \Vec{v}_\theta \|_p } = \sup_{v_\theta \neq 0} \frac{ \| \Vec{v_\theta}\|_{G(p)} }{ \|\Vec{v}_\theta \|_p } = \sup_{\substack{v_\theta \neq 0, \\ \rho \neq 0}} \frac{ \sqrt{ \sin^2 \! ((1-t)\rho) } }{ \sqrt{ \sin^2\!\rho } } = \sup_{\rho \neq 0} \frac { \sin((1-t)\rho) }{ \sin\rho }$$
 Direction $\rho$ is the boring one, as $\sup(1-t)=1$ is achieved at $t=0$, where the sine quotient also equals $1$ for $t=0$. Thus, we can focus solely on the direction $\theta$ of the lateral spheres[^pole].
 INSERT SPHERE CONTRACTION PICTURE HERE
 For large $r>\pi/2$ the Lipschitz constant $L \lessthan 1$, as increasing t only reduces the fraction. Geometrically, for  contraction then only shrinks the lateral spheres together with their tangent vectors.
 For $r \lessthan \pi/2$ we achieve the largest possible stretch of the tangent vectors when the latteral spheres $S^{n-1}$ grow the most via $G$, that is, when p sits at the boundary of $S^n \setminus B_r$ and G(p) sits at the equator sphere. There
 $$\rho = \pi - r; \; (1-t)\rho = \pi/2$$
-$$\|\dx G_t\| = \|\dx G_{\rho, t}\| = \frac { \sin(\pi/2) }{ \sin(\pi - r) } = \frac {1}/{\sin r} \sim r^{-1}.$$
+$$\|\dx G_t\| = \|\dx G_{\rho, t}\| = \frac { \sin(\pi/2) }{ \sin(\pi - r) } = \frac {1}{\sin r} \sim r^{-1}.$$
 
 
 <!---
@@ -206,15 +206,57 @@ The bound we proved is not particularly good. In the standard proof that the ima
 CONTINUE HERE!!! SIMPLICIAL APPROXIMATION THEOREM
 ------>
 
-##Simplicial approximation
+## Simplicial approximation
+
+Simplicial complexes are often neglected in presentation, so it might be beneficial to agree on some basic definitions.
+
+Definition (simplicial complex).
+: A simplicial complex K is a collection of simplices satisfying the following conditions:
+1. Every face of a simplex in K also lies in K
+2. A non-empty intersection of two simlices in K $\sigma_1 \cap \sigma_2 \neq \varnothing$ is a face of both $\sigma_1$ and $\sigma_2$.
+
+Additionally we equip a simplicial complex K with coherent topology of its simplices: a subset $U$ is open in $K$ iff $U \cap \sigma$ is open for all $\sigma \in K$. 
+
+Observation.
+1. A simplex $\sigma$ is closed in $K$.
+2. The interior of a single vertex is the vertex itself. The boundary of a vertex is empty.
+3. A simplicial complex is a union of interiors of its simplices.
+
+Thus by default a simplicial complex $K$ has a topology but no metric. Let us denote a **geometric realization** of $K$ by **$|K|$**. We can define a metric on $K$ by choosing a geometric realization $|K|$ and on each simplex taking the subspace Euclidean metric it inherits from $|K|$ (essentially, the same procedure we used to define the topology). In other words, we choose a metric that when restricted to each simplex agrees with Clearly, such a metric agrees with the topology of K.
+
+Definition (star).
+: Let $K$ be a simplicial complex. The **closed star** of a simplex $\sigma$ in $K$ **$St\sigma$** is the union of all simplices containing $\sigma$. The **open star** of a simplex $\sigma \in K$ $st\sigma$ is the union of interiors of all simplices containing $\sigma$.
+
+Observation.
+Closed stars are closed. Open stars are open. $St\sigma$ is the closure of $st\sigma$.
+
+Of a special interest to us are stars of vertices. A star of a vertex v is the combinatorial analog of a ball around v. A closed star of a vertex caputures all adjacent and incident edges, while open stars of vertices provide an open cover that is just shy of containing the adjacent vertices - this cover is expecially useful for simplicial approximation.
+Picture open/ closed STAR OF A VERTEX
+
+A
+
+Definition (triangulation).
+: Let $K$ be a simplicial complex. $X$ a topological space. A homeomorphism $\phi: K \rightarrow X$ is called a **triangulation** of X.
+
+ADD TIKZ-CD!! DEFINE SIMPLICIAL MAP SOMEWHERE!
+
 We start with a classical result on simplicial approximation.
 Theorem.
-If $K$ is a finite simplicial complex and $P$ is an arbitrary simplicial complex, then any map $f: K \rightarrow P$ is homotopic to a map that is simplicial with respect to some iterated barycentric subdivision of K.
+If $K$ is a finite simplicial complex and $J$ is an arbitrary simplicial complex, then any map $f: K \rightarrow J$ is homotopic to a map that is simplicial with respect to some iterated barycentric subdivision of $K$.
 
-We don't actually intend to prove it here, but here is a rough summary of the proof is as follows:
-We observe that open stars form an open covering of P. Taking pre-image of that cover yields an open cover of K. Since K is a finite simplicial complex it is in particular compact. We take the finite subcover. We equip K with a metric and find the lebesgue number for the cover. This gives us a way to determine the desired size of the simplices of K. We then subdivide K until the simplices are small enough that closed star of a vertex v is contained in some cover element. This means we managed to contain the closed nighborhood of a vertex - adjacent edges and their vertices - fully in a reasonably small region of the the simplex. Edges can't wrap around our simplex multiple times and vertices cannot be too far apart. Meaning we have a chance of building a simplicial map. This is as much of the proof as we need for now - see Hatcher for details and the contruction.
+We don't actually intend to prove this result, but rather highlight some of the ideas that we want to translate to the Lipschitz setting:
+1. We equip $K$ with a metric as described above. In particular with this metric open stars are open and closed stars are closed in K. Distances within the simplex are also well behaved - all points are at most as far apart as the largest side length.
+<!-------
+How does Hatcher define simplicial complexes? NO. Don't they already have a topology? Abstract ones don't. Geometric realizations do. Are we dealing with abstract simplicial complexes? It seems like we are dealing with abstract simplicial complexes (which are usually just called simplicial complexes), because if we were given a geometric realization in R^n it would have a metric defined on it already. instead we say "define some metric".
+------>
+2. Observe that open stars form a covering of P. Taking pre-image of that cover yields an open cover of K. Since K is a finite simplicial complex it is in particular compact. We take the finite subcover and find its Lebesgue number (it exists by the Lebesgue number lemma). This gives us a way to determine the desired size of the simplices of K. 
+3. Now let us subdivide K until the simplices are small enough that closed star of a vertex v is contained in some cover element. This means we managed to contain the closed nighborhood of a vertex - adjacent edges and their vertices - fully in a reasonably small region of the the simplex. Edges can't wrap around our simplex multiple times and vertices cannot be too far apart. Meaning we have a chance of building a simplicial map.  
+This is as much of the proof as we need for now - see Hatcher for more details and the contruction.
 
-Two key ideas we want to take from this is to estimate the desired siOne of the key ideas here is that we subdivide $K$ until the simplices are small enough so that once we choose where to map a vertex we also control where neighboring vertices are mapped to. Meaning vertices that share an edge won't be too far apart, and we have a chance of building a siplicial map. We translate this idea to a Lipschitz map setting.
+To translate this idea to a Lipschitz map setting we want to replace Lebesgue number using our Lipschitz constant. We have to pay attention to several thnigs: 
+both differentiable manifolds are equipped with length-metrics. Those metrics should agree with the simplicial structure - we would like edges of a simplex to be geodesic segments (and shortest paths), simplices should not budge out too much - e.g. there shouldn't be distances longer than the longest edge - to avoid weird counterexamples. We 
+repeat step one.
+take the smallest diameter of the star and denote it by diam(J). diam(J) could be described purely in terms of the smallest side-length involved in the finite cover and a constant depending only on the size of the simplex.
 
 We now want to equip the spheres with a simplicial structure and then proceed 
 
@@ -223,7 +265,7 @@ We now want to equip the spheres with a simplicial structure and then proceed
 
 
 
-Definition (star of a simplex)
+Definition (star of a simplex).
 See Hatcher for definitions of basic concepts and proof. Some important notes: boundary of a single point. What an open star is intuitively, a picture? There are some nice pictures on wikipedia that I could borrow.
 
 We require for the closed star to be contained in the open star so that we control for where vertices are approximated to.
