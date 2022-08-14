@@ -211,70 +211,102 @@ CONTINUE HERE!!! SIMPLICIAL APPROXIMATION THEOREM
 Simplicial complexes are often neglected in presentation, so it might be beneficial to agree on some basic definitions.
 
 Definition (simplicial complex).
-: A simplicial complex K is a collection of simplices satisfying the following conditions:
-1. Every face of a simplex in K also lies in K
-2. A non-empty intersection of two simlices in K $\sigma_1 \cap \sigma_2 \neq \varnothing$ is a face of both $\sigma_1$ and $\sigma_2$.
+: A simplicial complex $K$ is a collection of simplices satisfying the following conditions:
+: (1) Every face of a simplex in $K$ also lies in $K$
+: (2) A non-empty intersection of two simlices in $K$ $\sigma_1 \cap \sigma_2 \neq \varnothing$ is a face of both $\sigma_1$ and $\sigma_2$.
 
-Additionally we equip a simplicial complex K with coherent topology of its simplices: a subset $U$ is open in $K$ iff $U \cap \sigma$ is open for all $\sigma \in K$. 
+Additionally we equip a simplicial complex $K$ with coherent topology of its simplices: a subset $U$ is open in $K$ iff $U \cap \sigma$ is open for all $\sigma \in K$.
 
-Observation.
-1. A simplex $\sigma$ is closed in $K$.
-2. The interior of a single vertex is the vertex itself. The boundary of a vertex is empty.
-3. A simplicial complex is a union of interiors of its simplices.
+**Observation.**
 
-Thus by default a simplicial complex $K$ has a topology but no metric. Let us denote a **geometric realization** of $K$ by **$|K|$**. We can define a metric on $K$ by choosing a geometric realization $|K|$ and on each simplex taking the subspace Euclidean metric it inherits from $|K|$ (essentially, the same procedure we used to define the topology). In other words, we choose a metric that when restricted to each simplex agrees with Clearly, such a metric agrees with the topology of K.
+- A simplex $\sigma$ is closed in $K$.
+- The interior of a single vertex is the vertex itself. The boundary of a vertex is empty.
+- A simplicial complex is a union of interiors of its simplices.
+
+We will restrict our attention to finite simplicial complexes.  
+By default a simplicial complex $K$ has a topology but no metric. A **geometric realization |K|** of $K$ on the other hand carries the metric that restricts to the subspace Euclidean metric on each simplex. This metric thus obviously agrees with the topology of K (i.e. $K \cong |K|$). If $K$ has $N+1$ vertices one can simply choose a realization as the subsimplex of the standard N simplex $\Delta^N$.
 
 Definition (star).
-: Let $K$ be a simplicial complex. The **closed star** of a simplex $\sigma$ in $K$ **$St\sigma$** is the union of all simplices containing $\sigma$. The **open star** of a simplex $\sigma \in K$ $st\sigma$ is the union of interiors of all simplices containing $\sigma$.
+: Let $K$ be a simplicial complex. The **closed star** of a simplex $\sigma$ in $K$ **St$\sigma$** is the union of all simplices containing $\sigma$. The **open star** of a simplex $\sigma \in K$ st$\sigma$ is the union of interiors of all simplices containing $\sigma$.
 
-Observation.
-Closed stars are closed. Open stars are open. $St\sigma$ is the closure of $st\sigma$.
+**Observation:** 
+Closed stars are closed. Open stars are open. St$\sigma$ is the closure of st$\sigma$.  
 
 Of a special interest to us are stars of vertices. A star of a vertex v is the combinatorial analog of a ball around v. A closed star of a vertex caputures all adjacent and incident edges, while open stars of vertices provide an open cover that is just shy of containing the adjacent vertices - this cover is expecially useful for simplicial approximation.
+<!-----
 Picture open/ closed STAR OF A VERTEX
+There are some nice pictures on wikipedia that I could borrow.
+--->
 
-A
+Claim (Lemma 2C.2 in Hatcher). \label{sterneschnitt}
+: Let $v_1, v_2, \dots, v_k \in VertK$. Then $\text{st}v_1 \cap \text{st}v_2 \cap \dots \cap \text{st}v_k$ is either empty or $\sigma=[v_1, v_2, \dots, v_k] \in K$ and $\text{st}v_1 \cap \text{st}v_2 \cap \dots \cap \text{st}v_k = \text{st}\sigma$.
 
-Definition (triangulation).
-: Let $K$ be a simplicial complex. $X$ a topological space. A homeomorphism $\phi: K \rightarrow X$ is called a **triangulation** of X.
+Definition. Let $K,J$ be simplicial complexes.
+: We call a map $f_0: VertK \rightarrow VertJ$ that takes the vertex set of $K$ to the vertex set of $J$ a vertex map.
+: A map $f: K \rightarrow J$ that is linear on each simplex of $K$ w.r.t. the barycentric coordinates is called a simplicial map.
 
-ADD TIKZ-CD!! DEFINE SIMPLICIAL MAP SOMEWHERE!
+**Observation:** A simplicial map restricts to a vertex map. A vertex map that can be linearly extended to a simplicial map if for each simplex $\sigma$ its vertices are mapped to vertices of some target simplex.
 
-We start with a classical result on simplicial approximation.
-Theorem.
-If $K$ is a finite simplicial complex and $J$ is an arbitrary simplicial complex, then any map $f: K \rightarrow J$ is homotopic to a map that is simplicial with respect to some iterated barycentric subdivision of $K$.
+Now that we have collected all the necessary tools we proceed with simplicial approximation. We start with a classical result on simplicial approximation.
+
+Theorem (cf. Hatcher).
+: If $K$ is a finite simplicial complex and $J$ is an arbitrary simplicial complex, then any map $f: K \rightarrow J$ is homotopic to a map that is simplicial with respect to some iterated barycentric subdivision of $K$.
 
 We don't actually intend to prove this result, but rather highlight some of the ideas that we want to translate to the Lipschitz setting:
+
 1. We equip $K$ with a metric as described above. In particular with this metric open stars are open and closed stars are closed in K. Distances within the simplex are also well behaved - all points are at most as far apart as the largest side length.
 <!-------
 How does Hatcher define simplicial complexes? NO. Don't they already have a topology? Abstract ones don't. Geometric realizations do. Are we dealing with abstract simplicial complexes? It seems like we are dealing with abstract simplicial complexes (which are usually just called simplicial complexes), because if we were given a geometric realization in R^n it would have a metric defined on it already. instead we say "define some metric".
 ------>
-2. Observe that open stars form a covering of P. Taking pre-image of that cover yields an open cover of K. Since K is a finite simplicial complex it is in particular compact. We take the finite subcover and find its Lebesgue number (it exists by the Lebesgue number lemma). This gives us a way to determine the desired size of the simplices of K. 
+2. Observe that open stars form a covering of $J$. Taking pre-image of that cover yields an open cover of K. Since K is a finite simplicial complex it is in particular compact. We take the finite subcover and find its Lebesgue number (it exists by the Lebesgue number lemma). This gives us a way to determine the desired size of the simplices of K. 
 3. Now let us subdivide K until the simplices are small enough that closed star of a vertex v is contained in some cover element. This means we managed to contain the closed nighborhood of a vertex - adjacent edges and their vertices - fully in a reasonably small region of the the simplex. Edges can't wrap around our simplex multiple times and vertices cannot be too far apart. Meaning we have a chance of building a simplicial map.  
 This is as much of the proof as we need for now - see Hatcher for more details and the contruction.
 
-To translate this idea to a Lipschitz map setting we want to replace Lebesgue number using our Lipschitz constant. We have to pay attention to several thnigs: 
+To translate this idea to a Lipschitz map setting we want to replace Lebesgue number using our Lipschitz constant. First we need both our spaces to be metric. We have to pay attention to several thnigs: 
+
+FRame THE DISCUSSION!
+
+We want distance between vertices in J to be uniform (can normalize it to 1).
+J cannot have singletons.
+
+The key observation here is that in a Lipschitz setting we can avoid using the Lebesgue number of the open star cover altogether. If the image of a vertex maps close to some vertex we can just take it as our approximation. A bad case is if a vertex maps far from any vertex while still close to some edge. So let us consider what happens if some vertex v maps to the barycenter of an $n$-simplex $\Delta^n$ of side length 1. To contain $B(Im(v), c(n))$ in an open star of any vertex we would need to set the radius $c(n)$ to be less than the shortest distance from the barycenter to the face of the n-simplex, i.e. $c(n) := dist(barycenter, \partial \Delta^n) - \epsilon$. But that distance is determined by $n$ and it grows smaller as $n$ increases. Meaning this was indeed the worst case scenario we have determined the required constant without referring to the Lebesgue number!
+
+
+
+<!-----
+Definition.
+: Let K be a simplicial complex, X be a metric space and L some constant. We define the special triangulation TriL
+
+Theorem (Simplicial approximation of a Lipschitz map).
+Let $J$ be a finite simplicial complex of dimension $n$ and let $|J|$ be an equilteral realization of $J$ with edges of length 1. Let X be a metric space and $f: X \rightarrow |J|$ be a Lipschitz map with Lipschitz constant $L$. If $X$ admits a triangulation TriL into "almost equilateral simplices" of side length at most than $c(n)/L$ with bi-lipschitz constant  (to be clarified later) then there is  and |K| of a finite complex $K$ where each simplex is homeomorphic to some standard simplex of side-length 1/L with bi-lipschitz constant ~1. 
+and |K| consists of simplices of side length at most c(n)/L, where c(n) 
+----->
+
+
+Theorem (Simplicial approximation of a Lipschitz map).
+Let $J$ be a finite simplicial complex of dimension $n$ and let $|J|$ be an equilteral realization of $J$ with edges of length 1. Let $f: |K| \rightarrow |J|$ be a Lipschitz map with Lipschitz constant $L$ and let $c(n)$ be defined as in the discussion above. If $|K|$ has equilateral simplices of side length $c(n)/L$ then $f$ can be approximated by a simplicial map with Lipschitz constant $L/c(n)$ and a homotopy $H_simp$ with Lipschitz constant $\dots$. More generally, if each simplex of $|K|$ is homeomorphic to some standard simplex of side-length $1/L$ with bi-lipschitz constant $\sim 1$ (i.e. homeomorphisms are Lipschitz in both directions with constants $\phi(K), \psi(K)$) then the constants are $C(K, n)L$ for $f_simp$ and blah in direction and $\sim 1$ in the time direction respectively.
+
+<!-----
+the worst the bi-lipschitz constant(s) the worst the Lipschitz constant of the simplicial approximation.
+---->
+
+Proof.
+By the discussion above we can guarantee that for each $v \in VertK$ there is a vertex $g(v) \in VertJ$ such that St$v \subset \text{st} g(v)$. Thus $g: VertK \rightarrow VertJ$ defines a vertex map. We want to show that it extends to a simplicial map. Let $x$ be a point in the interior of $[v_1, v_2, \dots, v_k]$. Then $f(x)$ is contained in each of the stars $st$g(v_i)$. Thus by the claim \ref{sterneschnitt} above $\sigma= [g(v_1), g(v_2), \dots, g(v_k)]$ is a simplex in $J$ and we can extend the vertex map $g$ to a simplicial map $f_simp$. Again by claim \ref{sterneschnitt} we conclude that $f(x) \in st(\sigma)$ and thus there is a simplex $\sigma'$ that contains $f(x)$ in its interior and contains $\sigma$ as a face (does not have to be a proper face, i.e. it is possible that $\sigma'=\sigma$). We conclude that $f(x), f_simp(x) \in \sigma'$. We can now simply take the straight line homotopy. (cf HATCHER). It remains to verify that the Lispchitz constants hold. $f_simp$ extends linearly on simplices, thus for equilateral K the constant is deterined entirely by the ratio of edge lengths, i.e. 1/c(n). For the more general version this is magnified by how much the shortest edge in K need to be stretched, which is at most the product $\phi \cdot \psi$ of the Lipschitz constants of the bi-lipschitz simplex homeomorphisms in both directions, which depend solely on $K$. The total constant thus amounts to $C(K, n) := frac{\phi\psi}{c(n)}\cdot L \sim L$.  
+Finally, we have to determine the Lipschitz constants of the homotopy. I'll think about it tomorrow.
+
+Definition (triangulation).
+: Let $K$ be a simplicial complex. $X$ a topological space. A homeomorphism $\phi: K \rightarrow X$ is called a **triangulation** of X. 
+
+<!------
 both differentiable manifolds are equipped with length-metrics. Those metrics should agree with the simplicial structure - we would like edges of a simplex to be geodesic segments (and shortest paths), simplices should not budge out too much - e.g. there shouldn't be distances longer than the longest edge - to avoid weird counterexamples. We 
 repeat step one.
-take the smallest diameter of the star and denote it by diam(J). diam(J) could be described purely in terms of the smallest side-length involved in the finite cover and a constant depending only on the size of the simplex.
+take the smallest diameter of the star and denote it by diam(J). diam(J) could be described purely in terms of the smallest side-length involved in the finite cover and a constant depending only on the size of the simplex. This already involves a choice.
+---->
 
 We now want to equip the spheres with a simplicial structure and then proceed 
 
 
 
-
-
-
-Definition (star of a simplex).
-See Hatcher for definitions of basic concepts and proof. Some important notes: boundary of a single point. What an open star is intuitively, a picture? There are some nice pictures on wikipedia that I could borrow.
-
-We require for the closed star to be contained in the open star so that we control for where vertices are approximated to.
-
-Here is a quantitative 
-
-
-Theorem (Simplicial approximation).
-Let $J$ be an arbitrary simplicial complex equipped with a metric such that preimage of each simplex under the exponential map is an equilateral simplex in the tangent space. L
 
 [^length-metric]: To be precise, the length of the geodesics is determined by the standard Riemmanian metric, where the metric is pulled back along the embedding of the spheres into their ambient Euclidean spaces ($\R^m$, $\R^n$, respectively). The lengths of geodesics are then precisely the respective Euclidean lengths of their embeddings. The reason to specify a metric so early on is that when we talk about Lipschitz continuity we are implicitly dealing with the metrics, not just with undelying topologies. However, since all of our results are up to a constant, suitable constant manipulation would show them to hold for the standard Euclidean metric as well. Nevertheless, we prefer to settle on a specific metric to avoid confusion or ambiguity.
 
