@@ -239,11 +239,12 @@ There are some nice pictures on wikipedia that I could borrow.
 --->
 
 Claim (Lemma 2C.2 in Hatcher). \label{sterneschnitt}
-: Let $v_1, v_2, \dots, v_k \in VertK$. Then $\text{st}v_1 \cap \text{st}v_2 \cap \dots \cap \text{st}v_k$ is either empty or $\sigma=[v_1, v_2, \dots, v_k] \in K$ and $\text{st}v_1 \cap \text{st}v_2 \cap \dots \cap \text{st}v_k = \text{st}\sigma$.
+: Let $v_1, v_2, \dots, v_k \in VertK$. Then $\mathrm{st}v_1 \cap \mathrm{st}v_2 \cap \dots \cap \mathrm{st}v_k$ is either empty or $\sigma=[v_1, v_2, \dots, v_k] \in K$ and $\mathrm{st}v_1 \cap \mathrm{st}v_2 \cap \dots \cap \mathrm{st}v_k = \mathrm{st}\sigma$.
 
-Definition. Let $K,J$ be simplicial complexes.
-: We call a map $f_0: VertK \rightarrow VertJ$ that takes the vertex set of $K$ to the vertex set of $J$ a vertex map.
-: A map $f: K \rightarrow J$ that is linear on each simplex of $K$ w.r.t. the barycentric coordinates is called a simplicial map.
+Definition. 
+: Let $K,J$ be simplicial complexes.
+We call a map $f_0: VertK \rightarrow VertJ$ that takes the vertex set of $K$ to the vertex set of $J$ a **vertex map**. 
+: A map $f: K \rightarrow J$ that is linear on each simplex of $K$ w.r.t. the barycentric coordinates is called a **simplicial map**.
 
 **Observation:** A simplicial map restricts to a vertex map. A vertex map that can be linearly extended to a simplicial map if for each simplex $\sigma$ its vertices are mapped to vertices of some target simplex.
 
@@ -284,7 +285,7 @@ and |K| consists of simplices of side length at most c(n)/L, where c(n)
 
 
 Theorem (Simplicial approximation of a Lipschitz map) \label{simp}. 
-Let $J$ be a finite simplicial complex of dimension $n$ and let $|J|$ be an equilteral realization of $J$ with edges of length 1. Let $f: |K| \rightarrow |J|$ be a Lipschitz map with Lipschitz constant $L$ and let $c(n)$ be defined as in the discussion above. If $|K|$ has equilateral simplices of side length $c(n)/L$ then $f$ can be approximated by a simplicial map with Lipschitz constant $L/c(n)$ and a homotopy $H_simp$ with Lipschitz constant $\dots$. More generally, if each simplex of $|K|$ is homeomorphic to some standard simplex of side-length $1/L$ with bi-lipschitz constant $\sim 1$ (i.e. homeomorphisms are Lipschitz in both directions with constants $\lambda(K), \gamma(K)$) then the constants are $C(K, n)L$ for $f_simp$ and blah in direction and $\sim 1$ in the time direction respectively.
+: Let $J$ be a finite simplicial complex of dimension $n$ and let $|J|$ be an equilteral realization of $J$ with edges of length 1. Let $f: |K| \rightarrow |J|$ be a Lipschitz map with Lipschitz constant $L$ and let $c(n)$ be defined as in the discussion above. If $|K|$ has equilateral simplices of side length $c(n)/L$ then $f$ can be approximated by a simplicial map with Lipschitz constant $L/c(n)$ and a homotopy $H_{simp}$ with Lipschitz constant $\dots$. More generally, if each simplex of $|K|$ is homeomorphic to some standard simplex of side-length $1/L$ with bi-lipschitz constant $\sim 1$ (i.e. homeomorphisms are Lipschitz in both directions with constants $\lambda(K), \gamma(K)$) then the constants are $C(K, n)L$ for $f_{simp}$ and blah in direction and $\sim 1$ in the time direction respectively.
 
 <!-----
 the worst the bi-lipschitz constant(s) the worst the Lipschitz constant of the simplicial approximation.
@@ -292,8 +293,10 @@ talk about generalizations?
 ---->
 
 Proof.
-By the discussion above we can guarantee that for each $v \in VertK$ there is a vertex $g(v) \in VertJ$ such that St$v \subset \text{st} g(v)$. Thus $g: VertK \rightarrow VertJ$ defines a vertex map. We want to show that it extends to a simplicial map. Let $x$ be a point in the interior of $[v_1, v_2, \dots, v_k]$. Then $f(x)$ is contained in each of the stars $st$g(v_i)$. Thus by the claim \ref{sterneschnitt} above $\sigma= [g(v_1), g(v_2), \dots, g(v_k)]$ is a simplex in $J$ and we can extend the vertex map $g$ to a simplicial map $f_{simp}$. Again by claim \ref{sterneschnitt} we conclude that $f(x) \in st(\sigma)$ and thus there is a simplex $\sigma'$ that contains $f(x)$ in its interior and contains $\sigma$ as a face (does not have to be a proper face, i.e. it is possible that $\sigma'=\sigma$). We conclude that $f(x), f_{simp}(x) \in \sigma'$. We can now simply take the straight line homotopy. (cf HATCHER). It remains to verify that the Lispchitz constants hold. $f_{simp}$ extends linearly on simplices, thus for equilateral K the constant is deterined entirely by the ratio of edge lengths, i.e. 1/c(n). For the more general version this is magnified by how much the shortest edge in K need to be stretched, which is at most the product $\lambda \cdot \gamma$ of the Lipschitz constants of the bi-lipschitz simplex homeomorphisms in both directions, which depend solely on $K$. The total constant thus amounts to $C(K, n) := frac{\lambda\gamma}{c(n)}\cdot L \sim L$.  
-Finally, we have to determine the Lipschitz constants of the homotopy. I'll think about it tomorrow.
+: By the discussion above we can guarantee that for each $v \in VertK$ there is a vertex $g(v) \in VertJ$ such that St$v \subset \text{st} g(v)$. Thus $g: VertK \rightarrow VertJ$ defines a vertex map. We want to show that it extends to a simplicial map. Let $x$ be a point in the interior of $[v_1, v_2, \dots, v_k]$. Then $f(x)$ is contained in each of the stars $st$g(v_i)$. Thus by the claim \ref{sterneschnitt} above $\sigma= [g(v_1), g(v_2), \dots, g(v_k)]$ is a simplex in $J$ and we can extend the vertex map $g$ to a simplicial map $f_{simp}$. Again by claim \ref{sterneschnitt} we conclude that $f(x) \in st(\sigma)$ and thus there is a simplex $\sigma'$ that contains $f(x)$ in its interior and contains $\sigma$ as a face (does not have to be a proper face, i.e. it is possible that $\sigma'=\sigma$). We conclude that $f(x), f_{simp}(x) \in \sigma'$. We can now simply take the straight line homotopy, i.e. (cf HATCHER).  
+$$ H_{simp}=(1-t)f+tf_{simp} $$
+It remains to verify that the Lispchitz constants hold. $f_{simp}$ extends linearly on simplices, thus for equilateral K the constant multiple is deterined entirely by the ratio of edge lengths, i.e. $1/c(n) > 1$. The Lipschitz constant o $f_{simp}$ in this case is thus $L/c(n)$. For the more general version this is magnified by how much the shortest edge in K need to be stretched, which is at most the product $\lambda \cdot \gamma$ of the Lipschitz constants of the bi-lipschitz simplex homeomorphisms in both directions, which depend solely on $K$. The total constant thus amounts to $C(K, n) := frac{\lambda\gamma}{c(n)}\cdot L \sim L$.  
+Finally, we have to determine the Lipschitz constants of the homotopy. Note that $C(K, n) > 1/c(n) > 1$, thus for  a given $t$ $H_{simp}(t)$ has Lipscihtz constant $(1-t)L+tC(K,n)L$. Meaning in the sphere direction the constant is at most C(K,n)L and in the time direction the Lipschitz constant grows linearly with $C(K,n)$. This finishes the proof.
 
 ### Approximating maps between spheres
 
@@ -306,7 +309,7 @@ Definition (triangulation).
 		(K, d_k) \arrow[u, "\phi"] \arrow[r, "g_{simp}"] 
 			& (J, d_j) \arrow[u, "\psi"]
 	\end{tikzcd}
-end{center}
+\end{center}
 We now want to find triangulations for out spheres so that we can apply the simplicial approximation to them. We will pick triangulations that suit our purposes for the main result.
 
 We start with a triangulation of $S^n$ by the boundary of the unilateral $n+1$-simplex $\partial Delta^{n+1}$. This obviously uses very few vertices, thereby limiting the quality of our approximation, so let me try to motivate this choice of triangulation (the motivation will become apparent in the upcoming proofs): for the main result in case $m \geq n$ we need all vertices to be incident. This will allow us to "approximate" the null-homotopy to some extent witout any further geometric information about it. Furthermore, we would like simplices to be both equilateral and to have equal area. This already determines our triangulation uniquely (up to rotations). Additionally, $\partial Delta^{n+1}$ is defined for all dimensions (as opposed to, say, a triangulation of S^2 by the surface of icosahedron, that does not gereralize well to other dimensions). $\partial Delta^{n+1}$ is bi-lipschitz homeomorphic to S^n with bi-lipschitz constants $\sim 1$ only depending on $n$.
