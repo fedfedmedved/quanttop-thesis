@@ -40,6 +40,7 @@ header-includes:
     \newtheorem*{definition}{Definition}
     \newtheorem{theorem}[lemma]{Theorem}
     \newtheorem{example}[lemma]{Example}
+    \newtheorem{proposition}[lemma]{Proposition}
     \newtheorem{assumption}{Assumption}
     \theoremstyle{definition}
     \newtheorem*{observation}{Observation}

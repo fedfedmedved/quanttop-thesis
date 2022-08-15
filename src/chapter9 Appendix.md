@@ -89,6 +89,7 @@ Definition (Double).
 A double of a manifold $M$ admits a Reimannian metric. Selecting a metric and restricting to $M$ yields a Riemmanian metric on $M$. cite stackexchange because credit should be given where credit is due. 
 \end{observation}
 
+<!-----
 ### Derivative of a differentiable map w.r.t. the metric
 In this section we want to learn how to find Lipschitz constants for a given differentiable map between manifolds. We want learn how to compute the differential directly using the corresponding metrics, with respect to a given parametrization As usual we will equip our spaces with the length metric
 
@@ -97,6 +98,16 @@ Equipping our spaces with a specific metric allows for explicit computations of 
 THIS IS STILL HORRIBLE - REWRITE!
 
 [^volume]: We are referring to $m$-volumes. Think of surface areas in case $m=2$.
+
+----->
+
+## On "bi-lipschitz to equilateral" triangulation of a sphere/ball
+
+We could probably use greedy subdivision with moving the points heuristically after to achieve uniform lengths, but it would become a stochastic/numerical problem. It would be notably harder to show and it wouldn't eliminate the problem of the step entirely, albeit it would make the jumps considerably smoother. It is also only really relevant for improving the constant multiple for the simplicial approximation of f, not of the homotopy - the degrees there will create massive constants where such small improvements are of no relevance. Nonetheless, simplicial approximation may be interesting on its own and I think the problem itself is an interesting in its own right.
+
+REFERENCES. 
+https://pdf.sciencedirectassets.com/271538/1-s2.0-S0304397500X04938/1-s2.0-S0304397502004371/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFcaCXVzLWVhc3QtMSJGMEQCIBVXD%2B3WoGBDM3I7Ud6yKR%2FyIjP6pk6nB3LiGaatVIOlAiAUj7Ebl8IQDE1GTptCERpe6yivSHXCl%2F6%2FBE4hSWQ2xCrbBAi%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAUaDDA1OTAwMzU0Njg2NSIMNTEx20imNGjl0FXKKq8E3epPxG%2FiIPncPPayPrGQMyMQZAqyGfUaZYIARxiZI7vMp%2BPH4DxjLI%2BvhON7nXl5S1aWSvylvSVDYshu57L3xx%2Fyh8YmpuuShmp8eQVjoIfoAuW1OeJLbDV3sXtOB4HjD8z79bfg%2FBm%2BimDTEt5QD6bVIgxxRrcIHc11ZMsQEBfCopQJ3HY%2BfEeu%2Bl8nkTiDbFkSqsRRx8aOgqRViTqAvnWsxdlHQsCknyldtGolzGp%2BjUKkuaadPg%2BkOMXSWIWOMptsel3e%2BnAfhTo0S0H5GWg2bKwa9%2FOT9uZ%2F3SonWVEzLF1gGNXSK7i%2FWAJOOf8VRIutsF2%2BqPdttZR8Ri%2FuU7y050J8uOINYMoa%2FTJ%2F1fvOWz2KKitJifFRyxFt0JT4KkouAUtVbVs%2F55QTywMaay%2ByV6xSJ6pceDOp%2BLEfYeOxO8FRm6%2B7kEFa9q60u0YOJjeFs94PgF8zPzPCx%2BIWpHfHuI5Sink6sgwaR9FdFDmlDxV4N6rkW6Sv0w9niE3AOg07FRua51eBnx%2F9CuoUVHtcixYEY01u2kJQN3DdH74ZGVYMG9VmWcv0WKN4zduy9Hv6WtV2D%2BKMu9FTuoU4bayDDN2K6DD3Wt13CMxx9DmdqzvIThIyYFPnxJwK7ZLg1v8NiZG4Z0GDf6%2BO4X%2F9rnoYBvU4HmP5GNcu45sAIBfyGv6Qq8AFkXzWoeCdNshnpniPdkH8crk78s3dwQSivenkV%2BMcix2nwBMhmvp8%2BDDxqemXBjqqAfWQg5doE%2F7NjrwR70JaxUfemQQulgoJ1AFaTKoam0K7JG031%2BiwMK1grC7LCtkUmuEL4LRgfFnfUxxpOmyGEBrCGfr9w8Mpqv8d%2BK4dKP65nvwAMOGYG1xIQNN6SUP0rGOg3idtKL8hdXz0QEF5H%2BpQNNW6uoGn8XKOh3PlB67IUcjmdwgxmv1e1My74Tp4XBNZLmvnQeLGdKvDPwXOhc68hUlUASWSoXAf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220815T152819Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTY7TWLDK53%2F20220815%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=cc0c2ee33032d6c4e8840f3cbc4ae5d32ef432bd1e07c526336e6cc49922b470&hash=8e830e86bdc29e30ccb763c7892488ebb767aaa5bd91004cc066d545b7ac4f5a&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S0304397502004371&tid=spdf-1407c449-ad6b-4da1-be5d-6a89376d5873&sid=0767a57b7c84b2440e29aa21d736dc8d3bbdgxrqb&type=client&ua=54570d50035a5d5705&rr=73b2f597ee0fbb4d
+https://rdrr.io/cran/mvmesh/man/PolarSphere.html
 
 <!---
 do I still need this footnote for any argument?

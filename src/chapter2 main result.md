@@ -1,5 +1,5 @@
 # n is odd theorem
-Theorem ([CDMW]). Suppose that $n$ is odd and $f: S^m \rightarrow S^n$ is a null-homotopic map with Lipschitz constant L. Then there is a null-homotopy $H: S^m \times [0,1] \rightarrow S^n$ with Lipschitz constant at most C(m,n)L.
+Theorem ([CDMW]). Suppose that $n$ is odd and $f: S^m \rightarrow S^n$ is a null-homotopic map with Lipschitz constant $L$. Then there is a null-homotopy $H: S^m \times [0,1] \rightarrow S^n$ with Lipschitz constant at most $C(m,n)L$.
 
 The approach they take in this proof is as follows:
 Here are some preparatory steps for the proof:

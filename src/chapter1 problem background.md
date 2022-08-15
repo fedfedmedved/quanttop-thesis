@@ -125,7 +125,7 @@ This part is still a bit raw, have to recall what me and Max had been talking ab
 
 The complement of a point in $S^n$ is contractible. If we remove a ball from $S^n$, the leftover part can be contracted in a Lipschitz way.
 
-Lemma. 
+Lemma (contraction lemma) \label{contraction}. 
 : For each radius r there is a Lipschitz-contraction $G: ( S^n \setminus B_r ) \times [0,1] \rightarrow S^n \setminus B_r$. G has Lipschitz constant $\lesssim 1/r$ in the $S^n$ direction and $\lesssim 1$ in the $[0,1]$ direction. 
 
 We choose the obvious contraction map:
@@ -283,30 +283,63 @@ and |K| consists of simplices of side length at most c(n)/L, where c(n)
 ----->
 
 
-Theorem (Simplicial approximation of a Lipschitz map).
-Let $J$ be a finite simplicial complex of dimension $n$ and let $|J|$ be an equilteral realization of $J$ with edges of length 1. Let $f: |K| \rightarrow |J|$ be a Lipschitz map with Lipschitz constant $L$ and let $c(n)$ be defined as in the discussion above. If $|K|$ has equilateral simplices of side length $c(n)/L$ then $f$ can be approximated by a simplicial map with Lipschitz constant $L/c(n)$ and a homotopy $H_simp$ with Lipschitz constant $\dots$. More generally, if each simplex of $|K|$ is homeomorphic to some standard simplex of side-length $1/L$ with bi-lipschitz constant $\sim 1$ (i.e. homeomorphisms are Lipschitz in both directions with constants $\phi(K), \psi(K)$) then the constants are $C(K, n)L$ for $f_simp$ and blah in direction and $\sim 1$ in the time direction respectively.
+Theorem (Simplicial approximation of a Lipschitz map) \label{simp}. 
+Let $J$ be a finite simplicial complex of dimension $n$ and let $|J|$ be an equilteral realization of $J$ with edges of length 1. Let $f: |K| \rightarrow |J|$ be a Lipschitz map with Lipschitz constant $L$ and let $c(n)$ be defined as in the discussion above. If $|K|$ has equilateral simplices of side length $c(n)/L$ then $f$ can be approximated by a simplicial map with Lipschitz constant $L/c(n)$ and a homotopy $H_simp$ with Lipschitz constant $\dots$. More generally, if each simplex of $|K|$ is homeomorphic to some standard simplex of side-length $1/L$ with bi-lipschitz constant $\sim 1$ (i.e. homeomorphisms are Lipschitz in both directions with constants $\lambda(K), \gamma(K)$) then the constants are $C(K, n)L$ for $f_simp$ and blah in direction and $\sim 1$ in the time direction respectively.
 
 <!-----
 the worst the bi-lipschitz constant(s) the worst the Lipschitz constant of the simplicial approximation.
+talk about generalizations?
 ---->
 
 Proof.
-By the discussion above we can guarantee that for each $v \in VertK$ there is a vertex $g(v) \in VertJ$ such that St$v \subset \text{st} g(v)$. Thus $g: VertK \rightarrow VertJ$ defines a vertex map. We want to show that it extends to a simplicial map. Let $x$ be a point in the interior of $[v_1, v_2, \dots, v_k]$. Then $f(x)$ is contained in each of the stars $st$g(v_i)$. Thus by the claim \ref{sterneschnitt} above $\sigma= [g(v_1), g(v_2), \dots, g(v_k)]$ is a simplex in $J$ and we can extend the vertex map $g$ to a simplicial map $f_simp$. Again by claim \ref{sterneschnitt} we conclude that $f(x) \in st(\sigma)$ and thus there is a simplex $\sigma'$ that contains $f(x)$ in its interior and contains $\sigma$ as a face (does not have to be a proper face, i.e. it is possible that $\sigma'=\sigma$). We conclude that $f(x), f_simp(x) \in \sigma'$. We can now simply take the straight line homotopy. (cf HATCHER). It remains to verify that the Lispchitz constants hold. $f_simp$ extends linearly on simplices, thus for equilateral K the constant is deterined entirely by the ratio of edge lengths, i.e. 1/c(n). For the more general version this is magnified by how much the shortest edge in K need to be stretched, which is at most the product $\phi \cdot \psi$ of the Lipschitz constants of the bi-lipschitz simplex homeomorphisms in both directions, which depend solely on $K$. The total constant thus amounts to $C(K, n) := frac{\phi\psi}{c(n)}\cdot L \sim L$.  
+By the discussion above we can guarantee that for each $v \in VertK$ there is a vertex $g(v) \in VertJ$ such that St$v \subset \text{st} g(v)$. Thus $g: VertK \rightarrow VertJ$ defines a vertex map. We want to show that it extends to a simplicial map. Let $x$ be a point in the interior of $[v_1, v_2, \dots, v_k]$. Then $f(x)$ is contained in each of the stars $st$g(v_i)$. Thus by the claim \ref{sterneschnitt} above $\sigma= [g(v_1), g(v_2), \dots, g(v_k)]$ is a simplex in $J$ and we can extend the vertex map $g$ to a simplicial map $f_{simp}$. Again by claim \ref{sterneschnitt} we conclude that $f(x) \in st(\sigma)$ and thus there is a simplex $\sigma'$ that contains $f(x)$ in its interior and contains $\sigma$ as a face (does not have to be a proper face, i.e. it is possible that $\sigma'=\sigma$). We conclude that $f(x), f_{simp}(x) \in \sigma'$. We can now simply take the straight line homotopy. (cf HATCHER). It remains to verify that the Lispchitz constants hold. $f_{simp}$ extends linearly on simplices, thus for equilateral K the constant is deterined entirely by the ratio of edge lengths, i.e. 1/c(n). For the more general version this is magnified by how much the shortest edge in K need to be stretched, which is at most the product $\lambda \cdot \gamma$ of the Lipschitz constants of the bi-lipschitz simplex homeomorphisms in both directions, which depend solely on $K$. The total constant thus amounts to $C(K, n) := frac{\lambda\gamma}{c(n)}\cdot L \sim L$.  
 Finally, we have to determine the Lipschitz constants of the homotopy. I'll think about it tomorrow.
 
+### Approximating maps between spheres
+
 Definition (triangulation).
-: Let $K$ be a simplicial complex. $X$ a topological space. A homeomorphism $\phi: K \rightarrow X$ is called a **triangulation** of X. 
+: Let $K$ be a simplicial complex, $X$ a topological space. A homeomorphism $\phi: K \rightarrow X$ is called a **triangulation** of $X$.
+: Let $f: X \rightarrow Y$ be a map between mertic spaces, $\phi: (K, d_k) \rightarrow X$, $\psi: (J, d_j) \rightarrow Y$ - bi-lipschitz triangulations. Then if there is a simplicial approximation $g_{simp}$ of $g := \phi \circ f \circ \psi^{-1}$ we call $f_{simp} := \phi^-1 \circ g_{simp} \circ \psi$ the simplicial approximation of $f$.
+\begin{center}
+    \begin{tikzcd}
+		X \arrow[r, "f_{simp}"] & Y \\
+		(K, d_k) \arrow[u, "\phi"] \arrow[r, "g_{simp}"] 
+			& (J, d_j) \arrow[u, "\psi"]
+	\end{tikzcd}
+end{center}
+We now want to find triangulations for out spheres so that we can apply the simplicial approximation to them. We will pick triangulations that suit our purposes for the main result.
+
+We start with a triangulation of $S^n$ by the boundary of the unilateral $n+1$-simplex $\partial Delta^{n+1}$. This obviously uses very few vertices, thereby limiting the quality of our approximation, so let me try to motivate this choice of triangulation (the motivation will become apparent in the upcoming proofs): for the main result in case $m \geq n$ we need all vertices to be incident. This will allow us to "approximate" the null-homotopy to some extent witout any further geometric information about it. Furthermore, we would like simplices to be both equilateral and to have equal area. This already determines our triangulation uniquely (up to rotations). Additionally, $\partial Delta^{n+1}$ is defined for all dimensions (as opposed to, say, a triangulation of S^2 by the surface of icosahedron, that does not gereralize well to other dimensions). $\partial Delta^{n+1}$ is bi-lipschitz homeomorphic to S^n with bi-lipschitz constants $\sim 1$ only depending on $n$.
+
+It is notably more difficult to triangulize $S^m$ so that its triangulation fits the theorem. In fact, the proof of the main theorem requires us to be able to triangulate not only S^m but the whole unit ball, $B^{m+1}$. One difficulty with it is that the Lipschitz constant of our approximation is determined entirely by the shortest side length(s) in the metric simplicial complex: $(length(s) \cdot L \cdot 1/c(n))^{-1}$. At the same time the side-length needs to be stricty less than $c(n)/L$
+<!-----
+ATTENTION! HOW do i define c(n)? i can just define it without epsilon and then require the lipschitz constant direction ball $\phi$ to be strictly less than c(n)/L, for an equilateral simpex of side-length one.
+
+This whole thing about shortest side should be moved up to motiate the bi-lipschitz requirement.??? Ideally into th esame pre-discussion before the theorem??
+---->
+We formulate this as an exercise and leave the solution for the appendix. 
+
+Exercise. Find a family of geometric simplicial complexes $(K, |K|)$ together with a bi-lipschitz triangulation of the unit ball $Tri_L: |K| \rightarrow B^{m+1}$ such that the Lipschitz constant in the direction of the ball is less than 1. We require furthermore that each simplex in $(K, |K|)$ is bilipschitz homeomorphic to the unilateral simplex $\Delta ^{m+1}$. We require the maximum over Lipschitz constants of maps $\Delta \rightarrow B^{m+1}$ to be bounded by $c(n)/L$. 
+
+<!------
+This is tsated in a horribly convoluted way - rewrite
+------>
+
+Theorem (cf 1.4 Guth). 
+: If $m \lessthan n$ and $f: S^m \rightarrow S^n$ has Lipschizt consntat $L$, then tehre is a null-homotopy with Lipschitz constant $\lesssim L$. In fact the null-homotopy has Lipschitz constant $\lesssim L$ in the $S^m$ directions and $\lesssim 1$ in the [0,1] direction.
+
+Proof.
+: Consider the map between simplices instead. Approximate g using Theorem \ref{simp}. g_{simp} is piecewise linear hence not surjective (REFERENCE ARGUMENT either above or in the appendix!). Thus $g_simp$ misses a whole simplex! Now back on the sphere simplicial approximation of $f$ $f_{simp} misses a ball of radius $~1$ in $S^n$. Applying Lemma 1.3 \ref{contarction}
+
+Remark. Lemmas 1.2 and Propositoin bla shows that Lipschitz maps for dim $m \lessthan n$ are null-homotopic inedpendently. Both is stronger than what we need for the main proof. Note that we did not use Lemmas 1.1-1.2. ADD A REMARK AT THE BEGINNING THAT THESE CAN BE SKIPPED.
+
+**Remark.** This bound is basically tight. I did not verify this, Guth recommends it as an exercise.
 
 <!------
 both differentiable manifolds are equipped with length-metrics. Those metrics should agree with the simplicial structure - we would like edges of a simplex to be geodesic segments (and shortest paths), simplices should not budge out too much - e.g. there shouldn't be distances longer than the longest edge - to avoid weird counterexamples. We 
 repeat step one.
 take the smallest diameter of the star and denote it by diam(J). diam(J) could be described purely in terms of the smallest side-length involved in the finite cover and a constant depending only on the size of the simplex. This already involves a choice.
 ---->
-
-We now want to equip the spheres with a simplicial structure and then proceed 
-
-
-
 
 [^length-metric]: To be precise, the length of the geodesics is determined by the standard Riemmanian metric, where the metric is pulled back along the embedding of the spheres into their ambient Euclidean spaces ($\R^m$, $\R^n$, respectively). The lengths of geodesics are then precisely the respective Euclidean lengths of their embeddings. The reason to specify a metric so early on is that when we talk about Lipschitz continuity we are implicitly dealing with the metrics, not just with undelying topologies. However, since all of our results are up to a constant, suitable constant manipulation would show them to hold for the standard Euclidean metric as well. Nevertheless, we prefer to settle on a specific metric to avoid confusion or ambiguity.
 
