@@ -238,7 +238,7 @@ Picture open/ closed STAR OF A VERTEX
 There are some nice pictures on wikipedia that I could borrow.
 --->
 
-Claim (Lemma 2C.2 in Hatcher). \label{sterneschnitt}
+Claim (Lemma 2C.2 in Hatcher) \label{sterneschnitt}.
 : Let $v_1, v_2, \dots, v_k \in VertK$. Then $\mathrm{st}v_1 \cap \mathrm{st}v_2 \cap \dots \cap \mathrm{st}v_k$ is either empty or $\sigma=[v_1, v_2, \dots, v_k] \in K$ and $\mathrm{st}v_1 \cap \mathrm{st}v_2 \cap \dots \cap \mathrm{st}v_k = \mathrm{st}\sigma$.
 
 Definition. 
@@ -312,7 +312,7 @@ Definition (triangulation).
 \end{center}
 We now want to find triangulations for out spheres so that we can apply the simplicial approximation to them. We will pick triangulations that suit our purposes for the main result.
 
-We start with a triangulation of $S^n$ by the boundary of the unilateral $n+1$-simplex $\partial Delta^{n+1}$. This obviously uses very few vertices, thereby limiting the quality of our approximation, so let me try to motivate this choice of triangulation (the motivation will become apparent in the upcoming proofs): for the main result in case $m \geq n$ we need all vertices to be incident. This will allow us to "approximate" the null-homotopy to some extent witout any further geometric information about it. Furthermore, we would like simplices to be both equilateral and to have equal area. This already determines our triangulation uniquely (up to rotations). Additionally, $\partial Delta^{n+1}$ is defined for all dimensions (as opposed to, say, a triangulation of S^2 by the surface of icosahedron, that does not gereralize well to other dimensions). $\partial Delta^{n+1}$ is bi-lipschitz homeomorphic to S^n with bi-lipschitz constants $\sim 1$ only depending on $n$.
+We start with a triangulation of $S^n$ by the boundary of the unilateral $n+1$-simplex $\partial Delta^{n+1}$. This obviously uses very few vertices, thereby limiting the quality of our approximation, so let me try to motivate this choice of triangulation (the motivation will become apparent in the upcoming proofs): for the main result in case $m \geq n$ we need all vertices to be pairwise incident (i.e. any two vertices to share an edge). This will allow us to "approximate" the null-homotopy to some extent witout any further geometric information about it. Furthermore, we would like simplices to be both equilateral and to have equal area. This already determines our triangulation uniquely (up to rotations). Additionally, $\partial Delta^{n+1}$ is defined for all dimensions (as opposed to, say, a triangulation of S^2 by the surface of icosahedron, that does not gereralize well to other dimensions). $\partial Delta^{n+1}$ is bi-lipschitz homeomorphic to S^n with bi-lipschitz constants $\sim 1$ only depending on $n$.
 
 It is notably more difficult to triangulize $S^m$ so that its triangulation fits the theorem. In fact, the proof of the main theorem requires us to be able to triangulate not only S^m but the whole unit ball, $B^{m+1}$. One difficulty with it is that the Lipschitz constant of our approximation is determined entirely by the shortest side length(s) in the metric simplicial complex: $(length(s) \cdot L \cdot 1/c(n))^{-1}$. At the same time the side-length needs to be stricty less than $c(n)/L$
 <!-----
@@ -328,7 +328,7 @@ Exercise. Find a family of geometric simplicial complexes $(K, |K|)$ together wi
 This is tsated in a horribly convoluted way - rewrite
 ------>
 
-Theorem (cf 1.4 Guth). 
+Theorem (cf 1.4 Guth) \label{sphere_approx}. 
 : If $m \lessthan n$ and $f: S^m \rightarrow S^n$ has Lipschizt consntat $L$, then tehre is a null-homotopy with Lipschitz constant $\lesssim L$. In fact the null-homotopy has Lipschitz constant $\lesssim L$ in the $S^m$ directions and $\lesssim 1$ in the [0,1] direction.
 
 Proof.
