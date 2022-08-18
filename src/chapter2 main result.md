@@ -1,5 +1,5 @@
-# n is odd theorem
-Theorem ([CDMW]). Suppose that $n$ is odd and $f: S^m \rightarrow S^n$ is a null-homotopic map with Lipschitz constant $L$. Then there is a null-homotopy $H: S^m \times [0,1] \rightarrow S^n$ with Lipschitz constant at most $C(m,n)L$.
+# Main theorem
+Theorem ([CDMW]). Suppose that $n$ is odd[^odd] and $f: S^m \rightarrow S^n$ is a null-homotopic map with Lipschitz constant $L$. Then there is a null-homotopy $H: S^m \times [0,1] \rightarrow S^n$ with Lipschitz constant at most $C(m,n)L$.
 
 ## Proof angle and outline
 Here are some preparatory steps for the proof:
@@ -7,8 +7,8 @@ Here are some preparatory steps for the proof:
 1. A null-homotopy from an arbitrary space $X$ can be described as a map from the cone of X to the target. Recall that the **cone** of $X$ **CX** is simply the cyllinder of $X$ with one end collapsed to a point: $X \times [0,1] / X \times \{0\}$. Cone of $S^m$ is homeomorphic to the unit ball $B^{m+1}$. To see this, think of radius of the ball as the variable for the interval. (picture for $S^1$). Thus, a null-homotopy of $f$ can be viewed as a map from $B^{m+1}$.
 2. We first take a simplicial approximation of the map $f$ (ref Theorem \ref{simp}) using triangulations $Tri_L$ and $Tri_{S^n}$ as defined in the pre-discussion to Theorem \ref{sphere_approx}. The simplicial approximation is still null-homotopic:
 cylinder composed with the cone picture here.
-Therefore it suffices to prove the claim for $f: S^m, Tri_L \rightarrow S^n, Tri_S^n$.
-3. We endow $B^{m+1}$ with a simplicial structure $Tri_L$ using the procedure from the pre-discussion to Theorem \ref{sphere_approx}.
+Therefore it suffices to prove the claim for $f: S^m, Tri_L \rightarrow S^n, Tri_{S^n}$.
+3. We endow $B^{m+1}$ with a simplicial structure $Tri_L$ using the procedure from the pre-discussion to Theorem \ref{sphere_approx}. We fix an orientation on both simplicial complexes by ordering all the vertices.
 
 We now have the following setup: we are given a map $h: (B^{m+1}, Tri_L) \rightarrow (S^n, Tri_{S^n})$ (the default null-homotopy for $f$) with $h_{| \partial B^{m+1}} \rightarrow (S^n, Tri_{S^n})$ simplicial with Lipschitz constant $L$ (our map $f$).
 
@@ -125,46 +125,107 @@ We have shown existence of homotopies of k-simplices to simplicial maps relative
 We proceed this way until the $n-1$-st skeleton, constructing the desired map $h^{n-1}$. Its restriction to the $n-1$-st skeleton $X^{n-1}$ is simplicial and thus Lipschitz continuous with Lipschitz constant L.
 
 ## The n-skeleton
-At the n-th skeleton we run into a problem if we try to proceed as before. Namely, degree.
-We define relative degree (for the map $h^{n-1}$).
+At the n-th skeleton we run into a problem. Namely, for two maps $\lambda_1$, $\lambda_2$ from an $n$-simplex $\Delta$ of $B^{m+1}$ that we glue at the boundry, $\lambda_1 \cup -\lambda_2: S^n \rightarrow S^n$ is a self-map of the $n-sphere$ and has degree defined for it. If this map has non-zero degree then the maps are no longer homotopic (not even relative some base point), so there is a good chance that we cannot homotope $h^{n-1}_{|\Delta}$ to a simplicial map on $\Delta$. To investigate this matter further we introduce a new notion of degree, with the initial motivation of considering maps from $\Delta$ individually (and without having to fix a boundary homotopy as in Lemma \ref{rel}).
 
 Definition (relative degree).
+: We define **relative degree** of a map $\lambda: \Delta \rightarrow S^n$ as 
+$$\omega_\lambda(\Delta) := \textrm{relative degree } (\lambda) := \int_\Delta g^*dvol_{S^n},$$
+where $dvol_S^n$ denotes the volume form on $(S^n, Tri_{S^n}) = \partial \Delta^{n+1}$ with integral $1$, i.e. $\int_{\partial \Delta^{n+1}} dvol_{S^n} = 1$. $g^*dvol_{S^n}$ denotes the pullback $n$-form on $B^{m+1}$
 
-Intuition behind it, some pictures. The statement about relative to boundary and what would happen if we relaxed it.
-We take that idea of unwrapping and run with it.
+For a map $\lambda$ that quotients over the $n$-sphere, or in other words, that maps the boundary $\partial \Delta$ to a single vertex of $S^n$, the usual degree $\textrm{deg}(\lambda)$ is defined for it. We choose the volume form $dvol_{S^n}$ so that $\textrm{Relative degree } (\lambda)$ counts the number of times $\lambda$ wraps around the target sphere, i.e. so that the degrees match: $\textrm{Relative degree } (\lambda) = \textrm{deg} (\lambda)$.
+
+For a $\lambda$ simplicial on the boundary the relative degree counts the number of simpices $\lambda$ covers divided by the number of $n$-simplices in the target sphere[^approximation_2]. That is, for $n=2$ $S^2$ has four $2$-faces, then each covered face adds $1/4$-th to the relative degree. Relative degree is invariant up to homotopies relative boundary, in fact the following claim holds:
+
+<!----
+EQUAL AREA! we don't seem to actually need equal length anywhere, exceot maybe simlicial approximation.
+----> 
 
 Claim.
-: The difference of relative degrees is an integer. Two maps from n-simplices that agree on the boundary are homotopic rel boundary if and only if they have the same relative degree.
+: The difference of relative degrees is an integer. Two maps from $n$-simplices that agree on the boundary are homotopic relative boundary if and only if they have the same relative degree.
+
 Proof.
-: Glue the simplex maps in question along the boundary. $Deg(\lambda_1 \cup -\lambda_2)$ = the difference of relative degrees. The rest follows by Lemma \ref{rel}.
+: Glue the simplex maps in question along the boundary.  
+$\omega_{\lambda_1}(\Delta) - \omega_{\lambda_2}(\Delta) \\
+= \text{\# simplices traversed by }\lambda_1 - \text{\# simplices traversed by }\lambda_2 \\
+= \text{\# simplices traversed by }\lambda_1 \cup -\lambda_2 = deg(\lambda_1 \cup -\lambda_2)$.  
+The second part of the claim follows by Lemma \ref{rel}.
 
-EQUAL AREA! we don't seem to actually need equal length anywhere, exceot maybe simlicial approximation.
+Thus, relative degrees determine homotopy classes of simplex maps relative boundary. For maps simplicial on the boundary the homotopy classes rel boundary are then precisely $(n+2)^{-1} \cdot \Z$.
+One thing this shows us is that homotoping relative $X^{n-1}$ will not get us anywhere - suppose for each relative degree value we found some Lipschitz map on the simplex with that degree. We could then produce a $h^n$ that would be Lipschitz on that skeleton, but we could not bound the constant - since degrees can go arbitrarily high the simplex could have to stretch over arbitrarily many simplices, making the Lipschitz constant arbitrarily high.
 
-Our aim from now on is not to make the map into a simplicial map, but rather to bound the degree.
-What would happen if we managed to bound the degree with a constant that only depends on dimensions m,n?
+If we relaxed the notion of homotoping relative boundary to homotoping between maps that agree on the boundary agree on the boundary, we could do much better!
+Consider the case $n=1$. SKETCH HERE
+Given a simplex map of relative degree, say $100\tfrac{1}{3}$ if we relax the condition of homotoping it relative boundary we could unwrap the endpoint against the orientation 100 full circles to achieve the relative degree of $1/3$. But this would of course affect relative degree of the neighboring edges. To develop this idea further we first have to look into how exactly relative degrees of neighboring edges are related.
 
-representatives (ideally with a lower Lipschitz constant, but it can only be so low because degree implies it being quite high already)
+Since $m \geq n$, there are $n+1$ simplices in $B^{m+1}$. The image of the boundary of an $n+1$-simplex $\Delta^{n+1}$ is contractible (since the simplex is), therefore it must have degree zero. Hence, $deg (\partial \Delta^{n+1}) = 0 = \omega_\lambda(\partial \Delta^{n+1}) = \sum_{\Delta_i} (-1)^{i} \omega_\lambda(\Delta_i)$, the latter being the oriented sum of relative degrees of the boudary simplices. This is a good time to notice that $\omega_\lambda$ is a real-valued cochain. The last expression is by definition $\delta \omega$ - the co-boundary of $\omega$. Hence, what we have just shown is that $\omega_\lambda$ is a cocycle. Let us restate the same fact in the language of differential forms using this classical result:
+
+Theorem (Stokes).
+: Let $\omega$ be a differential $n$-form on an orientable manifold with boundary $\Omega^{n+1}$, then  
+$$\int_{\partial \Omega^n} \omega = \int_{\Omega^n} \dx \omega$$
+
+Claim.
+: Let $\lambda: \Delta^n \rightarrow S^n$, $\omega_\lambda(\Delta)$ the relative degree, then $\omega_\lambda$ is a co-cycle.
+
+Proof.
+: We give a second proof, this time using Stokes theorem:
+$$\delta \omega_\lambda (\Delta^{n+1})= \int_{\partial \Delta^{n+1}} \lambda^*dvolS^n \mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny Stokes}}}{=\joinrel=\joinrel=}} \int_{\Delta^{n+1}} \dx \lambda^*dvol_{S^n} = \int_{\Delta^{n+1}} \lambda^* \dx dvol_{S^n} = 0,$$
+since $dvolS^n$ is a closed form because it is an $n$-form on $S^n \Rightarrow \dx dvolS^n = 0$.
+
+This claims tells us that degrees on the boundary of every D^{n+1} must add up to zero. Let us continue our S^1 unwrapping example with a specific triangulation and specific relative degrees:
+
+SKETCH THE SPECIFIC EXAMPLE (copy to a clean sketch!)
+
+Sadly, unwrapping does not always allow us to homotope maps that are simplicial on the $n$-skeleton. Consider, for instance the case $n=2$. If any map on the interior has relative degree $1/2 mod \Z$ then it cannot be unwrapped to a simplicial map. But it turns out that unwrapping does allows us to bound the relative degree sufficiently. The rest of the section develops this idea into a proof.
+
+<!----
+relative degree (for the map $h^{n-1}$) 
+
+Intuition behind it, some pictures. Behind the notation. The statement about relative to boundary and what would happen if we relaxed it.
+We take that idea of unwrapping and run with it.
+---->
+
+We now want to try and capture the idea of unwrapping formally. First we construct a toy homotopy - it will allow us to develop all the concepts we require to finish the proof. We have an orientation on S^n, and we pick some $n-1$-simplex in the interior of B^{m+1} and unwrap it against the orientation of $S^n$ 100 times relative its boundary. Let us denote this dummy homotopy by $\Lambda: B^{m+1} \times [n, n+1] \rightarrow S^n$. It is a homotopy rel $X^{n-2} \cup S^m$.
+For $\Lambda$ restricted to an $n-1$-simplex we would like to know its degree - it would tell us how much this simplex has wrapped around the target sphere. We use prism decomposition (REFERENCE HATCHER) to view the prism of our $n-1$-simplex as a sum of oriented $n$-simplices. This means that relative degree is defined on $\Delta^{n-1} \times [n-1, n]$. We denote this degree by $\alpha_\Lambda(\Delta^{n-1})$. One possible value of $\alpha_Lambda(\Delta^{n-1})$ is always zero, for instance if $\Lambda$ does not move the $n-1$-simplex, which implies that $\alpha_Lambda$ is an integral cochain, i.e. it can only take integer values (since a difference of relative degrees must be an integer). Additionally we know that $\alpha_Lambda$ vanishes on the boundary of $B^{m+1}$.
+
+Claim:
+: Let $\Lambda: B^{m+1} \times [n-1, n] \rightarrow S^n$ be a homotopy relative $X^{n-2} \cup S^m$. Then
+$$\omega_{\Lambda_{n}} = \omega_{\Lambda_{n-1}} - \delta \alpha_\Lambda.$$
+
+Proof.
+: This formula is very intuitive. Coboundary of $\alpha$ just counts the total relative degree of wrapping/unwrapping done by each $n-1$-simplex of the boundary $\partial \Delta ^n$ (the sum of relative degrees takes orientation into account). times the homotopy $\Lambda$ wrapped 
+
+FINISH THIS PROOF! intuition is just before + wrap = after. formal ptoof is by stokes - super easy! basically copy from pdf.
 
 
-What would we do if we knew we could limit the degree
+Unfortunately, we cannot guarantee that unwrapping will allow to reduce the absolute value of all relative degrees below 1. But the following lemma shows that unwrapping can bound relative degrees, that is, absolute values of all relative degrees are $\lesssim 1$.
+
+Lemma.
+: Suppose $\omega$ is a real cocycle in $C^n(Tri_L, \R)$, and $\| \omega \|_{L^\infty (\partial B^{m+1})} \leq 1$, then there is an integral $(n-1)$-cochain $\alpha$ which vanishes on $\partial B^{m+1}$ so that
+$$\| \omega - \delta \alpha \|_{L^\infty} \lesssim 1.$$
+
+We sketch a proof of this lemma in the last subsection of the proof. For now let us use the lemma to finish the proof.
+
+Lemma.
+: Given a relative degree $\omega$ there is a Lipschitz map $\lambda: \Delta^n \rightarrow S^n$ that realizes $\omega$.
+
+Proof.
+: One way to see that such maps exist in any degree is to start with a Lipschitz map $\lambda: \Delta^n \rightarrow S^n$ of a given relative degree $\omega_0 \in (-1, 1)$ - there are precisely $2(n+2)+1$ possible values (as there are $n+2$ $n$-faces in $S^n$). We can then pick an $n-1$-face and a Lipschitz homotopy $W$ that wraps it once around the sphere (along the positive orientation). Now, for an arbitrary relative degree $\omega = \omega_0 + a$, $a \in \Z$ the map $\lambda \cup aW$ is a Lipschitz map of the desired relative degree.
 
 Lemma (bounded relative degree).
-: If there is an upper bound $A(m,n)$ for the relative degree of all maps $\Delta \rightarrow S^n$ then there is a map $h^n: (B^{m+1}, Tri_L) \rightarrow \partial \Delta^{n+1}$ that is Lipschitz with Lipschitz constant $\lesssim L$.
+: Fix m,n and let $\Lambda$ be the homotopy that realizes the cochains from the previous lemma. Let $b(m,n)$ be the upper bound for the relative degree on all simplices of $B^{m+1}$, i.e. $\omega_{\Lambda_1}(\Delta^n) \leq b$. Then there is a map $h^n: (B^{m+1}, Tri_L) \rightarrow \partial \Delta^{n+1}$ that is Lipschitz with Lipschitz constant $\lesssim L$.
 
 Proof. 
-Our approach will be as always to homotope maps on simplices of $B^{m+1}$ to "controlled" maps relative $S^m \cup X^{n-1}$, then extend those homotopies to the whole ball, obtaining a homotopy $\bar(g)^n$ between maps $h^{n-1}$ and $h^n$. The main difference is that this time the "controlled" maps are not (in general) simplicial, but merely some fixed maps of a given degree:  
-For each relative degree we choose a representative map. We can show preference for maps with a lower Lipschitz constant, but we can also choose completely arbitrary Lipschitz maps. We merely have to ensure the existence of Lipschitz maps for each relative degree (agrue why they exist). Now let A be the maximum over all Lipschitz constants of the representative maps. Then the map $h^n$ we aim to contruct will have Lipschitz constant $\lesssim AL$ (with the approximation coming from $\psi^n(L)$ - the maximum Lipschitz constant of homeomorhisms $\Delta^{n} \rightarrow \sigma$, where $\sigma \textrm{ is an } n \textrm{ simplex in } Tri_L$). BAD NOTATION - I need to figure out names for those constants and put them in a diagram.
+: Our goal is to take the map $\Lambda_{n}$ and improve it to satisfy the Lipschitz constant. We essentially use the same approach as we did for all the lower dimensional skeleta: we homotope maps on simplices of $B^{m+1}$ to "controlled" maps relative $S^m \cup X^{n-1}$, then extend those homotopies to the whole ball, obtaining a homotopy $\bar{g}^n$ between maps $\Lambda_{n}$ and $h^n$. The main difference is that this time the "controlled" maps are not (in general) simplicial, but merely some fixed maps of a given relative degree.  
+For each possible relative degree we fix a representative Lipschitz map. We can show preference for maps with a lower Lipschitz constant, but we can also choose completely arbitrary Lipschitz maps. Now let A be the maximum over all Lipschitz constants of the representative maps. Then the map $h^n$ we aim to contruct will have Lipschitz constant $\lesssim AL$ (with the approximation coming from $\psi^n(L)$ - the maximum Lipschitz constant of homeomorhisms $\Delta^{n} \rightarrow \sigma$, where $\sigma \textrm{ is an } n \textrm{ simplex in } Tri_L$). BAD NOTATION - I need to figure out names for those constants and put them in a diagram.  
+Thus we have a list of representative maps of all possible relative degrees. For each $n$-simplex $\Delta$ in $B^{m+1}$ we homotope $\Lambda_1{|\Delta}$ to the map from the list of matching relative degree (the homotopy is relative $S^m \cup X^{n-1}$). We denote the union of such homotopies with domain in $S^m \cup X^{n}$ by $g^n$. The usual application of the H.E.P. yields the desired $h^n$.
 
 The rest of this section, most of the rest of this chapter will be dedicated to showing that we can indeed bound the relative degree.
 We will do so by first viewing relative degrees in the context of cohomology, and then more specifically - DeRham cohomology.
 
 The idea of unwrapping, relative degree of a prism. 
 
-I want to demontsrate the unwrapping idea for $S^1$. With specific degrees.
-
-Essentially, this amounts to saying that the number of times we unwrap the simplex is 
-
 ### Higher dimensional skeleta
+Now, suppose $n$ is odd.
 #### The n+1-st skeleton
 We know that $h^n$ restricted to an $n$-simplex comes from a finite list of maps that are simplicial on the boundary of $\partial \Delta^n$. It suffices to only consider maps that agree with one selected simplex of $S^n = \partial \Delta ^ {n+1}$, considering a different simplex would be the same up to rotation. So really the size of our list here is the possible values of relative degree of such maps.  
 Now, we want to consider a map from an n+1-simplex of $B^{m+1}$. The restriction to its boundary $h^n_{| \partial \Delta^{n+1} }$ comes from a finite list of maps. For each of the maps $g_a$ that agree with it on the boundary, the gluing at the equator $h^n_{|\Delta^{n+1}} \cup -g_a: S^{n+1} \rightarrow S^n$ represents an element of $\pi_{n+1}(S^n)$. The homotopy group is finite, meaning we only need $|\pi_{n+1}(S^n)|$ many maps that agree with $h^n_{|\Delta^{n+1}}$ on the boundary to guarantee that there is a $g_a$ such that $h^n_{|\Delta^{n+1}} \cup -g_a$ maps to zero in the homotopy group. Then by Lemma \ref{rel} the two maps are homotopic rel boundary, and we can homotope $h^n_{|\Delta^{n+1}}$ to a map with a controlled Lipschitz constant from a finite pre-determined list of maps. The usual H.E.P. procedure yields the desired map $h^{n+1}$ that is $\lesssim L$-Lipschitz on the {n+1}-skeleton.
@@ -179,8 +240,8 @@ Don't forget the Q.E.D. sign :)
 
 [^constant_homotopy]: By "constant" we mean the homotopy that does not change over time, $g^0_{0|S^m}=g^0_{t|S^m}=f$ for $\forall t \in [0,1]$. It is also sometimes called the "trivial" homotopy.
 
-
+[^odd]: We only need this assumption in the last part of the main proof, namely in the "Higher dimensional skeleta" subsection. The rest of the discussion applies for arbitrary $n$. In particular we are allowed to use $S^2$ for examples.
 
 [^approximation]: As mentioned before, symmetry of the triangulation will be important to us later on. We will address it explicitly later in the proof why we would like the target to have equilateral simplices of equal area.
 
-
+[^approximation_2]: Equal simplex area allows us to use relative degree to "count" simplices (by adding an equal fraction $1/(n+2)$ for each covered simplex).
