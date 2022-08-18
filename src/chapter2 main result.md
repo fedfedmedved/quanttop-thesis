@@ -56,7 +56,7 @@ $\bar{g}^0$ takes $h$ to $h^0:=\bar{g}^0_1$.
 Let us explicitly do one more skeleton before stating the general version for the $k$-th skeleton. If $n=k=1$ we are done and we move on to the next section of the proof. Else $m \geq n>1$.
 We start with the map $h^0: B^{m+1} \rightarrow \partial \Delta^{n+1}$, $h^0_{| X^0}$ is simplicial. 
 Now, $h^0$ might take edges anywhere, only the end-points are prescribed. An edge image could wrap around $S^n$ multiple times, making the Lipschitz constant huge. We want to homotope all edges to straight edges relative endpoints (that is, using homotopies that fix endpoints for $\forall t$). We want to show that such homotopies exist using the fact that the fundamental group of the sphere $S^n$ is trivial, i.e. $\pi_1(S^n) = 1$ for $n>1$. 
-Let $\sigma = [v0, v1]$ be a $1$-simplex in $B^{m+1}$, $e_1, e_2: \sigma \cong [0,1] \rightarrow S^n$ be two edges in $S^n$ that agree on the end-points (the images of vertices are determined by $h^0_{|X^0}$ and are not necessarily distinct in $S^n$). The edges we are interested in are $e_1:= h_0(\sigma)$ and $e_2$ - the simplicial image of $\sigma$, but we prove the claim for any two edges in $S^n$ that agree on the boundary. We give the simplex $sigma$ an orientation from $v_0$ to $v_1$ (from $0$ to $1$ when viewed as the interval) and we denote by $-e_2$ the edge in the opposite direction. Then $e_1 \cup -e_2$ is a map from an oriented circle $S^1$ to $S^n$. Fixing $v_0$ as a basepoint makes $e_1 \cup -e_2$ into a representative of an element of the fundamental group $\pi_1(S^n)$, which is trivial because $n>1$. Now, this already shows us that the edges are homotopic relative $v_0$, but we want them to be homotopic relative both end-points. To fix this we homotope $e_2$ relative to boundary to a directed edge constant on the first and last third of the interval, and run through the entire $e_2$ in the middle. We can now homotope the point corresponding to $t=1/4$ to $e_1 \cup -e_2$ in the first third of the interval by what we have shown earlier. We now collapse $-e_2$ and $e_2$ and expand $e_1$ to the whole edge. All of these homotopies were done relative boundary.
+Let $\sigma = [v0, v1]$ be a $1$-simplex in $B^{m+1}$, $e_1, e_2: \sigma \cong [0,1] \rightarrow S^n$ be two edges in $S^n$ that agree on the end-points (the images of vertices are determined by $h^0_{|X^0}$ and are not necessarily distinct in $S^n$). The edges we are interested in are $e_1:= h_0(\sigma)$ and $e_2$ - the simplicial image of $\sigma$, but we prove the claim for any two edges in $S^n$ that agree on the boundary. We give the simplex $\sigma$ an orientation from $v_0$ to $v_1$ (from $0$ to $1$ when viewed as the interval) and we denote by $-e_2$ the edge in the opposite direction. Then $e_1 \cup -e_2$ is a map from an oriented circle $S^1$ to $S^n$. Fixing $v_0$ as a basepoint makes $e_1 \cup -e_2$ into a representative of an element of the fundamental group $\pi_1(S^n)$, which is trivial because $n>1$. Now, this already shows us that the edges are homotopic relative $v_0$, but we want them to be homotopic relative both end-points. To fix this we homotope $e_2$ relative to boundary to a directed edge constant on the first and last third of the interval, and run through the entire $e_2$ in the middle. We can now homotope the point corresponding to $t=1/4$ to $e_1 \cup -e_2$ in the first third of the interval by what we have shown earlier. We now collapse $-e_2$ and $e_2$ and expand $e_1$ to the whole edge. All of these homotopies were done relative boundary.
 SKETCH oriented $S^1$ gluing.
 
 <!---
@@ -155,7 +155,7 @@ Proof.
 Our approach will be as always to homotope maps on simplices of $B^{m+1}$ to "controlled" maps relative $S^m \cup X^{n-1}$, then extend those homotopies to the whole ball, obtaining a homotopy $\bar(g)^n$ between maps $h^{n-1}$ and $h^n$. The main difference is that this time the "controlled" maps are not (in general) simplicial, but merely some fixed maps of a given degree:  
 For each relative degree we choose a representative map. We can show preference for maps with a lower Lipschitz constant, but we can also choose completely arbitrary Lipschitz maps. We merely have to ensure the existence of Lipschitz maps for each relative degree (agrue why they exist). Now let A be the maximum over all Lipschitz constants of the representative maps. Then the map $h^n$ we aim to contruct will have Lipschitz constant $\lesssim AL$ (with the approximation coming from $\psi^n(L)$ - the maximum Lipschitz constant of homeomorhisms $\Delta^{n} \rightarrow \sigma$, where $\sigma \textrm{ is an } n \textrm{ simplex in } Tri_L$). BAD NOTATION - I need to figure out names for those constants and put them in a diagram.
 
-The rest of this section, as well as the entirety of chapter 3 will be dedicated to showing that we can indeed bound the relative degree.
+The rest of this section, most of the rest of this chapter will be dedicated to showing that we can indeed bound the relative degree.
 We will do so by first viewing relative degrees in the context of cohomology, and then more specifically - DeRham cohomology.
 
 The idea of unwrapping, relative degree of a prism. 
@@ -164,16 +164,22 @@ I want to demontsrate the unwrapping idea for $S^1$. With specific degrees.
 
 Essentially, this amounts to saying that the number of times we unwrap the simplex is 
 
-## Higher dimensional skeleta.
-this should be fairly easy, the only difficulty is the same problem as before.
+### Higher dimensional skeleta
+#### The n+1-st skeleton
+We know that $h^n$ restricted to an $n$-simplex comes from a finite list of maps that are simplicial on the boundary of $\partial \Delta^n$. It suffices to only consider maps that agree with one selected simplex of $S^n = \partial \Delta ^ {n+1}$, considering a different simplex would be the same up to rotation. So really the size of our list here is the possible values of relative degree of such maps.  
+Now, we want to consider a map from an n+1-simplex of $B^{m+1}$. The restriction to its boundary $h^n_{| \partial \Delta^{n+1} }$ comes from a finite list of maps. For each of the maps $g_a$ that agree with it on the boundary, the gluing at the equator $h^n_{|\Delta^{n+1}} \cup -g_a: S^{n+1} \rightarrow S^n$ represents an element of $\pi_{n+1}(S^n)$. The homotopy group is finite, meaning we only need $|\pi_{n+1}(S^n)|$ many maps that agree with $h^n_{|\Delta^{n+1}}$ on the boundary to guarantee that there is a $g_a$ such that $h^n_{|\Delta^{n+1}} \cup -g_a$ maps to zero in the homotopy group. Then by Lemma \ref{rel} the two maps are homotopic rel boundary, and we can homotope $h^n_{|\Delta^{n+1}}$ to a map with a controlled Lipschitz constant from a finite pre-determined list of maps. The usual H.E.P. procedure yields the desired map $h^{n+1}$ that is $\lesssim L$-Lipschitz on the {n+1}-skeleton.
 
+#### The general case
+Suppose we have $h^{k-1}$, where $k-1 \geq n+1$. $h^{k-1}$ restricted to a ${k-1}$-simplex comes from a finite list of maps. Thus, $h^{k-1}_{|\partial \Delta^k}$ comes from a finite list of maps. The $k$-th homotopy group $\pi_k(S^n)$ is also finite, meaning for each boundary mapping there are only finitely many fixed maps we need to present to choose from (multiplying the cardinalities determines the size of the new list of maps). Each of the maps on the list we select as before, aiming to minimize the Lipschitz constant. The usual procedure yields $h^{k}: B^{m+1} \rightarrow S^n$ that is Lipschitz on the $k$-skeleton with Lipschitz constant $\lesssim L$. When $k$ equals $m+1$ this finishes the main proof.
+
+## Estimates for extensions and primitives
 <!----
 Don't forget the Q.E.D. sign :)
 ---->
 
 [^constant_homotopy]: By "constant" we mean the homotopy that does not change over time, $g^0_{0|S^m}=g^0_{t|S^m}=f$ for $\forall t \in [0,1]$. It is also sometimes called the "trivial" homotopy.
 
-Finite choices for the quotient maps to match the homotopy group element. We can then apply Lemma \ref{rel}.
+
 
 [^approximation]: As mentioned before, symmetry of the triangulation will be important to us later on. We will address it explicitly later in the proof why we would like the target to have equilateral simplices of equal area.
 
