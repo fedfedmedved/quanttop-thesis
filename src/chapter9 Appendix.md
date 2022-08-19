@@ -29,7 +29,7 @@ Claim.
 Proof. 
 : The second inequality follows from the observation above. To prove the first inequality, assume $M(2\rho)>N(\rho)$. Then by the pigeon-hole principle there are two points $x,y$ of the packaging contained in the same $\rho$-ball of the cover. By triangle inequality this yields a contradiction.
 
-We are now going to provide an upper bound for the covering number of a sphere. Geomtrically, we will be covering a sphere by spherical caps of equal size. We are interested in exloring the relationship between the size of the caps and the covering number.
+We are now going to provide an upper bound for the covering number of a sphere. Geomtrically, we will be covering a sphere by spherical caps of equal size. We are interested in exploring the relationship between the size of the caps and the covering number.
 
 Definition (spherical cap).
 : A closed **spherical cap** is the smaller portion of a unit sphere $S^m$ cut off by a plane (including the boundary). Formally, the spherical cap with angle $\rho \in (0, \pi/2]$ and center $x \in S^m$ is given by $$cap(x,\rho) = \{y \in S^m: \langle x,y \rangle \geq cos\rho\}.$$ We will call a spherical cap with a polar angle $\rho$ a **$\boldsymbol{\rho}$-cap**. Since we are dealing with a unit sphere, the polar angle in radians is precisely the length of any geodesic from the center (the tip) of the cap to its edge.
@@ -52,10 +52,8 @@ $\omega^m(\rhocap{\rho}) \geq \omega^m(\sin{\rho} D^m)$. Dividing both sides by 
 $$ \frac{1}{\left(\frac{\pi}{2}\right)^m} \leq \frac {\mathrm{sin}^m\rho} {\rho^m} = \frac {\omega^m(\sin{\rho} D^m)} {\omega^m(\rho D^m)} \leq \frac {\omega^m(\rhocap{\rho})} {\omega^m(\rho D^m)}, $$
 where $\rho \in (0, \frac{\pi}{2}].$ Multiplying by $\left(\frac{\pi}{2}\right)^m$ we get:
 $$ 1 \leq \left(\frac{\pi}{2}\right)^m \cdot \frac {\omega^m(\rhocap{\rho})} {\omega^m(\rho D^m)} $$ {#eq:multiple}
-Multiplying inequal [@eq:packing] by a term [@eq:multiple] greater than 1 on the right yields:
+Multiplying inequality [@eq:packing] by a term [@eq:multiple] greater than 1 on the right yields:
 $$ N(\rho) \leq M(\rho) \leq \frac {2\omega^m(\rhocap{\frac{\pi}{2}})} {\omega^m(\rhocap{\rho})} \leq  \left(\frac{\pi}{2}\right)^m \cdot \frac{2\omega^m(\frac{\pi}{2} D^m)}{\omega^m(\rho D^m)} = \left(\frac{\pi}{2}\right)^{2m} \cdot \frac{2}{\rho^m} \sim \frac{1}{\rho^m}. $$
-
-UP UNTIL HERE SHOULD BE FINE
 
 <!---
 I am suddenly changing the language from spherical caps to balls. i mean the same thing, this should be transitioned better!
@@ -69,27 +67,29 @@ $$\left(\frac{\pi}{2}\right)^{2m-n} \cdot \frac{(2r)^n}{\rho^m} \leq 1.$$
 Using $r=L\rho$ and $m<n$ we choose $\rho>0$ small enough to obey
 $$\rho \leq \left(\frac{L}{\pi}\right)^{-\frac{n}{n-m}} \cdot \left(\frac{\pi}{2}\right)^{-\frac{2m}{n-m}}.$$
 
-it then follows for r
+it then follows for $r$
 $$ r = L\rho \leq \left(\frac{\pi^2L}{4}\right)^{-\frac{m}{n-m}} \cdot \pi^{\frac{n}{n-m}}.$$
 
 ### Detour: manifolds with boundaries
-We want to show that we can contract the target sphere $S^n$ in a Lipschitz way. For that we need to construct a differentiable map between the cylinder of $S^n$ and $S^n$. Reminder: the (topological) cylinder is the cartesian product with the interval. So we want a map between manifolds, both equipped with a metric. For the sake of consistency, we would prefer to equip both with the length metric. Naturally, we could take the product Riemannian metric. But the inerval is not a manifold, nor is the (topological) cylinder! For it is strictly speaking not Euclidean at the points on the boundary - in the interval dimension we can only move in one direction from the boundary $M \times \{0\}$. At those boundary points we do, however, have homeomorphism to the Euclidean half-space $\R^{m+1}$. We would like to relax the usual definition of a manifold to include manifolds with boundary:
+We want to show that we can contract the target sphere $S^n$ in a Lipschitz way. For that we need to construct a differentiable map between the cylinder of $S^n$ and $S^n$. Reminder: the (topological) cylinder is the cartesian product with the interval. So we want a map between manifolds, both equipped with a metric. For the sake of consistency, we would prefer to equip both with the length metric. Naturally, we could take the product Riemannian metric. But the interval is not a manifold, nor is the (topological) cylinder! For it is strictly speaking not Euclidean at the points on the boundary - in the interval dimension we can only move in one direction from the boundary $M \times \{0\}$. At those boundary points we do, however, have homeomorphism to the Euclidean half-space $\R^{m+1}$. We would like to relax the usual definition of a manifold to include manifolds with boundary:
 
 Definition (manifold with boundary).
-: definition here
+: The only difference is charts are allowed to be half-spaces. A definition can be found in any reference for calculus on manifolds. See e.g. [@Spivak]
 
 Thus, the old manifolds are just manifolds with an empty boundary. Notably, the relaxed definition encompasses basic topological objects, such as the (closed) unit disk, the Moebius strip and topological cylinders as manifolds, the latter allowing us to consider differentiable homotopies.
 
 All the usual definitions of dimension, tangent spaces etc apply to manifolds with boundaries. A manifold with a boundary also always admits a Riemannian metric:
 
 Definition (Double).
-: A double a manifold with a boundary is bla glued along their boundaries. A double is a manifold without a boundary.
+: A double a manifold with a boundary is a union of two copies of the manifold glued along their boundaries. A double is a manifold without a boundary.
 
 \begin{observation} \label{Any manifold with a boundary admits a Riemannian metric.}
-A double of a manifold $M$ admits a Reimannian metric. Selecting a metric and restricting to $M$ yields a Riemmanian metric on $M$. cite stackexchange because credit should be given where credit is due. 
+A double of a manifold $M$ admits a Reimannian metric. Selecting a metric and restricting to $M$ yields a Riemmanian metric on $M$.
 \end{observation}
 
 <!-----
+cite stackexchange because credit should be given where credit is due. 
+
 ### Derivative of a differentiable map w.r.t. the metric
 In this section we want to learn how to find Lipschitz constants for a given differentiable map between manifolds. We want learn how to compute the differential directly using the corresponding metrics, with respect to a given parametrization As usual we will equip our spaces with the length metric
 
@@ -102,12 +102,18 @@ THIS IS STILL HORRIBLE - REWRITE!
 ----->
 
 ## On "bi-lipschitz to equilateral" triangulation of a sphere/ball
+The solution is to subdivide a hypercube into smaller hypercubes (essentially breaking a cube up with a uniform grid). Then we subdivide each face by connecting barycenters to vertices until we have a triangulation. Cube is obviously bilipschitz to a ball.
+![Triangulating a box](figures/boxes.png){#fig:boxes short-caption="Triangulation $Tri_L$" width="70%"}
+
+One issue that arises is the grid step. It is especially noticeable for larger grids, which implies smaller Lipschitz constants. This dependency between grid jumps and Lipschitz constants allows us to write the jump off as a constant multiple:
+For a natural number $k \in \N$ we end up wanting a value of side-length $\frac{c(n)}{L}$, that sits between two available side-lengths:
+$$\frac{1}{k} \leq \frac{c(n)}{L} \leq \frac{1}{k-1}$$ 
+Instead we solve the problem $\frac{L}{k-1}\cdot C \geq 1$ to find the constant that adjusts for the jump in values.
 
 We could probably use greedy subdivision with moving the points heuristically after to achieve uniform lengths, but it would become a stochastic/numerical problem. It would be notably harder to show and it wouldn't eliminate the problem of the step entirely, albeit it would make the jumps considerably smoother. It is also only really relevant for improving the constant multiple for the simplicial approximation of f, not of the homotopy - the degrees there will create massive constants where such small improvements are of no relevance. Nonetheless, simplicial approximation may be interesting on its own and I think the problem itself is an interesting in its own right.
 
-REFERENCES. 
-https://pdf.sciencedirectassets.com/271538/1-s2.0-S0304397500X04938/1-s2.0-S0304397502004371/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFcaCXVzLWVhc3QtMSJGMEQCIBVXD%2B3WoGBDM3I7Ud6yKR%2FyIjP6pk6nB3LiGaatVIOlAiAUj7Ebl8IQDE1GTptCERpe6yivSHXCl%2F6%2FBE4hSWQ2xCrbBAi%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAUaDDA1OTAwMzU0Njg2NSIMNTEx20imNGjl0FXKKq8E3epPxG%2FiIPncPPayPrGQMyMQZAqyGfUaZYIARxiZI7vMp%2BPH4DxjLI%2BvhON7nXl5S1aWSvylvSVDYshu57L3xx%2Fyh8YmpuuShmp8eQVjoIfoAuW1OeJLbDV3sXtOB4HjD8z79bfg%2FBm%2BimDTEt5QD6bVIgxxRrcIHc11ZMsQEBfCopQJ3HY%2BfEeu%2Bl8nkTiDbFkSqsRRx8aOgqRViTqAvnWsxdlHQsCknyldtGolzGp%2BjUKkuaadPg%2BkOMXSWIWOMptsel3e%2BnAfhTo0S0H5GWg2bKwa9%2FOT9uZ%2F3SonWVEzLF1gGNXSK7i%2FWAJOOf8VRIutsF2%2BqPdttZR8Ri%2FuU7y050J8uOINYMoa%2FTJ%2F1fvOWz2KKitJifFRyxFt0JT4KkouAUtVbVs%2F55QTywMaay%2ByV6xSJ6pceDOp%2BLEfYeOxO8FRm6%2B7kEFa9q60u0YOJjeFs94PgF8zPzPCx%2BIWpHfHuI5Sink6sgwaR9FdFDmlDxV4N6rkW6Sv0w9niE3AOg07FRua51eBnx%2F9CuoUVHtcixYEY01u2kJQN3DdH74ZGVYMG9VmWcv0WKN4zduy9Hv6WtV2D%2BKMu9FTuoU4bayDDN2K6DD3Wt13CMxx9DmdqzvIThIyYFPnxJwK7ZLg1v8NiZG4Z0GDf6%2BO4X%2F9rnoYBvU4HmP5GNcu45sAIBfyGv6Qq8AFkXzWoeCdNshnpniPdkH8crk78s3dwQSivenkV%2BMcix2nwBMhmvp8%2BDDxqemXBjqqAfWQg5doE%2F7NjrwR70JaxUfemQQulgoJ1AFaTKoam0K7JG031%2BiwMK1grC7LCtkUmuEL4LRgfFnfUxxpOmyGEBrCGfr9w8Mpqv8d%2BK4dKP65nvwAMOGYG1xIQNN6SUP0rGOg3idtKL8hdXz0QEF5H%2BpQNNW6uoGn8XKOh3PlB67IUcjmdwgxmv1e1My74Tp4XBNZLmvnQeLGdKvDPwXOhc68hUlUASWSoXAf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220815T152819Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTY7TWLDK53%2F20220815%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=cc0c2ee33032d6c4e8840f3cbc4ae5d32ef432bd1e07c526336e6cc49922b470&hash=8e830e86bdc29e30ccb763c7892488ebb767aaa5bd91004cc066d545b7ac4f5a&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S0304397502004371&tid=spdf-1407c449-ad6b-4da1-be5d-6a89376d5873&sid=0767a57b7c84b2440e29aa21d736dc8d3bbdgxrqb&type=client&ua=54570d50035a5d5705&rr=73b2f597ee0fbb4d
-https://rdrr.io/cran/mvmesh/man/PolarSphere.html
+Almost equilateral triangulations of spaces are called **a mesh** of that space. [@mesh] deals with meshes for hyperspaces.
+There is also a software package that handles triangulation of a hypersphere in an optimal way. There are also other meshes, I haven't looked into whether it can triangulate hyperballs too. [https://rdrr.io/cran/mvmesh/](https://rdrr.io/cran/mvmesh/man/PolarSphere.html)
 
 <!---
 do I still need this footnote for any argument?

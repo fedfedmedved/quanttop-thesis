@@ -68,7 +68,7 @@ include-before: |
     \begin{flushright}
     \begin{tabular}{lr}
       \multicolumn{2}{c}{\rule[0.1cm]{8cm}{0.1pt}}\\
-      & Karlsruhe, 10.05.2022\\
+      & Karlsruhe, 18.08.2022\\
     \end{tabular}
     \end{flushright}
     
@@ -76,7 +76,7 @@ include-before: |
     
     \chapter*{Abstract}
     
-    Some English abstract.
+    We discuss the 2017 expository paper on quantitative topology by Larry Guth. The paper provides a more accessible take on two 2016 papers by Chambers, Dotterer, Ferry, Manin and Weinberger, which jointly gave an almost complete answer to Gromov's question: Given a Lipschitz continuous null-homotopic map between spheres $f: S^m \rightarrow S^n$, with Lipschitz constant $L$, what is the best Lipschitz constant over Lipschitz null-homotopies of $f$?
 
     \begingroup
     \renewcommand{\cleardoublepage}{}
@@ -84,5 +84,5 @@ include-before: |
     \chapter*{Zusammenfassung}
     \endgroup
     
-    Eine deutsche Zusammenfassung.
+    Wir besprechen eine Übersichtsarbeit im Bereich der quantitativen Topologie von Larry Guth aus dem Jahr 2017. Seine Arbeit ermöglicht einen einfacheren Zugang zu zwei weiteren Arbeiten aus dem Jahr 2016, in denen es die Autoren Chambers, Dotterer, Ferry, Manin und Weinberger schaffen, eine fast vollständige Antwort auf die folgende Frage von Gromov zu geben: Gegeben sei eine nullhomotope Abbildung $f: S^m \rightarrow S^n$, Lipschitzstetig mit der Lipschitzkonstante $L$. Was ist die bestmögliche Lipschitzkonstante von allen Lipschitz-Nullhomotopien von $f$?
 ---
