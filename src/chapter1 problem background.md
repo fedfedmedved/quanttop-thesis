@@ -62,7 +62,7 @@ Proof.
 
 Arguing up to a constant allows us great flexibility in choosing objects we are more comfortable working with. The constants we omitted can easily be traced back through the equivalence steps we took. However, if an argument up to a constant seems sketchy, there is a direct argument on the sphere without any equivalences or dropping constants that I provided in the appendix.
 
-Lemma (Image of $f$ misses a ball). \label{f_misses_a_ball}
+Lemma (Image of f misses a ball). \label{f_misses_a_ball}
 : Let $f\!: S^m \rightarrow S^n$ be a Lipschitz-continuous map with a Lipschitz constant $L$. Then the image of $f$ misses a ball of radius $r$ for $r \lesssim L^{-\frac{m}{n-m}}$
 
 Proof.
@@ -242,22 +242,25 @@ Additionally we equip a simplicial complex $K$ with coherent topology of its sim
 - A simplicial complex is a union of interiors of its simplices.
 
 We will restrict our attention to finite simplicial complexes.  
-By default a simplicial complex $K$ has a topology but no metric. A **geometric realization |K|** of $K$ on the other hand carries the metric that restricts to the subspace Euclidean metric on each simplex. This metric thus obviously agrees with the topology of K (i.e. $K \cong |K|$). If $K$ has $N+1$ vertices one can simply choose a realization as the subsimplex of the standard N simplex $\Delta^N$.
+By default a simplicial complex $K$ has a topology but no metric. A **geometric realization** $\mathbf{|K|}$ of $K$ on the other hand carries the metric that restricts to the subspace Euclidean metric on each simplex. This metric thus obviously agrees with the topology of $K$ (i.e. $K \cong |K|$). If $K$ has $N+1$ vertices one can simply choose a realization as the subsimplex of the standard $N$-simplex $\Delta^N$.
 
 Definition (star).
-: Let $K$ be a simplicial complex. The **closed star** of a simplex $\sigma$ in $K$ **St$\sigma$** is the union of all simplices containing $\sigma$. The **open star** of a simplex $\sigma \in K$ st$\sigma$ is the union of interiors of all simplices containing $\sigma$.
+: Let $K$ be a simplicial complex. The **closed star** of a simplex $\sigma$ in $K$ **St$\mathbf{\sigma}$** is the union of all simplices containing $\sigma$. The **open star** of a simplex $\sigma \in K$ st$\sigma$ is the union of interiors of all simplices containing $\sigma$.
 
 **Observation:** 
 Closed stars are closed. Open stars are open. St$\sigma$ is the closure of st$\sigma$.  
 
-Of a special interest to us are stars of vertices. A star of a vertex v is the combinatorial analog of a ball around v. A closed star of a vertex captures all adjacent and incident edges, while open stars of vertices provide an open cover that is just shy of containing the adjacent vertices - this cover is expecially useful for simplicial approximation.
+Of a special interest to us are stars of vertices. A star of a vertex v is the combinatorial analog of a ball around $v$. A closed star of a vertex captures all adjacent and incident edges, while open stars of vertices provide an open cover that is just shy of containing the adjacent vertices - this cover is expecially useful for simplicial approximation.
 <!-----
 Picture open/ closed STAR OF A VERTEX
 There are some nice pictures on wikipedia that I could borrow.
 --->
 
-Claim (Lemma 2C.2 in Hatcher) \label{sterneschnitt}.
-: Let $v_1, v_2, \dots, v_k \in VertK$. Then $\mathrm{st}v_1 \cap \mathrm{st}v_2 \cap \dots \cap \mathrm{st}v_k$ is either empty or $\sigma=[v_1, v_2, \dots, v_k] \in K$ and $\mathrm{st}v_1 \cap \mathrm{st}v_2 \cap \dots \cap \mathrm{st}v_k = \mathrm{st}\sigma$.
+Claim (Lemma 2C.2 in Hatcher).
+: Let $v_1, v_2, \dots, v_k \in VertK$. Then $\mathrm{st}v_1 \cap \mathrm{st}v_2 \cap \dots \cap \mathrm{st}v_k$ is either empty or $\sigma:=[v_1, v_2, \dots, v_k] \in K$ and $\mathrm{st}v_1 \cap \mathrm{st}v_2 \cap \dots \cap \mathrm{st}v_k = \mathrm{st}\sigma$.
+
+Proof.
+: Exercise (or see [@Hatcher] for the solution).
 
 Definition. 
 : Let $K,J$ be simplicial complexes.
@@ -271,14 +274,14 @@ Now that we have collected all the necessary tools we proceed with simplicial ap
 Theorem (2C.1 in Hatcher).
 : If $K$ is a finite simplicial complex and $J$ is an arbitrary simplicial complex, then any map $f: K \rightarrow J$ is homotopic to a map that is simplicial with respect to some iterated barycentric subdivision of $K$.
 
-We don't actually intend to prove this result, but rather highlight some of the ideas that we want to translate to the Lipschitz setting:
+We do not actually intend to prove this result, but rather highlight some of the ideas that we want to translate to the Lipschitz setting:
 
 1. We equip $K$ with a metric as described above. In particular with this metric open stars are open and closed stars are closed in K. Distances within the simplex are also well behaved - all points are at most as far apart as the largest side length.
 <!-------
 How does Hatcher define simplicial complexes? NO. Don't they already have a topology? Abstract ones don't. Geometric realizations do. Are we dealing with abstract simplicial complexes? It seems like we are dealing with abstract simplicial complexes (which are usually just called simplicial complexes), because if we were given a geometric realization in R^n it would have a metric defined on it already. instead we say "define some metric".
 ------>
-2. Observe that open stars form a covering of $J$. Taking pre-image of that cover yields an open cover of K. Since K is a finite simplicial complex it is in particular compact. We take the finite subcover and find its Lebesgue number (it exists by the Lebesgue number lemma). This gives us a way to determine the desired size of the simplices of K. 
-3. Now let us subdivide K until the simplices are small enough that closed star of a vertex v is contained in some cover element. This means we managed to contain the closed neighborhood of a vertex - adjacent edges and their vertices - fully in a reasonably small region of the the simplex. Edges can't wrap around our simplex multiple times and vertices cannot be too far apart. Meaning we have a chance of building a simplicial map.  
+2. Observe that open stars form a covering of $J$. Taking pre-image of that cover yields an open cover of $K$. Since $K$ is a finite simplicial complex it is in particular compact. We take the finite subcover and find its Lebesgue number (it exists by the Lebesgue number lemma). This gives us a way to determine the desired size of the simplices of $K$. 
+3. Now let us subdivide $K$ until the simplices are small enough that closed star of a vertex $v$ is contained in some cover element. This means we managed to contain the closed neighborhood of a vertex - adjacent edges and their vertices - fully in a reasonably small region of the the simplex. Edges can't wrap around our simplex multiple times and vertices cannot be too far apart. Meaning we have a chance of building a simplicial map.  
 This is as much of the proof as we need for now - see [@Hatcher] for more details and the contruction.
 
 To translate this idea to a Lipschitz map setting we want to replace Lebesgue number using our Lipschitz constant. First, we need both our spaces to be metric. Now, we want distance between vertices in the target simplex $J$ to be uniform (can normalize it to 1). To avoid counterexamples we restrict $J$ to not have singletons.
@@ -306,7 +309,7 @@ talk about generalizations?
 ---->
 
 Proof.
-: By the discussion above we can guarantee that for each $v \in VertK$ there is a vertex $g(v) \in VertJ$ such that St$v \subset \text{st} g(v)$. Thus $g: VertK \rightarrow VertJ$ defines a vertex map. We want to show that it extends to a simplicial map. Let $x$ be a point in the interior of $[v_1, v_2, \dots, v_k]$. Then $f(x)$ is contained in each of the stars st$g(v_i)$. Thus by the claim \ref{sterneschnitt} above $\sigma= [g(v_1), g(v_2), \dots, g(v_k)]$ is a simplex in $J$ and we can extend the vertex map $g$ to a simplicial map $f_{simp}$. Again by claim \ref{sterneschnitt} we conclude that $f(x) \in st(\sigma)$ and thus there is a simplex $\sigma'$ that contains $f(x)$ in its interior and contains $\sigma$ as a face (does not have to be a proper face, i.e. it is possible that $\sigma'=\sigma$). We conclude that $f(x), f_{simp}(x) \in \sigma'$. We can now simply take the straight line homotopy, i.e. (cf proof of 2C.1 in [@Hatcher]).  
+: By the discussion above we can guarantee that for each $v \in VertK$ there is a vertex $g(v) \in VertJ$ such that St$v \subset \text{st} g(v)$. Thus $g: VertK \rightarrow VertJ$ defines a vertex map. We want to show that it extends to a simplicial map. Let $x$ be a point in the interior of $[v_1, v_2, \dots, v_k]$. Then $f(x)$ is contained in each of the stars st$g(v_i)$. Thus, by the claim labelled "Lemma 2C.2" above, $\sigma= [g(v_1), g(v_2), \dots, g(v_k)]$ is a simplex in $J$ and we can extend the vertex map $g$ to a simplicial map $f_{simp}$. Again, by the claim above we conclude that $f(x) \in st(\sigma)$ and thus there is a simplex $\sigma'$ that contains $f(x)$ in its interior and contains $\sigma$ as a face (does not have to be a proper face, i.e. it is possible that $\sigma'=\sigma$). We conclude that $f(x), f_{simp}(x) \in \sigma'$. We can now simply take the straight line homotopy, i.e. (cf proof of 2C.1 in [@Hatcher]).  
 $$ H_{simp}=(1-t)f+tf_{simp} $$
 : It remains to verify that the Lispchitz constants hold. $f_{simp}$ extends linearly on simplices, thus for equilateral K the constant multiple is determined entirely by the ratio of edge lengths, i.e. $1/c(n) > 1$. The Lipschitz constant o $f_{simp}$ in this case is thus $L/c(n)$. For the more general version this is magnified by how much the shortest edge in K need to be stretched, which is at most the product $\lambda \cdot \gamma$ of the Lipschitz constants of the bi-lipschitz simplex homeomorphisms in both directions, which depend solely on $K$. The total constant thus amounts to $C(K, n) := \frac{\lambda\gamma}{c(n)}\cdot L \sim L$.  
 : Finally, we have to determine the Lipschitz constants of the homotopy. Note that $C(K, n) > 1/c(n) > 1$, thus for  a given $t$ $H_{simp}(t)$ has Lipscihtz constant $(1-t)L+tC(K,n)L$. Meaning in the $K$ direction the constant is at most $C(K,n)L$ and in the time direction the Lipschitz constant grows linearly with $C(K,n)$. This finishes the proof.
@@ -323,11 +326,11 @@ Definition (triangulation).
 			& (J, d_j) \arrow[u, "\psi"]
 	\end{tikzcd}
 \end{center}
-We now want to find triangulations for out spheres so that we can apply the simplicial approximation to them. We will pick triangulations that suit our purposes for the main result.
+We now want to find triangulations for our spheres so that we can apply the simplicial approximation to them. We will pick triangulations that suit our purposes for the main result.
 
-We start with a triangulation of $S^n$ by the boundary of the unilateral $n+1$-simplex $\partial Delta^{n+1}$. This obviously uses very few vertices, thereby limiting the quality of our approximation, so let me try to motivate this choice of triangulation (the motivation will become apparent in the upcoming proofs): for the main result in case $m \geq n$ we need all vertices to be pairwise incident (i.e. any two vertices to share an edge). This will allow us to "approximate" the null-homotopy to some extent without any further geometric information about it. Furthermore, we would like simplices to be both equilateral and to have equal area. This already determines our triangulation uniquely (up to rotations). Additionally, $\partial Delta^{n+1}$ is defined for all dimensions (as opposed to, say, a triangulation of S^2 by the surface of icosahedron, that does not generalize well to other dimensions). $\partial Delta^{n+1}$ is bi-lipschitz homeomorphic to S^n with bi-lipschitz constants $\sim 1$ only depending on $n$.
+We start with a triangulation of $S^n$ by the boundary of the unilateral $n+1$ - simplex $\partial \Delta^{n+1}$. This obviously uses very few vertices, thereby limiting the quality of our approximation, so let me try to motivate this choice of triangulation (the motivation will become apparent in the upcoming proofs): for the main result in case $m \geq n$ we need all vertices to be pairwise incident (i.e. any two vertices to share an edge). This will allow us to "approximate" the null-homotopy to some extent without any further geometric information about it. Furthermore, we would like simplices to be both equilateral and to have equal area. This already determines our triangulation uniquely (up to rotations). Additionally, $\partial \Delta^{n+1}$ is defined for all dimensions (as opposed to, say, a triangulation of $S^2$ by the surface of icosahedron, that does not generalize well to other dimensions). $\partial \Delta^{n+1}$ is bi-lipschitz homeomorphic to $S^n$ with bi-lipschitz constants $\sim 1$ only depending on $n$.
 
-It is notably more difficult to triangulate $S^m$ so that its triangulation fits the theorem. In fact, the proof of the main theorem requires us to be able to triangulate not only S^m but the whole unit ball, $B^{m+1}$. One difficulty with it is that the Lipschitz constant of our approximation is determined entirely by the shortest side length(s) in the metric simplicial complex: $(length(s) \cdot L \cdot 1/c(n))^{-1}$. At the same time the side-length needs to be strictly less than $c(n)/L$
+It is notably more difficult to triangulate $S^m$ so that its triangulation fits the theorem. In fact, the proof of the main theorem requires us to be able to triangulate not only $S^m$ but the whole unit ball, $B^{m+1}$. One difficulty with it is that the Lipschitz constant of our approximation is determined entirely by the shortest side $length(s)$ in the metric simplicial complex: $(length(s) \cdot L \cdot 1/c(n))^{-1}$. At the same time the side-length needs to be strictly less than $c(n)/L$
 <!-----
 ATTENTION! HOW do i define c(n)? i can just define it without epsilon and then require the lipschitz constant direction ball $\phi$ to be strictly less than c(n)/L, for an equilateral simpex of side-length one.
 
@@ -343,15 +346,15 @@ This is tsated in a horribly convoluted way - rewrite
  (REFERENCE ARGUMENT for PL either above or in the appendix!)
 ------>
 
-Theorem (1.4 in [@Guth]) \label{sphere_approx}. 
+Theorem (1.4 in Guth) \label{sphere_approx}. 
 : If $m \lessthan n$ and $f: S^m \rightarrow S^n$ has Lipschizt constant $L$, then there is a null-homotopy with Lipschitz constant $\lesssim L$. In fact the null-homotopy has Lipschitz constant $\lesssim L$ in the $S^m$ directions and $\lesssim 1$ in the [0,1] direction.
 
 Proof.
-: Consider the map between simplices instead. Approximate g using Theorem \ref{simp}. $g_{simp}$ is piecewise linear hence not surjective. Thus $g_{simp}$ misses a whole simplex! Now back on the sphere simplicial approximation of $f$ $f_{simp}$ misses a ball of radius $~1$ in $S^n$. Applying Lemma \ref{contraction} finishes the proof.
+: Consider the map between simplices instead. Approximate g using Theorem \ref{simp}. $g_{simp}$ is piecewise linear hence not surjective. Thus $g_{simp}$ misses a whole simplex! Now back on the sphere simplicial approximation of $f$ $f_{simp}$ misses a ball of radius $\sim 1$ in $S^n$. Applying Lemma \ref{contraction} finishes the proof.
 
-**Remark.** Lemmas 1.2 and Theorem 1.5 show that Lipschitz maps for dim $m \lessthan n$ are null-homotopic independently. Both is stronger than what we need for the main proof. Note that we did not use Lemmas 1.1-1.2. 
+**Remark.** Lemmas \ref{f_misses_a_ball} and Theorem \ref{simp} show that Lipschitz maps for dim $m \lessthan n$ are null-homotopic independently. Both are stronger than what we need for the main proof. Note that we did not use Lemmas 1.1-1.2. 
 
-**Remark.** This bound is tight (up to constant manipulations). I did not verify this, Guth recommends it as an exercise.
+**Remark.** This bound is tight (up to constant manipulations). I did not verify this, Guth recommends it as an exercise (see discussion after Lemma 1.3 in [@Guth]).
 
 <!------
 

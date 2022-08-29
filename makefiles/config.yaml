@@ -24,8 +24,11 @@ secPrefix: ["Section", "Sections"]
 autoEqnLabels: false
 cref: true
 bibliography: makefiles/references.yaml
+# nocite: '@*'
+nocite: |
+  @CMW
 # find citation styles at https://www.zotero.org/styles
-citation-style: makefiles/ieee-with-url-no-online.csl
+citation-style: makefiles/discrete-mathematics.csl
 reference-section-title: Bibliography
 header-includes:
     \usepackage[ruled,vlined,linesnumbered]{algorithm2e}

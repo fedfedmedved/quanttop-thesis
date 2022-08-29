@@ -1,5 +1,6 @@
 # Main theorem
-Theorem ([@CDMW]). Suppose that $n$ is odd[^odd] and $f: S^m \rightarrow S^n$ is a null-homotopic map with Lipschitz constant $L$. Then there is a null-homotopy $H: S^m \times [0,1] \rightarrow S^n$ with Lipschitz constant at most $C(m,n)L$.
+Theorem.
+: Suppose that $n$ is odd[^odd] and $f: S^m \rightarrow S^n$ is a null-homotopic map with Lipschitz constant $L$. Then there is a null-homotopy $H: S^m \times [0,1] \rightarrow S^n$ with Lipschitz constant at most $C(m,n)L$. [@CDMW]
 
 ## Proof angle and outline
 Here are some preparatory steps for the proof:
@@ -166,11 +167,12 @@ Consider the case $n=1$.
 Given a simplex map of relative degree, say $100\tfrac{1}{3}$ if we relax the condition of homotoping it relative boundary we could unwrap the endpoint against the orientation 100 full circles to achieve the relative degree of $1/3$. But this would of course affect relative degree of the neighboring edges. To develop this idea further we first have to look into how exactly relative degrees of neighboring edges are related.
 
 Since $m \geq n$, there are $n+1$ simplices in $B^{m+1}$. The image of the boundary of an $n+1$-simplex $\Delta^{n+1}$ is contractible (since the simplex is), therefore it must have degree zero. Hence, $deg (\partial \Delta^{n+1}) = 0 = \omega_\lambda(\partial \Delta^{n+1}) = \sum_{\Delta_i} (-1)^{i} \omega_\lambda(\Delta_i)$, the latter being the oriented sum of relative degrees of the boundary simplices. This is a good time to notice that $\omega_\lambda$ is a real-valued cochain. The last expression is by definition $\delta \omega$ - the co-boundary of $\omega$. Hence, what we have just shown is that $\omega_\lambda$ is a cocycle. Let us restate the same fact in the language of differential forms using this classical result:
-
-Theorem (Stokes).
-: Let $\omega$ be a differential $n$-form on an orientable manifold with boundary $\Omega^{n+1}$, then  
+   
+    
+**Theorem (Stokes).** Let $\omega$ be a differential $n$-form on an orientable manifold with boundary $\Omega^{n+1}$, then  
 $$\int_{\partial \Omega^n} \omega = \int_{\Omega^n} \dx \omega$$
 
+   
 Claim.
 : Let $\lambda: \Delta^n \rightarrow S^n$, $\omega_\lambda(\Delta)$ the relative degree, then $\omega_\lambda$ is a co-cycle.
 
@@ -179,11 +181,11 @@ Proof.
 $$\delta \omega_\lambda (\Delta^{n+1})= \int_{\partial \Delta^{n+1}} \lambda^*dvolS^n \mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny Stokes}}}{=\joinrel=\joinrel=}} \int_{\Delta^{n+1}} \dx \lambda^*dvol_{S^n} = \int_{\Delta^{n+1}} \lambda^* \dx dvol_{S^n} = 0,$$
 since $dvolS^n$ is a closed form because it is an $n$-form on $S^n \Rightarrow \dx dvolS^n = 0$.
 
-This claims tells us that degrees on the boundary of every D^{n+1} must add up to zero. Let us continue our S^1 unwrapping example with a specific triangulation and specific relative degrees:
+This claims tells us that degrees on the boundary of every $D^{n+1}$ must add up to zero. Let us continue our $S^1$ unwrapping example with a specific triangulation and specific relative degrees:
 
 ![Unwrapping a map](figures/Unwrapping1.png){#fig:unwrap short-caption="unwrapping a single vertex" width="100%"}
 
-Sadly, unwrapping does not always allow us to homotope maps that are simplicial on the $n$-skeleton. Consider, for instance the case $n=2$. If any map on the interior has relative degree $1/2$ modulo $\Z$ then it cannot be unwrapped to a simplicial map. But it turns out that unwrapping does allows us to bound the relative degree sufficiently. The rest of the section develops this idea into a proof.
+Regrettably, unwrapping does not always allow us to homotope maps that are simplicial on the $n$-skeleton. Consider, for instance the case $n=2$. If any map on the interior has relative degree $1/2$ modulo $\Z$ then it cannot be unwrapped to a simplicial map. But it turns out that unwrapping does allows us to bound the relative degree sufficiently. The rest of the section develops this idea into a proof.
 
 <!----
 relative degree (for the map $h^{n-1}$) 
@@ -192,10 +194,10 @@ Intuition behind it, some pictures. Behind the notation. The statement about rel
 We take that idea of unwrapping and run with it.
 ---->
 
-We now want to try and capture the idea of unwrapping formally. First we construct a toy homotopy - it will allow us to develop all the concepts we require to finish the proof. We have an orientation on S^n, and we pick some $n-1$-simplex in the interior of B^{m+1} and unwrap it against the orientation of $S^n$ 100 times relative its boundary. Let us denote this dummy homotopy by $\Lambda: B^{m+1} \times [n, n+1] \rightarrow S^n$. It is a homotopy rel $X^{n-2} \cup S^m$.
-For $\Lambda$ restricted to an $n-1$-simplex we would like to know its degree - it would tell us how much this simplex has wrapped around the target sphere. We use prism decomposition (as defined in proof of 2.10 in [@Hatcher]) to view the prism of our $n-1$-simplex as a sum of oriented $n$-simplices. This means that relative degree is defined on $\Delta^{n-1} \times [n-1, n]$. We denote this degree by $\alpha_\Lambda(\Delta^{n-1})$. One possible value of $\alpha_Lambda(\Delta^{n-1})$ is always zero, for instance if $\Lambda$ does not move the $n-1$-simplex, which implies that $\alpha_Lambda$ is an integral cochain, i.e. it can only take integer values (since a difference of relative degrees must be an integer). Additionally we know that $\alpha_Lambda$ vanishes on the boundary of $B^{m+1}$.
+We now want to try and capture the idea of unwrapping formally. First we construct a toy homotopy - it will allow us to develop all the concepts we require to finish the proof. We have an orientation on $S^n$, and we pick some $n-1$-simplex in the interior of $B^{m+1}$ and unwrap it against the orientation of $S^n$ 100 times relative its boundary. Let us denote this dummy homotopy by $\Lambda: B^{m+1} \times [n, n+1] \rightarrow S^n$. It is a homotopy rel $X^{n-2} \cup S^m$.
+For $\Lambda$ restricted to an $n-1$-simplex we would like to know its degree - it would tell us how much this simplex has wrapped around the target sphere. We use prism decomposition (as defined in proof of 2.10 in [@Hatcher]) to view the prism of our $n-1$-simplex as a sum of oriented $n$-simplices. This means that relative degree is defined on $\Delta^{n-1} \times [n-1, n]$. We denote this degree by $\alpha_\Lambda(\Delta^{n-1})$. One possible value of $\alpha_\Lambda(\Delta^{n-1})$ is always zero, for instance if $\Lambda$ does not move the $n-1$-simplex, which implies that $\alpha_\Lambda$ is an integral cochain, i.e. it can only take integer values (since a difference of relative degrees must be an integer). Additionally we know that $\alpha_\Lambda$ vanishes on the boundary of $B^{m+1}$.
 
-Claim:
+Claim.
 : Let $\Lambda: B^{m+1} \times [n-1, n] \rightarrow S^n$ be a homotopy relative $X^{n-2} \cup S^m$. Then
 $$\omega_{\Lambda_{n}} = \omega_{\Lambda_{n-1}} - \delta \alpha_\Lambda.$$
 
@@ -212,11 +214,11 @@ I should have done the orientation part in a clean way, but whatever. The clean 
 
 Unfortunately, we cannot guarantee that unwrapping will allow to reduce the absolute value of all relative degrees below 1. But the following lemma shows that unwrapping can bound relative degrees, that is, absolute values of all relative degrees are $\lesssim 1$.
 
-Lemma.
+Lemma (Lemma 2.4 in Guth).
 : Suppose $\omega$ is a real cocycle in $C^n(Tri_L, \R)$, and $\| \omega \|_{L^\infty (\partial B^{m+1})} \leq 1$, then there is an integral $(n-1)$-cochain $\alpha$ which vanishes on $\partial B^{m+1}$ so that
 $$\| \omega - \delta \alpha \|_{L^\infty} \lesssim 1.$$
 
-Sadly, proving this lemma using estimates for extensions and primitives ended up being out of scope of this theses. We refer to Guth [@Guth] for the proof. Let us use the lemma to finish the proof.
+Sadly, proving this lemma using estimates for extensions and primitives ended up being out of scope of this thesis. We refer to section 2.2 in [@Guth] for the proof. Let us use the lemma to finish the proof.
 
 Lemma.
 : Given a relative degree $\omega$ there is a Lipschitz map $\lambda: \Delta^n \rightarrow S^n$ that realizes $\omega$.

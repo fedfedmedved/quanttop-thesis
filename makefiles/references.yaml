@@ -13,6 +13,7 @@ references:
   page: 191-216
   volume: '22'
   issue: '1'
+  URL: https://math.mit.edu/~lguth/Exposition/quanthomotexpos2.pdf
 
 - id: Hatcher
   type: book
@@ -24,7 +25,7 @@ references:
   title: <span class="nocase">Algebraic topology</span>
   publisher: Cambridge Univ. Press
   publisher-place: Cambridge
-  URL: https://cds.cern.ch/record/478079
+  URL: https://pi.math.cornell.edu/~hatcher/AT/AT.pdf
 
 - id: CDMW
   type: article-journal
@@ -43,17 +44,18 @@ references:
   title: Quantitative null-cobordism
   container-title: Journal of the American Mathematical Society
   publisher: American Mathematical Society (AMS)
+  publisher-place: arXiv:1610.04888
   page: 1165-1203
   volume: '31'
   issue: '4'
-  URL: https://doi.org/10.1090%2Fjams%2F903
-  DOI: 10.1090/jams/903
+  URL: https://arxiv.org/abs/1610.04888
+  DOI: 10.48550/arXiv.1610.04888
 
 - id: CMW
   type: article-journal
   author:
   - family: Chambers
-    given: Gregory R.
+    given: Gregory
   - family: Manin
     given: Fedor
   - family: Weinberger
@@ -64,11 +66,12 @@ references:
   title: Quantitative nullhomotopy and rational homotopy type
   container-title: Geometric and Functional Analysis
   publisher: Springer Science; Business Media LLC
+  publisher-place: arXiv:1611.03513
   page: 563-588
   volume: '28'
   issue: '3'
   URL: https://doi.org/10.1007%2Fs00039-018-0450-2
-  DOI: 10.1007/s00039-018-0450-2
+  DOI: 10.48550/arXiv.1611.03513
 
 - id: mesh
   type: article-journal
@@ -96,7 +99,7 @@ references:
   keyword: Mesh generation, Delaunay triangulation, -dimensional meshes, Well shaped,
     Aspect ratio, Radius–edge ratio, Computational geometry, Algorithms
   URL: https://www.sciencedirect.com/science/article/pii/S0304397502004371
-  DOI: https://doi.org/10.1016/S0304-3975(02)00437-1
+  DOI: 10.1016/S0304-3975(02)00437-1
   ISSN: 0304-3975
 
 - id: Spivak
@@ -111,6 +114,5 @@ references:
   title-short: Calculus on manifolds
   collection-title: Mathematics monograph series
   publisher: Avalon Publishing
-  URL: https://books.google.de/books?id=POIJJJcCyUkC
   ISBN: '9780813346120'
 ...
