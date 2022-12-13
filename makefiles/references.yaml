@@ -15,6 +15,20 @@ references:
   issue: '1'
   URL: https://math.mit.edu/~lguth/Exposition/quanthomotexpos2.pdf
 
+- id: Gromov
+  type: article-journal
+  author:
+  - family: Gromov
+    given: Mikhael
+  issued:
+  - year: 1999
+  title: Quantitative homotopy theory
+  container-title: 'Prospects in Mathematics: Invited Talks on the Occasion of the
+    250th Anniversary of Princeton University (H. Rossi, ed.)'
+  publisher: American Mathematical Society (AMS)
+  page: 45-49
+  URL: https://www.ihes.fr/~gromov/wp-content/uploads/2018/08/quantitative_homotopy.pdf
+
 - id: Hatcher
   type: book
   author:

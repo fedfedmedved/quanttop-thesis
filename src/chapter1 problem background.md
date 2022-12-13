@@ -1,23 +1,34 @@
 # Background of the problem
-
-This master thesis attempts to expand on and clarify some arguments from Larry Guth's expository paper on quantitative topology[@Guth].
-
-Guth wrote an excellent introduction, and rather than attempt to add anything of substance to it I will merely summarize the main question and explain what I personally find appealing about the topic and the exposition paper.
-Gromov stated and partially answered the following question:   
+## Introduction
+This master thesis attempts to expand on and clarify some arguments from Larry Guth's expository article on quantitative topology[@Guth]. Guth wrote an excellent introduction, and rather than attempt to add anything of substance to it I will merely summarize the main question and explain what I personally find appealing about it and about Guth's approach to the problem in particular.  
+In the mid-90s Gromov wrote an article on quantitative topology [@Gromov], where he posed a number of interesting problems. We will focus our attention on just one of them. Namely, he formulated and partially answered the following question:   
 
 **Question.** Given a Lipschitz continuous null-homotopic map between spheres $f: S^m \rightarrow S^n$, with Lipschitz constant $L$, what is the best Lipschitz constant over Lipschitz null-homotopies of $f$?  
 
-Gromov proved that a Lipcshitz homotopy exists and gave a proof for a huge Lipschitz bound with a tower of exponentials. He conjectured however that for an optimal homotopy the Lipschitz constant should have linear dependency on $L$, i.e. the constant should be $C(m,n)L$ for some constant $C(m,n)$ that only depends on the dimensions of the spheres. He proved the conjecture for the case $m=n$.
+Gromov claimed that a Lipcshitz homotopy exists and bounded the Lipschitz constant by a tower of exponentials (see [@Guth] for details). He conjectured however that for an optimal homotopy the Lipschitz constant should have polynomial dependency on $L$, and may even be linear. That is, the constant should be $C(m,n)L$ for some constant $C(m,n)$ that only depends on the dimensions of the spheres. Apparently, ha had also proved the conjecture for the case $m=n$. The result was is presented in [@Guth] and was obtained by Guth from Gromov via personal communication.
 
-In two 2016 papers Chambers, Dotterer, Ferry, Manin and Weinberger gave an almost complete answer to Gromov's question. Namely, for the case $n$ is even they showed the Lipschitz constant of the homotopy to be up to $C(m,n)L^2$, and for the case $n$ is odd they showed that the conjecture holds. I refer you to Guth's paper for a more extensive introduction.
+<!----
+if I wanted to do a good introduction, I could actually try to search for where this is relevant as applications. Maybe read the original papers to see what they have to say about it.
+---->
 
-The question at hand is one of quantitative topology, which is interesting because the research area touches upon many different fields in mathematics. Specifically this expository paper captured my attention by bringing together a variety of topics such as simplicial complexes, higher homotopy groups, cohomology, a bit of differential geometry, degree theory, calculus on manifolds, Hopf fibrations etc. The style of the paper makes it feel more engaging and accessible, while the hands-on approach to proofs made the seemingly theoretical topics feel very practical.
+In two 2016 papers Chambers, Dotterer, Ferry, Manin and Weinberger gave an almost complete answer to Gromov's question. Namely, for the case $n$ is even they showed the Lipschitz constant of the homotopy to be up to $C(m,n)L^2$, and for the case $n$ is odd they showed that the conjecture holds. I refer the reader to Guth's paper for an comlete and extensive introduction.
 
+<!----
+It is not actually how Gromov postulated the question, nor is it exactly what they gave an answer to.
+I actullay should eithre porvide original statements or rephrase this completely.
 
-## Some background assumptions
+---->
 
-This paper deals with Lipschitz constants of maps between spheres. Most of the time we will only estimate the Lipschitz constants up to a constant $C(m,n)$, that only depends on the dimensions of the spheres. We denote equality/inequality up to a constant by $\sim, \lesssim, \gtrsim$ respectively.
-For this section let the unit spheres $S^m$, $S^n$ be equipped with the length metric induced by the standard Riemannian metric (unless stated otherwise). That is, the distance between any two points is determined by the (Euclidean) length of the geodesics between them [^length-metric]. Note that while the topology is the same, the metric is different from the "default" metric inherited from the ambient Euclidean space. Later we will consider objects that are homeomorphic to spheres when it is convenient (e.g. surface of a cube or of a simplex), but the conversion only changes things up to some constraint. On those objects we will still be using the length metric.
+The question at hand is one of quantitative topology, which is interesting because it inherently deals with practical questions. In response to a statement of the form "we can null-homotope f to g" it asks "how fast can we do it?". Pretty much any practical application will introduce a metric and adding the quantiative aspect to topological questions allows us to take that metric into account. On the other hand, the quantitative aspect makes even the simpest of statements so much more difficult. But therein lies what makes it more interesting - to answer these types of questions we need to get creative. Quantitative topology relies on a variety of tools from algebraic topology, metric geometry and classical algebra, putting the area at the crossroads of several branches of mathematics. Specifically, Guth's expository paper captured my attention by bringing together a variety of topics such as simplicial complexes, higher homotopy groups, cohomology, a bit of differential geometry, degree theory, calculus on manifolds, Hopf fibrations etc. The style of the paper makes it feel more engaging and accessible, while the hands-on approach to proofs made the seemingly theoretical topics feel very practical.
+
+## Some underlying assumptions made explicit
+
+The present work examines Lipschitz constants of maps between spheres. Most of the time we will only estimate the Lipschitz constants up to a constant $C(m,n)$, that only depends on the dimensions of the spheres. We denote equality/inequality up to a constant by $\sim, \lesssim, \gtrsim$ respectively.
+For this section let the unit spheres $S^m$, $S^n$ be equipped with the length metric induced by the standard Riemannian metric (unless stated otherwise). That is, the distance between any two points is determined by the (Euclidean) length of the geodesics between them [^length-metric]. Note that while the topology is the same, the metric is different from the "default" metric inherited from the ambient Euclidean space. Later we will consider objects that are homeomorphic to spheres when it is convenient (e.g. surface of a cube or of a simplex), but the conversion only changes things up to some constant. On those objects we will still be using the length metric.
+
+<!----
+retrospectively, some of this is just bullshit
+--->
 
 ## Contracting the image of a lower dimensional sphere
 ### Introduction to computations up to a constant
@@ -31,7 +42,7 @@ i need to either explain what "fairly tight" means, or not write it at all.
 
 We start by showing that a Lipschitz map must in fact miss a whole open ball in the target:
 
-Lemma.
+Lemma (Image of f misses a ball). \label{f_misses_a_ball}
 : Let $f: S^m \rightarrow S^n$ be a Lipschitz continuous maps with a Lipschitz constant $L$. Then the image of $f$ misses a ball of radius $r$ for $r \lesssim L^\frac{-m}{n-m}$
 
 Our strategy for proving this lemma will be to first cover the domain sphere by open balls of a set radius, then map that cover to the target sphere and show that the image of the cover cannot be surjective.
@@ -43,43 +54,51 @@ A ball with respect to the length-metric on the sphere is a spherical cap. The r
 <!---
 Claim (Approximating a spherical cap).
 : definition of a spherical cap, the idea of approximating by flat structures.
-Can I avoid this altogether? I should just be able to use a better volume form. But i really like the new argument and this should be included for the sake of completeness.
+Can I avoid this altogether? I should just be able to use a better volume form. - there is only one "volume form"  -up to a constant. I was thinking of something else here. 
+But i really like the new argument and this should be included for the sake of completeness.
 --->
 
 For the proof of the lemma we will need to cover the sphere with spherical caps. To estimate the number of caps needed to cover the sphere we use a volume argument. A sloppy version of the argument would go as follows: we equip the sphere with a volume form that scales well with the polar angle and is equal to 1 on the whole sphere. Then the volume of the sphere is 1, the volume of each spherical cap is $\rho^m$. The cover should have area similar to that of the sphere (up to a constant). We then need $\sim 1/\rho^m$ spherical caps to cover the sphere.
 
-You may object: why should the cover have volume similar to that of the sphere if there is an overlap? Why should the overlap scale well with the radius? Is it okay for us to change the metric if the result is stated w.r.t. to a different one (we could of course use the standard volume but then you would be right to point out that spherical cap volume might not scale well with the cover radius). However, this argument is only meant to provide us with an intuition. We aim to show that this types of arguments can be formalized fairly easily:
+You may object: why should the cover have volume similar to that of the sphere if there is an overlap? Why should the overlap scale well with the radius? Is it okay for us to change the metric if the result is stated w.r.t. to a different one (we could of course use the standard volume but then you would be right to point out that spherical cap volume might not scale well with the cover radius). The argument above was only meant to provide us with an intuition. We aim to show that this kind of arguments can be formalized fairly easily:
 
 Claim.
 : For any $\rho>0$, the sphere $S^m$ can be covered by $\sim 1/\rho^m$ balls of radius $\rho$.
 
 <!---
 the hemisphere disk equivalence should be stated separately!!
+is positive hemisphere below well defined? should fix a z axis first, like  ido wiht polar coordinates
 --->
 
 Proof.
-: We want to estimate the number of $1/\rho$ balls needed to cover the sphere. Covering the sphere is up to a constant the same as covering the hemisphere. In fact, the the cardinality of the cover for $S^m$ ~ Hemisphere $S^m_+$ ~ $D^m$ (we can transfer the cover back and forth by projecting the hemisphere onto the equator disk or wrapping a larger disk around the hemisphere [^wrapping-up-a-ball] $= B^m$ ~ covering $\sqrt{2}B^m$ (scaling up) ~ covering the m-box of side length two (it can be squeezed between the two balls, i.e. it contains the unit ball and it is contained in the $\sqrt{2}B^m$) ~ covering the m-box of side length 1 (the unit m-box). It is easy to see why the volume argument should work now: the unit box can be clearly be covered by $\lceil 1/\rho \rceil ^m$ boxes of side length $\rho$. Each $\rho$-box is contained in a ball of radius $\rho$ and we are done.
+: We want to estimate the number of $1/\rho$ balls needed to cover the sphere. Covering the sphere is up to a constant the same as covering the hemisphere. In fact, the the cardinality of the cover for $S^m$ ~ that of a hemisphere $S^m_+$ ~ $D^m$ (we can transfer the cover back and forth by projecting the hemisphere onto the equator disk or wrapping a larger disk around the hemisphere[^wrapping-up-a-ball] $= B^m$ ~ covering $\sqrt{2}B^m$ (scaling up) ~ covering the m-box of side length two (it can be squeezed between the two balls, i.e. it contains the unit ball and it is contained in the $\sqrt{2}B^m$) ~ covering the m-box of side length 1 (the unit m-box). It is easy to see why the volume argument should work now: the unit box can clearly be covered by $\lceil 1/\rho \rceil ^m$ boxes of side length $\rho$. Each $\rho$-box is contained in a ball of radius $\rho$ and we are done.
 
 Arguing up to a constant allows us great flexibility in choosing objects we are more comfortable working with. The constants we omitted can easily be traced back through the equivalence steps we took. However, if an argument up to a constant seems sketchy, there is a direct argument on the sphere without any equivalences or dropping constants that I provided in the appendix.
 
-Lemma (Image of f misses a ball). \label{f_misses_a_ball}
-: Let $f\!: S^m \rightarrow S^n$ be a Lipschitz-continuous map with a Lipschitz constant $L$. Then the image of $f$ misses a ball of radius $r$ for $r \lesssim L^{-\frac{m}{n-m}}$
+<!---
+verify the appendix argument
+---->
+
+Now, let us restate the lemma before we prove it.
+
+**Lemma \ref{f_misses_a_ball}.**
+_Let $f\!: S^m \rightarrow S^n$ be a Lipschitz-continuous map with a Lipschitz constant $L$. Then the image of $f$ misses a ball of radius $r$ for $r \lesssim L^{-\frac{m}{n-m}}$_
 
 Proof.
-: For any $\rho>0$, $S^m$ can be covered by $\sim \rho^{-m}$ balls of radius $\rho$. The image of each such ball is contained in a ball of radius $L\rho$. Therefore, the image of $f$ can be covered by $\lesssim \rho^{-m}$ balls of radius $L\rho$. We set $r:=L\rho$. We now want to choose $\rho$ small enough so that the cover misses a ball of radius $r$. 
-: Expanding the radius of the cover to $2r$ yields a cover of the $r$-neighborhood of the image. We denote this $2r$-cover by $C$. If this larger cover does not cover the full sphere $S^n$, the image of $f$ must miss a ball of radius $r$. The total volume of the cover $C$ is at most the cardinality of $C$ times the volume of a ball of radius $2r$ (which is a spherical cap of polar angle $2r$). We replace the cap volume by the larger volume of a disk $2r \cdot D^n$ by essentially the same argument as we used to transfer the disk cover from the disk to the hemisphere (see footnote on previous page). The total cover volume is then at most $|C|\omega^n(\pi/2 \cdot B^n_2r)$, where $\omega^n$ denotes the Euclidean n-volume form.
+: For any $\rho>0$, $S^m$ can be covered by $\sim \rho^{-m}$ balls of radius $\rho$. The image of each such ball is contained in a ball of radius $L\rho$. Therefore, the image of $f$ can be covered by $\lesssim \rho^{-m}$ balls of radius $L\rho$. We set $r:=L\rho$. Expanding the radius of the cover to $2r$ yields a cover of the $r$-neighborhood of the image. We denote this $2r$-cover by $C$. If this larger cover does not cover the full sphere $S^n$, the image of $f$ must miss a ball of radius $r$. We now want to choose $\rho$ small enough for that to be the case. We determine the desired $\rho$ again by a volume argument.
+: The total volume of the cover $C$ is at most the cardinality of $C$ times the volume of a ball of radius $2r$ (which is a spherical cap of polar angle $2r$). That volume does not scale well with $r$, so we replace the cap volume by the larger nicely scaling volume of a disk $2r \cdot D^n$. We do this by essentially the same argument as we used to transfer the disk cover from the disk to the hemisphere (see footnote on previous page). The total cover volume is then at most $|C|\omega^n(\pi/2 \cdot B^n_2r)$, where $\omega^n$ denotes the Euclidean n-volume form.
+: We now set $\rho$ so that this number is smaller than the volume of the sphere. So we get for $n>m$
+$$\omega^n(C) \lessthan |C|\omega^n(\pi/2 \cdot B^n_2r) \lesssim \rho^{-m}r^n \stackrel{!}{\lesssim}  \omega^n(S^n) \sim 1,$$
+$$ L^n\rho^{n-m} \lesssim 1,$$
+$$\rho \lesssim L^{-\frac{n}{n-m}},$$
+$$r = L\rho \lesssim L^{-\frac{m}{n-m}}.$$
+In particular, even if $f$ is a constant map we can choose $\rho$ small enough so that $r \leq \pi/2.$
 
 <!---
-This proof is still under construction. I want to make the remark about comparing a cap with a disk more universal, so that I can use is in all proofs. I will state it as a separate claim and would like to write out the map in a separate line and include a picture. The argument is simple and should be presented clearly, as it seems to be relevant in multiple spots.
+This proof is still under construction. I want to make the remark about comparing a cap with a disk more universal, so that I can use is in all proofs. I will state it as a separate claim and would like to write out the map in a separate line and include a PICTURE. The argument is simple and should be presented clearly, as it seems to be relevant in multiple spots.
 
 Remark: It is sufficient for us to show the upper bound up to a constant $c(m)$. The reason for that is that in later arguments we will be able to choose the radius of the cover small enough that any constant $c(m,n)$ can be "neutralized" for our purposes, so long as the quantities we omit do not vary with $\rho$.
 --->
-
-We now set $\rho$ so that this number is smaller than the volume of the sphere. So we get for $n>m$
-$$|C|\omega^n(\rhocap{2r}) \lesssim \rho^{-m}r^n = L^n\rho^{n-m} \lesssim 1,$$
-$$\rho \lesssim L^{-\frac{n}{n-m}},$$
-$$r = L\rho \lesssim L^{-\frac{m}{n-m}}.$$
-In particular, even if f is a constant map we can choose $\rho$ small enough so that $r \leq \pi/2$
 
 ### Detour: geometric suspension
 

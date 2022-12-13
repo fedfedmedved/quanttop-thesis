@@ -98,7 +98,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.81523609"
      inkscape:cx="304.81967"
-     inkscape:cy="602.27952"
+     inkscape:cy="548.30742"
      inkscape:document-units="mm"
      inkscape:current-layer="g823"
      showgrid="false"
@@ -144,11 +144,6 @@
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'" /></flowRegion><flowPara
            id="flowPara1390"
            style="font-size:15.9232px">Time Period:</flowPara></flowRoot>
-      <path
-         inkscape:connector-curvature="0"
-         id="path829"
-         style="fill:none;stroke:#808080;stroke-width:0.398074;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-         d="m 42.473,808.26476 h 495.539 c 10.949,0 19.82,-8.875 19.82,-19.82 V 49.38176 H 62.293 c -10.945,0 -19.82,8.875 -19.82,19.82 v 739.063" />
       <text
          transform="scale(1,-1)"
          style="font-variant:normal;font-size:20.6404px;font-family:'Nimbus Sans';-inkscape-font-specification:NimbusSanL-Regu;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -428,9 +423,11 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.1067px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'"
            id="flowPara114">Advisors:</flowPara><flowPara
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.1067px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'"
-           id="flowPara60634"></flowPara><flowPara
+           id="flowPara60634" /><flowPara
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.1067px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'"
-           id="flowPara60636">Reviewers:</flowPara><flowPara
+           id="flowPara60636"></flowPara><flowPara
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.1067px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'"
+           id="flowPara1102">Reviewers:</flowPara><flowPara
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.1067px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'"
            id="flowPara60576" /><flowPara
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.1067px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'"
@@ -454,10 +451,6 @@
            id="flowPara116">Dr. Tam Nguyen-Phan </flowPara><flowPara
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.1067px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'"
            id="flowPara61466">Prof. Dr. Roman Sauer</flowPara><flowPara
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.1067px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'"
-           id="flowPara63707">Dr. Sebastian Grensing</flowPara><flowPara
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.1067px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'"
-           id="flowPara62832" /><flowPara
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.1067px;line-height:1.25;font-family:'Nimbus Sans';-inkscape-font-specification:'Nimbus Sans'"
            id="flowPara61464" /></flowRoot>
       <flowRoot
